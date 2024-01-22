@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../../../../../../../../WEB/work/detail/css/font.css">
-    <link rel="stylesheet" href="../../../../../../../../WEB/work/detail/css/detail.css">
+    <link rel="stylesheet" th:href="@{/css/common/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/font.css}" />
+    <link rel="stylesheet" th:href="@{/css/community/detail.css}" />
 </head>
 <body>
     <div class="content-wrap ">
         <section class="title" >
             <div class="title__main">
                 <div class="img-box">
-                    <img src="../../../../../../../../WEB/work/detail/IMG/진짜상세아이콘.png" alt="" class="title__img">
+                    <img th:src="@{/images/community/detailIcon.png}" alt="" class="title__img">
                 </div>
                 <div>
                     <div class="title__input"> 누군가의 게시판 제목</div> 

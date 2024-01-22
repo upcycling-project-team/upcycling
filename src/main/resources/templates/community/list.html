@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/font.css" />
-    <link rel="stylesheet" href="../css/default.css" />
-    <link rel="stylesheet" href="../css/community.css" />
+    <link rel="stylesheet" th:href="@{/css/common/font.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/community/list.css}" />
   </head>
   <body>
     <header></header>
@@ -14,10 +14,10 @@
       <div class="content-wrap">
         <section class="slide">
           <div class="slide__arrow-l">
-            <img src="../imgs/arrow-l.png" alt="" />
+            <img th:src="@{/images/community/arrow-l.png}" alt="" />
           </div>
           <div class="slide__arrow-r">
-            <img src="../imgs/arrow-r.png" alt="" />
+            <img th:src="@{/images/community/arrow-r.png}" alt="" />
           </div>
           <div class="slide__video-box">
             <div class="slide__moving-box">
@@ -217,6 +217,6 @@
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
-    <script src="../js/community.js"></script>
+    <script th:src="@{/js/community/list.js}"></script>
   </body>
 </html>

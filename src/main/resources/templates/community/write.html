@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/writer.css">
-    <link rel="stylesheet" href="../CSS/default.css">
-    <link rel="stylesheet" href="../CSS/font.css">
+    <link rel="stylesheet" th:href="@{/css/community/write.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/font.css}" />
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <section class="title" >
                     <div class="title__main">
                         <div class="pencil-box">
-                             <img src="../IMG/파란색 연필.png" alt="" 
+                             <img th:src="@{/images/community/bluePencil.png}" alt=""
                                  class="title__img">
                         </div>
                         <div class="title-box">
@@ -44,18 +44,18 @@
                         </div>
                     </div>
                 </div>
-            <div class="footer">
-                <form action="" class="footer__button">
-                    <div class="footer__box">
-                        <div class="footer__ok">    
+            <div class="foooter">
+                <form action="" class="foooter__button">
+                    <div class="foooter__box">
+                        <div class="foooter__ok">
                             <button>작성완료</button>
                         </div>
                     </div> 
-                    <div class="footer__box2">       
-                        <div class="footer__save">
+                    <div class="foooter__box2">
+                        <div class="foooter__save">
                             <button>저장</button>
                         </div>    
-                        <div class="footer__fix">
+                        <div class="foooter__fix">
                             <button>수정</button>
                         </div>
                     </div>     

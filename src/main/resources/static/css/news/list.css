@@ -21,7 +21,7 @@
     align-items: center;
     
 }
-.menu__category a{
+.menu__category a {
     margin: 25px;
     font-size: 20px;
     color: var(--main-color);
