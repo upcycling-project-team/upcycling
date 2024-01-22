@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/writinginquiries.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="../script/modal.js"></script>
+  </head>
+  <body>
+    <div>
+      <header></header>
+
+      <!-- 1 : 1문의 작성페이지 -->
+
+      <main>
+        <div class="main__mypage">
+          <!-- 마이페이지 메뉴 리스트 -->
+          <section class="mypage__menu_box">
+            <ul class="menu__list">
+              <li class="menu__li">
+                <a href="" class="menu__a">주문 조회</a>
+              </li>
+              <li class="menu__li">
+                <a href="" class="menu__a">교환/반품</a>
+              </li>
+              <li class="menu__li"><a href="" class="menu__a">적립금</a></li>
+              <li class="menu__li"><a href="" class="menu__a">1:1문의</a></li>
+              <li class="menu__li">
+                <button class="btn_open_modal">회원수정</button>
+              </li>
+              <li class="menu__li">
+                <button class="btn_open_elimination">회원탈퇴</button>
+              </li>
+            </ul>
+          </section>
+          <!-- 마이페이지 메뉴리스트 -->
+
+          <section class="mypage__my_box">
+            <!-- 회원정보 박스 -->
+            <div class="member__information_box">
+              <article class="member__box">
+                <!-- 회원 이미지 박스 -->
+                <div class="member__img_box">
+                  <a href=""
+                    ><img src="../../../../../../../../web/html_workspace/mypage/img/user_img.png" class="member__img" alt=""
+                  /></a>
+                </div>
+                <!-- 회원 이미지 박스 -->
+
+                <!-- 회원이름 및 누적 금액 -->
+                <div class="member__name_money_box">
+                  <div class="member__information_name">
+                    신동억 님 안녕하세요
+                  </div>
+                  <div class="member__information_accumulated_amount">
+                    누적 구매금액 : 0 원
+                  </div>
+                </div>
+                <!-- 회원이름 및 누적 금액 -->
+
+                <!-- 적립금표시 박스 -->
+                <div class="saved__money_box">
+                  <div class="saved__money_name">
+                    <a href="" class="saved__a">적립금</a>
+                  </div>
+                  <div class="saved__money_amount">
+                    <a href="" class="saved_money_amount_a">5,000</a>
+                  </div>
+                </div>
+                <!-- 적립금표시 박스 -->
+              </article>
+            </div>
+            <!-- 회원정보 박스 -->
+
+            <!-- 1 : 1 문의게시판! -->
+            <div class="order__details">
+              <h4 class="order__data">1 : 1문의 작성</h4>
+            </div>
+
+            <form action="">
+              <div>
+                <div class="input__box">
+                  <div class="input_box_list_title">
+                    <div>제목</div>
+                  </div>
+                  <div class="input_box_list_content">
+                    <input
+                      placeholder="제목을 입력하세요"
+                      class="input_title"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="input_content_box">
+                  <div class="input_content_box_title">
+                    <div>내용</div>
+                  </div>
+                  <div class="input_content_box_content">
+                    <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="10"
+                      placeholder="내용을 입력하세요"
+                      class="input_content"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="input_img_box">
+                  <div class="input_img_box_title">
+                    <div>사진첨부</div>
+                  </div>
+                  <div class="input_img_box_img">
+                    <div>
+                      <label for="file">
+                        <img
+                          src="../../../../../../../../web/html_workspace/mypage/img/upload_icon.png"
+                          class="img_size"
+                          alt=""
+                        />
+                      </label>
+                      <span><img src="" class="file_img_01" alt="" /></span>
+                      <span><img src="" class="file_img_02" alt="" /></span>
+                      <input type="file" class="file" id="file" />
+                    </div>
+                    <ul class="content_list">
+                      <li>
+                        상품 불량 및 오배송의 경우, 해당 제품 사진을 등록
+                        부탁드립니다.
+                      </li>
+                      <li>파일 제한</li>
+                      <li>첨부파일은 최대n개까지 등록가능합니다.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="writinginquiries_btn">
+                  <button class="btn">등록 하기</button>
+                </div>
+              </div>
+            </form>
+            <!-- 1 : 1 문의게시판! -->
+          </section>
+
+          <!-- 회원 수정 모달창=================================================================== -->
+          <div class="modal">
+            <div class="modal_body">
+              <div class="close_box">
+                <button class="close" id="close_btn">
+                  <img src="../../../../../../../../web/html_workspace/mypage/img/close_button.png" class="close_img" alt="" />
+                </button>
+              </div>
+              <!-- 회원수정 -->
+              <form action="" class="form_modify">
+                <section class="member_modify_box">
+                  <h2 class="modify__h2">정보 수정</h2>
+                  <figure class="member_img_box">
+                    <img src="../../../../../../../../web/html_workspace/mypage/img/user_img.png" class="img_box" alt="" />
+                    <figcaption class="figcaption">
+                      <label for="file_01" class="camera_btn">
+                        <div class="camera_background">
+                          <img src="../../../../../../../../web/html_workspace/mypage/img/camera.png" class="btn_box" alt="" />
+                        </div>
+                      </label>
+
+                      <input type="file" id="file_01" />
+                    </figcaption>
+                  </figure>
+                </section>
+                <!-- 비밀번호 -->
+                <div class="input_box">
+                  <input
+                    type="text"
+                    class="member_id"
+                    placeholder="tlsehddjr1231"
+                    disabled
+                  />
+                  <input
+                    type="text"
+                    class="member_input_01"
+                    placeholder="•••••••"
+                  />
+                  <input
+                    type="text"
+                    class="member_input_01"
+                    placeholder="비밀번호 변경 하는 경우입력하세요"
+                  />
+                  <input
+                    type="text"
+                    class="member_input_01"
+                    placeholder="비밀번호 확인"
+                  />
+                </div>
+
+                <!-- 이메일 -->
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">이메일</p>
+                    <div class="i_img_box">
+                      <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">이름</p>
+                    <div class="i_img_box">
+                      <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">연락처</p>
+                    <div class="i_img_box">
+                      <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">주소</p>
+                    <div class="i_img_box">
+                      <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input_01" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">생년월일</p>
+                    <div class="i_img_box">
+                      <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <div>
+                    <select name="yy" id="year"></select>
+                    <select name="mm" id="month"></select>
+                    <select name="dd" id="day"></select>
+                  </div>
+                </div>
+
+                <button class="btn_modify">확인</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- 회원 탈퇴 모달창=================================================================== -->
+          <div class="modify__modal_bg">
+            <div class="modify__modal_box">
+              <h2 class="h2">회원탈퇴</h2>
+              <form action="">
+                <ul class="ul__box">
+                  <li>😊 가입된 회원정보가 모두 삭제됩니다.</li>
+                  <li>😊 작성하신 게시물은 삭제되지 않습니다.</li>
+                  <li>
+                    😊 탈퇴 후 같은 계정으로 재가입 시 기존에 가지고 있던
+                    적립금은 복원되지 않으며, 사용 및 다운로드했던 쿠폰도 사용
+                    불가능합니다.
+                  </li>
+                  <li>😊 회원 탈퇴를 진행하시겠습니까?</li>
+                  <br />
+                </ul>
+                <div class="btn__box">
+                  <button class="close_01" id="close_btn" class="">취소</button>
+                  <button class="delete_btn">탈퇴하기</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer></footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="../script/modal.js"></script>
+    <script src="../script/elimination.js"></script>
+  </body>
+</html>
