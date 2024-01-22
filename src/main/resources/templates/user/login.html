@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./login.css" />
+  </head>
+
+  <body>
+    <header></header>
+
+    <!-- modal-->
+    <article class="login-modal none">
+      <div class="login-modal__box">
+        <div class="login-modal__row1">
+          <h2 class="changeid">아이디 찾기</h2>
+          <h2 class="changepw">비밀번호 찾기</h2>
+          <div class="box__close">X</div>
+        </div>
+
+        <!-- 아이디 찾기 -->
+        <div class="tab_box">
+          <ul class="tab_menu">
+            <li>아이디 찾기</li>
+            <li>비밀번호 찾기</li>
+          </ul>
+
+          <div class="login-modal__tab">
+            <div class="login-modal__tabbox">
+              <p>아이디를 찾을 방법을 선택해주세요.</p>
+              <form action="" class="moder-search" method="post">
+                <div class="search-hr">
+                  <div class="search-input1">
+                    <input
+                      type="radio"
+                      name="loginModalRadio"
+                      checked="checked"
+                      id="loginModalRadio"
+                      value="이메일찾기"
+                    />
+                    <label for="loginModalRadio"> 가입한 이메일로 찾기</label>
+                  </div>
+
+                  <div class="search-input2">
+                    <input
+                      title="아이디찾기"
+                      type="text"
+                      name="userIdFind"
+                      value
+                      placeholder="이메일 또는 아이디"
+                    />
+                  </div>
+                </div>
+
+                <div class="search-hr">
+                  <div class="search-input3">
+                    <input
+                      type="radio"
+                      name="loginModalRadio"
+                      id="loginModalRadio"
+                      class="input-radio"
+                      value="핸드폰찾기"
+                    />
+                    <label for="loginModalRadio"> 가입한 휴대폰으로 찾기</label>
+                  </div>
+
+                  <div class="search-input4">
+                    <input
+                      title="이름 또는 닉네임"
+                      type="text"
+                      name="userNameFind"
+                      value
+                      placeholder="이름 또는 닉네임"
+                    />
+
+                    <input
+                      title="휴대폰 번호"
+                      type="text"
+                      name="userPhoneNumberFind"
+                      value
+                      placeholder="휴대폰 번호"
+                    />
+                  </div>
+                </div>
+                <div class="modelbtn-wrap">
+                  <button type="button">아이디 찾기</button>
+                </div>
+
+                <!-- 찾기 결과 히든 -->
+                <div class="userresult-id">
+                  <input type="text">
+                </div>
+
+              </form>
+            </div>
+
+            <!-- 비밀번호 찾기 -->
+            <div class="login-modal__tabpw">
+              <form action="" class="moder-search" method="post">
+                <div class="search-input5">
+                  <input
+                    title="가입한 아이디"
+                    type="text"
+                    name="userIdFind"
+                    value
+                    placeholder="가입한 아이디"
+                  />
+                </div>
+
+                <div class="modelbtn-wrap">
+                  <button type="button">비밀번호 찾기</button>
+                </div>
+ <!-- 찾기 결과 히든 -->
+                <div class="userresult-pw">
+                  <input type="text">
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- login 화면 -->
+    <main class="loginbox">
+      <div class="loginbox__center">
+        <div class="login-border">
+          <div class="login-border__l"></div>
+          로그인
+          <div class="login-border__r"></div>
+        </div>
+
+        <div class="loginbox__form">
+          <form action="" method="post">
+            <div>
+              <input
+                title="아이디"
+                type="text"
+                id="userId"
+                name="userId"
+                placeholder="아이디"
+              />
+            </div>
+            <div>
+              <input
+                title="비밀번호"
+                type="password"
+                id="userPassword"
+                name="userPassword"
+                placeholder="비밀번호"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="loginbox__cheak">
+              <input
+                type="checkbox"
+                name="loginCheckbox"
+                checked="checked"
+                id="check1"
+              />
+              <label for="check1"></label>
+              <span>로그인 상태유지</span>
+            </div>
+
+            <div class="loginbox__button">
+              <button type="submit" id="logoBtn">로그인</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="loginbox_hr">
+          <div><a href="#">회원가입</a></div>
+          <div class="loginbox__clickr">아이디 . 비밀번호 찾기</div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./login.js"></script>
+  </body>
+</html>

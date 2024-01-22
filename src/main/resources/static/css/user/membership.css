@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+
+.membership-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.membership-box1 {
+  width: 350px;
+}
+
+.line {
+  padding: 10px;
+  border-left: 5px solid #c6ebeb;
+  margin-top: 15px;
+  font-family: "GmarketSansMedium";
+  color: rgb(95, 94, 94);
+  font-size: 0.8em;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.fileimg1 {
+  text-align: center;
+  position: relative;
+}
+
+.fileimage {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+input[type="file"] + label {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 56%;
+  left: 55%;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgb(175, 174, 174);
+  text-align: center;
+  line-height: 27px;
+}
+
+.fileimg1 label i {
+  color: #b1b3b3;
+}
+
+input:focus {
+  outline: none;
+}
+
+.membership-grup input {
+  width: 90%;
+  border: none;
+  padding: 4px;
+}
+
+.membership-grup input::placeholder {
+  font-size: 1.1em;
+  font-family: "GmarketSansMedium";
+  color: #b1b3b3;
+}
+
+.membership-grup div {
+  height: 45px;
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
+  padding: 0.7em 0.7em 0px;
+  font-family: "GmarketSansMedium";
+  color: rgb(95, 94, 94);
+}
+
+.membership-grup div:nth-child(1) {
+  height: 35px;
+  margin-top: 15px;
+  padding-left: 0.7em;
+  font-size: 13px;
+}
+
+.membership-button {
+  margin-top: 10px;
+}
+
+.membership-button button {
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+  background-color: #96dcdc;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+}
+
+.membership-grup .membership-grup__title {
+  margin-top: 15px;
+  border: none;
+  font-size: 13px;
+}
+
+.membership-grup__title1 {
+  font-family: "GmarketSansMedium";
+  font-size: 0.9em;
+  color: rgb(95, 94, 94);
+  margin-top: 15px;
+}
+
+i {
+  color: #efcdd3;
+}
+
+.membership-grup1 div {
+  box-sizing: border-box;
+  font-family: "GmarketSansMedium";
+  color: rgb(95, 94, 94);
+  border: none;
+}
+
+.membership-grup__select select {
+  height: 35px;
+  width: 32%;
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
+  font-family: "GmarketSansMedium";
+  color: rgb(95, 94, 94);
+  margin-top: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}

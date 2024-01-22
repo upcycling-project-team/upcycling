@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./membership.css" />
+  </head>
+
+  <body>
+    <header></header>
+
+    <main>
+      <div class="membership-box">
+        <div class="membership-box1">
+          <form method="post" action="">
+            <div class="fileimg1">
+              <div class="fileimage">
+                <img src="./img/login.png" />
+              </div>
+              <div>
+                <input
+                  type="file"
+                  name="userProFile"
+                  id="userProFile"
+                  accept="image/*"
+                  onChange="fileCheck(this)"
+                />
+                <label for="userProFile"
+                  ><i class="fa fa-camera" aria-hidden="true"></i
+                ></label>
+              </div>
+            </div>
+
+            <div class="line">
+              업사이클링을 활용한 다양한 상품으로 새로운 가치를 실현하세요:&#41;
+            </div>
+
+            <div class="membership-grup">
+              <div>
+                <input
+                  title="아이디"
+                  type="text"
+                  id="userId"
+                  name="userId"
+                  placeholder="아이디"
+                />
+              </div>
+              <div>
+                <input
+                  title="비밀번호"
+                  type="password"
+                  id="userPassword"
+                  name="userPassword"
+                  placeholder="비밀번호"
+                  autocomplete="off"
+                />
+              </div>
+              <div>
+                <input
+                  title="비밀번호 확인"
+                  type="password"
+                  id="userRePassword"
+                  name="userRePassword"
+                  placeholder="비밀번호 확인"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+
+            <div class="membership-grup">
+              <div class="membership-grup__title">
+                이메일 <i class="fa fa-circle fa-2xs" aria-hidden="true"></i>
+              </div>
+              <div>
+                <input
+                  title="이메일"
+                  type="text"
+                  id="userEmail"
+                  name="userEmail"
+                  placeholder="이메일"
+                />
+              </div>
+            </div>
+
+            <div class="membership-grup">
+              <div class="membership-grup__title">
+                이름 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+              </div>
+              <div>
+                <input
+                  title="이름"
+                  type="text"
+                  id="userName"
+                  name="userName"
+                  placeholder="이름을(를) 입력하세요"
+                />
+              </div>
+            </div>
+
+            <div class="membership-grup">
+              <div class="membership-grup__title">
+                연락처 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+              </div>
+              <div>
+                <input
+                  title="이름"
+                  type="text"
+                  id="userPhoneNumber"
+                  name="userPhoneNumber"
+                  placeholder="연락처"
+                />
+              </div>
+            </div>
+
+            <div class="membership-grup">
+              <div class="membership-grup__title">
+                주소 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+              </div>
+              <div>
+                <input
+                  title="이름"
+                  type="text"
+                  id="userAddress"
+                  name="userAddress"
+                  placeholder="주소"
+                />
+              </div>
+              <div>
+                <input
+                  title="이름"
+                  type="text"
+                  id="userBetterAddress"
+                  name="userBetterAddress"
+                  placeholder="상세주소"
+                />
+              </div>
+            </div>
+
+            <div class="membership-grup1">
+              <div class="membership-grup__title1">
+                생년월일 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+              </div>
+
+              <div class="membership-grup__select">
+                <select name="userBirthYear" id="userBirthYear"></select>
+                <select name="userBirthMonth" id="userBirthMonth"></select>
+                <select name="userBirthDay" id="userBirthDay"></select>
+              </div>
+            </div>
+
+            <div class="membership-button">
+              <button type="submit" id="userLoginBtn">가입하기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./login.js"></script>
+  </body>
+</html>

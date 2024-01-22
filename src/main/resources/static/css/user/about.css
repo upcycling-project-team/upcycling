@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+
+.about-top {
+  height: 500px;
+  position: relative;
+}
+.about-top h1 {
+  position: absolute;
+  left: 42%;
+  top: 0;
+  font-family: "GmarketSansMedium";
+  font-size: 4em;
+  opacity: 0;
+  color: #2e2d2d;
+}
+
+.about-top div {
+  position: absolute;
+  width: 50%;
+  left: 0;
+  top: 53%;
+  font-family: "GmarketSansMedium";
+  font-size: 1.1em;
+  text-align: center;
+  opacity: 0;
+  color:rgb(82, 67, 67);
+}
+
+.about-middle{
+  height: 500px;
+  position: relative;
+  background : bisque url("./img/aboutimg7.jpg") no-repeat fixed;
+}
+
+.about-middle h2 {
+  position: absolute;
+  left: 20%;
+  top: 47%;
+  font-family: "GmarketSansMedium";
+  font-size: 2em;
+  opacity: 0;
+  color:#ddd9d7;
+}
+
+.about-middle p{
+  position: absolute;
+  width: 40%;
+  left: 40%;
+  top: 47%;
+  font-family: "GmarketSansMedium";
+  font-size: 1.4em;
+  opacity: 0;
+  color:#cec6c2;
+}
+
+ 
+
+.about-center {
+  height: 600px;
+  background-color: #96dcdc;
+  display: flex;
+}
+
+.about-left {
+  margin-top: 27px;
+  width: 40%;
+  height: 550px;
+  border-right: 2px solid #46aaaa;
+  position: relative;
+}
+
+.about-right {
+  width: 60%;
+  position: relative;
+}
+
+.about-left h2 {
+  position: absolute;
+  left: 0;
+  margin-left: -100px;
+  top: 22%;
+  font-family: "GmarketSansMedium";
+  font-size: 2.5em;
+  opacity: 0;
+  color: #eaf7f7;
+
+}
+
+.about-left p {
+  position: absolute;
+  margin-left: -80px;
+  left: 0;
+  top: 34%;
+  font-family: "GmarketSansMedium";
+  font-size: 1.5em;
+  opacity: 0;
+  color:  #ffffff;
+}
+
+.about-right1 {
+  height: 550px;
+  margin-top: 20px;
+  margin-left: 100px;
+  position: relative;
+}
+
+.about-right1 div:nth-child(1) {
+  position: absolute;
+  right: 0;
+  top: 22%;
+  font-family: "GmarketSansMedium";
+  font-size: 1em;
+  opacity: 0;
+  color: #262b2b;
+}
+
+.about-right1 div:nth-child(2) {
+  position: absolute;
+  right: 0;
+  top: 46%;
+  font-family: "GmarketSansMedium";
+  font-size: 1em;
+  opacity: 0;
+  color: #262b2b;
+}
+
+.about-right1 div:nth-child(3) {
+  position: absolute;
+  right: 0;
+  top: 70%;
+  font-family: "GmarketSansMedium";
+  font-size: 1em;
+  opacity: 0;
+  color: #262b2b;
+}
