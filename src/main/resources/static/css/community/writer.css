@@ -1,0 +1,152 @@
+.title{
+
+    height: 50px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.title__main{
+    width: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--main-color);
+    
+}
+.pencil-box{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+.title-box{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+.title_title{
+}
+
+.title__img{
+    height: 25px;
+    width: 25px;
+}
+
+.title__input{
+    width: 600px;
+    height: 35px;
+    border: 2px solid var(--main-color);
+    padding-left: 7px;
+}
+.text-box{
+    width: 1300px;
+    height: 550px;
+    
+}
+.attachment{
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.attachment__box{
+    width: 720px;
+    height: 35px; 
+    display: flex; 
+    align-items: center;
+    border-bottom: 2px solid var(--main-color);
+}
+.attachment__button-box {
+    padding: 5px;
+    margin-left: 20px;
+    height: 35px;
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.attachment__button-box>button{
+    height: 30px;
+    width: 110px;
+    background-color: white;
+}
+
+#attachment-file{
+    display: none;
+    cursor: pointer;
+}
+#attachment-file:hover{
+    color: var(--main-color); /* 텍스트 색상 변경 */
+    border: none;
+}
+.textarea{
+    width: 1300px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.textarea__box{
+    height: 500px;
+    width: 720px;
+    border: 2px solid var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textarea__box > placehorder{
+    padding-left: 5px;
+}
+.textarea__text{
+    width: 720px;
+    height: 490px;
+    border: none;
+}
+.footer{
+    width: 1300px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__button{
+    width: 600px;
+    height: 40px;
+}
+.footer__box{
+    top: 0;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer__box2{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 20px;
+}
+.footer__ok > button,
+.footer__save > button,
+.footer__fix > button{
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid gray;
+    margin: 5px;
+}
+button{
+    cursor: pointer;
+}
+button:hover {
+        color: var(--main-color); /* 텍스트 색상 변경 */
+        border: none;
+}

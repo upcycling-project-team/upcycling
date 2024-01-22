@@ -1,0 +1,131 @@
+/* 슬라이드 */
+.slide {
+  margin-top: 70px;
+  position: relative;
+}
+
+.slide__video-box {
+  overflow: hidden;
+  width: 1240px;
+  height: 445px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slide__moving-box {
+  display: flex;
+  position: absolute;
+  left: 0px;
+
+  transition: all 0.5s linear;
+}
+
+.slide__moving-box > article {
+  margin: 10px;
+}
+
+.slide__arrow-r > img,
+.slide__arrow-l > img {
+  width: 50px;
+}
+
+.slide__arrow-r {
+  position: absolute;
+  right: -20px;
+  top: 195px;
+  z-index: 10;
+
+  cursor: pointer;
+}
+.slide__arrow-l {
+  position: absolute;
+  left: -20px;
+  top: 195px;
+  z-index: 10;
+
+  cursor: pointer;
+}
+
+/* 리스트 */
+.list {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+/* 테이블 */
+
+.list__table {
+  border-top: 2px solid rgb(26, 26, 26);
+  width: 100%;
+  border-spacing: 0;
+}
+
+.list__table > thead {
+  background-color: #ececec;
+  height: 40px;
+}
+
+.list__table > tbody > tr {
+  height: 40px;
+}
+
+.list__table td {
+  border-bottom: 1px solid #e6e5e5;
+}
+
+.list__table > tbody > tr > td:not(:nth-child(2)) {
+  text-align: center;
+}
+
+.list__table > tbody > tr > td:nth-child(2) {
+  text-align: left;
+  padding-left: 30px;
+}
+
+/* 페이지 */
+.page__button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.page__button > a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--main-color);
+  color: var(--strong-color);
+  text-align: center;
+  line-height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.page__button > a.active {
+  background-color: var(--main-color);
+  color: white;
+}
+
+/* 글쓰기 */
+.write-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0 70px 0;
+}
+
+.write-btn__button > a {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  border: 1px solid var(--main-color);
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: var(--main-color);
+  opacity: 0.5;
+}
+
+.write-btn__button > a:hover {
+  opacity: 1;
+}
