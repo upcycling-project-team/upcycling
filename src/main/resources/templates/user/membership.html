@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
       href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./membership.css" />
+    <link rel="stylesheet" th:href="@{/css/user/membership.css}" />
   </head>
 
   <body>
@@ -17,10 +17,10 @@
     <main>
       <div class="membership-box">
         <div class="membership-box1">
-          <form method="post" action="">
+          <form method="get" action="">
             <div class="fileimg1">
               <div class="fileimage">
-                <img src="./img/login.png" />
+                <img th:src="@{/images/user/login.png}" />
               </div>
               <div>
                 <input
@@ -164,6 +164,6 @@
     <footer></footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./login.js"></script>
+    <script th:src="@{/js/user/login.js}"></script>
   </body>
 </html>

@@ -26,6 +26,8 @@ a {
   align-items: center;
 }
 
+.tab_box{background-color: white;} /*  ???????????????????  */
+
 .loginbox__center {
   width: 350px;
 }
@@ -343,14 +345,15 @@ input:focus {
 
 .login-modal__tabpw {
   position: absolute;
-  top: 0px;
+  top: -5px;
   left: 0px;
   width: 370px;
   background-color: white;
 
-  border-radius: 5px;
+ border-radius: 5px;
+
 }
 
 .login-modal__tabpw div:nth-child(2) {
-  margin: 15px 0px 5px;
+  margin: 10px 0px 5px;
 }
