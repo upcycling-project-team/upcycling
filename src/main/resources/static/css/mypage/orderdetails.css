@@ -1,0 +1,702 @@
+/* 마이페이지 메뉴리스트 */
+.mypage__menu_box {
+  margin-top: 50px;
+  width: 15%;
+}
+
+.menu__list {
+  list-style-type: none;
+  padding-left: 40px;
+  padding-right: 20px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.menu__li {
+  margin-bottom: 20px;
+}
+
+.menu__a {
+  text-decoration: none;
+  color: rgb(70, 170, 170);
+}
+
+.menu__a:active {
+  text-decoration: none;
+  color: rgb(70, 170, 170);
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #040404;
+}
+/* 마이페이지 메뉴리스트 */
+
+.mypage__my_box {
+  margin-top: 10px;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 회원정보 박스 */
+.member__information_box {
+  width: 1050px;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 100px;
+}
+
+.member__box {
+  display: flex;
+  margin-top: 70px;
+}
+
+/* 회원 이미지 박스 */
+.member__img_box {
+  width: 110px;
+  height: 85px;
+}
+
+.member__img {
+  width: 100px;
+  height: 85px;
+  border-radius: 50%;
+}
+/* 회원 이미지 박스 */
+/* 회원 이름 및 누적 금액 */
+.member__name_money_box {
+  display: block;
+  width: 700px;
+  margin-left: 30px;
+  border-right: thick solid #64c8c8;
+}
+
+.member__information_name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 0;
+  font-weight: 500;
+  font-size: 22px;
+  color: rgb(4, 4, 4);
+}
+
+.member__information_accumulated_amount {
+  font-weight: 300;
+  font-size: 15px;
+  color: rgb(4, 4, 4);
+}
+/* 회원 이름 및 누적 금액 */
+/* 적립금 표시 박스 */
+.saved__money_box {
+  margin-left: 80px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.saved__money_name {
+  font-weight: 300;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.saved__a {
+  text-decoration-line: none;
+  color: rgb(4, 4, 4);
+}
+
+.saved__money_amount {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.saved_money_amount_a {
+  text-decoration-line: none;
+  color: rgb(4, 4, 4);
+}
+/* 적립금 표시 박스 */
+/* 회원정보 박스 */
+
+/* 주문상세 내역 */
+
+.order_date {
+  display: flex;
+}
+
+.date_number {
+  padding-top: 20px;
+  padding-right: 5px;
+}
+.date_number_data {
+  padding-top: 20px;
+}
+.order_number {
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 5px;
+}
+.order_number_data {
+  padding-top: 20px;
+}
+
+.delivery_status {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* h4 태그 */
+.order__data {
+  padding-bottom: 10px;
+  border-bottom: 5px solid #64c8c8;
+  font-size: 25px;
+  margin-bottom: 0px;
+  font-weight: 700;
+  font-family: "GmarketSansMedium";
+}
+
+/* 주문상품 정보 */
+
+.order__product_title {
+  display: flex;
+  height: 70px;
+  border-bottom: 1px solid #040404;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.order_title {
+  width: 700px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.order_money {
+  width: 200px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.order_rogress_status {
+  width: 240px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* 상품이미지/ 상품정보 */
+.order__product_data {
+  display: flex;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.order_title_data {
+  width: 700px;
+  display: flex;
+}
+
+.product_img_box {
+  width: 80px;
+  height: 80px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+
+.product_img {
+  width: 80px;
+  height: 80px;
+}
+
+.product_list_box {
+  width: 620px;
+}
+
+.product_list {
+  margin-top: 35px;
+  list-style-type: none;
+}
+
+.product_img_a {
+  text-decoration: none;
+  color: #040404;
+}
+
+.order_product_money {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.order_product_state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 240px;
+}
+
+.delivery_information {
+  display: flex;
+}
+
+.delivery_number {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* 구매자 정보 */
+
+.my_information_box {
+  display: flex;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.my_order_name {
+  display: flex;
+  width: 140px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  justify-content: center;
+  border-right: 1px solid #d4d4d4;
+}
+
+.my_name {
+  width: 400px;
+  padding: 15px;
+}
+
+.my_mail {
+  display: flex;
+  width: 140px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  justify-content: center;
+  border-left: 1px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
+}
+
+.my_mail_address {
+  width: 400px;
+  margin: 15px;
+}
+
+/* 결제정보 */
+.my__payment {
+  width: 1140px;
+}
+
+.my_payment_box {
+  display: flex;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.order_amount_box {
+  width: 300px;
+  height: 200px;
+
+  border-right: 1px solid #d4d4d4;
+}
+
+.amount_box_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.moeny_title {
+  padding-left: 40px;
+}
+
+.moeny {
+  display: flex;
+  text-align: right;
+  align-items: center;
+  padding-right: 20px;
+  font-size: 13px;
+}
+
+.discount_amount_box {
+  width: 300px;
+  height: 200px;
+
+  border-right: 1px solid #d4d4d4;
+}
+
+.payment_amount_box {
+  width: 540px;
+}
+
+/* p태그 */
+p {
+  font-size: 20px;
+}
+
+.amount_box_center {
+  padding-top: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.moeny_amount {
+  padding-left: 50px;
+  font-size: 10px;
+}
+
+.moeny_two {
+  display: flex;
+}
+
+.won {
+  padding-right: 30px;
+  font-size: 13px;
+}
+
+.amount {
+  font-size: 15px;
+}
+
+.order_amount_total {
+  width: 550px;
+  height: 200px;
+}
+
+/* 배송지 정보 */
+.my__delivery_address {
+  width: 1140px;
+  margin-bottom: 100px;
+}
+
+.address_box {
+  display: flex;
+  border-bottom: 1px solid #d4d4d4;
+}
+.address_section_list {
+  border-right: 1px solid #d4d4d4;
+}
+.address_name {
+  width: 140px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+.address_name_data {
+  width: 430px;
+  padding-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.address_name_data_01 {
+  width: 300px;
+  padding-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.div {
+  border-left: 1px solid #d4d4d4;
+}
+
+.address_section_list_box {
+  border-left: 1px solid #d4d4d4;
+}
+
+.exchange_btn {
+  display: flex;
+  padding-top: 10px;
+  flex-direction: row-reverse;
+  height: 30px;
+}
+.btn {
+  background-color: white;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: #64c8c8;
+  font-family: "GmarketSansMedium";
+  border: 1px solid #64c8c8;
+  cursor: pointer;
+}
+
+/* 회원수정 모달창======================== */
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1900px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+
+  display: none;
+}
+
+.modal_body {
+  width: 370px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: absolute;
+  background-color: white;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  border-radius: 10px;
+}
+
+.form_modify {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modify__h2 {
+  text-align: center;
+}
+
+.close_box {
+  width: 350px;
+  display: flex;
+  justify-content: end;
+  padding: 0;
+}
+
+.close {
+  background-color: white;
+  border-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+.close:focus {
+  background-color: white;
+  border-color: white;
+  border: none;
+  outline: none;
+}
+.close_img {
+  width: 20px;
+  height: 20px;
+  filter: invert(50%);
+}
+
+.img_box {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+#file_01 {
+  display: none;
+}
+.camera_background {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #040404;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_box {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.member_img_box {
+  position: relative;
+}
+.figcaption {
+  position: absolute;
+  left: 55px;
+  bottom: 5px;
+}
+
+.input_box {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.member_id {
+  border-color: #e0e0e0;
+  /* border: none; */
+  border: 1px solid #bdbdbd;
+  background-color: #f3f3f3;
+  color: #bdbdbd;
+  width: 320px;
+  padding: 12px 16px;
+}
+.member_id:focus {
+  outline: none;
+  background-color: #f3f3f3;
+  box-shadow: none;
+}
+
+.member_input {
+  border: none;
+  border: 1px solid #bdbdbd;
+  width: 320px;
+  padding: 12px 16px;
+}
+.member_input_01 {
+  border: none;
+
+  border-bottom: 1px solid #bdbdbd;
+  border-left: 1px solid #bdbdbd;
+  border-right: 1px solid #bdbdbd;
+  width: 320px;
+  padding: 12px 16px;
+}
+.text_title {
+  height: 45px;
+  display: flex;
+  width: 350px;
+}
+
+.point_point {
+  width: 30px;
+  height: 30px;
+  color: #1a6dff;
+}
+
+.i_img_box {
+  margin: 10px 0;
+}
+
+#year {
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  border: 1px solid #bdbdbd;
+}
+
+#month {
+  width: 110px;
+  height: 40px;
+  font-size: 15px;
+  border: 1px solid #bdbdbd;
+}
+#day {
+  width: 110px;
+  height: 40px;
+  font-size: 15px;
+  border: 1px solid #bdbdbd;
+}
+
+.btn_modify {
+  width: 350px;
+  height: 50px;
+  background-color: #96dcdc;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn_modify::before {
+  cursor: pointer;
+}
+.btn_open_modal {
+  font-family: "GmarketSansMedium";
+  font-weight: 500;
+  font-size: 20px;
+  border: 0;
+  background-color: white;
+  color: #46aaaa;
+  margin: 0;
+  padding: 0;
+}
+
+/* 회원탈퇴 페이지 여는 버튼*/
+.btn_open_elimination {
+  font-size: 20px;
+  border: 0;
+  background-color: white;
+  color: #46aaaa;
+  font-family: "GmarketSansMedium";
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+/* 회원탈퇴 ============================== */
+
+.modify__modal_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1900px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+
+  display: none;
+}
+
+.modify__modal_box {
+  width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  background-color: white;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  border-radius: 10px;
+}
+
+.h2 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn__box {
+  display: flex;
+  justify-content: center;
+}
+
+.ul__box {
+  list-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0px;
+}
+
+.close_01 {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #96dcdc;
+  border-radius: 2px;
+  margin-right: 10px;
+  height: 40px;
+  width: 50px;
+}
+
+.delete_btn {
+  cursor: pointer;
+  background-color: #96dcdc;
+  border: 0;
+  border-radius: 2px;
+  margin-right: 10px;
+  height: 40px;
+  width: 100px;
+}
