@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/mypage.css" />
-    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" th:href="@{/css/mypage/orderinquiry.css}" />
+    <link rel="stylesheet" th:href="@{/css/mypage/default.css}" />
 
   </head>
   <body>
@@ -44,7 +44,7 @@
                 <div class="member__img_box">
                   <a href=""
                     ><img
-                      src="../../../../../../../../web/html_workspace/mypage/img/user_img.png"
+                      th:src="@{/images/mypage/user_img.png}"
                       class="member__img"
                       alt=""
                   /></a>
@@ -290,117 +290,117 @@
             </ul>
           </section>
 
-        <!-- 회원 수정 모달창=================================================================== -->    
-        <div class="modal">
-          <div class="modal_body">
-            <div class="close_box">
-              <button class="close" id="close_btn">
-                <img src="../../../../../../../../web/html_workspace/mypage/img/close_button.png" class="close_img" alt="" />
-              </button>
+        <!-- 회원 수정 모달창=================================================================== -->
+          <div class="modal">
+            <div class="modal_body">
+              <div class="close_box">
+                <button class="close" id="close_btn">
+                  <img th:src="@{/images/mypage/close_button.png}" class="close_img" alt="" />
+                </button>
+              </div>
+              <!-- 회원수정 -->
+              <form action="" class="form_modify">
+                <section class="member_modify_box">
+                  <h2 class="modify__h2">정보 수정</h2>
+                  <figure class="member_img_box">
+                    <img th:src="@{/images/mypage/user_img.png}" class="img_box" alt="" />
+                    <figcaption class="figcaption">
+                      <label for="file_01" class="camera_btn">
+                        <div class="camera_background">
+                          <img th:src="@{/images/mypage/camera.png}" class="btn_box" alt="" />
+                        </div>
+                      </label>
+
+                      <input type="file" id="file_01" />
+                    </figcaption>
+                  </figure>
+                </section>
+                <!-- 비밀번호 -->
+                <div class="input_box">
+                  <input
+                          type="text"
+                          class="member_id"
+                          placeholder="tlsehddjr1231"
+                          disabled
+                  />
+                  <input
+                          type="text"
+                          class="member_input_01"
+                          placeholder="•••••••"
+                          disabled
+                  />
+                  <input
+                          type="text"
+                          class="member_input_01"
+                          placeholder="비밀번호 변경 하는 경우입력하세요"
+                  />
+                  <input
+                          type="text"
+                          class="member_input_01"
+                          placeholder="비밀번호 확인"
+                  />
+                </div>
+
+                <!-- 이메일 -->
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">이메일</p>
+                    <div class="i_img_box">
+                      <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">이름</p>
+                    <div class="i_img_box">
+                      <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">연락처</p>
+                    <div class="i_img_box">
+                      <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">주소</p>
+                    <div class="i_img_box">
+                      <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input_01" />
+                </div>
+
+                <div class="input_box">
+                  <div class="text_title">
+                    <p class="text_title_content">생년월일</p>
+                    <div class="i_img_box">
+                      <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
+                    </div>
+                  </div>
+                  <div>
+                    <select name="yy" id="year"></select>
+                    <select name="mm" id="month"></select>
+                    <select name="dd" id="day"></select>
+                  </div>
+                </div>
+
+                <button class="btn_modify">확인</button>
+              </form>
             </div>
-            <!-- 회원수정 -->
-            <form action="" class="form_modify">
-              <section class="member_modify_box">
-                <h2 class="modify__h2">정보 수정</h2>
-                <figure class="member_img_box">
-                  <img src="../../../../../../../../web/html_workspace/mypage/img/user_img.png" class="img_box" alt="" />
-                  <figcaption class="figcaption">
-                    <label for="file_01" class="camera_btn">
-                      <div class="camera_background">
-                        <img src="../../../../../../../../web/html_workspace/mypage/img/camera.png" class="btn_box" alt="" />
-                      </div>
-                    </label>
-
-                    <input type="file" id="file_01" />
-                  </figcaption>
-                </figure>
-              </section>
-              <!-- 비밀번호 -->
-              <div class="input_box">
-                <input
-                  type="text"
-                  class="member_id"
-                  placeholder="tlsehddjr1231"
-                  disabled
-                />
-                <input
-                  type="text"
-                  class="member_input_01"
-                  placeholder="•••••••"
-                />
-                <input
-                  type="text"
-                  class="member_input_01"
-                  placeholder="비밀번호 변경 하는 경우입력하세요"
-                />
-                <input
-                  type="text"
-                  class="member_input_01"
-                  placeholder="비밀번호 확인"
-                />
-              </div>
-
-              <!-- 이메일 -->
-              <div class="input_box">
-                <div class="text_title">
-                  <p class="text_title_content">이메일</p>
-                  <div class="i_img_box">
-                    <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
-                  </div>
-                </div>
-                <input type="text" class="member_input" />
-              </div>
-
-              <div class="input_box">
-                <div class="text_title">
-                  <p class="text_title_content">이름</p>
-                  <div class="i_img_box">
-                    <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
-                  </div>
-                </div>
-                <input type="text" class="member_input" />
-              </div>
-
-              <div class="input_box">
-                <div class="text_title">
-                  <p class="text_title_content">연락처</p>
-                  <div class="i_img_box">
-                    <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
-                  </div>
-                </div>
-                <input type="text" class="member_input" />
-              </div>
-
-              <div class="input_box">
-                <div class="text_title">
-                  <p class="text_title_content">주소</p>
-                  <div class="i_img_box">
-                    <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
-                  </div>
-                </div>
-                <input type="text" class="member_input" />
-                <input type="text" class="member_input_01" />
-              </div>
-
-              <div class="input_box">
-                <div class="text_title">
-                  <p class="text_title_content">생년월일</p>
-                  <div class="i_img_box">
-                    <img src="../../../../../../../../web/html_workspace/mypage/img/point.png" class="point_point" alt="" />
-                  </div>
-                </div>
-                <div>
-                  <select name="yy" id="year"></select>
-                  <select name="mm" id="month"></select>
-                  <select name="dd" id="day"></select>
-                </div>
-              </div>
-
-              <button class="btn_modify">확인</button>
-            </form>
           </div>
-        </div>
-
 
 
           <!-- 회원 탈퇴 모달창=================================================================== -->
@@ -420,7 +420,7 @@
                   <br />
                 </ul>
                 <div class="btn__box">
-                  <button class="close_01" id="close_btn" class="">취소</button>
+                  <button class="close_01" id="close_btn" >취소</button>
                   <button class="delete_btn">탈퇴하기</button>
                 </div>
               </form>
@@ -438,8 +438,8 @@
   <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-  <script src="../script/modal.js"></script>
-  <script src="../script/elimination.js"></script>
+      <script th:src="@{/js/mypage/modal.js}"></script>
+      <script th:src="@{/js/mypage/elimination.js}"></script>
      
   </body>
 </html>
