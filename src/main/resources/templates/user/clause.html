@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./clause.css" />
+    <link rel="stylesheet" th:href="@{/css/user/clause.css}" />
   </head>
 
   <body>
@@ -13,7 +13,7 @@
     <main>
       <div class="clause-box">
         <div class="clause-box1">
-          <form class="clause-form">
+          <form class="clause-form" method="get">
             <div class="clause-cheak">
               <input
                 type="checkbox"
@@ -416,7 +416,7 @@
               <br /><br />
               부칙
               <br /><br />
-              이 약관은 <사이트 개설일>부터 시행합니다.
+              이 약관은 < 개설일>부터 시행합니다.
             </div>
 
             <div class="clause-cheak">
@@ -488,6 +488,6 @@
     <footer></footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./login.js"></script>
+    <script th:src="@{/js/user/login.js}"></script>
   </body>
 </html>

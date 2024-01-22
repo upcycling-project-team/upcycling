@@ -47,7 +47,7 @@ a {
 .about-middle{
   height: 500px;
   position: relative;
-  background : bisque url("./img/aboutimg7.jpg") no-repeat fixed;
+  background : bisque url("/images/user/aboutimg7.jpg") no-repeat fixed;
 }
 
 .about-middle h2 {
