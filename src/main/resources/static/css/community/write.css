@@ -81,11 +81,13 @@
 
 #attachment-file{
     display: none;
-    cursor: pointer;
 }
-#attachment-file:hover{
+label:hover{
     color: var(--main-color); /* 텍스트 색상 변경 */
     border: none;
+}
+label{
+    cursor: pointer;
 }
 .textarea{
     width: 1300px;
@@ -111,33 +113,33 @@
     height: 490px;
     border: none;
 }
-.footer{
+.foooter{
     width: 1300px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.footer__button{
+.foooter__button{
     width: 600px;
     height: 40px;
 }
-.footer__box{
+.foooter__box{
     top: 0;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.footer__box2{
+.foooter__box2{
     display: flex;
     align-items: center;
     justify-content: right;
     height: 20px;
 }
-.footer__ok > button,
-.footer__save > button,
-.footer__fix > button{
+.foooter__ok > button,
+.foooter__save > button,
+.foooter__fix > button{
     background-color: white;
     border: none;
     border-bottom: 1px solid gray;

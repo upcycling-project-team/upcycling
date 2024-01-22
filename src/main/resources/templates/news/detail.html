@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/font.css">
-    <link rel="stylesheet" href="../css/newDetail.css">
+    <link rel="stylesheet" th:href="@{/css/common/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/font.css}" />
+    <link rel="stylesheet" th:href="@{/css/news/detail.css}" />
 </head>
 <body>
     <div class="content-wrap">
@@ -20,14 +20,14 @@
             <div class="header-line">버려지는 음식이 없는 세상을 꿈꾸다,업싸이클링샵</div>
             <div class="header-line__box"> 
                 <div class="header-line__icon">
-                    <img src="../IMG/사용자 아이콘.png" alt="">
+                    <img th:src="@{/images/news/userIcon.png}" alt="">
                     <div class="admin">관리자</div>
                 </div>
             </div>
             <hr>
         </div>
         <div class="content">
-            <img src="../IMG/대표사진.PNG" alt="">
+            <img th:src="@{/images/news/person.PNG}" alt="">
         </div>
         <div class="foooter">
             <div class="foooter__user">
