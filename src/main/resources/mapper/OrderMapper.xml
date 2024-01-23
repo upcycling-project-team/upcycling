@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.OrderMapper">
+    <select id="selectOrderinquiry" parameterType="mypageInquiryVo" resultType="long">
+        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, O.ORDER_DATE, O.ORDER_STATUS,
+               P.PRODUCT_NUMBER, PRODUCT_NAME,
+               I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID
+        FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
+                              ON O.USER_NUMBER = #{userNumber} AND O.ORDER_NUMBER = OP.ORDER_NUMBER
+                         JOIN TBL_PRODUCT P
+                              ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
+                         JOIN TBL_PRODUCT_IMG I
+                              ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+    </select>
 
 </mapper>
