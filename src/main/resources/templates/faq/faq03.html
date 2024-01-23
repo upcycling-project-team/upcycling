@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./faq03.css" />
+    <link rel="stylesheet" th:href="@{/css/faq/faq03.css}" />
+    <script th:src="@{/js/faq/faq03}" defer></script>
   </head>
   <body>
     <div><header></header></div>
@@ -41,7 +42,6 @@
                 3문장
               </p>
             </div>
-            <!-- <div class="content-img">img가 들어갈 공간</div> -->
           </div>
           <!-- 이전글 다음글 클릭하면 넘어가도록설정. -->
           <div class="faq-div">
@@ -65,121 +65,7 @@
           <div class="blank">
             <a href=""><span class="blank_span-type">&lt;&lt;목록으로</span></a>
           </div>
-          <!-- 댓글 작성란 -->
-          <div class="container">
-            <form>
-              <div class="comtitle"><h3>댓 글</h3></div>
 
-              <div class="cominput">
-                <textarea
-                  class="commentbox"
-                  placeholder="댓글을 입력해주세요. (최대 200자)"
-                ></textarea>
-
-                <div class="btn-div">
-                  <button class="button">등록</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <!-- 댓글 목록란 -->
-          <div class="comment-list">
-            <ul>
-              <!-- 첫번째 댓글 -->
-              <li class="com_list">
-                <div class="com_list-border">
-                  <div class="u_id-wrap">
-                    <span class="u-id">작성자 아이디</span>
-                  </div>
-                  <div class="u_text-wrap">
-                    <span class="u-text">작성 내용</span>
-                  </div>
-                  <div class="u_date">
-                    <span class="u-date">2024-01-15 01:15:30</span>
-                  </div>
-                </div>
-                <div class="line2"></div>
-              </li>
-              <!-- 2 -->
-              <li class="com_list">
-                <div class="com_list-border">
-                  <div class="u_id-wrap">
-                    <span class="u-id">작성자 아이디</span>
-                  </div>
-                  <div class="u_text-wrap">
-                    <span class="u-text">작성 내용</span>
-                  </div>
-                  <div class="u_date">
-                    <span class="u-date">2024-01-15 01:15:30</span>
-                  </div>
-                </div>
-                <div class="line2"></div>
-              </li>
-              <!-- 3 -->
-              <li class="com_list">
-                <div class="com_list-border">
-                  <div class="u_id-wrap">
-                    <span class="u-id">작성자 아이디</span>
-                  </div>
-                  <div class="u_text-wrap">
-                    <span class="u-text">작성 내용</span>
-                  </div>
-                  <div class="u_date">
-                    <span class="u-date">2024-01-15 01:15:30</span>
-                  </div>
-                </div>
-                <div class="line2"></div>
-              </li>
-              <!-- 4 -->
-              <li class="com_list">
-                <div class="com_list-border">
-                  <div class="u_id-wrap">
-                    <span class="u-id">작성자 아이디</span>
-                  </div>
-                  <div class="u_text-wrap">
-                    <span class="u-text">작성 내용</span>
-                  </div>
-                  <div class="u_date">
-                    <span class="u-date">2024-01-15 01:15:30</span>
-                  </div>
-                </div>
-                <div class="line2"></div>
-              </li>
-              <!-- 5 -->
-              <li class="com_list">
-                <div class="com_list-border">
-                  <div class="u_id-wrap">
-                    <span class="u-id">작성자 아이디</span>
-                  </div>
-                  <div class="u_text-wrap">
-                    <span class="u-text">작성 내용</span>
-                  </div>
-                  <div class="u_date">
-                    <span class="u-date">2024-01-15 01:15:30</span>
-                  </div>
-                </div>
-                <div class="line2"></div>
-              </li>
-            </ul>
-          </div>
-<!-- 페이징 처리 -->
-<div class="page-container">
-  <ul class="page-box">
-    <a class="page-a">
-      <li class="page-num prev">&lt</li>
-    </a>
-
-    <a class="page-a">
-      <li class="page-num">1</li>
-    </a>
-
-
-    <a class="page-a">
-      <li class="page-num next">&gt</li>
-    </a>
-  </ul>
-</div>
-<!-- /페이징 처리 -->
         </div>
       </div>
     </div>

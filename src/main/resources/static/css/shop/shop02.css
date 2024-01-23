@@ -241,6 +241,11 @@ input[type="radio"] {
   align-items: center;
   margin-top: 80px;
 }
+.heart_img{
+  width: 15px;
+  height: 15px;
+  padding-right: 5px;
+}
 .heart-number {
   color: rgb(70, 70, 70);
   font-weight: bold;
@@ -278,6 +283,10 @@ input[type="radio"] {
 }
 .heart-block:hover {
   background-color: #bcc0c6;
+}
+.heart-flex{
+  display: flex;
+  align-items: center;
 }
 .buy-button {
   width: 100%;

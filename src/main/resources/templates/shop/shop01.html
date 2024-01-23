@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="./shop01.css" />
-  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+  <link rel="stylesheet" th:href="@{/css/shop/shop01.css}" />
+  <script th:src="@{/js/shop/shop01}" defer></script>
 </head>
 <body>
   <div class="header"><header></header></div>
@@ -51,7 +51,7 @@
           <div class="product01">
             <div class="product01_wrap">
               <a href="">
-                <img alt src="https://cdn.imweb.me/thumbnail/20240109/3b70f91ba7d70.png"
+                <img alt src="/images/shop/no-image.png"
                 class="product01_img">
               </a>
             </div>
@@ -63,7 +63,7 @@
                 <img src="https://cdn.imweb.me/upload/S202201061adbb451f78fd/da8192641df5f.png" class="best" style="width: 32px;" alt="best item badge">
                 <div class="img_heart">
                   <span class="heart-number_wrap">
-                    하트
+                    <img src="/images/shop/heart.png" class="heart_img" alt="">
                     <span class="heart_number">0</span>
                   </span>
                 </div>
@@ -72,9 +72,9 @@
           </div>
           <!-- /샘플테두리 -->
 
-           <div class="product01"></div>
-           <div class="product01"></div>
-           <div class="product01"></div>
+<!--           <div class="product01"></div>-->
+<!--           <div class="product01"></div>-->
+<!--           <div class="product01"></div>-->
 
         </div>
 

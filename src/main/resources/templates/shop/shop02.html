@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./shop02.css" />
+    <link rel="stylesheet" th:href="@{/css/shop/shop02.css}" />
+    <script th:src="@{/js/shop/shop02}" defer></script>
   </head>
   <body>
     <div class="body">
@@ -29,7 +30,7 @@
             <div class="content_left">
               <div class="product-img-wrap">
                 <img
-                  src="https://cdn.imweb.me/thumbnail/20230720/e921c39cacc60.png"
+                  src="/images/shop/no-image.png"
                   class="product-img"
                 />
               </div>
@@ -180,7 +181,12 @@
                   <a href=""><span class="share">공유하기</span></a>
                 </div>
                 <div class="heart-block">
-                  <a href="">하트<span class="heart-number">3</span></a>
+                  <a href="">
+                    <div class="heart-flex">
+                    <img src="/images/shop/heart.png" class="heart_img" alt="">
+                    <span class="heart-number">3</span>
+                    </div>
+                  </a>
                 </div>
               </div>
               <!-- /구매하기, 공유하기, 좋아요 -->
@@ -204,7 +210,7 @@
             <!-- 상세정보 -->
             <div class="product_info">
               <img
-                src="https://cdn.imweb.me/upload/S20221227017a27ca4c79d/001fb53d9449b.jpg"
+                src="/images/shop/no-image.png"
                 class="product_info_img"
               />
             </div>
@@ -234,7 +240,7 @@
                         </div>
                         <div class="review-img-border">
                           <img
-                            src="https://cdn.imweb.me/thumbnail/20231202/cc20e1eb545b5.jpg"
+                            src="/images/shop/no-image.png"
                             class="review-img"
                           />
                         </div>
