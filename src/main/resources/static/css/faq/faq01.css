@@ -1,0 +1,117 @@
+/* .header {
+  border: 1px solid black;
+  background-color: rgb(100, 200, 200);
+  margin: 0px;
+  padding: 0px;
+  height: 200px;
+  width: 1440px;
+}
+
+.footer {
+  border: 1px solid black;
+  background-color: rgb(100, 200, 200);
+  margin: 0px;
+  padding: 0px;
+  height: 200px;
+  width: 1440px;
+} */
+.body {
+  /* border: 2px solid red; */
+  height: 1000px;
+  width: 1440px;
+  display: flex;
+  justify-content: center;
+}
+/* a태그 밑줄 없애기 */
+a {
+  text-decoration-line: none;
+}
+a:link { /*링크 방문 전*/
+  color: rgb(70, 70, 70);
+}
+
+a:visited { /*링크를 방문한 이후*/
+  color: rgb(70, 70, 70);
+}
+
+a:hover { /*마우스를 올려놓을 때*/
+  color: rgb(70, 70, 70);
+}
+
+a:active { /*클릭하는 순간*/
+  color: rgb(70, 70, 70);
+}
+/* 동그라미 없애기(들여쓰기는 적용) */
+ul {
+  list-style: none;
+  /* padding-left: 0px; */
+}
+.border {
+  /* border: 1px solid blue; */
+  width: 1000px;
+  height: 800px;
+}
+/* 위에는 전체적인 틀, 아래는 내부*/
+.search {
+  /* border: 1px solid gold; */
+  width: 1000px;
+  height: 150px;
+}
+.search_control{
+  border: 1px solid #dbdee3;
+  border-radius: 4px;
+  height: 48px;
+  width: 925px;
+  font-size: 16px;
+}
+.btn{
+  border: 1px solid #dbdee3;
+  border-radius: 4px;
+  background-color: rgb(100, 200, 200);
+  color: white;
+  font-size: larger;
+  width: 48px;
+  height: 48px;
+  cursor : pointer;
+}
+.btn:hover{
+  background-color: rgb(150, 220, 220);
+}
+.top_question{
+  color: rgb(70, 70, 70);
+}
+li{
+  /* border: 1px solid blueviolet; */
+  height: 48px;
+  width: 950px;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 4px;
+}
+li:hover{
+  background-color: #dbdee3;
+}
+.faq_list_footer{
+  border: 1px solid #dbdee3;
+  background-color: rgb(100, 200, 200);
+  border-radius: 4px;
+  width: 100px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.faq_list_footer_text{
+  /* font-size: 48px; */
+  font-weight: bold;
+  color: white;
+}
+.faq_list_footer:hover{
+  background-color: rgb(150, 220, 220);
+}
+.blank{
+  /* border: 1px solid black; */
+  height: 40px;
+}
+

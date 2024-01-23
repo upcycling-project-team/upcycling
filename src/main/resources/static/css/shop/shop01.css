@@ -1,0 +1,161 @@
+.body{
+  /* border: 1px solid red; */
+  height: 2895px;
+  display: flex;
+  justify-content: center;
+}
+.body_body{
+  /* border: 1px solid blue; */
+  height: 2895px;
+  width: 1300px;
+}
+/* 내부*/
+.blank{
+  /* border: 1px solid gold; */
+  height: 70px;
+}
+.text_table{
+  /* border: 1px solid green; */
+  width: 1300px;
+  height: 109px;
+  display: flex;
+  justify-content: space-between;
+}
+.text_shop{
+  /* border: 1px solid greenyellow; */
+  width: 620px;
+  font-size: 100px;
+  display: flex;
+  align-items: center;
+}
+.text_shopright{
+  /* border: 1px solid greenyellow; */
+  width: 620px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.line{
+  /* border: 1px solid gold; */
+  height: 32px;
+}
+.col_table_border{
+  /* border: 1px solid green; */
+  height: 60px;
+}
+.col_table{
+  /* border: 1px solid greenyellow; */
+  height: 30px;
+  font-weight: bold;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+a {
+  text-decoration-line: none;
+}
+a:link { /*링크 방문 전*/
+  color: rgb(70, 70, 70);
+}
+a:visited { /*링크를 방문한 이후*/
+  color: rgb(70, 70, 70);
+}
+a:hover { /*마우스를 올려놓을 때*/
+  color: rgb(70, 170, 170);
+}
+
+.col_table_ul{
+  display: flex;
+}
+.col_table_li{
+  /* border: 1px solid blueviolet; */
+  width: 100px;
+}
+.blank_small{
+  /* border: 1px solid gold; */
+  height: 33px;
+}
+.product_border{
+  /* border: 1px solid green; */
+  height: 2459px;
+  /* display: flex; */
+}
+.product01_wrap{
+  /* border: 1px solid blueviolet; */
+  width: 400px;
+  height: 400px;
+}
+.product01_img{
+  max-width:400px;
+  max-height: 400px;
+}
+.product01_pay_border{
+  /* border: 1px solid blueviolet; */
+  width: 400px;
+  height: 200px;
+}
+.product01_pay{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product01_pay_detail{
+  font-weight: bolder;
+  color: rgb(70, 70, 70);
+  margin: 0px;
+}
+.img_heart{
+  margin: 12px 0px 0px;
+}
+.heart_number{
+  font-size: 15px !important;
+  color: #757575;
+}
+.product01{
+  height: 600px;
+  width: 400px;
+  /* border: 1px solid blue; */
+}
+.board {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+/* 페이징 */
+.page-a {
+  text-decoration: none;
+  color: rgb(100,200,200);
+}
+
+.page-box {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-num {
+  border: 1px solid rgb(100,200,200);
+  width: 30px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 0 10px;
+  text-align: center;
+  line-height: 40px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.active,
+.page-num:hover {
+  background-color: rgb(100,200,200);
+  color: white;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./faq03.css" />
+  </head>
+  <body>
+    <div><header></header></div>
+    <!-- faq 답변페이지 -->
+    <div class="body">
+      <div class="border">
+        <!-- 첫번째 답변 style="display: none;" -->
+        <div class="result-page1">
+          <div class="title-div">
+            <div class="top-question">
+              <h1>Q 업사이클링이 무엇인가요?</h1>
+            </div>
+          </div>
+          <div class="content-div">
+            <div class="content-text">
+              <p>
+                <span class="content_span-type">p태그 첫번째 문단</span>
+                <br />
+                <br />
+                1문장
+                <br />
+                2문장
+                <br />
+                3문장
+              </p>
+              <p>
+                <span class="content_span-type">p태그 두번째 문단</span>
+                <br />
+                <br />
+                1문장
+                <br />
+                2문장
+                <br />
+                3문장
+              </p>
+            </div>
+            <!-- <div class="content-img">img가 들어갈 공간</div> -->
+          </div>
+          <!-- 이전글 다음글 클릭하면 넘어가도록설정. -->
+          <div class="faq-div">
+            <div class="blank-line"></div>
+            <ul>
+              <li class="faq_next-box">
+                <a href=""
+                  ><span class="faq_span-type">이전글</span>
+                  <span>클릭하면 이전 질문에 대한 답변으로</span></a
+                >
+              </li>
+              <li class="faq_next-box">
+                <a href=""
+                  ><span class="faq_span-type">다음글</span>
+                  <span>클릭하면 다음 질문에 대한 답변으로</span></a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- 여백 + 목록으로-->
+          <div class="blank">
+            <a href=""><span class="blank_span-type">&lt;&lt;목록으로</span></a>
+          </div>
+          <!-- 댓글 작성란 -->
+          <div class="container">
+            <form>
+              <div class="comtitle"><h3>댓 글</h3></div>
+
+              <div class="cominput">
+                <textarea
+                  class="commentbox"
+                  placeholder="댓글을 입력해주세요. (최대 200자)"
+                ></textarea>
+
+                <div class="btn-div">
+                  <button class="button">등록</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- 댓글 목록란 -->
+          <div class="comment-list">
+            <ul>
+              <!-- 첫번째 댓글 -->
+              <li class="com_list">
+                <div class="com_list-border">
+                  <div class="u_id-wrap">
+                    <span class="u-id">작성자 아이디</span>
+                  </div>
+                  <div class="u_text-wrap">
+                    <span class="u-text">작성 내용</span>
+                  </div>
+                  <div class="u_date">
+                    <span class="u-date">2024-01-15 01:15:30</span>
+                  </div>
+                </div>
+                <div class="line2"></div>
+              </li>
+              <!-- 2 -->
+              <li class="com_list">
+                <div class="com_list-border">
+                  <div class="u_id-wrap">
+                    <span class="u-id">작성자 아이디</span>
+                  </div>
+                  <div class="u_text-wrap">
+                    <span class="u-text">작성 내용</span>
+                  </div>
+                  <div class="u_date">
+                    <span class="u-date">2024-01-15 01:15:30</span>
+                  </div>
+                </div>
+                <div class="line2"></div>
+              </li>
+              <!-- 3 -->
+              <li class="com_list">
+                <div class="com_list-border">
+                  <div class="u_id-wrap">
+                    <span class="u-id">작성자 아이디</span>
+                  </div>
+                  <div class="u_text-wrap">
+                    <span class="u-text">작성 내용</span>
+                  </div>
+                  <div class="u_date">
+                    <span class="u-date">2024-01-15 01:15:30</span>
+                  </div>
+                </div>
+                <div class="line2"></div>
+              </li>
+              <!-- 4 -->
+              <li class="com_list">
+                <div class="com_list-border">
+                  <div class="u_id-wrap">
+                    <span class="u-id">작성자 아이디</span>
+                  </div>
+                  <div class="u_text-wrap">
+                    <span class="u-text">작성 내용</span>
+                  </div>
+                  <div class="u_date">
+                    <span class="u-date">2024-01-15 01:15:30</span>
+                  </div>
+                </div>
+                <div class="line2"></div>
+              </li>
+              <!-- 5 -->
+              <li class="com_list">
+                <div class="com_list-border">
+                  <div class="u_id-wrap">
+                    <span class="u-id">작성자 아이디</span>
+                  </div>
+                  <div class="u_text-wrap">
+                    <span class="u-text">작성 내용</span>
+                  </div>
+                  <div class="u_date">
+                    <span class="u-date">2024-01-15 01:15:30</span>
+                  </div>
+                </div>
+                <div class="line2"></div>
+              </li>
+            </ul>
+          </div>
+<!-- 페이징 처리 -->
+<div class="page-container">
+  <ul class="page-box">
+    <a class="page-a">
+      <li class="page-num prev">&lt</li>
+    </a>
+
+    <a class="page-a">
+      <li class="page-num">1</li>
+    </a>
+
+
+    <a class="page-a">
+      <li class="page-num next">&gt</li>
+    </a>
+  </ul>
+</div>
+<!-- /페이징 처리 -->
+        </div>
+      </div>
+    </div>
+    <div><footer></footer></div>
+  </body>
+</html>
