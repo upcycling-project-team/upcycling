@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
+	<script th:src="@{/js/admin/side-bar.js}" defer></script>
+	<title>AdminSite</title>
+</head>
+<body id="header">
+	
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+            <div>&ensp;</div>
+            <i class='bx bx-home-smile'></i>
+            <div>&ensp;</div>            
+            upcycling #</a>
+		<ul class="side-menu">
+			<!--<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> 대시보드</a></li> -->
+			<li class="divider" data-text="상품">Main</li> 
+			<li> 
+				<a href="#"><i class='bx bxs-inbox icon' ></i> 상품 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="#">상품 등록</a></li>
+					<li><a href="#">배송비</a></li>
+					<li><a href="#">리뷰</a></li>
+					<!-- <li><a href="#">Button</a></li> -->
+				</ul>
+			</li>
+			<li class="divider" data-text="회원">Main</li>
+			<li>
+				<a href="#"><i class='bx bxs-inbox icon' ></i> 회원 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="#">회원 정보</a></li>
+					<li><a href="#">주문</a></li>
+					<li><a href="#">배송</a></li>
+					<!-- <li><a href="#">Breadcrumbs</a></li> -->
+					<!-- <li><a href="#">Button</a></li> -->
+				</ul>
+			</li>
+            <li class="divider" data-text="혜택">Main</li>
+			<li><a href="#"><i class='bx bxs-chart icon' ></i> 포인트</a></li>
+
+		</ul>
+
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu toggle-sidebar' ></i>
+			<form action="#">
+				<div class="form-group">
+					<input type="text" placeholder="검색어 입력...">
+					<i class='bx bx-search icon' ></i>
+				</div>
+			</form>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-bell icon' ></i>
+				<span class="badge">5</span>
+			</a>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-message-square-dots icon' ></i>
+				<span class="badge">8</span>
+			</a>
+			<span class="divider"></span>
+			<div class="profile">
+
+					<li class="logout"><a href="#">로그아웃</a></li>
+				<!-- </ul> -->
+			</div>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<h1 class="title">대쉬보드</h1>
+			<ul class="breadcrumbs">
+				<li><a href="#">Home</a></li>
+				<li class="divider">/</li>
+				<li><a href="#" class="active">upcycling#</a></li>
+			</ul> 
+			<div class="info-data">
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>1500</h2>
+							<p>Traffic</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="40%"></span>
+					<span class="label">40%</span>
+				</div>
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>234</h2>
+							<p>Sales</p>
+						</div>
+						<i class='bx bx-trending-down icon down' ></i>
+					</div>
+					<span class="progress" data-value="60%"></span>
+					<span class="label">60%</span>
+				</div>
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>465</h2>
+							<p>Pageviews</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="30%"></span>
+					<span class="label">30%</span>
+				</div>
+				<div class="card">
+					<div class="head">
+						<div>
+							<h2>235</h2>
+							<p>Visitors</p>
+						</div>
+						<i class='bx bx-trending-up icon' ></i>
+					</div>
+					<span class="progress" data-value="80%"></span>
+					<span class="label">80%</span>
+				</div>
+			</div>
+			<div class="data">
+				<div class="content-data">
+					<div class="menu">
+						<h3>판매 추이</h3>
+
+							<div class="container mt-3">
+								<div class="row">
+								  <div class="col-lg-8">
+									<div class="card-header h5">Earning Overview</div>
+									<div class="card-body"><canvas id="myChart"></canvas></div>
+								  </div>
+								  <div class="col-lg-4">
+									
+								  </div>
+								</div>
+							 <!--</div>--> 
+						</div>
+					</div>
+					<!-- <div class="chart">
+						<div id="chart"></div>
+					</div> -->
+				</div>
+				<div class="content-data">
+					<div class="head">
+						<h3>Chatbox</h3>
+						<div class="menu">
+							<i class='bx bx-dots-horizontal-rounded icon'></i>
+							<ul class="menu-link">
+								<li><a href="#">Edit</a></li>
+								<li><a href="#">Save</a></li>
+								<li><a href="#">Remove</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="chat-box">
+						<p class="day"><span>Today</span></p>
+						<div class="msg">
+							<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+							<div class="chat">
+								<div class="profile">
+									<span class="username">이승민</span>
+									<span class="time">18:30</span>
+								</div>
+								<p>매출 추이 분석 요청드립니다.</p>
+							</div>
+						</div>
+						<div class="msg me">
+							<div class="chat">
+								<div class="profile">
+									<span class="time">18:30</span>
+								</div>
+								<p>이메일로 보내드렸습니다.</p>
+							</div>
+						</div>
+						<div class="msg me">
+							<div class="chat">
+								<div class="profile">
+									<span class="time">18:30</span>
+								</div>
+								<p>엑셀로 보내드렸으니 참고 부탁드립니다.</p>
+							</div>
+						</div>
+						<div class="msg me">
+							<div class="chat">
+								<div class="profile">
+									<span class="time">18:30</span>
+								</div>
+								<p>점심은 뭐 먹죠?</p>
+							</div>
+						</div>
+					</div>
+					<form action="#">
+						<div class="form-group">
+							<input type="text" placeholder="Type...">
+							<button type="submit" class="btn-send"><i class='bx bxs-send' ></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</main> 
+		<!-- MAIN -->
+	</section>
+	<!-- NAVBAR -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June"],
+          datasets: [
+            {
+              label: "Monthly",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgba(255, 99, 132, 1)",
+              borderWidth: 1,
+              fill: true,
+              tension: 0.2,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+	
+</body>
+</html>
