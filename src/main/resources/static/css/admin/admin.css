@@ -101,7 +101,7 @@ body{
 
 
 .bg-password-image{
-    background-image: url("/imges/admin/hacker-1944688_1920.jpg");
+    background-image: url("/images/admin/hacker-1944688_1920.jpg");
     background-position: center;
     background-size: cover;
     display: block!important;
@@ -110,7 +110,7 @@ body{
 }
 
 .bg-login-image{
-    background-image: url("/imges/admin/recycle-555645_1920.jpg");
+    background-image: url("/images/admin/recycle-555645_1920.jpg");
     background-position: center;
     background-size: cover;
     display: block!important;
