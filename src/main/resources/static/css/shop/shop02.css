@@ -115,10 +115,6 @@ P {
 }
 
 /* 추가된 코드 */
-.form-group {
-  /* border: 1px solid burlywood; */
-  margin-bottom: 20px;
-}
 
 label {
   display: block;
@@ -127,45 +123,21 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 10px;
-  background-color: #00c7ae;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 20px 0 0 0;
-}
-
-.submit-btn:hover {
-  background-color: #00a792;
-}
-
 .form-wrap {
   width: 400px;
   margin: 0 auto;
 }
 
-.gender-wrap {
+.quality-wrap {
   display: flex;
   justify-content: space-around;
 }
 
-.gender-box {
-  border: 1px solid #00c7ae;
+.quality-box {
+  border: 1px solid rgb(100,200,200);
   width: 30%;
   height: 30px;
-  color: #00c7ae;
+  color: rgb(100,200,200);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,22 +145,17 @@ input[type="password"] {
   cursor: pointer;
 }
 
-.gender-box:hover {
-  background-color: #00c7ae;
+.quality-box:hover {
+  background-color: rgb(100,200,200);
   color: white;
 }
 
-.checked {
+.quality-box.active {
+  background-color: rgb(100,200,200);
   color: white;
-  background-color: #00c7ae;
 }
 
-input[type="radio"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  opacity: 0;
-}
+
 /* /추가된 코드 끝 */
 .order-block {
   /* border: 1px solid goldenrod; */
@@ -424,6 +391,9 @@ input[type="radio"] {
 .full-box-right {
   color: rgb(70, 70, 70);
   font-size: 14px;
+}
+.radio1{
+  display: none;
 }
 /* 페이징 */
 .page-a {

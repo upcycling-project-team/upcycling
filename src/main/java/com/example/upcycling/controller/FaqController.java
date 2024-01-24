@@ -27,4 +27,9 @@ public class FaqController {
         return "faq/faq03";
     }
 
+    @GetMapping("/faq04")
+    public String faq04(){
+        return "faq/faq04";
+    }
+
 }

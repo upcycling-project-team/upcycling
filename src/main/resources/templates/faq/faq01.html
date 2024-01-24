@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/faq/faq01.css}" />
-    <script th:src="@{/js/faq/faq01}" defer></script>
   </head>
   <body>
     <div class="header">
@@ -19,8 +18,9 @@
           <h2>무엇을 도와드릴까요?</h2></div>
           <div class="search">
             <form action="">
-            <button class="btn">Q</button>
-            <input type="text" class="search_control" placeholder="검색 후 문의가 해결되지 않으면, 1:1 상담을 이용하세요." />
+              <button class="btn">Q</button>
+              <input type="text" class="search_control" placeholder="검색 후 문의가 해결되지 않으면, 1:1 상담을 이용하세요." />
+            </form>
           </div>
         </div>
         <div class="top_question">
@@ -57,7 +57,7 @@
                 <span class="type">
                   <span class="question">Q</span>
                 </span>
-                질문4
+                업사이클링된 제품이 궁금해요
               </a>
             </li>
             <li>
@@ -65,7 +65,7 @@
                 <span class="type">
                   <span class="question">Q</span>
                 </span>
-                질문5
+                질문 있어요
               </a>
             </li>
           </ul>
@@ -73,7 +73,7 @@
         <!-- 여백을 위한 빈공간 -->
         <div class="blank"></div>
         <!--    관리자한테만 보여줄 작성하기 버튼    -->
-        <div style="display: none;">
+        <div>
           <a href="">
             <div class="faq_list_footer">
               <span class="faq_list_footer_text">작성하기</span>
