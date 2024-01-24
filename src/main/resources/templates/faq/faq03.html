@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/faq/faq03.css}" />
+  </head>
+  <body>
+    <div><header></header></div>
+    <!-- faq 답변페이지 -->
+    <div class="body">
+      <div class="border">
+        <!-- 첫번째 답변 style="display: none;" -->
+        <div class="result-page1">
+          <div class="title-div">
+            <div class="top-question">
+              <h1>Q 업사이클링이 무엇인가요?</h1>
+            </div>
+          </div>
+          <div class="content-div">
+            <div class="content-text">
+              <p>
+                <span class="content_span-type">p태그 첫번째 문단</span>
+                <br />
+                <br />
+                1문장
+                <br />
+                2문장
+                <br />
+                3문장
+              </p>
+              <p>
+                <span class="content_span-type">p태그 두번째 문단</span>
+                <br />
+                <br />
+                1문장
+                <br />
+                2문장
+                <br />
+                3문장
+              </p>
+            </div>
+          </div>
+          <!-- 이전글 다음글 클릭하면 넘어가도록설정. -->
+          <div class="faq-div">
+            <div class="blank-line"></div>
+            <ul>
+              <li class="faq_next-box">
+                <a href=""
+                  ><span class="faq_span-type">이전글</span>
+                  <span>클릭하면 이전 질문에 대한 답변으로</span></a
+                >
+              </li>
+              <li class="faq_next-box">
+                <a href=""
+                  ><span class="faq_span-type">다음글</span>
+                  <span>주문하는 방법을 모르겠어요</span></a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- 여백 + 목록으로-->
+          <div class="blank">
+            <a href=""><span class="blank_span-type">&lt;&lt;목록으로</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div><footer></footer></div>
+  </body>
+</html>
