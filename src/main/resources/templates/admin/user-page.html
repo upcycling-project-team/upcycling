@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/register.css}">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
+	<script th:src="@{/js/admin/side-bar.js}" defer></script>
+    <script th:src="@{/js/admin/register.js}" defer></script>
+	<script th:src="@{/js/admin/user.js}"></script>
+	<title>AdminSite</title>
+</head>
+<body id="header">
+	
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+            <div>&ensp;</div>
+            <i class='bx bx-home-smile'></i>
+            <div>&ensp;</div>            
+            upcycling #</a>
+		<ul class="side-menu">
+			<li class="divider" data-text="상품">Main</li> 
+			<li> 
+				<a href="#"><i class='bx bxs-inbox icon' ></i>상품 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="#">상품 등록</a></li>
+					<li><a href="#">배송비</a></li>
+					<li><a href="#">리뷰</a></li>
+				</ul>
+			</li>
+			<li class="divider" data-text="회원">Main</li>
+			<li>
+				<a href="#"><i class='bx bxs-inbox icon' ></i> 회원 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+				<ul class="side-dropdown">
+					<li><a href="#">회원 정보</a></li>
+					<li><a href="#">주문</a></li>
+					<li><a href="#">배송</a></li>
+				</ul>
+			</li>
+            <li class="divider" data-text="혜택">Main</li>
+			<li><a href="#"><i class='bx bxs-chart icon' ></i> 포인트</a></li>
+			>
+		</ul>
+	
+	</section>
+	<!-- SIDEBAR -->
+
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu toggle-sidebar' ></i>
+			<form action="#">
+				<div class="form-group">
+					<input type="text" placeholder="검색어 입력...">
+					<i class='bx bx-search icon' ></i>
+				</div>
+			</form>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-bell icon' ></i>
+				<span class="badge">5</span>
+			</a>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-message-square-dots icon' ></i>
+				<span class="badge">8</span>
+			</a>
+			<span class="divider"></span>
+			<div class="profile">
+					<li class="logout"><a href="#">로그아웃</a></li>
+				<!-- </ul> -->
+			</div>
+		</nav>
+		<!-- NAVBAR -->
+		
+            <div class="user-detail">
+				<div style="padding:10px;"> </div>
+                <div>
+                    <h1>회원 검색</h1>
+                </div>
+                <table id="memberTable">
+                    <thead>
+                      <tr>
+                        <th>회원 번호</th>
+                        <th>회원 이름</th>
+                        <th>회원 이메일</th>
+                        <th>관리</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- 여기에 회원 정보가 동적으로 추가될 것입니다. -->
+                    </tbody>
+                  </table>
+            </div>
+		<!-- MAIN -->
+		<main>
+		
+	<div class="order-user">
+		<div style="padding:20px;"> </div>  
+
+		<h1>주문 관리 페이지</h1>
+
+ 	 	<table id="orderTable">
+		<thead>
+		<tr>
+			<th>주문 번호</th>
+			<th>회원 ID</th>
+			<th>상품</th>
+			<th>수량</th>
+			<th>금액</th>
+			<th>주문 일시</th>
+        	<th>배송 상태</th>
+      	</tr>
+    	</thead>
+    	<tbody>
+      <!-- 여기에 주문 정보가 동적으로 추가될 것입니다. -->
+    	</tbody>
+	  </table>
+	</div>
+		<!-- MAIN -->
+
+	<div class="delivery-detail">
+		<div style="padding:20px;"> </div>
+		<h1>배송 상세 관리 페이지</h1>
+
+		<table id="deliveryTable">
+		  <thead>
+			<tr>
+			  <th>주문 번호</th>
+			  <th>회원 ID</th>
+			  <th>상품</th>
+			  <th>수량</th>
+			  <th>금액</th>
+			  <th>주문 일시</th>
+			  <th>배송 상태</th>
+			  <th>관리</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<!-- 여기에 주문 정보가 동적으로 추가될 것입니다. -->
+		  </tbody>
+		</table>
+	</div>
+
+	</section>
+	<!-- NAVBAR -->
+
+	
+</body>
+</html>
