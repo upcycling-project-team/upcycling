@@ -18,7 +18,11 @@ public class ShopReviewController {
     }
 
     @GetMapping("/shop02")
-    public String shop02(){
-        return "shop/shop02";
+    public String shop02(){ return "shop/shop02"; }
+
+    @GetMapping("/shop03")
+    public String shop03(){
+        return "shop/shop03";
     }
+
 }

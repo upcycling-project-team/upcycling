@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/shop/shop02.css}" />
-    <script th:src="@{/js/shop/shop02}" defer></script>
+
   </head>
   <body>
     <div class="body">
-      <form action="">
+      <form action="" method="get">
         <div class="body_body">
           <div class="blank"></div>
           <div class="shop_sub_depth">
@@ -30,7 +30,7 @@
             <div class="content_left">
               <div class="product-img-wrap">
                 <img
-                  src="/images/shop/no-image.png"
+                  th:src="@{/images/shop/no-image.png}"
                   class="product-img"
                 />
               </div>
@@ -95,40 +95,41 @@
               </div>
               <!-- 구매 양식 -->
               <div class="product-option">
-                <!-- 코드 빌려오기 -->
                 <div class="form-group">
                   <label>주문 양식</label>
-                  <div class="gender-wrap">
-                    <label for="gender-m" class="gender-box">
+                  <div class="quality-wrap">
+                    <label for="quality-a" class="quality-box">
                       <span>데님</span>
                       <input
                         type="radio"
-                        id="gender-m"
-                        name="userGender"
-                        value="M"
+                        id="quality-a"
+                        name="quality-type"
+                        value="A"
+                        class="radio1"
                       />
                     </label>
-                    <label for="gender-f" class="gender-box">
+                    <label for="quality-b" class="quality-box">
                       <span>가죽</span>
                       <input
                         type="radio"
-                        id="gender-f"
-                        name="userGender"
-                        value="F"
+                        id="quality-b"
+                        name="quality-type"
+                        value="B"
+                        class="radio1"
                       />
                     </label>
-                    <label for="gender-f" class="gender-box">
+                    <label for="quality-c" class="quality-box">
                       <span>면</span>
                       <input
                         type="radio"
-                        id="gender-f"
-                        name="userGender"
-                        value="F"
+                        id="quality-c"
+                        name="quality-type"
+                        value="C"
+                        class="radio1"
                       />
                     </label>
                   </div>
                 </div>
-                <!-- /코드 빌려오기 -->
                 <!-- 수량 -->
                 <div class="order-block">
                   <div class="order_top">
@@ -142,6 +143,8 @@
                         <input
                           type="text"
                           class="option_amount"
+                          name="option_amount"
+                          value=""
                           placeholder="수량 입력(개)"
                         />
                       </div>
@@ -160,13 +163,13 @@
                 <div class="keyring-text">키링선택</div>
                 <div class="keyring_ok">
                   <div class="keyring_left">
-                    <input type="checkbox" id="O" name="keyring" />
-                    <label for="scales">O</label>
+                    <input type="radio" id="O" name="keyring" value="o"/>
+                    O
                   </div>
 
                   <div class="keyring_right">
-                    <input type="checkbox" id="X" name="keyring" checked />
-                    <label for="horns">X</label>
+                    <input type="radio" id="X" name="keyring" value="x" checked />
+                    X
                   </div>
                 </div>
                 <!-- /키링 -->
@@ -177,13 +180,10 @@
                 <div class="buy-block">
                   <button class="buy-button">구매하기</button>
                 </div>
-                <div class="share-block">
-                  <a href=""><span class="share">공유하기</span></a>
-                </div>
                 <div class="heart-block">
                   <a href="">
                     <div class="heart-flex">
-                    <img src="/images/shop/heart.png" class="heart_img" alt="">
+                    <img th:src="@{/images/shop/heart.png}" class="heart_img" alt="">
                     <span class="heart-number">3</span>
                     </div>
                   </a>
@@ -210,7 +210,7 @@
             <!-- 상세정보 -->
             <div class="product_info">
               <img
-                src="/images/shop/no-image.png"
+                th:src="@{/images/shop/no-image.png}"
                 class="product_info_img"
               />
             </div>
@@ -240,7 +240,7 @@
                         </div>
                         <div class="review-img-border">
                           <img
-                            src="/images/shop/no-image.png"
+                           th:src="@{/images/shop/no-image.png}"
                             class="review-img"
                           />
                         </div>
@@ -276,5 +276,7 @@
         </div>
       </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/js/shop/shop02.js}" defer></script>
   </body>
 </html>

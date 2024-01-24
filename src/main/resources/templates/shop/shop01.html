@@ -35,7 +35,7 @@
         <div class="col_table">
           <ul class="col_table_ul">
             <li class="col_table_li"><a href=""><span style="color: rgb(100, 200, 200);">전체</span></a></li>
-            <li class="col_table_li"><a href=""><span>가방</span></a></li>
+            <li class="col_table_li"><a href=""><span th:name="bag">가방</span></a></li>
             <li class="col_table_li"><a href=""><span>지갑</span></a></li>
             <li class="col_table_li"><a href=""><span>북</span></a></li>
             <li class="col_table_li"><a href=""><span>와인커버</span></a></li>
@@ -51,7 +51,7 @@
           <div class="product01">
             <div class="product01_wrap">
               <a href="">
-                <img alt src="/images/shop/no-image.png"
+                <img th:src="@{/images/shop/no-image.png}"
                 class="product01_img">
               </a>
             </div>
@@ -63,7 +63,7 @@
                 <img src="https://cdn.imweb.me/upload/S202201061adbb451f78fd/da8192641df5f.png" class="best" style="width: 32px;" alt="best item badge">
                 <div class="img_heart">
                   <span class="heart-number_wrap">
-                    <img src="/images/shop/heart.png" class="heart_img" alt="">
+                    <img th:src="@{/images/shop/heart.png}" class="heart_img" alt="">
                     <span class="heart_number">0</span>
                   </span>
                 </div>
@@ -89,7 +89,6 @@
     <a class="page-a">
       <li class="page-num">1</li>
     </a>
-
 
     <a class="page-a">
       <li class="page-num next">&gt</li>
