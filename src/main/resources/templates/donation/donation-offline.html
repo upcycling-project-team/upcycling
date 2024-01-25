@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/css/donation/donation-offline.css}">
+  <link rel="stylesheet" th:href="@{/css/donation/default.css}">
+  <link rel="stylesheet" th:href="@{/css/donation/font.css}">
+</head>
+<body>
+<div class="donation__all-of">
+  <div class="donation__explanation-1">
+    <div class="donation__explanation-2">
+      <div class="donation__explanation-3">
+        <ul>
+          <li>
+            기부받는 모든 옷들은 저희 업사이클링샵의 제품을 만드는데에 사용됩니다.
+            <br>
+            더 이상 입지 않아 버려질 옷에 새로운 의미를 부여하여
+            <br>
+            다시 사용할 수 있도록 만들어 버려지는 옷을 줄이고
+            <br>
+            지구의 환경보호에 기여할 수 있도록 하는것이 저희의 목표입니다.
+            <br>
+            다시한번 환경보호에 관심을 가져주시고 기부해주신 기부자님께 감사드립니다.
+            <br><br>
+            <span>-업사이클링샵 직원 일동-</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="donation__item-box">
+    <div class="donation__item">
+<!--        나중에 이미지 변경해두기-->
+      <img th:src="@{/images/donation/offemporary.png}" alt="">
+      <img th:src="@{/images/donation/offemporary.png}" alt="">
+    </div>
+  </div>
+  <div class="donation__map-box">
+    <div class="donation__map-title">
+      <div>
+        오시는 길
+      </div>
+    </div>
+    <div class="donation__map">
+      <div class="donation__map-api-box">
+        <div class="donation__map-api">
+          api로 지도 긁어와서 집어넣기
+        </div>
+      </div>
+      <div class="donation__loction-box">
+        <div class="donation__loction">
+          <ul class="donation__loction-ul">
+            <li>
+              <span>주소</span>
+              <br>
+              서울특별시 노원구 상계로1길 34 5,6층
+              <br>
+              <span>대표전화</span>
+              <br>
+              02-933-5890
+              <br>
+              <span>지하철</span>
+              <br>
+              4호선 노원역 9번출구 (도보5분이내)
+              <br>
+              <span>버스 이용시</span>
+              <br>
+              간선 : 105, 111, 146, 102, N13, N61
+              <br>
+              지선 : 1129 ,1132, 1138, 1142, 1137, 1139, 1144, 1154, 1167
+              <br>
+              마을 : 노원02, 노원08
+              <br>
+              일반 : 7, 72-1, 12-5 ,1-8, 72-1
+              <br>
+              직행 : 3100, 3200, 3500, 3600
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<form th:action="@{/donation/donation-online}">
+  <div class="donation__online-button-box">
+    <div class="donation__online-button">
+      <button class="donation__online-go-button" type="submit">
+        온라인으로 기부하러 가기
+      </button>
+    </div>
+  </div>
+</form>
+</body>
+</html>
