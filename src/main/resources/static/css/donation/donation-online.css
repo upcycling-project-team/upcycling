@@ -1,0 +1,282 @@
+.donation__choice-box{
+    /* background-color: coral; */
+    width: 1300px;
+    margin: 0 auto;
+
+}
+
+.donation__choice-title{
+    /* background-color: crimson; */
+    height: 50px;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: var(--main-color);
+
+}
+
+
+.donation__choice-material-box{
+    display: flex;
+    width: 1260px;
+    margin-left: 20px;
+    margin-top: 30px;
+    /* background-color: var(--main-color); */
+    background-color: rgb(177, 234, 234);
+    border-radius: 7px;
+
+
+}
+
+.donation__choice-material-box > article{
+    margin: 30px auto;
+
+}
+
+.donation__choice-material-box > article img{
+    width: 380px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.donation__choice-material-box > article label{
+    border-radius: 7px;
+    background-color:rgb(28, 28, 28);
+    display: block;
+    width: 380px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.donation__choice-material-box > article label::after{
+    content: "선택 된 소재입니다";
+    font-size: 20px;
+    letter-spacing: 5px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+
+.material-checkbox{
+    display: none;
+}
+
+.material-checkbox:checked + img{
+    opacity: 0.3;
+}
+
+.donation__choice-material-box > article :hover > button {
+    color: aqua;
+}
+
+.donation__choice-material-box > article > button > img{
+    width: 380px;
+    height: 300px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.donation__id-agree{
+    /* background-color: coral; */
+    width: 1300px;
+    margin: 60px auto;
+
+}
+
+.id-agree-title{
+    /* background-color: crimson; */
+    height: 50px;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: var(--main-color);
+
+}
+
+.id-agree-box{
+    /* background-color: var(--light-color); */
+    background-color: rgb(177, 234, 234);
+    width: 1260px;
+    height: 230px;
+    margin-top: 30px;
+    margin-left: 20px;
+    border-radius: 7px;
+    color:white;
+    /* color: var(--light-color); */
+    font-size: 20px;
+    position: relative;
+    /* border: 3px solid  var(--light-color); */
+}
+
+.id-agree-box > ul {
+    /* background-color: blue; */
+    width: 1200px;
+    height: 200px;
+    margin-left: 30px;
+    border-radius: 7px;
+    position: absolute;
+    margin-top: 15px;
+}
+
+.id-agree-box > ul > li{
+    list-style: disc;
+}
+
+.id__agree-choice{
+    /* background-color: burlywood; */
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto;
+    position: absolute;
+    margin-top: 190px;
+    margin-left: 1100px;
+}
+
+.id__agree-choice input{
+
+    accent-color: var(--light-color);
+}
+
+/* .choice-material{
+    position: relative;
+    display: inline-block;
+}
+
+.choice-material input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.choice-material img{
+    width: 100%;
+    height: auto;
+}
+
+.choice-material:hover img {
+    color: aliceblue;
+} */
+
+
+
+
+/* ////////// */
+.donation__keyring-agree{
+    /* background-color: coral; */
+    width: 1300px;
+    margin: 60px auto;
+
+}
+
+.keyring-agree-title{
+    /* background-color: crimson; */
+    height: 50px;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: var(--main-color);
+
+}
+
+.keyring-agree-box{
+    /* background-color: var(--light-color); */
+    background-color: rgb(177, 234, 234);
+    width: 1260px;
+    height: 230px;
+    margin-top: 30px;
+    margin-left: 20px;
+    border-radius: 7px;
+    color: white;
+    /* color: var(--light-color); */
+    font-size: 20px;
+    position: relative;
+    /* border: 3px solid  var(--light-color); */
+}
+
+.keyring-agree-box > ul {
+    /* background-color: blue; */
+    width: 1200px;
+    height: 200px;
+    margin-left: 30px;
+    border-radius: 7px;
+    position: absolute;
+    margin-top: 15px;
+}
+
+.keyring-agree-box > ul > li{
+    list-style: disc;
+}
+
+.keyring__agree-choice{
+    /* background-color: burlywood; */
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto;
+    position: absolute;
+    margin-top: 190px;
+    margin-left: 1100px;
+}
+
+.keyring__agree-choice input{
+
+    accent-color: var(--light-color);
+}
+
+/* 기부하기 버튼 */
+.donation__submit{
+    /* background-color: beige; */
+    height: 200px;
+
+}
+
+.donation__submit-button-box{
+    /* background-color: lightblue; */
+    width: 1519.200px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    top: 50px;
+    margin: 0 auto;
+}
+
+.donation__submit-button{
+    /* background-color: darkgreen; */
+    width:200px;
+    height: 50px;
+    position: absolute;
+    left: 43%;
+
+}
+
+.donation__submit-button > button{
+    background-color: rgb(100, 200, 200);
+}
+
+.donation__go-button{
+    position: absolute;
+    width:200px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
+    border: none;
+    border-radius: 7px;
+}
+
