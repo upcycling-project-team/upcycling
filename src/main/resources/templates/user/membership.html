@@ -17,7 +17,7 @@
     <main>
       <div class="membership-box">
         <div class="membership-box1">
-          <form method="get" action="">
+          <form method="post" th:action="@{/user/membership}">
             <div class="fileimg1">
               <div class="fileimage">
                 <img th:src="@{/images/user/login.png}" />
@@ -135,7 +135,7 @@
                   title="이름"
                   type="text"
                   id="userBetterAddress"
-                  name="userBetterAddress"
+                  name="userAddressDetail"
                   placeholder="상세주소"
                 />
               </div>
@@ -154,7 +154,7 @@
             </div>
 
             <div class="membership-button">
-              <button type="submit" id="userLoginBtn">가입하기</button>
+              <button type="button" id="userLoginBtn">가입하기</button>
             </div>
           </form>
         </div>
