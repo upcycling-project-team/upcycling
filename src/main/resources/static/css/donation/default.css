@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'GmarketSansMedium';
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.content-wrap {
+    width: 1300px;
+    margin: 0 auto;
+}
+
+:root {
+    --main-color: rgb(100, 200, 200);
+    --light-color: rgb(150, 220, 220);
+    --strong-color: rgb(70, 170, 170);
+}

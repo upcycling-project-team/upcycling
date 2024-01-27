@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'GmarketSansMedium';
+}
+
+.footer{
+    background-color: rgb(70,170,170);
+    width: 1519.200;
+    height: 345.575px;
+    color: aliceblue;
+
+}
+
+.footer__box{
+    /* background-color: coral; */
+    width: 1519.200;
+    height: 323px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 20px;
+
+
+}
+
+.footer__cominfo-box1{
+    /* background-color: aqua; */
+    height: 20%;
+    display: flex;
+
+
+}
+
+.footer__com-name{
+    /* background-color: blue; */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+.footer__name-box{
+    /* background-color: blueviolet; */
+    display: flex;
+    font-size: 35px;
+
+}
+
+.footer__com-sns{
+    /* background-color: blueviolet; */
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+
+.footer__inner-sns{
+    /* background-color: blue; */
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+}
+
+
+
+.footer__inner-sns > a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.footer__inner-sns > a :hover{
+    color: rgb(150,220,220);
+}
+
+
+
+.footer__instagram-box{
+    border: 2px solid white;
+    width: 150px;
+    height: 40px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer__kakaotalk-box{
+    border: 2px solid white ;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.footer__cominfo-box2{
+    /* background-color: cornsilk; */
+    height: 50%;
+    display: flex;
+    padding-top: 10px;
+
+}
+
+.footer__company-infomation{
+    /* background-color: darkgrey; */
+    width: 50%;
+    height: 100%;
+    display: flex;
+
+
+}
+
+.footer__inner-infomation{
+    /* background-color: dimgray; */
+    display: flex;
+}
+
+.footer__com-info-ul{
+    list-style: none;
+    margin-top: 10px;
+
+}
+
+.footer__per-infomation{
+    /* background-color: bisque; */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer__inner-per{
+    /* background-color: dimgray; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer__per-info-ul{
+    list-style: none;
+    margin-top: 10px;
+    display: flex;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+.footer__per-info-li{
+    margin-right: 20px;
+}
+
+
+
+.footer__cominfo-box3{
+    /* background-color: fuchsia; */
+    height: 30%;
+
+}
+
+.footer__copyright-box{
+    /* background-color: chocolate; */
+    height: 30px;
+    padding-top: 20px;
+}
+
+.footer__copyright{
+    font-size: 10px;
+}
