@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.upcycling.mapper.MypageMapper">
+    <select id="selectOrderinquiry" parameterType="long" resultType="mypageInquiryVo">
+        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, O.ORDER_DATE, O.ORDER_STATUS,
+               P.PRODUCT_NUMBER, PRODUCT_NAME,
+               I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID
+        FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
+                              ON O.USER_NUMBER = #{userNumber} AND O.ORDER_NUMBER = OP.ORDER_NUMBER
+                         JOIN TBL_PRODUCT P
+                              ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
+                         JOIN TBL_PRODUCT_IMG I
+                              ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+    </select>
+
+    <select id="selectMypageUserinquiry" resultType="userDto" parameterType="long">
+        SELECT  USER_NUMBER, USER_NAME, USER_POINT
+        FROM TBL_USER
+        WHERE USER_NUMBER = #{userNumber}
+    </select>
+    
+    <update id="updateMemberModify" parameterType="userModifyVo">
+            UPDATE TBL_USER
+            SET
+                USER_EMAIL = #{userEmail},
+                USER_NAME = #{userName},
+                USER_PHONE_NUMBER = #{userPhoneNumber},
+                USER_ADDRESS = #{userAddress} || ' ' || #{userAddressDetail},
+                USER_BIRTH = #{userBirth}
+                <if test="userPassword != null and !userPassword.equals('')">
+                , USER_PASSWORD = #{userPassword}
+                </if>
+            WHERE USER_NUMBER = #{userNumber}
+    </update>
+
+    <select id="selectUser" parameterType="long" resultType="userDto">
+        SELECT USER_NUMBER, USER_ID
+        FROM TBL_USER
+        WHERE USER_NUMBER = #{userNumber}
+    </select>
+
+    <select id="selectOrderDetails" resultType="mypageInquiryDetailsVo" parameterType="long">
+        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, O.ORDER_DATE, O.ORDER_STATUS,O.ORDER_REQ, O.ORDER_NAME, O.ORDER_TEL,
+               P.PRODUCT_NUMBER, PRODUCT_NAME,
+               I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID,
+               S.SHOP_CATEGORY_NUMBER, S.SHOP_CATEGORY_NAME,
+               U.USER_NUMBER, U.USER_EMAIL, U.USER_PHONE_NUMBER, U.USER_ADDRESS,
+               OP.ORDER_PRODUCT_PRICE
+        FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
+                              ON O.ORDER_NUMBER = #{orderNumber}  AND O.ORDER_NUMBER = OP.ORDER_NUMBER
+                         JOIN TBL_PRODUCT P
+                              ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
+                         JOIN (
+            SELECT PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, PRODUCT_NUMBER, RK
+            FROM (
+                     SELECT PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, PRODUCT_NUMBER,
+                            RANK() over (PARTITION BY PRODUCT_NUMBER ORDER BY PRODUCT_IMG_NUMBER) RK
+                     FROM TBL_PRODUCT_IMG
+                 )
+            WHERE RK=1
+        ) I
+                              ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+                         JOIN TBL_SHOP_CATEGORY S
+                              ON S.SHOP_CATEGORY_NUMBER = P.SHOP_CATEGORY_NUMBER
+                         JOIN TBL_USER U
+                              ON U.USER_NUMBER = O.ORDER_NUMBER
+    </select>
+</mapper>

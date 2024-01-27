@@ -1,11 +1,9 @@
-package com.example.upcycling.domain.dto;
+package com.example.upcycling.domain.vo;
 
 import lombok.Data;
 
-import java.sql.Date;
-
 @Data
-public class UserDto {
+public class UserModifyVo {
     private Long userNumber;
     private String userPassword;
     private String userName;
@@ -16,6 +14,5 @@ public class UserDto {
     private String userProfile;
     private Long userPoint;
     private String userAddress;
-
-
+    private String userAddressDetail;
 }
