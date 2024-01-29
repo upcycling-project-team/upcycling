@@ -1,5 +1,6 @@
 package com.example.upcycling.controller;
 
+import com.example.upcycling.domain.dto.SavedMoneyDto;
 import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.domain.vo.MypageInquiryDetailsVo;
 import com.example.upcycling.domain.vo.MypageInquiryVo;
@@ -51,8 +52,10 @@ public class MypageController {
         //Long userNumber = (Long) session.getAttribute("userNumber");
         Long userNumber = 1L;
 
+        List<SavedMoneyDto> listSavedMoney = mypageService.findListSavedMoney(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
+        model.addAttribute("savedMoney", listSavedMoney);
         model.addAttribute("user", userDto);
         return "mypage/savedmoney";
     }

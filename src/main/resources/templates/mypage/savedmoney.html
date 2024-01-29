@@ -19,12 +19,12 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
+                <a href="" class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
               </li>
               <li class="menu__li">
-                <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
+                <a href="" class="menu__a" th:href="@{/mypage/exchange(userNumber=${user.userNumber})}">교환/반품</a>
               </li>
-              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney}">적립금</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a></li>
               <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/inquiry}">1:1문의</a></li>
               <li class="menu__li">
                 <button class="btn_open_modal">회원수정</button>
@@ -56,10 +56,10 @@
                 <!-- 적립금표시 박스 -->
                 <div class="saved__money_box">
                   <div class="saved__money_name">
-                    <a href="" class="saved__a" th:href="@{/mypage/savedmoney}">적립금</a>
+                    <a href="" class="saved__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a>
                   </div>
                   <div class="saved__money_amount">
-                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney}"></a>
+                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}"></a>
                   </div>
                 </div>
                 <!-- 적립금표시 박스 -->
@@ -80,16 +80,12 @@
               <div class="list_title__01">금액</div>
             </div>
 
-            <div class="saved_box">
-              <div class="list__01">2024-00-00</div>
-              <div class="list__01">신규회원 쇼핑지원금</div>
-              <div class="list__01"><p class="p_moeny">+1,000원</p></div>
+            <div class="saved_box" th:each="savedMoneyDto : ${savedMoney}">
+              <div class="list__01" th:text="${savedMoneyDto.savedMoneyDate}"></div>
+              <div class="list__01" th:text="${savedMoneyDto.savedMoneyContent}"></div>
+              <div class="list__01"><p class="p_moeny" th:text="${savedMoneyDto.savedMoneyAmount} + ' 원'"></p></div>
             </div>
-            <div class="saved_box">
-              <div class="list__01">2024-00-00</div>
-              <div class="list__01">구매 후기적립금</div>
-              <div class="list__01"><p class="p_moeny">+300원</p></div>
-            </div>
+
             <!-- 적림금 내역! -->
           </section>
 

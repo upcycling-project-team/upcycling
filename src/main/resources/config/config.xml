@@ -9,5 +9,6 @@
         <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryVo" alias="mypageInquiryVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.UserModifyVo" alias="userModifyVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryDetailsVo" alias="mypageInquiryDetailsVo"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.SavedMoneyDto" alias="savedMoneyDto"></typeAlias>
     </typeAliases>
 </configuration>

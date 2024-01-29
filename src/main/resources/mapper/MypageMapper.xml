@@ -66,4 +66,11 @@
                          JOIN TBL_USER U
                               ON U.USER_NUMBER = O.ORDER_NUMBER
     </select>
+
+<!--    회원 적립금 내역리스트 조회-->
+    <select id="selectListSavedMoney" parameterType="long" resultType="savedMoneyDto">
+        SELECT U.USER_NUMBER, S.SAVED_MONEY_NUMBER, S.SAVED_MONEY_CONTENT, S.SAVED_MONEY_AMOUNT, S.SAVED_MONEY_DATE
+        FROM TBL_USER U JOIN TBL_SAVED_MONEY S
+                             ON U.USER_NUMBER = #{userNumber}
+    </select>
 </mapper>

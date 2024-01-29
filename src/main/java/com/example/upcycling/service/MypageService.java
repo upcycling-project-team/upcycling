@@ -1,5 +1,6 @@
 package com.example.upcycling.service;
 
+import com.example.upcycling.domain.dto.SavedMoneyDto;
 import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.domain.vo.MypageInquiryDetailsVo;
 import com.example.upcycling.domain.vo.MypageInquiryVo;
@@ -44,5 +45,10 @@ public class MypageService {
     //    주문 내역 조회(단건)
     public MypageInquiryDetailsVo findOrderDetails(Long orderNumber){
         return mypageMapper.selectOrderDetails(orderNumber);
+    }
+
+    //    회원 적립금 내역 리스트 조회
+    public List<SavedMoneyDto> findListSavedMoney(Long userNumber){
+        return mypageMapper.selectListSavedMoney(userNumber);
     }
 }
