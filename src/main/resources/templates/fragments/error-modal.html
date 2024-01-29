@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Modal Page</title>
+    <!-- <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/dash-board.css"> -->
+    <link rel="stylesheet" th:href="@{/css/admin/error-modal.css}">
+</head>
+<body>
+ <div class="error" th:fragment="errorBox(message)" th:classappend="${message == null ? 'none' : ''}">
+    <div class="error-content">
+      <h2 th:text="${message}">아이디 비밀번호를 확인해주세요</h2>
+      <button id="close-error">확인</button>
+    </div>
+  </div>
+
+</body>
+</html>

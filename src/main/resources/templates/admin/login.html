@@ -6,8 +6,13 @@
     <title>login page</title>
     <link rel="stylesheet" th:href="@{/css/admin/font.css}">
     <link rel="stylesheet" th:href="@{/css/admin/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/css/admin/error-modal.css}">
+    <script defer src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script defer th:src="@{/js/fragments/error-modal.js}"></script>
 </head>
 <body class="bg-gradient-primary">
+    <div th:replace="~{/fragments/error-modal :: errorBox(${errorMessage})}"></div>
     <div class="container">
 
         <!-- Outer Row -->

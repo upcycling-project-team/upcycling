@@ -5,6 +5,10 @@
     <typeAliases>
         <typeAlias type="com.example.upcycling.domain.dto.UserDto" alias="userDto"></typeAlias>
 
+        <typeAlias type="com.example.upcycling.domain.dto.ProductDto" alias="productDto"/>
+
         <typeAlias type="com.example.upcycling.domain.dto.AdministratorDto" alias="administratorDto"></typeAlias>
+
+        <typeAlias type="com.example.upcycling.domain.vo.Criteria" alias="criteria"/>
     </typeAliases>
 </configuration>
