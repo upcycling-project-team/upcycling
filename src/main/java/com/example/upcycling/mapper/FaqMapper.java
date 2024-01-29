@@ -8,7 +8,10 @@ import java.util.Optional;
 
 @Mapper
 public interface FaqMapper {
-    //게시물 단건 조회 #{keyword}의 타입이 String 이다.
-    List<String> selectSearch (String keyword);
+    List<FaqDto> selectSearch (String keyword);
+
+    List<FaqDto> selectAll();
+
+    Optional<FaqDto> selectBoard(Long faqNumber);
 }
 

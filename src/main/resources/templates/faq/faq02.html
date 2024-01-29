@@ -22,20 +22,21 @@
         </div>
       </div>
       <!-- ~에 대한 검색결과가 없습니다 + ul태그 style="display: none;" -->
-      <div class="result-no" style="display: none;" >
-        <div class="result_text" >
-          <span style="color: #1A6DFF">''</span>
-          에 대한 검색결과가 없습니다.
-        </div>
-        <div class="advice">
-          <ul>
-            <li>단어의 철자가 정확한지 확인해 주세요.</li>
-            <li>검색어의 단어 수를 줄이거나, 다른 검색어로 검색해 보세요.</li>
-            <li>보다 일반적인 검색어로 다시 검색해 보세요.</li>
-          </ul>
-        </div>
-      </div>
-      <!-- ~에 대한 검색결과 + ul태그 style="display: none; -->
+<!--      <div class="result-no" style="display: none;" >-->
+<!--        <div class="result_text" >-->
+<!--          <span style="color: #1A6DFF">''</span>-->
+<!--          에 대한 검색결과가 없습니다.-->
+<!--        </div>-->
+<!--        <div class="advice">-->
+<!--          <ul>-->
+<!--            <li>단어의 철자가 정확한지 확인해 주세요.</li>-->
+<!--            <li>검색어의 단어 수를 줄이거나, 다른 검색어로 검색해 보세요.</li>-->
+<!--            <li>보다 일반적인 검색어로 다시 검색해 보세요.</li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <!-- ~에 대한 검색결과 + ul태그  -->
       <div class="result-select" >
         <div class="result_text2">
           <span style="color: #1A6DFF" >'<span th:text="${keyword}"></span>'</span>
@@ -49,7 +50,7 @@
                 <span class="type">
                   <span class="question">Q</span>
                 </span>
-                <span th:text="${title}">업사이클링이 무엇인가요?</span>
+                <span th:text="${title.faqQuestion}">업사이클링이 무엇인가요?</span>
               </a>
             </li>
           </ul>

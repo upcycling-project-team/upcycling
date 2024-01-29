@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.FaqMapper">
-    <select id="selectSearch" parameterType="String" resultType="String">
-        SELECT FAQ_QUESTION
+<!--  검색했을때 -->
+    <select id="selectSearch" parameterType="String" resultType="FaqDto">
+        SELECT FAQ_QUESTION, FAQ_NUMBER
         FROM TBL_FAQ
+        <if test="keyword != null">
         WHERE FAQ_QUESTION LIKE '%'||#{keyword}||'%'
+        </if>
+    </select>
+<!--  메인들어갈때 리스트 전부 다 보여주기 -->
+    <select id="selectAll" resultType="FaqDto">
+        SELECT FAQ_QUESTION, FAQ_NUMBER
+        FROM TBL_FAQ
+    </select>
+<!--  faq 게시글제목만 보여주기  -->
+    <select id="selectBoard" resultType="faqDto" parameterType="long">
+        select faq_question,FAQ_ANSWER
+        from TBL_FAQ
+        where FAQ_NUMBER= #{faqNumber}
     </select>
 </mapper>

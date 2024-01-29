@@ -13,33 +13,17 @@
       <div class="border">
         <!-- 첫번째 답변 style="display: none;" -->
         <div class="result-page1">
-          <div class="title-div">
+          <div class="title-div" >
             <div class="top-question">
-              <h1>Q 업사이클링이 무엇인가요?</h1>
+              <h1 th:text="${board}">
+                Q 업사이클링이 무엇인가요?
+              </h1>
             </div>
           </div>
           <div class="content-div">
             <div class="content-text">
-              <p>
-                <span class="content_span-type">p태그 첫번째 문단</span>
-                <br />
-                <br />
-                1문장
-                <br />
-                2문장
-                <br />
-                3문장
-              </p>
-              <p>
-                <span class="content_span-type">p태그 두번째 문단</span>
-                <br />
-                <br />
-                1문장
-                <br />
-                2문장
-                <br />
-                3문장
-              </p>
+                <span class="content_span-type" th:text="${board}">
+                </span>
             </div>
           </div>
           <!-- 이전글 다음글 클릭하면 넘어가도록설정. -->
