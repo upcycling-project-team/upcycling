@@ -62,6 +62,11 @@
               </thead>
               <tbody>
                 <!-- 여기에 지역별 배송비 정보가 동적으로 추가될 것입니다. -->
+			  <tr th:each="fee : ${deliveryFee}">
+				  <td th:text="${fee.}"></td>
+				  <td th:text="${fee.}"></td>
+				  <td th:text="${fee.}"></td>
+			  </tr>
               </tbody>
             </table>
 
@@ -73,13 +78,13 @@
 
 		<div class="button-list">
 			<section class="buttons">
-				<button>&lt</button>
-				<button>1</button>
-				<button>2</button>
-				<button>3</button>
-				<button>4</button>
-				<button>5</button>
-				<button>&gt</button>
+				<a href="">&lt</a>
+				<a href="">1</a>
+				<a href="">2</a>
+				<a href="">3</a>
+				<a href="">4</a>
+				<a href="">5</a>
+				<a href="">&gt</a>
 			</section>
 		</div>
 		<!-- MAIN -->
