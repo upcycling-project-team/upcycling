@@ -19,19 +19,17 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a">주문 조회</a>
+                <a class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
               </li>
               <li class="menu__li">
-                <a href="" class="menu__a">교환/반품</a>
+                <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
               </li>
-              <li class="menu__li"><a href="" class="menu__a">적립금</a></li>
-              <li class="menu__li"><a href="" class="menu__a">1:1문의</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney}">적립금</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/inquiry}">1:1문의</a></li>
               <li class="menu__li">
                 <button class="btn_open_modal">회원수정</button>
               </li>
-              <li class="menu__li">
-                <button class="btn_open_elimination">회원탈퇴</button>
-              </li>
+              <li class="menu__li"><button class="btn_open_elimination">회원탈퇴</button></li>
             </ul>
           </section>
           <!-- 마이페이지 메뉴리스트 -->
@@ -50,22 +48,19 @@
 
                 <!-- 회원이름 및 누적 금액 -->
                 <div class="member__name_money_box">
-                  <div class="member__information_name">
-                    신동억 님 안녕하세요
+                  <div class="member__information_name" th:text="${user.userName} + ' 님 안녕하세요'">
                   </div>
-                  <div class="member__information_accumulated_amount">
-                    누적 구매금액 : 0 원
-                  </div>
+
                 </div>
                 <!-- 회원이름 및 누적 금액 -->
 
                 <!-- 적립금표시 박스 -->
                 <div class="saved__money_box">
                   <div class="saved__money_name">
-                    <a href="" class="saved__a">적립금</a>
+                    <a class="saved__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a>
                   </div>
                   <div class="saved__money_amount">
-                    <a href="" class="saved_money_amount_a">5,000</a>
+                    <a class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}"></a>
                   </div>
                 </div>
                 <!-- 적립금표시 박스 -->
@@ -79,9 +74,9 @@
 
               <div class="order_date">
                 <div class="date_number">주문일자</div>
-                <div class="date_number_data">2024.00.00</div>
+                <div class="date_number_data" th:text="${order.orderDate}"></div>
                 <div class="order_number">주문번호</div>
-                <div class="order_number_data">0000000000</div>
+                <div class="order_number_data" th:text="${order.orderNumber}"></div>
               </div>
 
               <!-- 배송 현황 -->
@@ -111,17 +106,17 @@
                   <div class="product_img_box">
                     <a href=""
                       ><img
-                        th:src="@{/images/mypage/pocket_number01.png}"
                         class="product_img"
                         alt=""
+                        th:src="${'/upload/' + order.productImgUploadPath + '/' + order.productImgUuid + '_' + order.productImgName}"
                       />
                     </a>
                   </div>
                   <div class="product_list_box">
                     <ul class="product_list">
-                      <li><a href="" class="product_img_a">상품 제목</a></li>
-                      <li><a href="" class="product_img_a">상품 종류</a></li>
-                      <li><a href="" class="product_img_a">가격</a></li>
+                      <li><a href="" class="product_img_a" th:text="${order.productName}"></a></li>
+                      <li><a href="" class="product_img_a" th:text="${order.shopCategoryName}"></a></li>
+                      <li><a href="" class="product_img_a" th:text="${order.orderTotal} + ' 원'"></a></li>
                     </ul>
                   </div>
                 </div>
@@ -150,15 +145,15 @@
                 <div>
                   <section class="my_information_box">
                     <div class="my_order_name">주문자</div>
-                    <div class="my_name">이름</div>
+                    <div class="my_name" th:text="${user.userName}"></div>
                     <div class="my_mail">이메일 주소</div>
-                    <div class="my_mail_address">이메일</div>
+                    <div class="my_mail_address" th:text="${order.userEmail}"></div>
                   </section>
                   <section class="my_information_box">
                     <div class="my_order_name">전화번호</div>
-                    <div class="my_name">010-xxxx-xxx</div>
+                    <div class="my_name" th:text="${order.userPhoneNumber}"></div>
                     <div class="my_mail">휴대폰번호</div>
-                    <div class="my_mail_address">010-9917-6844</div>
+                    <div class="my_mail_address" th:text="${order.userPhoneNumber}"></div>
                   </section>
                 </div>
               </section>
@@ -172,14 +167,14 @@
                       <div class="amount_box_top">
                         <div class="moeny_title">주문금액</div>
                         <div class="moeny">
-                          <p>10,000</p>
+                          <p th:text="${order.orderProductPrice}"></p>
                           원
                         </div>
                       </div>
                       <div class="amount_box_center">
                         <div class="moeny_amount">상품금액</div>
                         <div class="moeny_two">
-                          <div class="amount">10,000</div>
+                          <div class="amount" th:text="${order.orderProductPrice}"></div>
                           <div class="won">원</div>
                         </div>
                       </div>
@@ -192,35 +187,20 @@
                       </div>
                     </div>
 
-                    <div class="order_amount_box">
-                      <div class="amount_box_top">
-                        <div class="moeny_title">할인금액</div>
-                        <div class="moeny">
-                          <p>10,000</p>
-                          원
-                        </div>
-                      </div>
-                      <div class="amount_box_center">
-                        <div class="moeny_amount">적립금할인</div>
-                        <div class="moeny_two">
-                          <div class="amount">10,000</div>
-                          <div class="won">원</div>
-                        </div>
-                      </div>
-                    </div>
+
 
                     <div class="order_amount_total">
                       <div class="amount_box_top">
-                        <div class="moeny_title">주문금액</div>
+                        <div class="moeny_title">총금액</div>
                         <div class="moeny">
-                          <p>10,000</p>
+                          <p th:text="${order.orderTotal}"></p>
                           원
                         </div>
                       </div>
                       <div class="amount_box_center">
                         <div class="moeny_amount">상품금액</div>
                         <div class="moeny_two">
-                          <div class="amount">10,000</div>
+                          <div class="amount" th:text="${order.orderProductPrice}"></div>
                           <div class="won">원</div>
                         </div>
                       </div>
@@ -246,7 +226,7 @@
                       <div class="address_name">받는사람</div>
                     </div>
                     <div>
-                      <div class="address_name_data">신동억</div>
+                      <div class="address_name_data" th:text="${user.userName}"></div>
                     </div>
                   </div>
 
@@ -256,14 +236,14 @@
                         <div class="address_name">전화번호</div>
                       </div>
                       <div>
-                        <div class="address_name_data">-</div>
+                        <div class="address_name_data" th:text="${order.orderTel}"></div>
                       </div>
 
                       <div class="address_section_list_box">
                         <div class="address_name">휴대폰번호</div>
                       </div>
                       <div class="div">
-                        <div class="address_name_data_01">010-9917-6844</div>
+                        <div class="address_name_data_01" th:text="${order.userPhoneNumber}"></div>
                       </div>
                     </div>
                   </div>
@@ -273,8 +253,8 @@
                       <div class="address_name">주소</div>
                     </div>
                     <div>
-                      <div class="address_name_data">
-                        서울특별시 노원구 상계로1길 34 5층
+                      <div class="address_name_data" th:text="${order.userAddress}">
+
                       </div>
                     </div>
                   </div>
@@ -284,13 +264,14 @@
                       <div class="address_name">배송요청사항</div>
                     </div>
                     <div>
-                      <div class="address_name_data">힘들어요ㅠ.ㅠ</div>
+                      <div class="address_name_data" th:text="${order.orderReq}"></div>
                     </div>
                   </div>
                 </div>
 
                 <div class="exchange_btn">
-                  <button class="btn">교환 접수</button>
+                  <button class="btn">
+                    <a class="writinginquiries_btn" th:href="@{/mypage/writinginquiries(userNumber=${user.userNumber}, orderNumber=${order.orderNumber})}">교환 접수</a></button>
                 </div>
               </section>
             </div>
@@ -326,7 +307,6 @@
                   <input
                           type="text"
                           class="member_id"
-                          placeholder="tlsehddjr1231"
                           disabled
                   />
                   <input
@@ -337,11 +317,13 @@
                   />
                   <input
                           type="text"
+                          id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
                           type="text"
+                          id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
@@ -355,7 +337,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-email"/>
                 </div>
 
                 <div class="input_box">
@@ -365,7 +347,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-name"/>
                 </div>
 
                 <div class="input_box">
@@ -375,7 +357,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-phone"/>
                 </div>
 
                 <div class="input_box">
@@ -385,8 +367,8 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
-                  <input type="text" class="member_input_01" />
+                  <input type="text" class="member_input" id="member-address"/>
+                  <input type="text" class="member_input_01" id="member-address-detail"/>
                 </div>
 
                 <div class="input_box">
@@ -397,9 +379,9 @@
                     </div>
                   </div>
                   <div>
-                    <select name="yy" id="year"></select>
-                    <select name="mm" id="month"></select>
-                    <select name="dd" id="day"></select>
+                    <select name="yy" id="year" ></select>
+                    <select name="mm" id="month" ></select>
+                    <select name="dd" id="day" ></select>
                   </div>
                 </div>
 
@@ -407,6 +389,7 @@
               </form>
             </div>
           </div>
+
 
           <!-- 회원 탈퇴 모달창=================================================================== -->
           <div class="modify__modal_bg">

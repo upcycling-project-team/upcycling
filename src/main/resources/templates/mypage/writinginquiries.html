@@ -19,19 +19,17 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a">주문 조회</a>
+                <a href="" class="menu__a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
               </li>
               <li class="menu__li">
-                <a href="" class="menu__a">교환/반품</a>
+                <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
               </li>
-              <li class="menu__li"><a href="" class="menu__a">적립금</a></li>
-              <li class="menu__li"><a href="" class="menu__a">1:1문의</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney}">적립금</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/inquiry}">1:1문의</a></li>
               <li class="menu__li">
                 <button class="btn_open_modal">회원수정</button>
               </li>
-              <li class="menu__li">
-                <button class="btn_open_elimination">회원탈퇴</button>
-              </li>
+              <li class="menu__li"><button class="btn_open_elimination">회원탈퇴</button></li>
             </ul>
           </section>
           <!-- 마이페이지 메뉴리스트 -->
@@ -174,7 +172,6 @@
                   <input
                           type="text"
                           class="member_id"
-                          placeholder="tlsehddjr1231"
                           disabled
                   />
                   <input
@@ -185,11 +182,13 @@
                   />
                   <input
                           type="text"
+                          id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
                           type="text"
+                          id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
@@ -203,7 +202,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-email"/>
                 </div>
 
                 <div class="input_box">
@@ -213,7 +212,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-name"/>
                 </div>
 
                 <div class="input_box">
@@ -223,7 +222,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-phone"/>
                 </div>
 
                 <div class="input_box">
@@ -233,8 +232,8 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
-                  <input type="text" class="member_input_01" />
+                  <input type="text" class="member_input" id="member-address"/>
+                  <input type="text" class="member_input_01" id="member-address-detail"/>
                 </div>
 
                 <div class="input_box">
@@ -245,9 +244,9 @@
                     </div>
                   </div>
                   <div>
-                    <select name="yy" id="year"></select>
-                    <select name="mm" id="month"></select>
-                    <select name="dd" id="day"></select>
+                    <select name="yy" id="year" ></select>
+                    <select name="mm" id="month" ></select>
+                    <select name="dd" id="day" ></select>
                   </div>
                 </div>
 
@@ -255,6 +254,8 @@
               </form>
             </div>
           </div>
+
+
 
           <!-- 회원 탈퇴 모달창=================================================================== -->
           <div class="modify__modal_bg">

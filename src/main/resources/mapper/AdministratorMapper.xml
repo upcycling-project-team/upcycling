@@ -28,4 +28,5 @@
         WHERE RNUM > (#{page} - 1) * #{amount}
     </select>
 
+
 </mapper>
