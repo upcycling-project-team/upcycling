@@ -425,6 +425,11 @@ p {
   cursor: pointer;
 }
 
+.writinginquiries_btn{
+  text-decoration-line: none;
+  color: #000000;
+}
+
 /* 회원수정 모달창======================== */
 
 .modal {

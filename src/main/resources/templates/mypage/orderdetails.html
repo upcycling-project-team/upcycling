@@ -19,7 +19,7 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
+                <a class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
               </li>
               <li class="menu__li">
                 <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
@@ -57,10 +57,10 @@
                 <!-- 적립금표시 박스 -->
                 <div class="saved__money_box">
                   <div class="saved__money_name">
-                    <a class="saved__a" th:href="@{/mypage/savedmoney}">적립금</a>
+                    <a class="saved__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a>
                   </div>
                   <div class="saved__money_amount">
-                    <a class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney}"></a>
+                    <a class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}"></a>
                   </div>
                 </div>
                 <!-- 적립금표시 박스 -->
@@ -270,7 +270,8 @@
                 </div>
 
                 <div class="exchange_btn">
-                  <button class="btn">교환 접수</button>
+                  <button class="btn">
+                    <a class="writinginquiries_btn" th:href="@{/mypage/writinginquiries(userNumber=${user.userNumber}, orderNumber=${order.orderNumber})}">교환 접수</a></button>
                 </div>
               </section>
             </div>

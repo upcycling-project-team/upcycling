@@ -15,14 +15,9 @@ public class UserDto {
     private String userBirth;
     private String userPhoneNumber;
     private String userId;
-
     private String userProfile;
     private Long userPoint;
     private String userAddress;
-
-
-
-
     private String userAddressDetail;
     private String userBirthYear;
     private String userBirthMonth;

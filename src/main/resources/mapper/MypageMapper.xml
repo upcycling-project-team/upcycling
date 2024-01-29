@@ -25,7 +25,8 @@
                 USER_EMAIL = #{userEmail},
                 USER_NAME = #{userName},
                 USER_PHONE_NUMBER = #{userPhoneNumber},
-                USER_ADDRESS = #{userAddress} || ' ' || #{userAddressDetail},
+                USER_ADDRESS = #{userAddress},
+                USER_ADDRESSDETAIL = #{userAddressDetail},
                 USER_BIRTH = #{userBirth}
                 <if test="userPassword != null and !userPassword.equals('')">
                 , USER_PASSWORD = #{userPassword}

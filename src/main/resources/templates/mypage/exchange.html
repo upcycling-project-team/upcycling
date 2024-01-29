@@ -19,7 +19,7 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
+                <a  class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
               </li>
               <li class="menu__li">
                 <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>

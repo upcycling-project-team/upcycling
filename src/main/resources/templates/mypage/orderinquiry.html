@@ -20,10 +20,10 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
+                <a class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
               </li>
               <li class="menu__li">
-                <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
+                <a href="" class="menu__a" th:href="@{/mypage/exchange(userNumber=${user.userNumber})}">교환/반품</a>
               </li>
               <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney}">적립금</a></li>
               <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/inquiry}">1:1문의</a></li>
@@ -65,10 +65,10 @@
                 <!-- 적립금표시 박스 -->
                 <div class="saved__money_box">
                   <div class="saved__money_name">
-                    <a href="" class="saved__a" th:href="@{/mypage/savedmoney}">적립금</a>
+                    <a href="" class="saved__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a>
                   </div>
                   <div class="saved__money_amount">
-                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney}"></a>
+                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}"></a>
                   </div>
                 </div>
                 <!-- 적립금표시 박스 -->
@@ -102,7 +102,7 @@
                     <div class="order_details" >
                       <div>
                          <!--주문조회 내역 이미지-->
-                        <a href="" class="a__order_details" th:href="@{/mypage/orderdetails(orderNumber=${mypageInquiryVo.orderNumber})}"
+                        <a  class="a__order_details" th:href="@{/mypage/orderdetails(orderNumber=${mypageInquiryVo.orderNumber})}"
                            ><img
                             class="title_order_img"
                             alt=""
@@ -111,7 +111,7 @@
                         </a>
                       </div>
                       <div>
-                        <a href="" class="a__order_details" th:href="@{/mypage/orderdetails(orderNumber=${mypageInquiryVo.orderNumber})}"
+                        <a  class="a__order_details" th:href="@{/mypage/orderdetails(orderNumber=${mypageInquiryVo.orderNumber})}"
                           ><span class="title_order_content"
                                  th:text="${mypageInquiryVo.productName}"
                             ></span>
