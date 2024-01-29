@@ -4,5 +4,10 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.example.upcycling.domain.dto.UserDto" alias="userDto"></typeAlias>
+
+
+        <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryVo" alias="mypageInquiryVo"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.vo.UserModifyVo" alias="userModifyVo"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryDetailsVo" alias="mypageInquiryDetailsVo"></typeAlias>
     </typeAliases>
 </configuration>
