@@ -1,0 +1,188 @@
+.body {
+  /* border: 2px solid red; */
+  height: 1700px;
+  display: flex;
+  justify-content: center;
+}
+.border {
+  /* border: 1px solid blue; */
+  width: 1000px;
+  height: 1600px;
+}
+.title-div {
+  /* border: 1px solid gold; */
+  width: 1000px;
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.top-question {
+  color: rgb(100, 200, 200);
+}
+.content-div {
+  /* border: 1px solid gold; */
+  height: 400px;
+  margin: 10px;
+  color: rgb(70, 70, 70);
+  /* display: flex;
+  justify-content: space-between; */
+}
+.content-text {
+  /* border: 1px solid goldenrod; */
+  width: 100%;
+  height: 370px;
+}
+p {
+  font-size: 17px;
+}
+.content_span-type {
+  font-size: large;
+  font-weight: bold;
+}
+.faq-div {
+  height: 120px;
+  /* border: 1px solid goldenrod; */
+}
+/* a태그 밑줄 없애기 */
+a {
+  text-decoration-line: none;
+}
+a:link {
+  /*링크 방문 전*/
+  color: rgb(70, 70, 70);
+}
+
+a:visited {
+  /*링크를 방문한 이후*/
+  color: rgb(70, 70, 70);
+}
+
+a:hover {
+  /*마우스를 올려놓을 때*/
+  color: rgb(70, 70, 70);
+}
+
+a:active {
+  /*클릭하는 순간*/
+  color: rgb(70, 70, 70);
+}
+/* 동그라미 없애기,들여쓰기 없애기 */
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+.faq_next-box {
+  /* border: 1px solid blueviolet; */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+.faq_next-box:hover {
+  background-color: #dbdee3;
+}
+.blank-line {
+  border: 1px solid #b0b8c1;
+}
+.faq_span-type {
+  color: #b0b8c1;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+.blank {
+  /* border: 1px solid black; */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.blank_span-type {
+  color: #b0b8c1;
+  font-size: 14px;
+}
+.container {
+  /* border: 1px solid green; */
+  height: 170px;
+}
+/* .comtitle {
+  border: 1px solid green;
+} */
+.cominput {
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+}
+.commentbox {
+  border: 1px solid #aaa;
+  height: 53px;
+}
+.btn-div {
+  border: 1px #aaa;
+  display: flex;
+  justify-content: flex-end;
+}
+.button {
+  background-color: rgb(100, 200, 200);
+  border: 1px solid #dbdee3;
+  border-radius: 4px;
+  color: white;
+  font-size: larger;
+  cursor: pointer;
+}
+/* .com_list {
+  border: 1px solid #aaa;
+} */
+.u-id {
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+}
+.u_text-wrap {
+  /* border: 1px solid gold; */
+  height: 50px;
+  font-size: 11px;
+  color: rgb(70, 70, 70);
+}
+.u-date {
+  color: #b0b8c1;
+  font-size: 10px;
+}
+.line2 {
+  border: 1px solid #dbdee3;
+}
+/* .comment-list{
+  border: 1px solid black;
+} */
+
+/* 페이징 */
+.page-a {
+  text-decoration: none;
+  color: rgb(100,200,200);
+}
+
+.page-box {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-num {
+  border: 1px solid rgb(100,200,200);
+  width: 30px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 0 10px;
+  text-align: center;
+  line-height: 40px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.active,
+.page-num:hover {
+  background-color: rgb(100,200,200);
+  color: white;
+}
