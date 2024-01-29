@@ -28,5 +28,9 @@
         WHERE RNUM > (#{page} - 1) * #{amount}
     </select>
 
+    <select id="selectTotal" resultType="_int">
+        SELECT COUNT(PRODUCT_NUMBER)
+        FROM TBL_PRODUCT
+    </select>
 
 </mapper>

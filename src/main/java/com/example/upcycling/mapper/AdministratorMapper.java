@@ -15,4 +15,6 @@ public interface AdministratorMapper {
 
     List<ProductDto> selectProductInfo(Criteria criteria);
 
+//    상품 카운트 조회
+    int selectTotal();
 }

@@ -76,9 +76,23 @@
             </tbody>
         </table>
     </div>
-    <!-- MAIN -->
+
+    <!--paging-->
+    <div class="blank">
+        <h1 class="blank-margin"></h1>
+    </div>
+
+    <div class="button-list">
+        <section class="buttons">
+            <a th:href="@{/admin/product-info(page=${pageInfo.startPage-1})}" class="buttons__arrow" th:if="${pageInfo.prev}">&lt</a>
 
 
+            <a th:href="@{/admin/product-info(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}"
+            th:text="${i}"></a>
+
+            <a th:href="@{/admin/product-info(page=${pageInfo.endPage+1})}" class="buttons__arrow" th:if="${pageInfo.next}">&gt</a>
+        </section>
+    </div>
     <!-- MAIN -->
 </section>
 <!-- NAVBAR -->

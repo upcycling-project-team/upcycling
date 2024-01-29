@@ -50,22 +50,22 @@ document.addEventListener("DOMContentLoaded", function() {
       // 추가적인 배송비 정보를 필요에 따라 추가할 수 있습니다.
     ];
   
-    const tableBody = document.querySelector("#shippingTable tbody");
-  
-    // 배송비 정보를 테이블에 추가하는 함수
-    function renderShippingData() {
-      tableBody.innerHTML = ""; // 기존 행 삭제
-
-      shippingData.forEach(shipping => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${shipping.area}</td>
-          <td>${shipping.fee}원</td>
-          <td><button onclick="editShippingFee('${shipping.area}')">수정</button></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
+    // const tableBody = document.querySelector("#shippingTable tbody");
+    //
+    // // 배송비 정보를 테이블에 추가하는 함수
+    // function renderShippingData() {
+    //   tableBody.innerHTML = ""; // 기존 행 삭제
+    //
+    //   shippingData.forEach(shipping => {
+    //     const row = document.createElement("tr");
+    //     row.innerHTML = `
+    //       <td>${shipping.area}</td>
+    //       <td>${shipping.fee}원</td>
+    //       <td><button onclick="editShippingFee('${shipping.area}')">수정</button></td>
+    //     `;
+    //     tableBody.appendChild(row);
+    //   });
+    // }
   
     // 초기 배송비 정보 표시
     renderShippingData();

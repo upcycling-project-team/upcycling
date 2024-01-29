@@ -3,6 +3,7 @@ package com.example.upcycling.controller;
 import com.example.upcycling.domain.dto.AdministratorDto;
 import com.example.upcycling.domain.dto.ProductDto;
 import com.example.upcycling.domain.vo.Criteria;
+import com.example.upcycling.domain.vo.PageVo;
 import com.example.upcycling.service.AdministratorService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -73,10 +74,13 @@ public class AdministratorController {
         if(adminNumber == null){
             return "admin/login";
         }
-
         List<ProductDto> productInfo = administratorService.findProductInfo(criteria);
-        System.out.println("productInfo = " + productInfo);
+        int total = administratorService.findTotal();
+        PageVo pageVo = new PageVo(total, criteria);
+
+//        System.out.println("productInfo = " + productInfo);
         model.addAttribute("productInfo", productInfo);
+        model.addAttribute("pageInfo", pageVo);
 
         return "admin/product-info";
     }
