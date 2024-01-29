@@ -15,6 +15,7 @@
         <!-- 소재선택 -->
         <section class="donation__choice-box">
             <div class="donation__choice-title">
+                <form action="">
                 <!-- 소재선택 제목 -->
                 <article>
                     <h4>소재 선택</h4>
@@ -27,7 +28,7 @@
                     <article>
                         <label for="material-checkbox1">
                             <!-- 가죽 소재 -->
-                            <input type="checkbox" name="" class="material-checkbox" id="material-checkbox1">
+                            <input type="checkbox" name="material" class="material-checkbox" id="material-checkbox1" value="leather">
                             <img th:src="@{/images/donation/leather.jpg}" alt="">
                         </label>
                     </article>
@@ -35,7 +36,7 @@
                     <article>
                         <label for="material-checkbox2">
                             <!-- 데님 소재 -->
-                            <input type="checkbox" name="" class="material-checkbox"  id="material-checkbox2">
+                            <input type="checkbox" name="material" class="material-checkbox"  id="material-checkbox2" value="denim">
                             <img th:src="@{/images/donation/denim.webp}" alt="">
                         </label>
                     </article>
@@ -44,7 +45,7 @@
                         <label for="material-checkbox3">
                             <!-- 천 소재 -->
                             <!-- 이미지 천이 구겨져 있는걸로 변경 -->
-                            <input type="checkbox" name="" class="material-checkbox"  id="material-checkbox3">
+                            <input type="checkbox" name="material" class="material-checkbox"  id="material-checkbox3" value="cotton">
                             <img th:src="@{/images/donation/clothes.jpg}" alt="">
                         </label>
                     </article>
@@ -114,7 +115,7 @@
         </section>
         <!-- 기부하기 버튼 -->
         <section class="donation__submit">
-            <form action="../../donation/thanks/html/thanks.html">
+<!--            <form action="../../donation/thanks/html/thanks.html">-->
                 <div class="donation__submit-button-box">
                     <div class="donation__submit-button">
                         <button class="donation__go-button" type="submit">
