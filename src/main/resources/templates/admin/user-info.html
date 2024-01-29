@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
-    <link rel="stylesheet" th:href="@{/css/admin/point.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/register.css}">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
 	<script th:src="@{/js/admin/side-bar.js}" defer></script>
-    <script th:src="@{/js/admin/point.js}"></script>
+    <script th:src="@{/js/admin/register.js}" defer></script>
+	<script th:src="@{/js/admin/user.js}"></script>
 	<title>AdminSite</title>
 </head>
 <body id="header">
@@ -43,16 +44,29 @@
 			</div>
 		</nav>
 		<!-- NAVBAR -->
+		
+            <div class="user-detail">
+				<div style="padding:10px;"> </div>
+                <div>
+                    <h1>회원 검색</h1>
+                </div>
+                <table id="memberTable">
+                    <thead>
+                      <tr>
+                        <th>회원 번호</th>
+                        <th>회원 이름</th>
+                        <th>회원 이메일</th>
+                        <th>관리</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- 여기에 회원 정보가 동적으로 추가될 것입니다. -->
+                    </tbody>
+                  </table>
+            </div>
+		<!-- MAIN -->
 
-		<body>
-            <div style="padding:10px;"> </div>
-            
-            <h1>포인트 관리 페이지</h1>
-          
-            <div id="userTables"></div>
-          
-            <script src="script.js"></script>
-          </body>
+
 	</section>
 	<!-- NAVBAR -->
 

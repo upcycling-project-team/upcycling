@@ -3,31 +3,30 @@ document.addEventListener("DOMContentLoaded", function() {
     const members = [
       { id: 1, name: "홍길동", email: "hong@example.com", price:"11,000",sale:"9,000" },
       { id: 2, name: "김철수", email: "kim@example.com", price:"13,000",sale:"11,000"  },
-      // 추가적인 회원 정보를 필요에 따라 추가할 수 있습니다.
     ];
   
     const tableBody = document.querySelector("#memberTable tbody");
   
-    // 회원 정보를 테이블에 추가하는 함수
-    function renderMembers() {
-      tableBody.innerHTML = ""; // 기존 행 삭제
-  
-      members.forEach(member => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${member.id}</td>
-          <td>${member.name}</td>
-          <td>${member.email}</td>
-          <td>${member.price}</td>
-          <td>${member.sale}</td>
-          <td><button onclick="deleteMember(${member.id})">삭제</button></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
-  
-    // 초기 회원 정보 표시
-    renderMembers();
+    // // 회원 정보를 테이블에 추가하는 함수
+    // function renderMembers() {
+    //   tableBody.innerHTML = ""; // 기존 행 삭제
+    //
+    //   members.forEach(member => {
+    //     const row = document.createElement("tr");
+    //     row.innerHTML = `
+    //       <td>${member.id}</td>
+    //       <td>${member.name}</td>
+    //       <td>${member.email}</td>
+    //       <td>${member.price}</td>
+    //       <td>${member.sale}</td>
+    //       <td><button onclick="deleteMember(${member.id})">삭제</button></td>
+    //     `;
+    //     tableBody.appendChild(row);
+    //   });
+    // }
+    //
+    // // 초기 회원 정보 표시
+    // renderMembers();
   
     // 회원 삭제 함수
     window.deleteMember = function(id) {
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 배송비 정보를 테이블에 추가하는 함수
     function renderShippingData() {
       tableBody.innerHTML = ""; // 기존 행 삭제
-  
+
       shippingData.forEach(shipping => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -106,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // 리뷰 정보를 테이블에 추가하는 함수
     function renderReviewData() {
       tableBody.innerHTML = ""; // 기존 행 삭제
-  
+
       reviewData.forEach(review => {
         const row = document.createElement("tr");
         row.innerHTML = `

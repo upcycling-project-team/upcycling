@@ -8,8 +8,8 @@ public class ProductDto {
     private Long shopCategoryNumber;
     private Long administratorNumber;
     private String productName;
-    private String detailContent;
-    private Long detailPrice;
-    private Long detailSale;
-    private String detailSysdate;
+    private String productContent;
+    private Long productPrice;
+    private Long productSale;
+    private String productSysdate;
 }
