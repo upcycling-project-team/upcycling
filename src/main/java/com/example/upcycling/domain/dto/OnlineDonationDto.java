@@ -5,14 +5,15 @@ import lombok.Data;
 @Data
 public class OnlineDonationDto {
     private Long onlineDonationNumber;
-    private Long keyRingNumber;
-    private String onlineDonationName;
-    private String onlineDonationTel;
-    private String onlineDonationAddr;
-    private String onlineDonationAddrDetail;
-    private String userNumber;
-    private Long onlineMaterialLeather;
-    private Long onlineMaterialDenim;
-    private Long onlineMaterialCotton;
+    private Long userNumber;
+    private int onlineMaterialLeather;
+    private int onlineMaterialDenim;
+    private int onlineMaterialCotton;
+    private String onlineDonationAgree;
+    private String onlineKeyringAgree;
+
+
+
+
 
 }

@@ -18,23 +18,20 @@ class OnlineDonationMapperTest {
     @BeforeEach
     void setUp() {
         onlineDonationDto = new OnlineDonationDto();
-        onlineDonationDto.setOnlineDonationNumber(1L);
-        onlineDonationDto.setOnlineDonationName("기부하기");
-        onlineDonationDto.setOnlineDonationTel("01026228606");
-        onlineDonationDto.setOnlineDonationAddr("노원구");
-        onlineDonationDto.setOnlineDonationAddrDetail("코리아아카데미5층");
-        onlineDonationDto.setOnlineMaterialLeather(1L);
-        onlineDonationDto.setOnlineMaterialDenim(0L);
-        onlineDonationDto.setOnlineMaterialCotton(1L);
-        onlineDonationDto.setKeyRingNumber(1L);
-        onlineDonationDto.setUserNumber("1");
+        onlineDonationDto.setOnlineDonationNumber(4L);
+        onlineDonationDto.setUserNumber(1L);
+        onlineDonationDto.setOnlineMaterialLeather(0);
+        onlineDonationDto.setOnlineMaterialDenim(1);
+        onlineDonationDto.setOnlineMaterialCotton(1);
+        onlineDonationDto.setOnlineDonationAgree("Y");
+        onlineDonationDto.setOnlineKeyringAgree("Y");
 
     }
 
 
     @Test
     void insert() {
-//        onlineDonationMapper.insert(onlineDonationDto);
+        onlineDonationMapper.insert(onlineDonationDto);
 
     }
 }
