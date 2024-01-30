@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 
-  document.addEventListener("DOMContentLoaded", function() {
-    // 예시로 몇 개의 지역별 배송비를 추가합니다.
-    const shippingData = [
-      { area: "서울", fee: 3000 },
-      { area: "경기", fee: 5000 },
-      { area: "부산", fee: 6000 },
-      // 추가적인 배송비 정보를 필요에 따라 추가할 수 있습니다.
-    ];
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   // 예시로 몇 개의 지역별 배송비를 추가합니다.
+  //   const shippingData = [
+  //     { area: "서울", fee: 3000 },
+  //     { area: "경기", fee: 5000 },
+  //     { area: "부산", fee: 6000 },
+  //     // 추가적인 배송비 정보를 필요에 따라 추가할 수 있습니다.
+  //   ];
   
     // const tableBody = document.querySelector("#shippingTable tbody");
     //
@@ -68,28 +68,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // }
   
     // 초기 배송비 정보 표시
-    renderShippingData();
+    // renderShippingData();
   
     // 배송비 수정 함수
-    window.editShippingFee = function(area) {
-      const newFee = prompt(`새로운 ${area} 지역의 배송비를 입력하세요.`);
-      
-      if (newFee !== null) {
-        const parsedFee = parseInt(newFee);
-        if (!isNaN(parsedFee) && parsedFee >= 0) {
-          const index = shippingData.findIndex(shipping => shipping.area === area);
-          if (index !== -1) {
-            shippingData[index].fee = parsedFee;
-            renderShippingData(); // 테이블 업데이트
-          } else {
-            alert(`${area} 지역을 찾을 수 없습니다.`);
-          }
-        } else {
-          alert("올바른 숫자를 입력하세요.");
-        }
-      }
-    };
-  });
+  //   window.editShippingFee = function(area) {
+  //     const newFee = prompt(`새로운 ${area} 지역의 배송비를 입력하세요.`);
+  //
+  //     if (newFee !== null) {
+  //       const parsedFee = parseInt(newFee);
+  //       if (!isNaN(parsedFee) && parsedFee >= 0) {
+  //         const index = shippingData.findIndex(shipping => shipping.area === area);
+  //         if (index !== -1) {
+  //           shippingData[index].fee = parsedFee;
+  //           renderShippingData(); // 테이블 업데이트
+  //         } else {
+  //           alert(`${area} 지역을 찾을 수 없습니다.`);
+  //         }
+  //       } else {
+  //         alert("올바른 숫자를 입력하세요.");
+  //       }
+  //     }
+  //   };
+  // });
   
   document.addEventListener("DOMContentLoaded", function() {
     // 예시로 몇 개의 리뷰를 추가합니다.
@@ -102,23 +102,23 @@ document.addEventListener("DOMContentLoaded", function() {
   
     const tableBody = document.querySelector("#reviewTable tbody");
   
-    // 리뷰 정보를 테이블에 추가하는 함수
-    function renderReviewData() {
-      tableBody.innerHTML = ""; // 기존 행 삭제
-
-      reviewData.forEach(review => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${review.id}</td>
-          <td>${review.author}</td>
-          <td>${review.content}</td>
-          <td>${review.rating}</td>
-          <td><button onclick="deleteReview(${review.id})">삭제</button></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
-  
+    // // 리뷰 정보를 테이블에 추가하는 함수
+    // function renderReviewData() {
+    //   tableBody.innerHTML = ""; // 기존 행 삭제
+    //
+    //   reviewData.forEach(review => {
+    //     const row = document.createElement("tr");
+    //     row.innerHTML = `
+    //       <td>${review.id}</td>
+    //       <td>${review.author}</td>
+    //       <td>${review.content}</td>
+    //       <td>${review.rating}</td>
+    //       <td><button onclick="deleteReview(${review.id})">삭제</button></td>
+    //     `;
+    //     tableBody.appendChild(row);
+    //   });
+    // }
+    //
     
     // 초기 리뷰 정보 표시
     renderReviewData();

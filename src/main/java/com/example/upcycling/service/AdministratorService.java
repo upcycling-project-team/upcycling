@@ -2,6 +2,7 @@ package com.example.upcycling.service;
 
 import com.example.upcycling.domain.dto.AdministratorDto;
 import com.example.upcycling.domain.dto.ProductDto;
+import com.example.upcycling.domain.dto.ShopReviewDto;
 import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.mapper.AdministratorMapper;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,18 @@ public class AdministratorService {
     public int findTotal(){
         return administratorMapper.selectTotal();
     }
+
+//    상품 구매평 리스트 조회
+    public List<ShopReviewDto> findProductReview(Criteria criteria){
+        return administratorMapper.selectProductReview(criteria);
+    }
+
+//    상품 구매명 카운트 조회
+    public int findReviewTotal(){
+        return administratorMapper.selectReviewTotal();
+    }
+
+
 
 
 

@@ -2,6 +2,7 @@ package com.example.upcycling.controller;
 
 import com.example.upcycling.domain.dto.AdministratorDto;
 import com.example.upcycling.domain.dto.ProductDto;
+import com.example.upcycling.domain.dto.ShopReviewDto;
 import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.PageVo;
 import com.example.upcycling.service.AdministratorService;
@@ -69,58 +70,76 @@ public class AdministratorController {
     /*상품*/
     @GetMapping("/product-info")
     public String productInfo(HttpSession session, Criteria criteria, Model model){
+        //        접근 제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
             return "admin/login";
         }
+//        리스트 5개씩 노출
         List<ProductDto> productInfo = administratorService.findProductInfo(criteria);
+        // System.out.println("productInfo = " + productInfo);
+        model.addAttribute("productInfo", productInfo);
+
+        // 5개씩 페이징 처리
         int total = administratorService.findTotal();
         PageVo pageVo = new PageVo(total, criteria);
 
-//        System.out.println("productInfo = " + productInfo);
-        model.addAttribute("productInfo", productInfo);
         model.addAttribute("pageInfo", pageVo);
 
         return "admin/product-info";
     }
 
-    @GetMapping("/product-delivery-fee")
-    public String productDeliveryFee(HttpSession session){
-        Long adminNumber = (Long)session.getAttribute("adminNumber");
-
-        if(adminNumber == null){
-            return "admin/login";
-        }
-
-        return "admin/product-delivery-fee";
-    }
+//    @GetMapping("/product-delivery-fee")
+//    public String productDeliveryFee(HttpSession session){
+//        Long adminNumber = (Long)session.getAttribute("adminNumber");
+//
+//        if(adminNumber == null){
+//            return "admin/login";
+//        }
+//
+//        return "admin/product-delivery-fee";
+//    }
     @GetMapping("/product-review")
-    public String productReview(HttpSession session){
+    public String productReview(HttpSession session, Criteria criteria, Model model){
+        //        접근 제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
             return "admin/login";
         }
+//  상품리뷰 리스트 조회
+        List<ShopReviewDto> productReview = administratorService.findProductReview(criteria);
+        System.out.println("productReview = " + productReview);
+        model.addAttribute("productReview",productReview);
+
+//  상품 리뷰 리스트 5개씩 노출
+        int reviewTotal = administratorService.findReviewTotal();
+        PageVo pageVo = new PageVo(reviewTotal, criteria);
+
+        model.addAttribute("pageReview",pageVo);
 
         return "admin/product-review";
+
+
+
     }
 
     /*회원*/
     @GetMapping("/user-info")
     public String userInfo(HttpSession session){
+        //        접근 제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
             return "admin/login";
         }
-
-
         return "admin/user-info";
     }
 
     @GetMapping("/user-order")
     public String userOrder(HttpSession session){
+        //        접근 제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
@@ -133,6 +152,7 @@ public class AdministratorController {
 
     @GetMapping("/user-delivery")
     public String userDelivery(HttpSession session){
+        //        접근 제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
@@ -146,6 +166,7 @@ public class AdministratorController {
     /*포인트*/
     @GetMapping("point-page")
     public String pointPage(HttpSession session){
+        //        접근 제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){

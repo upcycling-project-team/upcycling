@@ -13,17 +13,22 @@ body {
     border-collapse: collapse;
     margin-top: 20px;
   }
-  
+
+
   th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
   }
   
   th {
     background-color: #f2f2f2;
   }
-  
+
+  .productNumberTh{
+
+  }
+
   tr:hover {
     background-color: #f5f5f5;
   }
@@ -31,6 +36,7 @@ body {
   button {
     padding: 5px 10px;
     cursor: pointer;
+
   }
 
   .blank-margin{
@@ -53,6 +59,7 @@ body {
   justify-content: center;
   width: 138px;
   height: 24px;
+
 
 }
 .buttons>a{
