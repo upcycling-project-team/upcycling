@@ -24,7 +24,4 @@ public class UserDto {
     private String userBirthYear;
     private String userBirthMonth;
     private String userBirthDay;
-    private String userProfileName;
-    private String userProfileUploadPath;
-    private String userProfileUuid;
 }
