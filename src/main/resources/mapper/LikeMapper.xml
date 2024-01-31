@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.upcycling.mapper.LikeMapper">
+    <insert id="insertLike" parameterType="likeVo">
+        INSERT INTO TBL_LIKE(LIKE_NUMBER,USER_NUMBER,COMMUNITY_NUMBER)
+        VALUES (SEQ_LIKE.nextval,#{userNumber},#{communityNumber})
+    </insert>
+    <delete id="deleteLike" parameterType="long">
+    DELETE FROM TBL_LIKE
+    WHERE USER_NUMBER = #{userNumber} AND COMMUNITY_NUMBER = #{communityNumber}
+    </delete>
+    <select id="selectLike" resultType="int" parameterType="long" >
+        SELECT COUNT(LIKE_NUMBER)
+        FROM TBL_LIKE
+        WHERE USER_NUMBER = #{userNumber} AND COMMUNITY_NUMBER = #{communityNumber}
+    </select>
+</mapper>

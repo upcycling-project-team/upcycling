@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.upcycling.mapper.NewsMapper">
+    <select id="selectList" resultType="newsVo">
+        SELECT A.ADMINISTRATOR_ID,A.ADMINISTRATOR_NUMBER,
+               N.NEWS_TITLE,N.NEWS_CONTENT,N.NEWS_SYSDATE,N.NEWS_NUMBER,
+               NI.NEWS_IMG_NUMBER, NI.NEWS_IMG_NAME, NI.NEWS_IMG_UPLOAD_PATH, NI.NEWS_IMG_UUID
+        FROM TBL_ADMINISTRATOR A JOIN TBL_NEWS N
+                                      ON A.ADMINISTRATOR_NUMBER = N.ADMINISTRATOR_NUMBER
+                                 LEFT JOIN TBL_NEWS_IMG NI
+                                           ON N.NEWS_NUMBER = NI.NEWS_NUMBER
+    </select>
+    <select id="selectDetail" resultType="newsVo" parameterType="long">
+        SELECT  A.ADMINISTRATOR_ID,A.ADMINISTRATOR_NUMBER,
+                N.NEWS_NUMBER,N.NEWS_TITLE,NEWS_CONTENT,N.NEWS_SYSDATE
+        FROM TBL_ADMINISTRATOR A JOIN TBL_NEWS N ON A.ADMINISTRATOR_NUMBER = N.ADMINISTRATOR_NUMBER
+                                 LEFT JOIN TBL_NEWS_IMG NI
+                                           ON N.NEWS_NUMBER = NI.NEWS_NUMBER
+        WHERE N.NEWS_NUMBER = #{newsNumber}
+    </select>
+
+</mapper>

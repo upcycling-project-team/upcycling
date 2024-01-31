@@ -10,6 +10,7 @@
 </head>
 <body>
     <main>
+        <form th:action="@{/community/write}" method="post">
         <div class="content-wrap">
                 <section class="title" >
                     <div class="title__main">
@@ -23,7 +24,7 @@
                             </div>
                         </div>
                         <div>
-                            <input type="text" class="title__input"  placeholder="글의 제목을 입력하세요"> 
+                            <input name="communityTitle" type="text" class="title__input"  placeholder="글의 제목을 입력하세요">
                         </div>
                     </div>
                 </section>
@@ -31,24 +32,24 @@
                     <div class="attachment">
                         <div class="attachment__box">
                             <section class="attachment__button">
-                                <form action="" class="attachment__button-box">
+                                <div class="attachment__button-box">
                                         <label for="attachment-file">첨부파일</label>
                                         <input type="file" name="" id="attachment-file">
-                                </form>
+                                </div>
                             </section>
                         </div>
                     </div>
                     <div class="textarea">
                         <div class="textarea__box">
-                            <textarea placeholder="글의 내용을 입력하세요" class="textarea__text"></textarea>
+                            <textarea name="communityContent" placeholder="글의 내용을 입력하세요" class="textarea__text"></textarea>
                         </div>
                     </div>
                 </div>
             <div class="foooter">
-                <form action="" class="foooter__button">
+                <div class="foooter__button">
                     <div class="foooter__box">
                         <div class="foooter__ok">
-                            <button>작성완료</button>
+                            <button >작성완료</button>
                         </div>
                     </div> 
                     <div class="foooter__box2">
@@ -59,9 +60,10 @@
                             <button>수정</button>
                         </div>
                     </div>     
-                </form>
+                </div>
             </div>
         </div>
+        </form>
     </main>
 </body>
 </html>
