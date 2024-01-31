@@ -12,109 +12,113 @@
 <header></header>
 <div class="">
     <div class="donation__on-all">
-        <!-- 소재선택 -->
-        <section class="donation__choice-box">
-            <div class="donation__choice-title">
-                <!-- 소재선택 제목 -->
-                <article>
-                    <h4>소재 선택</h4>
-                </article>
-            </div>
-            <div class="donation__choice-material">
-                <!-- 소재선택 재료 박스 -->
-                <div class="donation__choice-material-box">
-
+        <form th:action="@{/donation/donation-online}" method="post">
+            <!-- 소재선택 -->
+            <section class="donation__choice-box">
+                <div class="donation__choice-title">
+                    <!-- 소재선택 제목 -->
                     <article>
-                        <label for="material-checkbox1">
-                            <!-- 가죽 소재 -->
-                            <input type="checkbox" name="" class="material-checkbox" id="material-checkbox1">
-                            <img th:src="@{/images/donation/leather.jpg}" alt="">
-                        </label>
-                    </article>
-
-                    <article>
-                        <label for="material-checkbox2">
-                            <!-- 데님 소재 -->
-                            <input type="checkbox" name="" class="material-checkbox"  id="material-checkbox2">
-                            <img th:src="@{/images/donation/denim.webp}" alt="">
-                        </label>
-                    </article>
-
-                    <article>
-                        <label for="material-checkbox3">
-                            <!-- 천 소재 -->
-                            <!-- 이미지 천이 구겨져 있는걸로 변경 -->
-                            <input type="checkbox" name="" class="material-checkbox"  id="material-checkbox3">
-                            <img th:src="@{/images/donation/clothes.jpg}" alt="">
-                        </label>
+                        <h4>소재 선택</h4>
                     </article>
                 </div>
-            </div>
-            <!-- <ul class="donation__choice-subtitle">
-                소재 선택 소제목
-                <li>&lt가죽&gt</li>
-                <li>&lt데님&gt</li>
-                <li>&lt천&gt</li>
-            </ul> -->
-        </section>
 
-        <!-- 기부페이지 아이디 기재 동의 여부 -->
-        <section class="donation__id-agree">
-            <!-- 아이디 기재 제목 -->
-            <div class="id-agree-title">
-                <article>
-                    <h4>기부페이지 기부자 ID 기재 동의 여부</h4>
-                </article>
-            </div>
-            <!-- 아이디 개재 설명 -->
-            <div class="id-agree-box">
-                <ul>
-                    <li>
-                        기부자 ID 기재에 동의하시면
-                        업사이클링샵 사이트의 커뮤니티 게시판
-                        "이달의 기부자"란에 ID가 기재되게 됩니다.
-                    </li>
-                    <br>
-                    <li>
-                        이 정보는 "이달의 기부자"란 기재 외
-                        어떠한 용도로도 사용되지 않습니다.
-                    </li>
-                </ul>
-                <!-- 아이디 기재 동의여부 -->
-                <div class="id__agree-choice">
-                    예 <input type="radio" name="id-agree-choice-radio" value="Y">
-                    아니오 <input type="radio" name="id-agree-choice-radio" value="N">
-                </div>
-            </div>
-        </section>
+                <div class="donation__choice-material">
+                    <!-- 소재선택 재료 박스 -->
+                    <div class="donation__choice-material-box">
 
-        <!-- 키링 수령 여부 -->
-        <section class="donation__keyring-agree">
-            <!-- 키링 기재 제목 -->
-            <div class="keyring-agree-title">
-                <article>
-                    <h4>키링 수령 여부</h4>
-                </article>
-            </div>
-            <!-- 키링수령 설명 -->
-            <div class="keyring-agree-box">
-                <ul>
-                    <li>키링 수령 기준은 기부하시는 소재의 무게가 도합 3kg이상 일 시 가능합니다.</li>
-                    <br>
-                    <li>키링 수령 희망 시 마이페이지에서 현 주소를 정확히 기입해 주십시오.</li>
-                    <br>
-                    <li>키링 수령시 배송비는 업사이클링샵 측에서 부담합니다.</li>
-                </ul>
-                <!-- 키링수령 동의여부 -->
-                <div class="keyring__agree-choice">
-                    예 <input type="radio" name="keyring-agree-choice-radio" value="Y">
-                    아니오 <input type="radio" name="keyring-agree-choice-radio" value="N">
+                        <article>
+                            <label for="material-checkbox1">
+                                <!-- 가죽 소재 -->
+                                <input type="checkbox" name="material" class="material-checkbox" id="material-checkbox1"
+                                       value="leather">
+                                <img th:src="@{/images/donation/leather.jpg}" alt="">
+                            </label>
+                        </article>
+
+                        <article>
+                            <label for="material-checkbox2">
+                                <!-- 데님 소재 -->
+                                <input type="checkbox" name="material" class="material-checkbox" id="material-checkbox2"
+                                       value="denim">
+                                <img th:src="@{/images/donation/denim.webp}" alt="">
+                            </label>
+                        </article>
+
+                        <article>
+                            <label for="material-checkbox3">
+                                <!-- 천 소재 -->
+                                <!-- 이미지 천이 구겨져 있는걸로 변경 -->
+                                <input type="checkbox" name="material" class="material-checkbox" id="material-checkbox3"
+                                       value="cotton">
+                                <img th:src="@{/images/donation/clothes.jpg}" alt="">
+                            </label>
+                        </article>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <!-- 기부하기 버튼 -->
-        <section class="donation__submit">
-            <form action="../../donation/thanks/html/thanks.html">
+                <!-- <ul class="donation__choice-subtitle">
+                    소재 선택 소제목
+                    <li>&lt가죽&gt</li>
+                    <li>&lt데님&gt</li>
+                    <li>&lt천&gt</li>
+                </ul> -->
+            </section>
+
+            <!-- 기부페이지 아이디 기재 동의 여부 -->
+            <section class="donation__id-agree">
+                <!-- 아이디 기재 제목 -->
+                <div class="id-agree-title">
+                    <article>
+                        <h4>기부페이지 기부자 ID 기재 동의 여부</h4>
+                    </article>
+                </div>
+                <!-- 아이디 개재 설명 -->
+                <div class="id-agree-box">
+                    <ul>
+                        <li>
+                            기부자 ID 기재에 동의하시면
+                            업사이클링샵 사이트의 커뮤니티 게시판
+                            "이달의 기부자"란에 ID가 기재되게 됩니다.
+                        </li>
+                        <br>
+                        <li>
+                            이 정보는 "이달의 기부자"란 기재 외
+                            어떠한 용도로도 사용되지 않습니다.
+                        </li>
+                    </ul>
+                    <!-- 아이디 기재 동의여부 -->
+                    <div class="id__agree-choice">
+                        예 <input type="radio" name="idAgree" value="Y">
+                        아니오 <input type="radio" name="idAgree" value="N">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 키링 수령 여부 -->
+            <section class="donation__keyring-agree">
+                <!-- 키링 기재 제목 -->
+                <div class="keyring-agree-title">
+                    <article>
+                        <h4>키링 수령 여부</h4>
+                    </article>
+                </div>
+                <!-- 키링수령 설명 -->
+                <div class="keyring-agree-box">
+                    <ul>
+                        <li>키링 수령 기준은 기부하시는 소재의 무게가 도합 3kg이상 일 시 가능합니다.</li>
+                        <br>
+                        <li>키링 수령 희망 시 마이페이지에서 현 주소를 정확히 기입해 주십시오.</li>
+                        <br>
+                        <li>키링 수령시 배송비는 업사이클링샵 측에서 부담합니다.</li>
+                    </ul>
+                    <!-- 키링수령 동의여부 -->
+                    <div class="keyring__agree-choice">
+                        예 <input type="radio" name="keyringAgree" value="Y">
+                        아니오 <input type="radio" name="keyringAgree" value="N">
+                    </div>
+                </div>
+            </section>
+            <!-- 기부하기 버튼 -->
+            <section class="donation__submit">
                 <div class="donation__submit-button-box">
                     <div class="donation__submit-button">
                         <button class="donation__go-button" type="submit">
@@ -122,9 +126,9 @@
                         </button>
                     </div>
                 </div>
-            </form>
-        </section>
 
+            </section>
+        </form>
     </div>
 </div>
 <footer></footer>

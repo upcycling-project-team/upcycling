@@ -2,4 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.OnlineDonationMapper">
 
+    <insert id="insert" parameterType="onlineDonationDto">
+        INSERT INTO TBL_ONLINE_DONATION(ONLINE_DONATION_NUMBER,USER_NUMBER,
+                                        ONLINE_MATERIAL_LEATHER, ONLINE_MATERIAL_DENIM, ONLINE_MATERIAL_COTTON,
+                                        ONLINE_DONATION_AGREE, ONLINE_KEYRING_AGREE)
+            VALUES (SEQ_ONLINE_DONATION.nextval, #{userNumber},
+                #{onlineMaterialLeather}, #{onlineMaterialDenim}, #{onlineMaterialCotton},
+                #{onlineDonationAgree}, #{onlineKeyringAgree})
+    </insert>
 </mapper>
