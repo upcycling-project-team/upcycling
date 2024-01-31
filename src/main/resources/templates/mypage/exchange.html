@@ -6,10 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/mypage/exchange.css}" />
     <link rel="stylesheet" th:href="@{/css/mypage/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   </head>
   <body>
     <div>
-      <header></header>
+      <header th:replace="~{/fragments/header :: header}"></header>
 
       <!-- 교환/반품 페이지 -->
 
@@ -72,9 +74,9 @@
               <h4 class="order__data">교환/반품 내역</h4>
             </div>
 
-            <div class="main__order">교환/반품 내역이 없습니다.</div>
+            <div class="main__order" th:if="${!#lists.isEmpty(exchange_box)}">교환/반품 내역이 없습니다.</div>
 
-            <div class="exchange_title_box">
+            <div class="exchange_title_box" >
               <div class="list_title__01">cs처리구분</div>
               <div class="list_title__02">주문번호</div>
               <div class="list_title__03">접수제목</div>
@@ -83,7 +85,7 @@
               <div class="list_title__01">완료일자</div>
             </div>
             <!-- 테이터 들어가는곳? -->
-            <div class="exchange_box">
+            <div class="exchange_box" th:if="${#lists.isEmpty(exchange_box)}">
               <div class="list__01">교환</div>
               <div class="list__02">0000000000000</div>
               <div class="list__03">교환</div>
@@ -265,7 +267,7 @@
         </div>
       </main>
 
-      <footer></footer>
+      <footer th:replace="~{/fragments/footer :: footer}"></footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>

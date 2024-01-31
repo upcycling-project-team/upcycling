@@ -6,13 +6,15 @@
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/mypage/orderinquiry.css}" />
     <link rel="stylesheet" th:href="@{/css/mypage/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
 
 
 
   </head>
   <body>
     <div>
-      <header ></header>
+      <header th:replace="~{/fragments/header :: header}"></header>
 
       <!-- 주문조회 페이지 -->
 
@@ -283,7 +285,7 @@
 
 
 
-      <footer ></footer>
+      <footer th:replace="~{/fragments/footer :: footer}"></footer>
 
       <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
       <script th:src="@{/js/mypage/modal.js}"></script>
