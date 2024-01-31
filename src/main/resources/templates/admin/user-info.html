@@ -63,19 +63,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- 여기에 회원 정보가 동적으로 추가될 것입니다. -->
-<!--					<tr th:each="">-->
-<!--						<td th:text="${}"></td>-->
-<!--						<td th:text="${}"></td>-->
-<!--						<td th:text="${}"></td>-->
-<!--						<td th:text="${}"></td>-->
-<!--						<td th:text="${}"></td>-->
-<!--						<td th:text="${}"></td>-->
-<!--						<td>-->
-<!--							<button onclick=""></button>-->
-<!--						</td>-->
-<!--					</tr>-->
-
+                      <!-- 회원 정보가 동적 추가. -->
+					<tr th:each="userInfo : ${userInfo}">
+						<td th:text="${userInfo.userNumber}"></td>
+						<td th:text="${userInfo.userId}"></td>
+						<td th:text="${userInfo.userName}"></td>
+						<td th:text="${userInfo.userEmail}"></td>
+						<td th:text="${userInfo.userBirth}"></td>
+						<td th:text="${userInfo.userPhoneNumber}"></td>
+						<td>
+							<button onclick="">삭제</button>
+						</td>
+					</tr>
                     </tbody>
                   </table>
             </div>
