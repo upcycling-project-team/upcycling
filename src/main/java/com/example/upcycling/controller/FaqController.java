@@ -2,13 +2,17 @@ package com.example.upcycling.controller;
 
 import com.example.upcycling.domain.dto.FaqDto;
 import com.example.upcycling.service.FaqService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //실험중
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,14 +45,43 @@ public class FaqController {
     @GetMapping("/detail")
     public String faq03(Long faqNumber, Model model)
     {
-        Optional<FaqDto> board =faqService.findBoard(faqNumber);
+        FaqDto board = faqService.findBoard(faqNumber);
+        FaqDto board2 = faqService.findBoardLeft(faqNumber);
+        FaqDto board3 = faqService.findBoardRight(faqNumber);
+        FaqDto board4 = faqService.findBoardMax(faqNumber);
         model.addAttribute("board", board);
+        model.addAttribute("board2",board2);
+        model.addAttribute("board3",board3);
+        model.addAttribute("board4",board4);
         return "faq/faq03";
     }
 
     @GetMapping("/write")
-    public String faq04(){
+    public String faq04(HttpSession session){
+        Long administratorNumber = (Long) session.getAttribute("administratorNumber");
+
+//        if (administratorNumber == null){
+//            return "admin/login";
+//        }
+
         return "faq/faq04";
     }
 
+    @PostMapping("/write")
+    public RedirectView faq04(FaqDto faqDto){
+        faqService.register(faqDto);
+        return new RedirectView("/faq/main");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

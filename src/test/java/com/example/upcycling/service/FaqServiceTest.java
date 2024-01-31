@@ -25,8 +25,29 @@ class FaqServiceTest {
 //    테스트에는 매개변수를 담으면 안됨.
     @Test
     void findBoard(){
-        Optional<FaqDto> foundBoard = faqService.findBoard(1L);
+        FaqDto foundBoard = faqService.findBoard(1L);
         System.out.println("foundBoard = " + foundBoard);
+    }
+    
+    @Test
+    void findBoardLeft(){
+        FaqDto foundBoard2 = faqService.findBoardLeft(1L);
+        System.out.println("foundBoard2 = " + foundBoard2);
+    }
+
+    @Test
+    void findBoardMax(){
+        FaqDto foundBoard3 = faqService.findBoardMax(1L);
+        System.out.println("foundBoard3 = " + foundBoard3);
+    }
+
+    @Test
+    void register(){
+        FaqDto faqDto = new FaqDto();
+        faqDto.setFaqQuestion("질문제목");
+        faqDto.setFaqAnswer("질문제목에 대한 답변입니다.");
+        faqDto.setAdministratorNumber(1L);
+        faqService.register(faqDto);
     }
 
 }
