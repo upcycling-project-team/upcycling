@@ -15,9 +15,20 @@ public class UserService {
         userMapper.insert(userDto);
     }
 
+
+
+
     //   로그인 시 회원 번호 조회
-    public Long findUserNumber(UserDto userDto){
+    // 1차로 씀.
+  /*  public Long findUserNumber(UserDto userDto){
         return userMapper.selectUserNumber(userDto);
+    }*/
+  public Long findUserNumber(UserDto userDto){
+       return userMapper.selectUserNumber(userDto)
+               .orElseThrow(() -> new IllegalStateException("일치하는 회원 정보 없음"));
+
+
+  }
     }
 
-}
+

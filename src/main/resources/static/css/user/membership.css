@@ -119,6 +119,7 @@ input:focus {
   font-size: 1em;
   cursor: pointer;
   border: none;
+  font-family: "GmarketSansMedium";
 }
 
 .membership-grup .membership-grup__title {
