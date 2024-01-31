@@ -27,46 +27,15 @@
         <div class="top_question">
         <h3>자주묻는 질문</h3>
         </div>
+        <!--    질문리스트    -->
         <div class="faq_list">
           <ul>
-            <li>
-              <a href="">
+            <li th:each="title : ${titleList}">
+              <a th:href="@{/faq/detail(faqNumber=${title.faqNumber})}">
                 <span class="type">
                   <span class="question">Q</span>
                 </span>
-                업사이클링이 무엇인가요?
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="type">
-                  <span class="question">Q</span>
-                </span>
-                주문하는 방법을 모르겠어요
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="type">
-                  <span class="question">Q</span>
-                </span>
-                기부하는 방법을 모르겠어요
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="type">
-                  <span class="question">Q</span>
-                </span>
-                업사이클링된 제품이 궁금해요
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <span class="type">
-                  <span class="question">Q</span>
-                </span>
-                질문 있어요
+                <span th:text="${title.faqQuestion}"></span>
               </a>
             </li>
           </ul>

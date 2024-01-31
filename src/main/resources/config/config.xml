@@ -4,6 +4,7 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.example.upcycling.domain.dto.UserDto" alias="userDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.FaqDto" alias="faqDto"></typeAlias>
 
         <typeAlias type="com.example.upcycling.domain.dto.ProductDto" alias="productDto"/>
 

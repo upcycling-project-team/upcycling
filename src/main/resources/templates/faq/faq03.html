@@ -13,56 +13,46 @@
       <div class="border">
         <!-- 첫번째 답변 style="display: none;" -->
         <div class="result-page1">
-          <div class="title-div">
+          <div class="title-div" >
             <div class="top-question">
-              <h1>Q 업사이클링이 무엇인가요?</h1>
+              <h1 th:text="${board.faqQuestion}">
+                Q 업사이클링이 무엇인가요?
+              </h1>
             </div>
           </div>
           <div class="content-div">
             <div class="content-text">
-              <p>
-                <span class="content_span-type">p태그 첫번째 문단</span>
-                <br />
-                <br />
-                1문장
-                <br />
-                2문장
-                <br />
-                3문장
-              </p>
-              <p>
-                <span class="content_span-type">p태그 두번째 문단</span>
-                <br />
-                <br />
-                1문장
-                <br />
-                2문장
-                <br />
-                3문장
-              </p>
+                <span class="content_span-type" th:text="${board.faqAnswer}">
+                </span>
             </div>
           </div>
           <!-- 이전글 다음글 클릭하면 넘어가도록설정. -->
           <div class="faq-div">
             <div class="blank-line"></div>
-            <ul>
-              <li class="faq_next-box">
-                <a href=""
-                  ><span class="faq_span-type">이전글</span>
-                  <span>클릭하면 이전 질문에 대한 답변으로</span></a
-                >
-              </li>
-              <li class="faq_next-box">
-                <a href=""
-                  ><span class="faq_span-type">다음글</span>
-                  <span>주문하는 방법을 모르겠어요</span></a
-                >
-              </li>
-            </ul>
+<!--            <ul>-->
+<!--              <li class="faq_next-box" th:if="${board.faqNumber>1}">-->
+<!--                <a th:href="@{/faq/detail(faqNumber=${board2.faqNumber})}"-->
+<!--                  ><span class="faq_span-type">이전글</span>-->
+<!--                  <span th:text="${board2.faqQuestion}"></span></a-->
+<!--                >-->
+<!--              </li>-->
+<!--              <li class="faq_next-box" th:unless="${board.faqNumber>1}">-->
+<!--                <span class="faq_span-type">이전글이 없습니다.</span>-->
+<!--              </li>-->
+<!--              <li class="faq_next-box" th:if="${board.faqNumber<board4.faqNumber}">-->
+<!--                <a th:href="@{/faq/detail(faqNumber=${board3.faqNumber})}"-->
+<!--                  ><span class="faq_span-type">다음글</span>-->
+<!--                  <span th:text="${board3.faqQuestion}"></span></a-->
+<!--                >-->
+<!--              </li>-->
+<!--              <li class="faq_next-box" th:unless="${board.faqNumber<board4.faqNumber}">-->
+<!--                <span class="faq_span-type">다음글이 없습니다.</span>-->
+<!--              </li>-->
+<!--            </ul>-->
           </div>
           <!-- 여백 + 목록으로-->
           <div class="blank">
-            <a href=""><span class="blank_span-type">&lt;&lt;목록으로</span></a>
+            <a th:href="@{/faq/main}"><span class="blank_span-type">&lt;&lt;목록으로</span></a>
           </div>
         </div>
       </div>
