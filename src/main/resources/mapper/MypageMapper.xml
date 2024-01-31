@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.MypageMapper">
+
     <select id="selectOrderinquiry" parameterType="long" resultType="mypageInquiryVo">
         SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, O.ORDER_DATE, O.ORDER_STATUS,
                P.PRODUCT_NUMBER, PRODUCT_NAME,

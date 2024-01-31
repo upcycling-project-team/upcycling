@@ -4,11 +4,25 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.example.upcycling.domain.dto.UserDto" alias="userDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.FaqDto" alias="faqDto"></typeAlias>
+
+        <typeAlias type="com.example.upcycling.domain.dto.ProductDto" alias="productDto"/>
+        <typeAlias type="com.example.upcycling.domain.dto.ShopReviewDto" alias="shopReviewDto"/>
+
+        <typeAlias type="com.example.upcycling.domain.dto.AdministratorDto" alias="administratorDto"></typeAlias>
+
+        <typeAlias type="com.example.upcycling.domain.vo.Criteria" alias="criteria"/>
 
 
         <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryVo" alias="mypageInquiryVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.UserModifyVo" alias="userModifyVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryDetailsVo" alias="mypageInquiryDetailsVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.dto.SavedMoneyDto" alias="savedMoneyDto"></typeAlias>
+
+        <typeAlias type="com.example.upcycling.domain.vo.CommunityVo" alias="communityVo"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.CommunityDto" alias="communityDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.vo.CommunityCommentVO" alias="communitCommentVo"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.vo.NewsVo" alias="newsVo"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.vo.LikeVo" alias="likeVo"></typeAlias>
     </typeAliases>
 </configuration>

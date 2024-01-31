@@ -2,4 +2,78 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.AdministratorMapper">
 
+<!--    admin 계정 생성-->
+<insert id="insert">
+    INSERT INTO TBL_ADMINISTRATOR(ADMINISTRATOR_NUMBER, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD, ADMINISTRATOR_NAME, ADMINISTRATOR_AUTH)
+    VALUES (SEQ_ADMINISTRATOR.nextval, #{administratorId},#{administratorPassword},#{administratorName},#{administratorAuth})
+</insert>
+
+<!--    로그인-->
+    <select id="selectAdminNumber" parameterType="administratorDto" resultType="long">
+        SELECT ADMINISTRATOR_NUMBER
+        FROM TBL_ADMINISTRATOR
+        WHERE ADMINISTRATOR_ID = #{administratorId} AND ADMINISTRATOR_PASSWORD = #{administratorPassword}
+    </select>
+
+<!-- 상품 리스트 조회(product-info.html) -->
+    <select id="selectProductInfo" parameterType="criteria" resultType="productDto">
+        SELECT PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_CONTENT, PRODUCT_PRICE, PRODUCT_SALE
+        FROM (
+            SELECT ROWNUM RNUM, PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_CONTENT, PRODUCT_PRICE, PRODUCT_SALE
+            FROM (
+                SELECT PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_CONTENT, PRODUCT_PRICE, PRODUCT_SALE
+                FROM TBL_PRODUCT
+                ORDER BY PRODUCT_NUMBER
+            )
+            <![CDATA[
+            WHERE ROWNUM <=  #{page} * #{amount}
+            ]]>
+        )
+        WHERE RNUM > (#{page} - 1) * #{amount}
+    </select>
+
+<!--    product-info.html 페이징 처리 -->
+
+    <select id="selectTotal" resultType="_int">
+        SELECT COUNT(PRODUCT_NUMBER)
+        FROM TBL_PRODUCT
+    </select>
+
+    <!-- 상품 리뷰 조회(product-review.html) -->
+<select id="selectProductReview" parameterType="criteria" resultType="shopReviewDto">
+    SELECT RNUM, REVIEW_NUMBER, USER_NUMBER, REVIEW_CONTENT
+    FROM(SELECT ROWNUM RNUM ,REVIEW_NUMBER, USER_NUMBER, REVIEW_CONTENT
+    FROM(SELECT REVIEW_NUMBER, USER_NUMBER, REVIEW_CONTENT
+    FROM TBL_SHOP_REVIEW
+    ORDER BY REVIEW_NUMBER)
+    <![CDATA[
+    WHERE ROWNUM <= #{page} * #{amount})
+    ]]>
+    WHERE RNUM > (#{page} - 1) * #{amount}
+</select>
+
+    <!--    product-review.html 페이징 처리 -->
+    <select id="selectReviewTotal" resultType="_int">
+    SELECT COUNT(REVIEW_NUMBER)
+    FROM TBL_SHOP_REVIEW
+    </select>
+
+<!--    회원 정보 조회-->
+<select id="selectUserInfo" parameterType="criteria" resultType="userDto" >
+    SELECT RNUM, USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
+    FROM(SELECT  ROWNUM RNUM, USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
+    FROM (SELECT USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
+    FROM TBL_USER
+    ORDER BY USER_NUMBER
+    )
+    <![CDATA[
+    WHERE ROWNUM <= #{page} * #{amount}
+    )
+    ]]>
+    WHERE RNUM > (#{page} - 1) * #{amount}
+</select>
+
+<!-- user-info.html 페이징 처리   -->
+
+
 </mapper>

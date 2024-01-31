@@ -34,4 +34,31 @@ body {
     cursor: pointer;
     margin-right: 10px;
   }
-  
+
+.blank-margin{
+  height: 25px;
+
+}
+
+.button-list{
+  /*width: 1300px;*/
+  /*height: 43px;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 138px;
+  height: 24px;
+
+}
+.buttons>button{
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+}

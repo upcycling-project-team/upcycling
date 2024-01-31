@@ -1,119 +1,133 @@
 .news{
-    margin-top: 85px;
+  margin-top: 85px;
 }
 .news__title{
-    height: 100px;
-    align-items: center;
-    display: flex;
-    font-size: 70px;
-    color: var(--main-color);
-    border-bottom: 2px black;
-    border-spacing: 0;
-    font-weight: 700px;
+  height: 100px;
+  align-items: center;
+  display: flex;
+  font-size: 70px;
+  color: var(--main-color);
+  border-bottom: 2px black;
+  border-spacing: 0;
+  font-weight: 700;
 }
 .menu{
-    margin-top: 30px;
-    height: 60px;
+  margin-top: 30px;
+  height: 60px;
 }
 .menu__category{
-    height: 60px;
-    display: flex;
-    align-items: center;
-    
+  height: 60px;
+  display: flex;
+  align-items: center;
+
 }
 .menu__category a {
-    margin: 25px;
-    font-size: 20px;
-    color: var(--main-color);
+  margin: 25px;
+  font-size: 20px;
+  color: var(--main-color);
 }
 .grid{
-    height: 40px;
-    border-bottom: 3px solid var(--strong-color) ;
+  height: 40px;
+  border-bottom: 3px solid var(--strong-color) ;
 }
 .main-content{
-    height: 1600px;
-    padding: 0 15px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    width: 1300px;
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  width: 1300px;
+  align-content: flex-start;
 }
 .main-content__news{
-    margin-top: 20px;
-    height: 440px;
-    width: 270px;
-    margin: 20px;
+  margin-top: 20px;
+  height: 440px;
+  width: 270px;
+  margin: 20px;
 }
 .main-content_img{
-    width: 270px;
-    height: 250px;
-    margin: 30px;
+  width: 270px;
+  height: 250px;
+  margin: 30px;
 }
 .main-content__img__photo{
-    width: 270px;
-    height: 250px;
+  width: 270px;
+  height: 250px;
 }
 .admin{
-    align-items: center;
-    height: 52px;
-    width: 270px;
-    display: flex;
-    padding-left: 5px;
+  align-items: center;
+  height: 52px;
+  width: 270px;
+  display: flex;
+  padding-left: 5px;
 }
 .admin__img,
 .admin__img__icon{
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
 }
 .footer{
-    width: 1300px;
-    height: 100px;
+  width: 1300px;
+  height: 100px;
 }
 .search{
-    width: 1300px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+  width: 1300px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 
 }.search__box{
-    width: 220px;
-    height: 43px;
-    display: flex;
-}
+   width: 220px;
+   height: 43px;
+   display: flex;
+ }
 .search__bar{
-    width: 220px;
-    height: 34px;
-    padding-left: 5px;
+  width: 220px;
+  height: 34px;
+  padding-left: 5px;
 }
 .img-box,
 .img-box__img{
-    height: 34px;
-    width: 34px;
-    margin-left: 3px;
+  height: 34px;
+  width: 34px;
+  margin-left: 3px;
 }
 
 .page{
-    width: 1300px;
-    height: 43px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
+  width: 1300px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 .button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 138px;
-    height: 24px;
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 138px;
+  height: 24px;
+
 }
 .button>button{
-    margin: 10px;
-    border: none;
-    cursor: pointer;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.admin__img__like{
+  height: 32px;
+  width: 32px;
+
+}
+.admin__img__likeButton{
+  height: 52px;
+  width: 52px;
+  border: none;
+  background: white;
+  padding-left: 20px;
+  cursor: pointer;
 }
