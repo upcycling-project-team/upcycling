@@ -32,6 +32,7 @@
 
 .mypage__my_box {
   margin-top: 10px;
+  margin-bottom: 40px;
   width: 95%;
   display: flex;
   justify-content: center;

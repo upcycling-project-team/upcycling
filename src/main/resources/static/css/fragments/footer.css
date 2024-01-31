@@ -11,7 +11,7 @@
     font-family: 'GmarketSansMedium';
 }
 
-.footer{
+.footer__footer{
     background-color: rgb(70,170,170);
     width: 1519.200;
     height: 345.575px;
@@ -19,7 +19,7 @@
 
 }
 
-.footer__box{
+.footer__footer__box{
     /* background-color: coral; */
     width: 1519.200;
     height: 323px;
@@ -30,7 +30,7 @@
 
 }
 
-.footer__cominfo-box1{
+.footer__footer__cominfo-box1{
     /* background-color: aqua; */
     height: 20%;
     display: flex;
@@ -38,7 +38,7 @@
 
 }
 
-.footer__com-name{
+.footer__footer__com-name{
     /* background-color: blue; */
     width: 50%;
     display: flex;
@@ -47,14 +47,14 @@
 
 }
 
-.footer__name-box{
+.footer__footer__name-box{
     /* background-color: blueviolet; */
     display: flex;
     font-size: 35px;
 
 }
 
-.footer__com-sns{
+.footer__footer__com-sns{
     /* background-color: blueviolet; */
     width: 50%;
     display: flex;
@@ -64,7 +64,7 @@
 }
 
 
-.footer__inner-sns{
+.footer__footer__inner-sns{
     /* background-color: blue; */
     display: flex;
     width: 100%;
@@ -74,18 +74,18 @@
 
 
 
-.footer__inner-sns > a{
+.footer__footer__inner-sns > a{
     text-decoration: none;
     color: aliceblue;
 }
 
-.footer__inner-sns > a :hover{
+.footer__footer__inner-sns > a :hover{
     color: rgb(150,220,220);
 }
 
 
 
-.footer__instagram-box{
+.footer__footer__instagram-box{
     border: 2px solid white;
     width: 150px;
     height: 40px;
@@ -96,7 +96,7 @@
     cursor: pointer;
 }
 
-.footer__kakaotalk-box{
+.footer__footer__kakaotalk-box{
     border: 2px solid white ;
     width: 150px;
     height: 40px;
@@ -107,7 +107,7 @@
 }
 
 
-.footer__cominfo-box2{
+.footer__footer__cominfo-box2{
     /* background-color: cornsilk; */
     height: 50%;
     display: flex;
@@ -115,7 +115,7 @@
 
 }
 
-.footer__company-infomation{
+.footer__footer__company-infomation{
     /* background-color: darkgrey; */
     width: 50%;
     height: 100%;
@@ -124,18 +124,18 @@
 
 }
 
-.footer__inner-infomation{
+.footer__footer__inner-infomation{
     /* background-color: dimgray; */
     display: flex;
 }
 
-.footer__com-info-ul{
+.footer__footer__com-info-ul{
     list-style: none;
     margin-top: 10px;
 
 }
 
-.footer__per-infomation{
+.footer__footer__per-infomation{
     /* background-color: bisque; */
     width: 50%;
     height: 100%;
@@ -143,14 +143,14 @@
     justify-content: flex-end;
 }
 
-.footer__inner-per{
+.footer__footer__inner-per{
     /* background-color: dimgray; */
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-.footer__per-info-ul{
+.footer__footer__per-info-ul{
     list-style: none;
     margin-top: 10px;
     display: flex;
@@ -159,24 +159,24 @@
 
 }
 
-.footer__per-info-li{
+.footer__footer__per-info-li{
     margin-right: 20px;
 }
 
 
 
-.footer__cominfo-box3{
+.footer__footer__cominfo-box3{
     /* background-color: fuchsia; */
     height: 30%;
 
 }
 
-.footer__copyright-box{
+.footer__footer__copyright-box{
     /* background-color: chocolate; */
     height: 30px;
     padding-top: 20px;
 }
 
-.footer__copyright{
+.footer__footer__copyright{
     font-size: 10px;
 }
