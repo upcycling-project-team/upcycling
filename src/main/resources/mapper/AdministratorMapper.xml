@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.AdministratorMapper">
+<insert id="insert">
+    INSERT INTO TBL_ADMINISTRATOR(ADMINISTRATOR_NUMBER, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD, ADMINISTRATOR_NAME, ADMINISTRATOR_AUTH)
+    VALUES (SEQ_ADMINISTRATOR.nextval, #{administratorId},#{administratorPassword},#{administratorName},#{administratorAuth})
+</insert>
+
+    <select id="selectAdminNumber" parameterType="administratorDto" resultType="long">
+        SELECT ADMINISTRATOR_NUMBER
+        FROM TBL_ADMINISTRATOR
+        WHERE ADMINISTRATOR_ID = #{administratorId} AND ADMINISTRATOR_PASSWORD = #{administratorPassword}
+    </select>
+
+    <select id="selectProductInfo" parameterType="criteria" resultType="productDto">
+        SELECT PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_CONTENT, PRODUCT_PRICE, PRODUCT_SALE
+        FROM (
+            SELECT ROWNUM RNUM, PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_CONTENT, PRODUCT_PRICE, PRODUCT_SALE
+            FROM (
+                SELECT PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_CONTENT, PRODUCT_PRICE, PRODUCT_SALE
+                FROM TBL_PRODUCT
+                ORDER BY PRODUCT_NUMBER
+            )
+            <![CDATA[
+            WHERE ROWNUM <=  #{page} * #{amount}
+            ]]>
+        )
+        WHERE RNUM > (#{page} - 1) * #{amount}
+    </select>
+
+    <select id="selectTotal" resultType="_int">
+        SELECT COUNT(PRODUCT_NUMBER)
+        FROM TBL_PRODUCT
+    </select>
 
 <!--    admin 계정 생성-->
 <insert id="insert">

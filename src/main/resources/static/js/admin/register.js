@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
   //   };
   // });
 
+
   
 
 
@@ -131,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //   });
     // }
     //
-    
+
     // 초기 리뷰 정보 표시
     renderReviewData();
   

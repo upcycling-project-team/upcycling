@@ -19,7 +19,7 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a  class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
+                <a  class="menu__a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
               </li>
               <li class="menu__li">
                 <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
@@ -41,7 +41,7 @@
                 <!-- 회원 이미지 박스 -->
                 <div class="member__img_box">
                   <a href=""
-                    ><img th:src="@{/images/mypage/user_img.png}" class="member__img" alt=""
+                    ><img th:src="${'/upload/' + user.userProfileUploadPath + '/' + user.userProfileUuid + '_' + user.userProfileName}" class="member__img" alt=""
                   /></a>
                 </div>
                 <!-- 회원 이미지 박스 -->
@@ -139,7 +139,7 @@
                 <section class="member_modify_box">
                   <h2 class="modify__h2">정보 수정</h2>
                   <figure class="member_img_box">
-                    <img th:src="@{/images/mypage/user_img.png}" class="img_box" alt="" />
+                    <img th:src="${'/upload/' + user.userProfileUploadPath + '/' + user.userProfileUuid + '_' + user.userProfileName}" class="img_box" alt="" />
                     <figcaption class="figcaption">
                       <label for="file_01" class="camera_btn">
                         <div class="camera_background">
