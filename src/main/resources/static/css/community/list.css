@@ -129,3 +129,10 @@
 .write-btn__button > a:hover {
   opacity: 1;
 }
+tobody > tr > a {
+  cursor: pointer;
+}
+tobody > tr > a:hover{
+  color: var(--main-color); /* 텍스트 색상 변경 */
+  border: none;
+}

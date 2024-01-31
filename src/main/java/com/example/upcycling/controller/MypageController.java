@@ -1,5 +1,6 @@
 package com.example.upcycling.controller;
 
+import com.example.upcycling.domain.dto.SavedMoneyDto;
 import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.domain.vo.MypageInquiryDetailsVo;
 import com.example.upcycling.domain.vo.MypageInquiryVo;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +28,7 @@ public class MypageController {
     @GetMapping("/exchange")
     public String exchange(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 1L;
+        Long userNumber = 24L;
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
@@ -41,7 +43,15 @@ public class MypageController {
     }
 
     @GetMapping("/inquiry")
-    public String inquiry(){
+    public String inquiry(HttpSession session, Model model){
+        //Long userNumber = (Long) session.getAttribute("userNumber");
+        Long userNumber = 24L;
+
+        List<SavedMoneyDto> listSavedMoney = mypageService.findListSavedMoney(userNumber);
+        UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
+
+        model.addAttribute("savedMoney", listSavedMoney);
+        model.addAttribute("user", userDto);
         return "mypage/inquiry";
     }
 
@@ -49,23 +59,34 @@ public class MypageController {
     @GetMapping("/savedmoney")
     public String savedmoney(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 1L;
+        Long userNumber = 24L;
 
+        List<SavedMoneyDto> listSavedMoney = mypageService.findListSavedMoney(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
+        model.addAttribute("savedMoney", listSavedMoney);
         model.addAttribute("user", userDto);
         return "mypage/savedmoney";
     }
 
+//
     @GetMapping("/writinginquiries")
-    public String writinginquiries(){
+    public String writinginquiries(HttpSession session, Model model){
+        //Long userNumber = (Long) session.getAttribute("userNumber");
+        Long userNumber = 24L;
+
+        UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
+
+        model.addAttribute("user", userDto);
+
         return "mypage/writinginquiries";
     }
 
+//    주문내역 리스트
     @GetMapping("/orderinquiry")
     public String orderinquiry(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 1L;
+        Long userNumber = 24L;
 
         List<MypageInquiryVo> orderinquiryList = mypageService.findOrderinquiry(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
@@ -77,10 +98,11 @@ public class MypageController {
         return "mypage/orderinquiry";
     }
 
+//    주문 상세내역
     @GetMapping("/orderdetails")
     public String orderdetails(HttpSession session, Model model, Long orderNumber){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 1L;
+        Long userNumber = 24L;
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
         MypageInquiryDetailsVo orderDetails = mypageService.findOrderDetails(orderNumber);
@@ -89,6 +111,14 @@ public class MypageController {
 
 
         return "mypage/orderdetails";
+    }
+
+    // 회원탈퇴
+    @GetMapping("/users/delete")
+    public  RedirectView getUserDelete(HttpSession session){
+        //Long userNumber = (Long) session.getAttribute("userNumber");
+            mypageService.removeUser(24L);
+            return new RedirectView("/user/login");
     }
 
 

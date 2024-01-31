@@ -17,7 +17,7 @@
     <main>
       <div class="membership-box">
         <div class="membership-box1">
-          <form method="post" th:action="@{/user/membership}">
+          <form method="post" th:action="@{/user/membership}" id="userJoinForm" enctype="multipart/form-data">
             <div class="fileimg1">
               <div class="fileimage">
                 <img th:src="@{/images/user/login.png}" />
@@ -28,8 +28,8 @@
                   name="userProFile"
                   id="userProFile"
                   accept="image/*"
-                  onChange="fileCheck(this)"
                 />
+
                 <label for="userProFile"
                   ><i class="fa fa-camera" aria-hidden="true"></i
                 ></label>
@@ -104,7 +104,7 @@
 
             <div class="membership-grup">
               <div class="membership-grup__title">
-                연락처 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+                연락처 <i class="fa fa-bell fa-2xs" aria-hidden="true"> &nbsp;&nbsp; 숫자만 입력해주세요. </i>
               </div>
               <div>
                 <input

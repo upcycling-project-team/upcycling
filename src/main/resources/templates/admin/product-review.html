@@ -48,23 +48,47 @@
         <div class="review">
             <div style="padding:20px;"> </div>
 
-            <h1>리뷰 관리 페이지</h1>
+            <h1>구매 평 관리</h1>
 
          <table id="reviewTable">
              <thead>
              <tr>
-                <th>ID</th>
-                <th>작성자</th>
+                <th>리뷰 번호</th>
+                <th>회원 번호</th>
                 <th>내용</th>
-                <th>평점</th>
+<!--                <th>평점</th>-->
                 <th>관리</th>
              </tr>
              </thead>
              <tbody>
             <!-- 여기에 리뷰 정보가 동적으로 추가될 것입니다. -->
+			 <tr th:each="review : ${productReview}">
+				 <td th:text="${review.reviewNumber}"></td>
+				 <td th:text="${review.userNumber}"></td>
+				 <td th:text="${review.reviewContent}"></td>
+				<td>
+					<button onclick="deleteReview()">삭제</button>
+				</td>
+			 </tr>
              </tbody>
          </table>
         </div>
+		<!--paging-->
+		<div class="blank">
+			<h1 class="blank-margin"></h1>
+		</div>
+
+		<div class="button-list">
+			<section class="buttons">
+				<a th:href="@{/admin/product-review(page=${pageReview.startPage-1})}" class="buttons__arrow" th:if="${pageReview.prev}">&lt</a>
+
+
+				<a th:href="@{/admin/product-review(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageReview.startPage, pageReview.endPage)}"
+				   th:text="${i}"></a>
+
+				<a th:href="@{/admin/product-review(page=${pageReview.endPage+1})}" class="buttons__arrow" th:if="${pageReview.next}">&gt</a>
+			</section>
+		</div>
 
 		<!-- MAIN -->
 	</section>

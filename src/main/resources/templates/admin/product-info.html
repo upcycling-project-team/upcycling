@@ -53,7 +53,7 @@
         <table id="memberTable">
             <thead>
             <tr>
-                <th>상품 번호</th>
+                <th class="productNumberTh">상품 번호</th>
                 <th>상품 명</th>
                 <th>상품 설명</th>
                 <th>정가</th>
@@ -62,7 +62,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- 여기에 회원 정보가 동적으로 추가될 것입니다. -->
+            <!-- 상품 정보 추가. -->
             <tr th:each="info : ${productInfo}">
                 <td th:text="${info.productNumber}"></td>
                 <td th:text="${info.productName}"></td>
@@ -70,15 +70,29 @@
                 <td th:text="${info.productPrice}"></td>
                 <td th:text="${info.productPrice - info.productPrice * info.productSale/100}"></td>
                 <td>
-                    <button onclick="deleteMember()">삭제</button>
+                    <button onclick="deleteProductInfo()">삭제</button>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <!-- MAIN -->
+
+    <!--paging-->
+    <div class="blank">
+        <h1 class="blank-margin"></h1>
+    </div>
+
+    <div class="button-list">
+        <section class="buttons">
+            <a th:href="@{/admin/product-info(page=${pageInfo.startPage-1})}" class="buttons__arrow" th:if="${pageInfo.prev}">&lt</a>
 
 
+            <a th:href="@{/admin/product-info(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}"
+            th:text="${i}"></a>
+
+            <a th:href="@{/admin/product-info(page=${pageInfo.endPage+1})}" class="buttons__arrow" th:if="${pageInfo.next}">&gt</a>
+        </section>
+    </div>
     <!-- MAIN -->
 </section>
 <!-- NAVBAR -->

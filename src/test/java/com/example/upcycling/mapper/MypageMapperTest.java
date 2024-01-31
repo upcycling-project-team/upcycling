@@ -1,12 +1,15 @@
 package com.example.upcycling.mapper;
 
+import com.example.upcycling.domain.dto.SavedMoneyDto;
 import com.example.upcycling.domain.dto.UserDto;
+import com.example.upcycling.domain.vo.MypageInquiryVo;
 import com.example.upcycling.domain.vo.UserModifyVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
@@ -19,7 +22,9 @@ class MypageMapperTest {
 
     @Test
     void selectOrderinquiry() {
-        mypageMapper.selectOrderinquiry(1L);
+
+        List<MypageInquiryVo> mypageInquiryVos = mypageMapper.selectOrderinquiry(24L);
+        System.out.println("mypageInquiryVos = " + mypageInquiryVos);
     }
 
     @Test
@@ -38,7 +43,10 @@ class MypageMapperTest {
         userModifyVo.setUserAddress("의정부");
         userModifyVo.setUserAddressDetail("ddd");
         userModifyVo.setUserBirth("20240131");
-        userModifyVo.setUserNumber(1L);
+        userModifyVo.setUserProfileName("test.jpg");
+        userModifyVo.setUserProfileUploadPath("2024/01/23");
+        userModifyVo.setUserProfileUuid("test");
+        userModifyVo.setUserNumber(24L);
 
         mypageMapper.updateMemberModify(userModifyVo);
     }
@@ -54,6 +62,18 @@ class MypageMapperTest {
         mypageMapper.selectOrderDetails(1L);
         System.out.println("mypageMapper = " + mypageMapper);
 
+    }
+
+    @Test
+    void selectListSavedMoney(){
+        List<SavedMoneyDto> savedMoneyList = mypageMapper.selectListSavedMoney(1L);
+        System.out.println("savedMoneyList = " + savedMoneyList);
+
+    }
+
+    @Test
+    void deleteUser(){
+        mypageMapper.deleteUser(5L);
     }
 
 }

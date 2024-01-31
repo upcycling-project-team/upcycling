@@ -48,22 +48,52 @@
             <div class="user-detail">
 				<div style="padding:10px;"> </div>
                 <div>
-                    <h1>회원 검색</h1>
+                    <h1>회원 정보 관리</h1>
                 </div>
                 <table id="memberTable">
                     <thead>
                       <tr>
                         <th>회원 번호</th>
-                        <th>회원 이름</th>
-                        <th>회원 이메일</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>이메일</th>
+                        <th>생일</th>
+                        <th>휴대폰 번호</th>
                         <th>관리</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- 여기에 회원 정보가 동적으로 추가될 것입니다. -->
+                      <!-- 회원 정보가 동적 추가. -->
+					<tr th:each="userInfo : ${userInfo}">
+						<td th:text="${userInfo.userNumber}"></td>
+						<td th:text="${userInfo.userId}"></td>
+						<td th:text="${userInfo.userName}"></td>
+						<td th:text="${userInfo.userEmail}"></td>
+						<td th:text="${userInfo.userBirth}"></td>
+						<td th:text="${userInfo.userPhoneNumber}"></td>
+						<td>
+							<button onclick="">삭제</button>
+						</td>
+					</tr>
                     </tbody>
                   </table>
             </div>
+		<!--paging-->
+		<div class="blank">
+			<h1 class="blank-margin"></h1>
+		</div>
+
+		<div class="button-list">
+<!--			<section class="buttons">-->
+<!--				<button>&lt</button>-->
+<!--				<button>1</button>-->
+<!--				<button>2</button>-->
+<!--				<button>3</button>-->
+<!--				<button>4</button>-->
+<!--				<button>5</button>-->
+<!--				<button>&gt</button>-->
+<!--			</section>-->
+		</div>
 		<!-- MAIN -->
 
 

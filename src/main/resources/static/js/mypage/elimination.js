@@ -3,6 +3,11 @@ const modalTest = document.querySelector(".modal");
 const btnOpenModalTest = document.querySelector(".btn_open_modal");
 const closeTest = document.querySelector(".close");
 
+
+
+
+
+
 btnOpenModalTest.addEventListener("click", () => {
   modalTest.style.display = "flex";
 
@@ -19,6 +24,8 @@ btnOpenModalTest.addEventListener("click", () => {
   });
 });
 
+
+
 closeTest.addEventListener("click", () => {
   modalTest.style.display = "none";
 });
@@ -30,6 +37,7 @@ $('.btn_modify').on('click', function (e) {
   let month = $('#month').val();
   let day = $('#day').val();
 
+
   let updateInfo = {
     userPassword : $('#member-pw').val(),
     userEmail : $('#member-email').val(),
@@ -37,16 +45,33 @@ $('.btn_modify').on('click', function (e) {
     userPhoneNumber : $('#member-phone').val(),
     userAddress : $('#member-address').val(),
     userAddressDetail : $('#member-address-detail').val(),
+    // userProfileName : $('#member-profile-name').val(),
+    // userProfileUploadPath : $('#member-profile-upload-path').val(),
+    // userProfileUuid : $('#member-profile-uuid').val(),
     userBirth : `${year}.${month}.${day}`
   };
+
+  let form = new FormData();
+  let keys = Object.keys(updateInfo);
+
+  for(let key of keys){
+    form.append(key, updateInfo[key]);
+  }
+
+  let file = document.querySelector('#file_01').files[0];
+  form.append('profile', file);
+
+
 
   // console.log(updateInfo);
 
   $.ajax({
     url : '/users/update-info',
     type: 'patch',
-    data : JSON.stringify(updateInfo),
-    contentType : 'application/json',
+    data : form,
+    contentType : false,
+    cache : false,
+    processData: false,
     success : function () {
       modalTest.style.display = "none";
     },
@@ -60,7 +85,14 @@ $('.btn_modify').on('click', function (e) {
 
 
 
+$('#file_01').on('change', function (){
+  console.log('change!!!')
 
+  let files = this.files;
+  let src = URL.createObjectURL(files[0]);
+
+  $('.img_box').attr('src', src);
+});
 
 
 

@@ -8,35 +8,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Transactional
 class UserMapperTest {
     @Autowired
     UserMapper userMapper;
-    UserDto userDto;
-
-    @BeforeEach
-    void setUp() {
-        userDto = new UserDto();
-        userDto.setUserNumber(45L);
-        userDto.setUserPassword("1237");
-        userDto.setUserName("옹옹옹11");
-        userDto.setUserEmail("kkk12098@naver.com");
-        userDto.setUserId("aaa14");
-        userDto.setUserBirth("2024-01-13");
-        userDto.setUserPhoneNumber("0102201251");
-
-        userMapper.insert(userDto);
-    }
 
 
     @Test
-    void selectUserNumber() {
-        Long aLong = userMapper.selectUserNumber(userDto);
+    void insertAndSelect() {
+        UserDto userDto = new UserDto();
+
+        userDto.setUserPassword("12645");
+        userDto.setUserName("진홍이");
+        userDto.setUserEmail("gg21233@naver.com");
+        userDto.setUserId("clceo1");
+        userDto.setUserBirthYear("2023");
+        userDto.setUserBirthMonth("04");
+        userDto.setUserBirthDay("11");
+        userDto.setUserPhoneNumber("0102861277");
+        userDto.setUserAddress("은평구");
+        userDto.setUserAddressDetail("3동");
+        userMapper.insert(userDto);
+
+        System.out.println("userDto = " + userDto);
+
+        Long aLong = userMapper.selectUserNumber(userDto).get();
+//        Long aLong1 = userMapper.selectUserNumber(userDto.getUserNumber()).get();
+
         System.out.println("aLong = " + aLong);
+
+        assertThat(aLong).isEqualTo(userDto.getUserNumber());
+        /*assertEquals(userDto.getUserNumber(), aLong);*/
+
+
     }
-
-
-
 }

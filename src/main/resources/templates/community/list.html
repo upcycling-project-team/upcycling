@@ -85,80 +85,19 @@
               </thead>
               <tbody>
                 <!-- 반복요소 -->
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
+                <tr th:each="communityVo : ${communityList}">
+
+                    <td th:text="${communityVo.communityNumber}"></td>
+                    <td>
+                      <a th:href="@{/community/detail(communityNumber=${communityVo.communityNumber})}" th:text="${communityVo.communityTitle}"></a>
+                    </td>
+                    <td th:text="${communityVo.userId}"></td>
+                    <td th:text="${communityVo.communitySysdate}"></td>
+                    <td th:text="${communityVo.communityViewCount}"></td>
+
                 </tr>
                 <!-- /반복요소 -->
 
-                <!-- 샘플 -->
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>111</td>
-                  <td>안녕하세요</td>
-                  <td>김철수</td>
-                  <td>2022-01-02</td>
-                  <td>10</td>
-                </tr>
-                <!-- /샘플 -->
               </tbody>
             </table>
           </div>
@@ -179,7 +118,7 @@
             </div>
             <div class="page__button">
               <a href="#">4</a>
-            </div>
+        </div>
             <div class="page__button">
               <a href="#">5</a>
             </div>
@@ -205,7 +144,7 @@
         </section>
         <section class="write-btn">
           <div class="write-btn__button">
-            <a href="#">글쓰기</a>
+            <a th:href="@{/community/write}">글쓰기</a>
           </div>
         </section>
       </div>

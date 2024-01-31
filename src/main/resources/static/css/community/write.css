@@ -151,3 +151,7 @@ button:hover {
         color: var(--main-color); /* 텍스트 색상 변경 */
         border: none;
 }
+.title-_input,
+.textarea__text{
+    resize: none;
+}

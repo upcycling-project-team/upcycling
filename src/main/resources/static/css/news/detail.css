@@ -25,11 +25,12 @@
 }
 .header-line{
     width: 1300px;
-    height: 60px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: left;
     margin-left: 10px;
+    font-size: 30px;
 }
 .header-line__box{
     width: 1300px;
@@ -109,4 +110,27 @@ button:hover {
     display: flex; 
     align-items: center;
     justify-content: center;
+}
+.admin__img__like{
+    height: 32px;
+    width: 32px;
+    margin-left: 10px;
+}
+.admin__img__likeButton {
+    height: 52px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    display: flex;
+
+
+}
+.admin__img__likebox{
+    display: flex;
+    align-content: center;
+    margin-top: 10px;
+
+}
+.admin__img__text{
+    font-size: 21px;
 }
