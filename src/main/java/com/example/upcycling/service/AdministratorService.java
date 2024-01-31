@@ -5,6 +5,7 @@ import com.example.upcycling.domain.dto.ProductDto;
 import com.example.upcycling.domain.dto.ShopReviewDto;
 import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.domain.vo.Criteria;
+import com.example.upcycling.domain.vo.UserOrderVo;
 import com.example.upcycling.mapper.AdministratorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class AdministratorService {
         return number;
     }
 
-//    상품 리스트 조회
+//    상품 조회
     public List<ProductDto> findProductInfo(Criteria criteria){
         return administratorMapper.selectProductInfo(criteria);
     }
@@ -32,8 +33,8 @@ public class AdministratorService {
     public int findTotal(){
         return administratorMapper.selectTotal();
     }
-
-//    상품 구매평 리스트 조회
+//    ----------------------------
+//    상품 구매평 조회
     public List<ShopReviewDto> findProductReview(Criteria criteria){
         return administratorMapper.selectProductReview(criteria);
     }
@@ -42,12 +43,17 @@ public class AdministratorService {
     public int findReviewTotal(){
         return administratorMapper.selectReviewTotal();
     }
-
-//  회원 정보 리스트 조회
+//    ------------------------------
+//  회원 정보 조회
     public List<UserDto> findUserInfo(Criteria criteria){
         return administratorMapper.selectUserInfo(criteria);
     }
-
-
+//  회원 정보 카운트 조회
+    public int findUserTotal(){return administratorMapper.selectUserTotal();}
+//   ----------------------------
+// 회원 주문 조회
+    public List<UserOrderVo> findUserOrder(Criteria criteria){return administratorMapper.selectUserOrder(criteria);}
+//  회원 주문 정보 카운트 조회
+    public int findUserOrderTotal(){return administratorMapper.selectUserOrderTotal();}
 
 }

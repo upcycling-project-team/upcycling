@@ -10,7 +10,7 @@
 	<script th:src="@{/js/admin/side-bar.js}" defer></script>
     <script th:src="@{/js/admin/register.js}" defer></script>
 	<script th:src="@{/js/admin/user.js}"></script>
-	<title>AdminSite</title>
+	<title>FAQ</title>
 </head>
 <body id="header">
 
@@ -63,18 +63,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- 회원 정보가 동적 추가. -->
-					<tr th:each="userInfo : ${userInfo}">
-						<td th:text="${userInfo.userNumber}"></td>
-						<td th:text="${userInfo.userId}"></td>
-						<td th:text="${userInfo.userName}"></td>
-						<td th:text="${userInfo.userEmail}"></td>
-						<td th:text="${userInfo.userBirth}"></td>
-						<td th:text="${userInfo.userPhoneNumber}"></td>
-						<td>
-							<button onclick="">삭제</button>
-						</td>
-					</tr>
+<!--                      &lt;!&ndash; 회원 정보가 동적 추가. &ndash;&gt;-->
+<!--					<tr th:each="userInfo : ${userInfo}">-->
+<!--						<td th:text="${userInfo.userNumber}"></td>-->
+<!--						<td th:text="${userInfo.userId}"></td>-->
+<!--						<td th:text="${userInfo.userName}"></td>-->
+<!--						<td th:text="${userInfo.userEmail}"></td>-->
+<!--						<td th:text="${userInfo.userBirth}"></td>-->
+<!--						<td th:text="${userInfo.userPhoneNumber}"></td>-->
+<!--						<td>-->
+<!--							<button onclick="">삭제</button>-->
+<!--						</td>-->
+<!--					</tr>-->
                     </tbody>
                   </table>
             </div>
@@ -84,16 +84,16 @@
 		</div>
 
 		<div class="button-list">
-		<section class="buttons">
-			<a th:href="@{/admin/user-info(page=${pageUserInfo.startPage-1})}" class="buttons__arrow" th:if="${pageUserInfo.prev}">&lt</a>
+<!--		<section class="buttons">-->
+<!--			<a th:href="@{/admin/user-info(page=${pageUserInfo.startPage-1})}" class="buttons__arrow" th:if="${pageUserInfo.prev}">&lt</a>-->
 
 
-			<a th:href="@{/admin/user-info(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageUserInfo.startPage, pageUserInfo.endPage)}"
-			   th:text="${i}"></a>
+<!--			<a th:href="@{/admin/user-info(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageUserInfo.startPage, pageUserInfo.endPage)}"-->
+<!--			   th:text="${i}"></a>-->
 
-			<a th:href="@{/admin/user-info(page=${pageUserInfo.endPage+1})}" class="buttons__arrow" th:if="${pageUserInfo.next}">&gt</a>
+<!--			<a th:href="@{/admin/user-info(page=${pageUserInfo.endPage+1})}" class="buttons__arrow" th:if="${pageUserInfo.next}">&gt</a>-->
 
-		</section>
+<!--		</section>-->
 
 		</div>
 		<!-- MAIN -->

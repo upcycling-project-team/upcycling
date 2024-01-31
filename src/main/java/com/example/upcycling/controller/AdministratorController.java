@@ -6,6 +6,7 @@ import com.example.upcycling.domain.dto.ShopReviewDto;
 import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.PageVo;
+import com.example.upcycling.domain.vo.UserOrderVo;
 import com.example.upcycling.service.AdministratorService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -77,7 +78,7 @@ public class AdministratorController {
         if(adminNumber == null){
             return "admin/login";
         }
-//        리스트 5개씩 노출
+//        상품 정보 조회
         List<ProductDto> productInfo = administratorService.findProductInfo(criteria);
         // System.out.println("productInfo = " + productInfo);
         model.addAttribute("productInfo", productInfo);
@@ -109,7 +110,7 @@ public class AdministratorController {
         if(adminNumber == null){
             return "admin/login";
         }
-//  상품리뷰 리스트 조회
+//  상품리뷰 조회
         List<ShopReviewDto> productReview = administratorService.findProductReview(criteria);
         System.out.println("productReview = " + productReview);
         model.addAttribute("productReview",productReview);
@@ -121,9 +122,6 @@ public class AdministratorController {
         model.addAttribute("pageReview",pageVo);
 
         return "admin/product-review";
-
-
-
     }
 
     /*회원*/
@@ -135,42 +133,82 @@ public class AdministratorController {
         if(adminNumber == null){
             return "admin/login";
         }
-//        회원 정보 리스트 조회
+//        회원 정보 조회
         List<UserDto> userInfo = administratorService.findUserInfo(criteria);
-        System.out.println("userInfo = " + userInfo);
+//        System.out.println("userInfo = " + userInfo);
         model.addAttribute("userInfo",userInfo);
 
+        //  회원 정보 리스트 5개씩 노출
+        int userTotal = administratorService.findUserTotal();
+        PageVo pageVo = new PageVo(userTotal,criteria);
 
+        model.addAttribute("pageUserInfo",pageVo);
 
         return "admin/user-info";
     }
 
     @GetMapping("/user-order")
-    public String userOrder(HttpSession session){
+    public String userOrder(HttpSession session, Criteria criteria, Model model){
 //     접근제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
             return "admin/login";
         }
-//  회원 정보 리스트 조회
+//      회원 주문 정보 조회
+        List<UserOrderVo> userOrder = administratorService.findUserOrder(criteria);
+//        System.out.println("userOrder = " + userOrder);
+        model.addAttribute("userOrder",userOrder);
+//      회원 주문 정보 페이징
+        int userOrderTotal = administratorService.findUserOrderTotal();
+        PageVo pageVo = new PageVo(userOrderTotal,criteria);
+
+        model.addAttribute("pageUserOrder",pageVo);
+
 
 
         return "admin/user-order";
     }
 
-    @GetMapping("/user-delivery")
-    public String userDelivery(HttpSession session){
-        //        접근 제한
+//    @GetMapping("/user-delivery")
+//    public String userDelivery(HttpSession session){
+//        //        접근 제한
+//        Long adminNumber = (Long)session.getAttribute("adminNumber");
+//
+//        if(adminNumber == null){
+//            return "admin/login";
+//        }
+//
+//
+//        return "admin/user-delivery";
+//    }
+
+    /*FAQ 관리*/
+    @GetMapping("/faq-info")
+    public String faqInfo(HttpSession session){
+//     접근제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
             return "admin/login";
         }
 
-
-        return "admin/user-delivery";
+        return "admin/faq-info";
     }
+
+    /*FAQ 작성*/
+    @GetMapping("/faq-write")
+    public String faqWrite(HttpSession session){
+//     접근제한
+        Long adminNumber = (Long)session.getAttribute("adminNumber");
+
+        if(adminNumber == null){
+            return "admin/login";
+        }
+
+        return "admin/faq-write";
+    }
+
 
     /*포인트*/
     @GetMapping("point-page")

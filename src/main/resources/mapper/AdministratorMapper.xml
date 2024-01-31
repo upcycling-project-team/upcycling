@@ -60,7 +60,7 @@
 
 <!--    회원 정보 조회-->
 <select id="selectUserInfo" parameterType="criteria" resultType="userDto" >
-    SELECT RNUM, USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
+    SELECT RNUM, USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, TO_CHAR(USER_BIRTH,'YYYY/MM/DD') USER_BIRTH, USER_PHONE_NUMBER
     FROM(SELECT  ROWNUM RNUM, USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
     FROM (SELECT USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
     FROM TBL_USER
@@ -74,6 +74,43 @@
 </select>
 
 <!-- user-info.html 페이징 처리   -->
+    <select id="selectUserTotal" resultType="_int">
+        SELECT COUNT(USER_NUMBER)
+        FROM TBL_USER
+    </select>
+
+<!-- 회원 주문 정보 조회-->
+    <select id="selectUserOrder" parameterType="criteria" resultType="userOrderVo">
+        SELECT RNUM, ORDER_NUMBER, USER_NUMBER, PRODUCT_NUMBER,
+        ORDER_PRODUCT_CNT, ORDER_TOTAL, TO_CHAR(ORDER_DATE,'YYYY/MM/DD') ORDER_DATE, ORDER_ADDR, ORDER_ADDR_DETAIL
+        FROM(SELECT ROWNUM RNUM, ORDER_NUMBER, USER_NUMBER, PRODUCT_NUMBER, ORDER_PRODUCT_CNT,
+        ORDER_TOTAL, ORDER_DATE, ORDER_ADDR, ORDER_ADDR_DETAIL
+        FROM(SELECT ORDER_NUMBER, USER_NUMBER, PRODUCT_NUMBER, ORDER_PRODUCT_CNT,
+        ORDER_TOTAL, ORDER_DATE, ORDER_ADDR, ORDER_ADDR_DETAIL
+        FROM(SELECT O.ORDER_NUMBER, O.USER_NUMBER, P.PRODUCT_NUMBER,
+        P.ORDER_PRODUCT_CNT, O.ORDER_TOTAL, O.ORDER_DATE,
+        O.ORDER_ADDR, O.ORDER_ADDR_DETAIL
+        FROM TBL_ORDER O
+        JOIN TBL_ORDER_PRODUCT P
+        ON O.ORDER_NUMBER = P.ORDER_NUMBER)
+        ORDER BY ORDER_NUMBER)
+        <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount})
+            ]]>
+        WHERE RNUM > (#{page} - 1) * #{amount}
+    </select>
+
+    <!-- user-order.html 페이징 처리   -->
+    <select id="selectUserOrderTotal" resultType="_int">
+        SELECT COUNT(ORDER_NUMBER)
+        FROM (SELECT O.ORDER_NUMBER ORDER_NUMBER, O.USER_NUMBER, P.PRODUCT_NUMBER,
+                     P.ORDER_PRODUCT_CNT, O.ORDER_TOTAL, O.ORDER_DATE,
+                     O.ORDER_ADDR, O.ORDER_ADDR_DETAIL
+              FROM TBL_ORDER O
+                       FULL OUTER JOIN TBL_ORDER_PRODUCT P
+                                       ON O.ORDER_NUMBER = P.ORDER_NUMBER)
+    </select>
+
 
 
 </mapper>

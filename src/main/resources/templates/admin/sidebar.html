@@ -22,22 +22,30 @@
 		<!--<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> 대시보드</a></li> -->
 		<li class="divider" data-text="상품">Main</li>
 		<li>
-			<a href="#"><i class='bx bxs-inbox icon' ></i>상품 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+			<a href="#"><i class='bx bxs-inbox icon' ></i>상품<i class='bx bx-chevron-right icon-right' ></i></a>
 			<ul class="side-dropdown">
-				<li><a th:href="@{/admin/product-info}">상품</a></li>
+				<li><a th:href="@{/admin/product-info}">상품 관리</a></li>
 <!--				<li><a th:href="@{/admin/product-delivery-fee}">배송비</a></li>-->
 				<li><a th:href="@{/admin/product-review}">구매평</a></li>
 				<!-- <li><a href="#">Button</a></li> -->
 			</ul>
 		</li>
+
 		<li class="divider" data-text="회원">Main</li>
 		<li>
-			<a href="#"><i class='bx bxs-inbox icon' ></i> 회원 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+			<a href="#"><i class='bx bxs-inbox icon' ></i> 회원 <i class='bx bx-chevron-right icon-right' ></i></a>
 			<ul class="side-dropdown">
-				<li><a th:href="@{/admin/user-info}">회원 정보</a></li>
+				<li><a th:href="@{/admin/user-info}">회원 정보 관리</a></li>
 				<li><a th:href="@{/admin/user-order}">주문</a></li>
-				<li><a th:href="@{/admin/user-delivery}">배송</a></li>
+<!--				<li><a th:href="@{/admin/user-delivery}">배송</a></li>-->
+			</ul>
 
+		<li class="divider" data-text="질의응답">Main</li>
+		<li>
+			<a href="#"><i class='bx bxs-inbox icon' ></i> FAQ <i class='bx bx-chevron-right icon-right' ></i></a>
+			<ul class="side-dropdown">
+				<li><a th:href="@{/admin/faq-info}">관리</a></li>
+				<li><a th:href="@{/admin/faq-write}">작성</a></li>
 			</ul>
 		</li>
 		<li class="divider" data-text="혜택">Main</li>

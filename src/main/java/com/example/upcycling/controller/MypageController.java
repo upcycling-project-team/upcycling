@@ -28,7 +28,7 @@ public class MypageController {
     @GetMapping("/exchange")
     public String exchange(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = 339L;
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
@@ -45,7 +45,7 @@ public class MypageController {
     @GetMapping("/inquiry")
     public String inquiry(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = 339L;
 
         List<SavedMoneyDto> listSavedMoney = mypageService.findListSavedMoney(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
@@ -59,7 +59,7 @@ public class MypageController {
     @GetMapping("/savedmoney")
     public String savedmoney(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = 339L;
 
         List<SavedMoneyDto> listSavedMoney = mypageService.findListSavedMoney(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
@@ -73,7 +73,7 @@ public class MypageController {
     @GetMapping("/writinginquiries")
     public String writinginquiries(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = 339L;
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
@@ -86,7 +86,7 @@ public class MypageController {
     @GetMapping("/orderinquiry")
     public String orderinquiry(HttpSession session, Model model){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = 339L;
 
         List<MypageInquiryVo> orderinquiryList = mypageService.findOrderinquiry(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
@@ -102,7 +102,7 @@ public class MypageController {
     @GetMapping("/orderdetails")
     public String orderdetails(HttpSession session, Model model, Long orderNumber){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = 339L;
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
         MypageInquiryDetailsVo orderDetails = mypageService.findOrderDetails(orderNumber);
@@ -117,7 +117,7 @@ public class MypageController {
     @GetMapping("/users/delete")
     public  RedirectView getUserDelete(HttpSession session){
         //Long userNumber = (Long) session.getAttribute("userNumber");
-            mypageService.removeUser(24L);
+            mypageService.removeUser(339L);
             return new RedirectView("/user/login");
     }
 
