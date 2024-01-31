@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
+	<script th:src="@{/js/admin/side-bar.js}" defer></script>
+	<title>AdminSite</title>
+</head>
+<body id="header">
+
+<!-- SIDEBAR -->
+<section id="sidebar" th:fragment="sidebar">
+	<a th:href="@{/admin/dash-board}" class="brand">
+		<div>&ensp;</div>
+		<i class='bx bx-home-smile'></i>
+		<div>&ensp;</div>
+		upcycling #</a>
+	<ul class="side-menu">
+		<!--<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> 대시보드</a></li> -->
+		<li class="divider" data-text="상품">Main</li>
+		<li>
+			<a href="#"><i class='bx bxs-inbox icon' ></i>상품 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+			<ul class="side-dropdown">
+				<li><a th:href="@{/admin/product-info}">상품 관리</a></li>
+				<li><a th:href="@{/admin/product-delivery-fee}">배송비</a></li>
+				<li><a th:href="@{/admin/product-review}">리뷰</a></li>
+				<!-- <li><a href="#">Button</a></li> -->
+			</ul>
+		</li>
+		<li class="divider" data-text="회원">Main</li>
+		<li>
+			<a href="#"><i class='bx bxs-inbox icon' ></i> 회원 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
+			<ul class="side-dropdown">
+				<li><a th:href="@{/admin/user-info}">회원 정보</a></li>
+				<li><a th:href="@{/admin/user-order}">주문</a></li>
+				<li><a th:href="@{/admin/user-delivery}">배송</a></li>
+
+			</ul>
+		</li>
+		<li class="divider" data-text="혜택">Main</li>
+		<li><a th:href="@{/admin/point-page}"><i class='bx bxs-chart icon' ></i> 포인트</a></li>
+
+	</ul>
+</section>
+<!-- SIDEBAR -->
+
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu toggle-sidebar' ></i>
+			<form action="#">
+				<div class="form-group">
+					<input type="text" placeholder="검색어 입력...">
+					<i class='bx bx-search icon' ></i>
+				</div>
+			</form>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-bell icon' ></i>
+				<span class="badge">5</span>
+			</a>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-message-square-dots icon' ></i>
+				<span class="badge">8</span>
+			</a>
+			<span class="divider"></span>
+			<div class="profile">
+					<li class="logout"><a href="#">로그아웃</a></li>
+				<!-- </ul> -->
+			</div>
+		</nav>
+		<!-- NAVBAR -->
+
+		
+	</section>
+	<!-- NAVBAR -->
+
+	
+</body>
+</html>

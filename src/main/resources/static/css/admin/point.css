@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  #currentPoints {
+    font-weight: bold;
+    font-size: 18px;
+    color: green;
+  }
+  
+  button {
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+.blank-margin{
+  height: 25px;
+
+}
+
+.button-list{
+  /*width: 1300px;*/
+  /*height: 43px;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 138px;
+  height: 24px;
+
+}
+.buttons>button{
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+}

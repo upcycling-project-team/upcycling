@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" th:href="@{/css/admin/font.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/css/admin/error-modal.css}">
+    <script defer src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script defer th:src="@{/js/fragments/error-modal.js}"></script>
+</head>
+<body class="bg-gradient-primary">
+    <div th:replace="~{/fragments/error-modal :: errorBox(${errorMessage})}"></div>
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">로그인</h1>
+                                    </div>
+                                    <form th:action="@{/admin/login}" class="user" method="post">
+                                        <div class="form-group">
+
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="아이디 입력" name="administratorId">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="비밀번호" name="administratorPassword">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">기억하기
+                                                    </label>
+                                            </div>
+                                        </div>
+                                       <!-- <a href="dash-board.html" class="btn btn-primary btn-user btn-block">
+                                            로그인
+                                        </a>-->
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">로그인</button>
+                                        <!--<hr>-->
+                                       
+                                    </form>
+                                  <!--  <hr>-->
+                                   <!-- <div class="text-center">
+                                        <a class="small" href="forgot-password.html">비밀번호 찾기</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="join.html">계정 생성</a>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
