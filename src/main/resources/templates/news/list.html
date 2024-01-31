@@ -1,249 +1,70 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-    <link rel="stylesheet" th:href="@{/css/common/font.css}" />
-    <link rel="stylesheet" th:href="@{/css/common/default.css}" />
-    <link rel="stylesheet" th:href="@{/css/news/list.css}" />
+<link rel="stylesheet" th:href="@{/css/common/font.css}"/>
+<link rel="stylesheet" th:href="@{/css/common/default.css}"/>
+<link rel="stylesheet" th:href="@{/css/news/list.css}"/>
 <body>
-    <header></header>
-    <main>
-       <div class="content-wrap">
-        <!-- 헤더라인 -->
-            <section class="news">
-                <div class="news__title">NEWS</div>
-            </section>
-            <div class="grid">
-                <div class="grid__line"></div>
-            </div>
-         <!-- 카테고리 --> 
-            <div class="menu">
-                <nav class="menu__category">
-                    <a href="">전체</a>
-                    <a href="">기부소식</a>
-                    <a href="">활동</a>
-                </nav>
-            </div>
-        <!-- 메인 컨텐츠 -->
-            <section class="main-content">
-               <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <!-- 반복요소 -->
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-                 <a href="" class="main-content__news">
-                    <div class="main-content__img">
-                        <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
-                    </div>
-                    <div>두둥따당</div>
-                    <div>내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
-                    <section class="admin">
-                         <div class="admin__img">
-                            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
-                        </div>
-                        <div class="admin__inf">
-                            <div>관리자</div>
-                            <div>0000/00/00</div>
-                         </div>
-                    </section> 
-                 </a>   
-            </section>
-            <!-- 푸터  -->
-            <footer class="footer">
-                <div class="search">
-                    <section class="search__box">
-                        <input type="text" class="search__bar" placeholder="search">
-                        <a href=""class="img-box">
-                            <img th:src="@{/images/news/magnifier.png}" alt="" class="img-box__img">
-                        </a>
-                    </section>
-                </div>
-                <div class="page">
-                    <section class="button">
-                        <button>&lt</button>
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>&gt</button>
-                    </section>
-                </div>
-            </footer>
-       </div>     
-    </main>
+<header></header>
+<main>
+  <div class="content-wrap">
+    <!-- 헤더라인 -->
+    <section class="news">
+      <div class="news__title">NEWS</div>
+    </section>
+    <div class="grid">
+      <div class="grid__line"></div>
+    </div>
+    <!-- 카테고리 -->
+    <div class="menu">
+      <nav class="menu__category">
+        <a href="">전체</a>
+        <a href="">기부소식</a>
+        <a href="">활동</a>
+      </nav>
+    </div>
+    <!-- 메인 컨텐츠 -->
+
+    <section class="main-content">
+      <a th:href="@{/news/detail(newsNumber=${newsVo.newsNumber})}" class="main-content__news"
+         th:each="newsVo : ${newsList}">
+        <div class="main-content__img">
+          <img th:src="@{/images/news/ex.png}" alt="" class="main-content__img__photo">
+        </div>
+        <div th:text="${newsVo.newsTitle}">두둥따당</div>
+        <div th:text="${newsVo.newsContent}">내용ㅁㅇㄹ너ㅏㅣㅓ이ㅏㄻㄴ마어ㅣㄹ너ㅏㅣㄴㅇㄻ너ㅏㅣㅁㄹㄴ어ㅏㅣㅁㄹ어ㅏㅣ</div>
+        <section class="admin">
+          <div class="admin__img">
+            <img th:src="@{/images/news/userIcon.png}" alt="" class="admin__img__icon">
+          </div>
+          <div class="admin__inf">
+            <div th:text="${newsVo.administratorId}">관리자</div>
+            <div th:text="${newsVo.newsSysdate}">0000/00/00</div>
+          </div>
+          <div>
+            <button class="admin__img__likeButton">
+              <img th:src="@{/images/news/binHeart.png}" alt="" class="admin__img__like">
+            </button>
+          </div>
+        </section>
+      </a>
+    </section>
+
+    <!-- 반복요소 -->
+    <div class="page">
+      <section class="button">
+        <button>&lt</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>&gt</button>
+      </section>
+    </div>
+  </div>
+</main>
 </body>
 </html>

@@ -4,47 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" th:href="@{/css/common/default.css}" />
-    <link rel="stylesheet" th:href="@{/css/common/font.css}" />
-    <link rel="stylesheet" th:href="@{/css/community/detail.css}" />
+    <link rel="stylesheet" th:href="@{/css/common/default.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common/font.css}"/>
+    <link rel="stylesheet" th:href="@{/css/community/detail.css}"/>
 </head>
 <body>
-    <div class="content-wrap ">
-        <section class="title" >
-            <div class="title__main">
-                <div class="img-box">
-                    <img th:src="@{/images/community/detailIcon.png}" alt="" class="title__img">
-                </div>
-                <div>
-                    <div class="title__input"> 누군가의 게시판 제목</div> 
-                </div>
-            </div>
-        </section>
-        <div class="text-box">
-           <form action=""> 
-                <div class="content">
-                    누군가의 게시판 내용
-                </div>
-            </form>
+<div class="content-wrap">
+    <section class="news">
+        <div class="news__title">COMMUNITY</div>
+    </section>
+    <div class="grid">
+        <div class="grid__line"></div>
+    </div>
+    <div class="admin__img__likebox">
+        <div class="admin__img__text">
+            이 글이 마음에 드신다면 하트를 눌러주세요
         </div>
-        <div class="foooter">
-            <div class="foooter__user">
-                <div class="foooter__content">
+            <button class="admin__img__likeButton">
+            <img th:src="@{/images/news/binHeart.png}" alt="" class="admin__img__like">
+        </button>
+    </div>
+        <div class="header-box">
+        <div th:text="${communityVo.communityTitle}" class="header-line">버려지는 음식이 없는 세상을 꿈꾸다,업싸이클링샵</div>
+        <div class="header-line__box">
+            <div class="header-line__icon">
+                <img th:src="@{/images/news/userIcon.png}" alt="">
+                <div th:text="${communityVo.userId}" class="admin">관리자</div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="content">
+        <div th:text="${communityVo.communityContent}"></div>
+    </div>
+    <div class="foooter">
+        <div class="foooter__user">
+            <div  class="foooter__content">
                     <section class="foooter__user">
-                       <div class="foooter__inf">
-                            <div class="foooter__name">
-                                댓글
-                            </div>
-                            <textarea class="foooter__text" placeholder="작성할 댓글을 적어주세요"></textarea>
-                            </div>
-                            <form action="" class="foooter__button">
-                                <button>작 성</button>
-                            </form>
-                        </div>
-                   </section> 
-                </div>    
-            <div>
+                    <div class="foooter__name" th:text="${userId}">
+                        댓글
+                    </div>
+                    <div class="foooter__inf">
+                        <textarea class="foooter__text" placeholder="작성할 댓글을 적어주세요"></textarea>
+                    </div>
+                    <form action="" class="foooter__button">
+                        <button>작 성</button>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
+</div>
 </body>
 </html>

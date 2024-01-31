@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.upcycling.mapper.CommunityMapper">
+    <select id="selectList" resultType="communityVo">
+        SELECT  U.USER_NUMBER, U.USER_ID,
+                C.COMMUNITY_NUMBER,C.COMMUNITY_TITLE,C.COMMUNITY_SYSDATE,C.COMMUNITY_VIEW_COUNT
+        FROM TBL_COMMUNITY C JOIN TBL_USER U
+                                  ON C.USER_NUMBER = U.USER_NUMBER
+        ORDER BY C.COMMUNITY_NUMBER DESC
+    </select>
+
+    <select id="selectDetail" resultType="communityVo" parameterType="long">
+        SELECT C.COMMUNITY_NUMBER,C.COMMUNITY_TITLE,C.COMMUNITY_CONTENT,
+               U.USER_NUMBER,U.USER_ID
+        FROM TBL_COMMUNITY C JOIN TBL_USER U ON C.USER_NUMBER = U.USER_NUMBER
+        WHERE COMMUNITY_NUMBER = #{communityNumber}
+    </select>
+
+    <select id="selectId" resultType="string" parameterType="long">
+        SELECT USER_ID FROM TBL_USER
+        WHERE USER_NUMBER = #{userNumber}
+    </select>
+    <insert id="insert" parameterType="communityDto">
+        insert into TBL_COMMUNITY (COMMUNITY_NUMBER, COMMUNITY_TITLE, COMMUNITY_CONTENT, USER_NUMBER)
+        values (SEQ_COMMUNITY.nextval, #{communityTitle},#{communityContent},#{userNumber})
+    </insert>
+
+
+</mapper>
