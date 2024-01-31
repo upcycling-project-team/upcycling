@@ -6,10 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/mypage/writinginquiries.css}" />
     <link rel="stylesheet" th:href="@{/css/mypage/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   </head>
   <body>
     <div>
-      <header></header>
+      <header th:replace="~{/fragments/header :: header}"></header>
 
       <!-- 1 : 1문의 작성페이지 -->
 
@@ -283,7 +285,7 @@
         </div>
       </main>
 
-      <footer></footer>
+      <footer th:replace="~{/fragments/footer :: footer}"></footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>

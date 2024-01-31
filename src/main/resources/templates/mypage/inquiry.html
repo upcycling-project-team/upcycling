@@ -6,10 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/mypage/inquiry.css}" />
     <link rel="stylesheet" th:href="@{/css/mypage/default.css}" />
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   </head>
   <body>
     <div>
-      <header></header>
+      <header th:replace="~{/fragments/header :: header}"></header>
 
       <!-- 1 : 1 문의 내역 -->
 
@@ -79,7 +81,7 @@
               <h4 class="order__data">1 : 1문의내역</h4>
             </div>
 
-            <div class="main__order">등록된문의가 없습니다.</div>
+            <div class="main__order" th:if="${!#lists.isEmpty(inquiry_box)}">등록된문의가 없습니다.</div>
 
             <div class="inquiry_title_box">
               <div class="list_title__01">상담 구분</div>
@@ -89,7 +91,7 @@
               <div class="list_title__01">비고</div>
             </div>
 
-            <div class="inquiry_box">
+            <div class="inquiry_box" th:if="${#lists.isEmpty(inquiry_box)}">
               <div class="list__01">기타 문의</div>
               <div class="list__02">가방불량</div>
               <div class="list__01">2024-00-00</div>
@@ -243,7 +245,7 @@
         </div>
       </main>
 
-      <footer></footer>
+      <footer th:replace="~{/fragments/footer :: footer}"></footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>

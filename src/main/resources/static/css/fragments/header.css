@@ -23,7 +23,7 @@ a{
 
 }
 
-.upcycling__header{
+.header__upcycling__header{
     background-color:rgb(100, 200, 200);
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ a{
 }
 
 
-header{
+header__header{
     background-color:rgb(100, 200, 200);
     display: flex;
     justify-content: center;
@@ -44,13 +44,13 @@ header{
     /* 밑의 메뉴들을 모두 감싸는 친구 */
 }
 
-header{
+header__header{
     position: sticky;
     top : 0;
     /* 헤더를 위쪽에 껌마냥 붙어있게 하는거 */
 }
 
-.header__entire{
+.header__header__entire{
     /* background-color: chartreuse; */
     width: 1519.200px;
     height: 80px;
@@ -59,7 +59,7 @@ header{
     align-items: center;
 }
 
-.header__logo-box1{
+.header__header__logo-box1{
     position: relative;
     right: 150px;
     /* background-color: brown; */
@@ -82,7 +82,7 @@ header{
     color: aliceblue;
 }
 
-.header__main-menu1{
+.header__header__main-menu1{
     width: 700px;
     /* border: 10px solid red; */
     display: inline-block;
@@ -91,7 +91,7 @@ header{
 
 }
 
-.header__main-menu1 > ul > li{
+.header__header__main-menu1 > ul > li{
     display: inline-block;
     position: relative;
 
@@ -99,13 +99,13 @@ header{
 
 }
 
-.header__main-menu1 > ul{
+.header__header__main-menu1 > ul{
     text-align: center;
 
 
 }
 
-.header__main-menu1 > ul > li > a{
+.header__header__main-menu1 > ul > li > a{
     display: block;
     font-size: 15px;
     padding: 20px 30px;
@@ -115,18 +115,18 @@ header{
 
 }
 
-.header__main-menu1 > ul ul {
+.header__header__main-menu1 > ul ul {
     display: none;
     /* 마우스 올리기 전에는 서브메뉴 숨어있음 */
 
 }
 
-.header__main-menu1 > ul > li:hover  > a {
+.header__header__main-menu1 > ul > li:hover  > a {
     color:rgb(150,220,220)
     /* 마우스를 올리면 메인메뉴의 색 변함 */
 }
 
-.header__main-menu1 > ul > li:hover  > ul {
+.header__header__main-menu1 > ul > li:hover  > ul {
     display: block;
     /* 메인메뉴에 마우스를 올리면 서브메뉴 등장 */
     background-color:aliceblue;
@@ -136,7 +136,7 @@ header{
 
 }
 
-.header__main-menu1 > ul > li > ul :hover  {
+.header__header__main-menu1 > ul > li > ul :hover  {
     display: block;
     /* 메인메뉴에 마우스를 올리면 서브메뉴 등장 */
     background-color:aliceblue;
@@ -145,13 +145,13 @@ header{
 
 }
 
-.header__main-menu1 > ul > li > a :hover  {
+.header__header__main-menu1 > ul > li > a :hover  {
     color:rgb(150,220,220)
     /* 마우스를 올리면 메인메뉴의 색 변함 */
 }
 
 
-.header__main-menu1 > ul > li > ul{
+.header__header__main-menu1 > ul > li > ul{
     position: absolute;
     top: 100%;
     width: 100%;
@@ -165,7 +165,7 @@ header{
 
 
 
-.header__user-menubox{
+.header__header__user-menubox{
     /* background-color: cornflowerblue; */
     width: 200px;
     height: 70px;
@@ -177,15 +177,15 @@ header{
     /* 마이페이지 및 로그인 */
 }
 
-.header__user-menu1{
+.header__header__user-menu1{
     display: flex;
 }
 
-.header__user-menu1 > ul > li > a {
+.header__header__user-menu1 > ul > li > a {
     color: aliceblue;
 }
 
-.header__user-menu2{
+.header__header__user-menu2{
     /* background-color: blue; */
     display: flex;
     justify-content: center;
@@ -194,7 +194,7 @@ header{
 }
 
 
-.header__user-menu2 > li{
+.header__header__user-menu2 > li{
     /* background-color: aliceblue; */
     justify-content: center;
     align-items: center;
@@ -204,7 +204,7 @@ header{
     color: aliceblue;
 }
 
-.header__user-menu1> ul > li:hover  {
+.header__header__user-menu1> ul > li:hover  {
     color:rgb(150,220,220)
 }
 
