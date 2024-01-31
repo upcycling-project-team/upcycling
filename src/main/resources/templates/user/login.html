@@ -133,7 +133,7 @@
         </div>
 
         <div class="loginbox__form">
-          <form action="" method="get">
+          <form th:action="@{/user/login}" method="post">
             <div>
               <input
                 title="아이디"
@@ -172,7 +172,7 @@
         </div>
 
         <div class="loginbox_hr">
-          <div><a href="#">회원가입</a></div>
+          <div><a th:href="@{/user/clause}">회원가입</a></div>
           <div class="loginbox__clickr">아이디 . 비밀번호 찾기</div>
         </div>
       </div>
