@@ -1,5 +1,6 @@
 package com.example.upcycling.mapper;
 
+import com.example.upcycling.domain.dto.SavedMoneyDto;
 import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.domain.vo.MypageInquiryDetailsVo;
 import com.example.upcycling.domain.vo.MypageInquiryVo;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Mapper
 public interface MypageMapper {
-    //    주문상품 조회
+    //    주문상품 리스트 조회
     List<MypageInquiryVo> selectOrderinquiry(Long userNumber);
 
     //    회원 이름, 포인트 조회
@@ -26,5 +27,10 @@ public interface MypageMapper {
     //    주문 내역 조회(단건)
     MypageInquiryDetailsVo selectOrderDetails(Long orderNumber);
 
+    //    회원 적립금 내역 리스트 조회
+    List<SavedMoneyDto> selectListSavedMoney(Long userNumber);
+
+    // 회원탈퇴
+    void deleteUser(Long userNumber);
 
 }

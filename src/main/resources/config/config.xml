@@ -18,6 +18,8 @@
         <typeAlias type="com.example.upcycling.domain.vo.UserModifyVo" alias="userModifyVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryDetailsVo" alias="mypageInquiryDetailsVo"></typeAlias>
 
+        <typeAlias type="com.example.upcycling.domain.dto.SavedMoneyDto" alias="savedMoneyDto"></typeAlias>
+
         <typeAlias type="com.example.upcycling.domain.vo.CommunityVo" alias="communityVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.dto.CommunityDto" alias="communityDto"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.CommunityCommentVO" alias="communitCommentVo"></typeAlias>
