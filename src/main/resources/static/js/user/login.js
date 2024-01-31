@@ -77,6 +77,21 @@ $("#userLoginBtn").on("click", function () {
   let value6 = $(".membership-grup #userAddress").val().length;
   let value7 = $(".membership-grup #userRePassword").val().length;
 
+  console.log(value1);
+  console.log(value2);
+  console.log(value3);
+  console.log(value4);
+  console.log(value5);
+  console.log(value6);
+  console.log(value7);
+
+  console.log(value1 != 0 &&
+      value2 != 0 &&
+      value3 != 0 &&
+      value4 != 0 &&
+      value5 != 0 &&
+      value6 != 0 &&
+      value7 != 0)
   $("select option:selected").val();
   if (
     value1 != 0 &&
@@ -85,9 +100,9 @@ $("#userLoginBtn").on("click", function () {
     value4 != 0 &&
     value5 != 0 &&
     value6 != 0 &&
-    value7
+    value7 != 0
   ) {
-    $("#userLoginBtn").submit();
+    $("#userJoinForm").submit();
   } else if ($(".membership-grup #userId").val().length == 0) {
     alert("아이디를 입력하세요");
   } else if ($(".membership-grup #userPassword").val().length == 0) {
@@ -122,7 +137,7 @@ $("#clauseButton").on("click", function () {
     $("#check2").is(":checked") &&
     $("#check3").is(":checked")
   ) {
-    $("#clauseButton").submit();
+    window.location.href='/user/membership';
   } else {
     alert("약관 동의를 해주세요");
   }
@@ -208,3 +223,17 @@ $(function () {
   $("#userBirthMonth  > option[value=" + mon + "]").attr("selected", "true");
   $("#userBirthDay  > option[value=" + day + "]").attr("selected", "true");
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+

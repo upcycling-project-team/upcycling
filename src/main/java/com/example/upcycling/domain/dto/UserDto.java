@@ -1,10 +1,12 @@
 package com.example.upcycling.domain.dto;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.sql.Date;
-
+@Component
 @Data
+
 public class UserDto {
 
     private Long userNumber;
