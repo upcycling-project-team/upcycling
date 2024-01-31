@@ -5,10 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
-    <link rel="stylesheet" th:href="@{/css/admin/point.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/register.css}">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
 	<script th:src="@{/js/admin/side-bar.js}" defer></script>
-    <script th:src="@{/js/admin/point.js}"></script>
+    <script th:src="@{/js/admin/register.js}" defer></script>
 	<title>AdminSite</title>
 </head>
 <body id="header">
@@ -38,22 +38,33 @@
 			</a>
 			<span class="divider"></span>
 			<div class="profile">
+				
 					<li class="logout"><a th:href="@{/admin/logout}">로그아웃</a></li>
 				<!-- </ul> -->
 			</div>
 		</nav>
 		<!-- NAVBAR -->
 
-		<body>
-            <div style="padding:10px;"> </div>
-            
-            <h1>포인트 관리 페이지</h1>
-          
-            <div id="userTables"></div>
-          
-            <script src="script.js"></script>
-          </body>
+        <div class="review">
+            <div style="padding:20px;"> </div>
 
+            <h1>리뷰 관리 페이지</h1>
+
+         <table id="reviewTable">
+             <thead>
+             <tr>
+                <th>ID</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>평점</th>
+                <th>관리</th>
+             </tr>
+             </thead>
+             <tbody>
+            <!-- 여기에 리뷰 정보가 동적으로 추가될 것입니다. -->
+             </tbody>
+         </table>
+        </div>
 		<!--paging-->
 		<div class="blank">
 			<h1 class="blank-margin"></h1>
@@ -71,9 +82,9 @@
 			</section>
 		</div>
 
+		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
 
-	
 </body>
 </html>

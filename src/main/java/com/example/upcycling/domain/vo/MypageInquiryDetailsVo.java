@@ -23,4 +23,5 @@ public class MypageInquiryDetailsVo {
     private String userEmail;
     private String userPhoneNumber;
     private String userAddress;
+    private String userAddressDetail;
 }

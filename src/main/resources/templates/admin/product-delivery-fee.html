@@ -5,10 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
-    <link rel="stylesheet" th:href="@{/css/admin/point.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/register.css}">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
 	<script th:src="@{/js/admin/side-bar.js}" defer></script>
-    <script th:src="@{/js/admin/point.js}"></script>
+    <script th:src="@{/js/admin/register.js}" defer></script>
 	<title>AdminSite</title>
 </head>
 <body id="header">
@@ -38,22 +38,39 @@
 			</a>
 			<span class="divider"></span>
 			<div class="profile">
+				
 					<li class="logout"><a th:href="@{/admin/logout}">로그아웃</a></li>
 				<!-- </ul> -->
 			</div>
 		</nav>
 		<!-- NAVBAR -->
 
-		<body>
-            <div style="padding:10px;"> </div>
-            
-            <h1>포인트 관리 페이지</h1>
-          
-            <div id="userTables"></div>
-          
-            <script src="script.js"></script>
-          </body>
+		<!-- MAIN -->
 
+        <div style="padding:20px;"> </div>
+        
+        <div class="delivery"></div>
+            <h1>배송비 관리 페이지</h1>
+          
+            <table id="shippingTable">
+              <thead>
+                <tr>
+                  <th>지역</th>
+                  <th>배송비</th>
+                  <th>수정</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 여기에 지역별 배송비 정보가 동적으로 추가될 것입니다. -->
+			  <tr th:each="fee : ${deliveryFee}">
+				  <td th:text="${fee.}"></td>
+				  <td th:text="${fee.}"></td>
+				  <td th:text="${fee.}"></td>
+			  </tr>
+              </tbody>
+            </table>
+
+		</div>
 		<!--paging-->
 		<div class="blank">
 			<h1 class="blank-margin"></h1>
@@ -61,16 +78,16 @@
 
 		<div class="button-list">
 			<section class="buttons">
-				<button>&lt</button>
-				<button>1</button>
-				<button>2</button>
-				<button>3</button>
-				<button>4</button>
-				<button>5</button>
-				<button>&gt</button>
+				<a href="">&lt</a>
+				<a href="">1</a>
+				<a href="">2</a>
+				<a href="">3</a>
+				<a href="">4</a>
+				<a href="">5</a>
+				<a href="">&gt</a>
 			</section>
 		</div>
-
+		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
 

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.MypageMapper">
+
+<!--    주문리스트 조회-->
     <select id="selectOrderinquiry" parameterType="long" resultType="mypageInquiryVo">
-        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, O.ORDER_DATE, O.ORDER_STATUS,
+        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, TO_CHAR(O.ORDER_DATE, 'YYYY-MM-DD')"ORDER_DATE", O.ORDER_STATUS,
                P.PRODUCT_NUMBER, PRODUCT_NAME,
                I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID
         FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
@@ -13,12 +15,14 @@
                               ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
     </select>
 
+
     <select id="selectMypageUserinquiry" resultType="userDto" parameterType="long">
-        SELECT  USER_NUMBER, USER_NAME, USER_POINT
+        SELECT  USER_NUMBER, USER_NAME, USER_POINT, USER_PROFILE_NAME, USER_PROFILE_UPLOAD_PATH, USER_PROFILE_UUID
         FROM TBL_USER
         WHERE USER_NUMBER = #{userNumber}
     </select>
-    
+
+<!--    회원정보 수정-->
     <update id="updateMemberModify" parameterType="userModifyVo">
             UPDATE TBL_USER
             SET
@@ -27,6 +31,12 @@
                 USER_PHONE_NUMBER = #{userPhoneNumber},
                 USER_ADDRESS = #{userAddress},
                 USER_ADDRESSDETAIL = #{userAddressDetail},
+
+                <if test="userProfileName != null">
+                USER_PROFILE_NAME = #{userProfileName},
+                USER_PROFILE_UPLOAD_PATH = #{userProfileUploadPath},
+                USER_PROFILE_UUID = #{userProfileUuid},
+                </if>
                 USER_BIRTH = #{userBirth}
                 <if test="userPassword != null and !userPassword.equals('')">
                 , USER_PASSWORD = #{userPassword}
@@ -34,14 +44,16 @@
             WHERE USER_NUMBER = #{userNumber}
     </update>
 
+<!--    회원 이름 적립금 조회-->
     <select id="selectUser" parameterType="long" resultType="userDto">
         SELECT USER_NUMBER, USER_ID
         FROM TBL_USER
         WHERE USER_NUMBER = #{userNumber}
     </select>
 
+<!--    주문내역 상세조회-->
     <select id="selectOrderDetails" resultType="mypageInquiryDetailsVo" parameterType="long">
-        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, O.ORDER_DATE, O.ORDER_STATUS,O.ORDER_REQ, O.ORDER_NAME, O.ORDER_TEL,
+        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, TO_CHAR(O.ORDER_DATE, 'YYYY-MM-DD')"ORDER_DATE", O.ORDER_STATUS,O.ORDER_REQ, O.ORDER_NAME, O.ORDER_TEL,
                P.PRODUCT_NUMBER, PRODUCT_NAME,
                I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID,
                S.SHOP_CATEGORY_NUMBER, S.SHOP_CATEGORY_NAME,
@@ -51,7 +63,7 @@
                               ON O.ORDER_NUMBER = #{orderNumber}  AND O.ORDER_NUMBER = OP.ORDER_NUMBER
                          JOIN TBL_PRODUCT P
                               ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
-                         JOIN (
+                         LEFT JOIN (
             SELECT PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, PRODUCT_NUMBER, RK
             FROM (
                      SELECT PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, PRODUCT_NUMBER,
@@ -60,17 +72,23 @@
                  )
             WHERE RK=1
         ) I
-                              ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+                                   ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
                          JOIN TBL_SHOP_CATEGORY S
                               ON S.SHOP_CATEGORY_NUMBER = P.SHOP_CATEGORY_NUMBER
                          JOIN TBL_USER U
-                              ON U.USER_NUMBER = O.ORDER_NUMBER
+                              ON U.USER_NUMBER = O.USER_NUMBER
     </select>
 
 <!--    회원 적립금 내역리스트 조회-->
     <select id="selectListSavedMoney" parameterType="long" resultType="savedMoneyDto">
-        SELECT U.USER_NUMBER, S.SAVED_MONEY_NUMBER, S.SAVED_MONEY_CONTENT, S.SAVED_MONEY_AMOUNT, S.SAVED_MONEY_DATE
+        SELECT U.USER_NUMBER, S.SAVED_MONEY_NUMBER, S.SAVED_MONEY_CONTENT, S.SAVED_MONEY_AMOUNT, TO_CHAR(S.SAVED_MONEY_DATE, 'YYYY-MM-DD')"SAVED_MONEY_DATE"
         FROM TBL_USER U JOIN TBL_SAVED_MONEY S
                              ON U.USER_NUMBER = #{userNumber}
     </select>
+
+<!--    회원 탈퇴-->
+    <delete id="deleteUser" parameterType="long">
+        DELETE FROM TBL_USER
+        WHERE USER_NUMBER = #{userNumber}
+    </delete>
 </mapper>

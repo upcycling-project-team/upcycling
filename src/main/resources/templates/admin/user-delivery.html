@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
-    <link rel="stylesheet" th:href="@{/css/admin/point.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/register.css}">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
 	<script th:src="@{/js/admin/side-bar.js}" defer></script>
-    <script th:src="@{/js/admin/point.js}"></script>
+    <script th:src="@{/js/admin/register.js}" defer></script>
+	<script th:src="@{/js/admin/user.js}"></script>
 	<title>AdminSite</title>
 </head>
 <body id="header">
@@ -44,16 +45,30 @@
 		</nav>
 		<!-- NAVBAR -->
 
-		<body>
-            <div style="padding:10px;"> </div>
-            
-            <h1>포인트 관리 페이지</h1>
-          
-            <div id="userTables"></div>
-          
-            <script src="script.js"></script>
-          </body>
+		<!-- MAIN -->
 
+	<div class="delivery-detail">
+		<div style="padding:20px;"> </div>
+		<h1>배송 상세 관리 페이지</h1>
+
+		<table id="deliveryTable">
+		  <thead>
+			<tr>
+			  <th>주문 번호</th>
+			  <th>회원 ID</th>
+			  <th>상품</th>
+			  <th>수량</th>
+			  <th>금액</th>
+			  <th>주문 일시</th>
+			  <th>배송 상태</th>
+			  <th>관리</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<!-- 여기에 주문 정보가 동적으로 추가될 것입니다. -->
+		  </tbody>
+		</table>
+	</div>
 		<!--paging-->
 		<div class="blank">
 			<h1 class="blank-margin"></h1>
@@ -70,7 +85,7 @@
 				<button>&gt</button>
 			</section>
 		</div>
-
+<!--MAIN-->
 	</section>
 	<!-- NAVBAR -->
 

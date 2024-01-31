@@ -30,4 +30,7 @@ public interface MypageMapper {
     //    회원 적립금 내역 리스트 조회
     List<SavedMoneyDto> selectListSavedMoney(Long userNumber);
 
+    // 회원탈퇴
+    void deleteUser(Long userNumber);
+
 }
