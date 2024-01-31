@@ -3,12 +3,11 @@
 <mapper namespace="com.example.upcycling.mapper.OnlineDonationMapper">
 
     <insert id="insert" parameterType="onlineDonationDto">
-        INSERT INTO TBL_ONLINE_DONATION(ONLINE_DONATION_NAME, ONLINE_DONATION_TEL, ONLINE_DONATION_ADDR,
-                                        ONLINE_DONATION_ADDR_DETAIL,
+        INSERT INTO TBL_ONLINE_DONATION(ONLINE_DONATION_NUMBER,USER_NUMBER,
                                         ONLINE_MATERIAL_LEATHER, ONLINE_MATERIAL_DENIM, ONLINE_MATERIAL_COTTON,
-                                        KEYRING_NUMBER,
-                                        USER_NUMBER)
-            VALUE (SEQ_ONLINE_DONATION.nextval,#{onlineDonationName}, #{onlineDonationTel}, #{onlineDonationAddr},
-            #{onlineDonationAddrDetail},#{onlineMaterialLeather}, #{onlineMaterialDenim}, #{onlineMaterialCotton});
+                                        ONLINE_DONATION_AGREE, ONLINE_KEYRING_AGREE)
+            VALUES (SEQ_ONLINE_DONATION.nextval, #{userNumber},
+                #{onlineMaterialLeather}, #{onlineMaterialDenim}, #{onlineMaterialCotton},
+                #{onlineDonationAgree}, #{onlineKeyringAgree})
     </insert>
 </mapper>

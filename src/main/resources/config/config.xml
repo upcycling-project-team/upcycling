@@ -25,5 +25,8 @@
         <typeAlias type="com.example.upcycling.domain.vo.CommunityCommentVO" alias="communitCommentVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.NewsVo" alias="newsVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.LikeVo" alias="likeVo"></typeAlias>
+
+        <typeAlias type="com.example.upcycling.domain.dto.OnlineDonationDto" alias="onlineDonationDto"/>
+
     </typeAliases>
 </configuration>
