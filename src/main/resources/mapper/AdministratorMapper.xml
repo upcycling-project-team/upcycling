@@ -58,5 +58,22 @@
     FROM TBL_SHOP_REVIEW
     </select>
 
+<!--    회원 정보 조회-->
+<select id="selectUserInfo" parameterType="criteria" resultType="userDto" >
+    SELECT RNUM, USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
+    FROM(SELECT  ROWNUM RNUM, USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
+    FROM (SELECT USER_NUMBER, USER_ID, USER_NAME, USER_EMAIL, USER_BIRTH, USER_PHONE_NUMBER
+    FROM TBL_USER
+    ORDER BY USER_NUMBER
+    )
+    <![CDATA[
+    WHERE ROWNUM <= #{page} * #{amount}
+    )
+    ]]>
+    WHERE RNUM > (#{page} - 1) * #{amount}
+</select>
+
+<!-- user-info.html 페이징 처리   -->
+
 
 </mapper>

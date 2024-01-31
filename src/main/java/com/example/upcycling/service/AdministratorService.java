@@ -3,6 +3,7 @@ package com.example.upcycling.service;
 import com.example.upcycling.domain.dto.AdministratorDto;
 import com.example.upcycling.domain.dto.ProductDto;
 import com.example.upcycling.domain.dto.ShopReviewDto;
+import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.mapper.AdministratorMapper;
 import lombok.RequiredArgsConstructor;
@@ -42,6 +43,10 @@ public class AdministratorService {
         return administratorMapper.selectReviewTotal();
     }
 
+//  회원 정보 리스트 조회
+    public List<UserDto> findUserInfo(Criteria criteria){
+        return administratorMapper.selectUserInfo(criteria);
+    }
 
 
 

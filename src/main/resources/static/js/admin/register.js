@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // 예시로 몇 명의 회원을 추가합니다.
-    const members = [
+    const productInfo = [
       { id: 1, name: "홍길동", email: "hong@example.com", price:"11,000",sale:"9,000" },
       { id: 2, name: "김철수", email: "kim@example.com", price:"13,000",sale:"11,000"  },
     ];
@@ -27,16 +27,28 @@ document.addEventListener("DOMContentLoaded", function() {
     //
     // // 초기 회원 정보 표시
     // renderMembers();
-  
-    // 회원 삭제 함수
-    window.deleteMember = function(id) {
-      const index = members.findIndex(member => member.id === id);
-      if (index !== -1) {
-        members.splice(index, 1);
-        renderMembers(); // 테이블 업데이트
-      }
-    };
-  });
+
+  //상품 정보 삭제 정보
+  window.deleteProductInfo = function(id) {
+    const index = productInfo.findIndex(product => product.id === id);
+    if (index !== -1) {
+      productInfo.splice(index, 1);
+      renderProductInfo(); // 테이블 업데이트
+    }
+  };
+});
+
+
+
+  //   // 회원 삭제 함수
+  //   window.deleteMember = function(id) {
+  //     const index = members.findIndex(member => member.id === id);
+  //     if (index !== -1) {
+  //       members.splice(index, 1);
+  //       renderMembers(); // 테이블 업데이트
+  //     }
+  //   };
+  // });
 
   
 
