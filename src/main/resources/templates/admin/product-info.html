@@ -53,7 +53,7 @@
         <table id="memberTable">
             <thead>
             <tr>
-                <th>상품 번호</th>
+                <th class="productNumberTh">상품 번호</th>
                 <th>상품 명</th>
                 <th>상품 설명</th>
                 <th>정가</th>
@@ -62,7 +62,7 @@
             </tr>
             </thead>
             <tbody>
-            <!-- 여기에 회원 정보가 동적으로 추가될 것입니다. -->
+            <!-- 상품 정보 추가. -->
             <tr th:each="info : ${productInfo}">
                 <td th:text="${info.productNumber}"></td>
                 <td th:text="${info.productName}"></td>
@@ -70,7 +70,7 @@
                 <td th:text="${info.productPrice}"></td>
                 <td th:text="${info.productPrice - info.productPrice * info.productSale/100}"></td>
                 <td>
-                    <button onclick="deleteMember()">삭제</button>
+                    <button onclick="deleteProductInfo()">삭제</button>
                 </td>
             </tr>
             </tbody>
