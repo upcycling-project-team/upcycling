@@ -2,4 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.UserMapper">
 
+    <insert id="insert" parameterType="userDto">
+     insert into TBL_USER (USER_NUMBER,  USER_PASSWORD, USER_NAME, USER_EMAIL, USER_BIRTH,
+    USER_PHONE_NUMBER, USER_ID, USER_ADDRESS, USER_ADDRESSDETAIL)
+    values (SEQ_USER.nextval, #{userPassword}, #{userName}, #{userEmail}, #{userBirthYear} || '.' || #{userBirthMonth} || '.'|| #{userBirthDay},#{userPhoneNumber},
+            #{userId}, #{userAddress}, #{userAddressDetail})
+    </insert>
+
+
+    <select id="selectUserNumber" parameterType="userDto" resultType="long">
+        SELECT USER_NUMBER FROM TBL_USER
+        WHERE USER_ID = #{userId} AND USER_PASSWORD = #{userPassword}
+    </select>
+
+
 </mapper>

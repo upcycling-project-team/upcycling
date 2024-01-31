@@ -19,16 +19,16 @@
           <section class="main__menu">
             <ul class="mypage_list">
               <li class="li_list">
-                <a href="" class="li_list_a">주문 조회</a>
+                <a href="" class="li_list_a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
               </li>
               <li class="li_list">
-                <a href="" class="li_list_a">교환/반품</a>
+                <a href="" class="li_list_a" th:href="@{/mypage/exchange}">교환/반품</a>
               </li>
               <li class="li_list">
-                <a href="" class="li_list_a">적립금</a>
+                <a href="" class="li_list_a" th:href="@{/mypage/savedmoney}">적립금</a>
               </li>
               <li class="li_list">
-                <a href="" class="li_list_a">1:1문의</a>
+                <a href="" class="li_list_a" th:href="@{/mypage/inquiry}">1:1문의</a>
               </li>
               <li class="li_list">
                 <button class="btn_open_modal">회원수정</button>
@@ -100,7 +100,8 @@
 
             <!-- 문의 작성 번호 -->
             <div class="inquiry_btn">
-              <button class="btn">문의 작성</button>
+              <button class="btn">
+                <a class="writinginquiries_btn" th:href="@{/mypage/writinginquiries}">문의 작성</a></button>
             </div>
           </section>
 
@@ -134,7 +135,6 @@
                   <input
                           type="text"
                           class="member_id"
-                          placeholder="tlsehddjr1231"
                           disabled
                   />
                   <input
@@ -145,11 +145,13 @@
                   />
                   <input
                           type="text"
+                          id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
                           type="text"
+                          id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
@@ -163,7 +165,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-email"/>
                 </div>
 
                 <div class="input_box">
@@ -173,7 +175,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-name"/>
                 </div>
 
                 <div class="input_box">
@@ -183,7 +185,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-phone"/>
                 </div>
 
                 <div class="input_box">
@@ -193,8 +195,8 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
-                  <input type="text" class="member_input_01" />
+                  <input type="text" class="member_input" id="member-address"/>
+                  <input type="text" class="member_input_01" id="member-address-detail"/>
                 </div>
 
                 <div class="input_box">
@@ -205,9 +207,9 @@
                     </div>
                   </div>
                   <div>
-                    <select name="yy" id="year"></select>
-                    <select name="mm" id="month"></select>
-                    <select name="dd" id="day"></select>
+                    <select name="yy" id="year" ></select>
+                    <select name="mm" id="month" ></select>
+                    <select name="dd" id="day" ></select>
                   </div>
                 </div>
 

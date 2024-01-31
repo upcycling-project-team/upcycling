@@ -20,13 +20,13 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a">주문 조회</a>
+                <a class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
               </li>
               <li class="menu__li">
-                <a href="" class="menu__a">교환/반품</a>
+                <a href="" class="menu__a" th:href="@{/mypage/exchange(userNumber=${user.userNumber})}">교환/반품</a>
               </li>
-              <li class="menu__li"><a href="" class="menu__a">적립금</a></li>
-              <li class="menu__li"><a href="" class="menu__a">1:1문의</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney}">적립금</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/inquiry}">1:1문의</a></li>
               <li class="menu__li">
                 <button class="btn_open_modal">회원수정</button>
               </li>
@@ -53,22 +53,22 @@
 
                 <!-- 회원이름 및 누적 금액 -->
                 <div class="member__name_money_box">
-                  <div class="member__information_name">
-                    신동억 님 안녕하세요
+                  <div class="member__information_name" th:text="${user.userName} + ' 님 안녕하세요'">
+
                   </div>
-                  <div class="member__information_accumulated_amount">
+                  <!--<div class="member__information_accumulated_amount">
                     누적 구매금액 : 0 원
-                  </div>
+                  </div>-->
                 </div>
                 <!-- 회원이름 및 누적 금액 -->
 
                 <!-- 적립금표시 박스 -->
                 <div class="saved__money_box">
                   <div class="saved__money_name">
-                    <a href="" class="saved__a">적립금</a>
+                    <a href="" class="saved__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a>
                   </div>
                   <div class="saved__money_amount">
-                    <a href="" class="saved_money_amount_a">5,000</a>
+                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}"></a>
                   </div>
                 </div>
                 <!-- 적립금표시 박스 -->
@@ -78,12 +78,11 @@
             
             <!-- 주문조회 내역 -->
             <h4 class="order__inquiry_title">주문조회 내역</h4>
-            <div class="order__breakdown">주문 내역이 없습니다.</div>
+            <div class="order__breakdown" th:if="${#lists.isEmpty(inquiryList)}">주문 내역이 없습니다.</div>
 
             <!-- 주문내역 리스트 -->
             <ul class="order__breakdown_box">
-
-              <li class="order__inquiry_list_title">
+              <li class="order__inquiry_list_title" >
                 <div class="list__title">
                   <div class="title_date">주문일</div>
                   <div class="title_order_details">주문내역</div>
@@ -94,199 +93,45 @@
               </li>
 
               <!-- 주문 내역 -->
-              <li>
+              <li th:each="mypageInquiryVo : ${inquiryList}" th:if="${!#lists.isEmpty(inquiryList)}">
                 <div class="order__inquiry_list_title">
                   <div class="title_date">
-                    <span class="title_order_content">2024.00.00</span>
+                    <span class="title_order_content" th:text="${mypageInquiryVo.orderDate}"></span>
                   </div>
                   <div class="title_order_details">
-                    <div class="order_details">
+                    <div class="order_details" >
                       <div>
-                        <!-- 주문조회 내역 이미지 -->
-                        <a href="" class="a__order_details"
-                          ><img
+                         <!--주문조회 내역 이미지-->
+                        <a  class="a__order_details" th:href="@{/mypage/orderdetails(orderNumber=${mypageInquiryVo.orderNumber})}"
+                           ><img
                             class="title_order_img"
-                            src="../../../../../../../../web/html_workspace/mypage/img/pocket_number01.png"
                             alt=""
+                            th:src="${'/upload/' + mypageInquiryVo.productImgUploadPath + '/' + mypageInquiryVo.productImgUuid + '_' + mypageInquiryVo.productImgName}"
                           />
                         </a>
                       </div>
                       <div>
-                        <a href="" class="a__order_details"
+                        <a  class="a__order_details" th:href="@{/mypage/orderdetails(orderNumber=${mypageInquiryVo.orderNumber})}"
                           ><span class="title_order_content"
-                            >업사이클링 가방</span
-                          ></a
-                        >
+                                 th:text="${mypageInquiryVo.productName}"
+                            ></span>
+                        </a>
                       </div>
                     </div>
                   </div>
                   <div class="title_order_number">
-                    <span class="title_order_content">0000001</span>
+                    <span class="title_order_content" th:text="${mypageInquiryVo.productNumber}"></span>
                   </div>
                   <div class="title_payment_amount">
-                    <span class="title_order_content">10,000 <p>원</p></span>
+                    <span class="title_order_content" th:text="${mypageInquiryVo.orderTotal} + ' 원'"><p></p></span>
                   </div>
                   <div class="title_order_state">
-                    <span class="title_order_content">진행상태</span>
+                    <span class="title_order_content" th:text="${mypageInquiryVo.orderStatus}"></span>
                   </div>
                 </div>
               </li>
 
-              <!-- 주문 내역 -->
-              <li>
-                <div class="order__inquiry_list_title">
-                  <div class="title_date">
-                    <span class="title_order_content">2024.00.00</span>
-                  </div>
-                  <div class="title_order_details">
-                    <div class="order_details">
-                      <div>
-                        <!-- 주문조회 내역 이미지 -->
-                        <a href="" class="a__order_details"
-                          ><img
-                            class="title_order_img"
-                            src="../../../../../../../../web/html_workspace/mypage/img/pocket_number01.png"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div>
-                        <a href="" class="a__order_details"
-                          ><span class="title_order_content"
-                            >업사이클링 가방</span
-                          ></a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="title_order_number">
-                    <span class="title_order_content">0000001</span>
-                  </div>
-                  <div class="title_payment_amount">
-                    <span class="title_order_content">10,000<p>원</p></span>
-                  </div>
-                  <div class="title_order_state">
-                    <span class="title_order_content">진행상태</span>
-                  </div>
-                </div>
-              </li>
-              
-              <!-- 주문 내역 -->
-              <li>
-                <div class="order__inquiry_list_title">
-                  <div class="title_date">
-                    <span class="title_order_content">2024.00.00</span>
-                  </div>
-                  <div class="title_order_details">
-                    <div class="order_details">
-                      <div>
-                        <!-- 주문조회 내역 이미지 -->
-                        <a href="" class="a__order_details"
-                          ><img
-                            class="title_order_img"
-                            src="../../../../../../../../web/html_workspace/mypage/img/pocket_number01.png"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div>
-                        <a href="" class="a__order_details"
-                          ><span class="title_order_content"
-                            >업사이클링 가방</span
-                          ></a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="title_order_number">
-                    <span class="title_order_content">0000001</span>
-                  </div>
-                  <div class="title_payment_amount">
-                    <span class="title_order_content">10,000<p>원</p></span>
-                  </div>
-                  <div class="title_order_state">
-                    <span class="title_order_content">진행상태</span>
-                  </div>
-                </div>
-              </li>
-              
-              <!-- 주문 내역 -->
-              <li>
-                <div class="order__inquiry_list_title">
-                  <div class="title_date">
-                    <span class="title_order_content">2024.00.00</span>
-                  </div>
-                  <div class="title_order_details">
-                    <div class="order_details">
-                      <div>
-                        <!-- 주문조회 내역 이미지 -->
-                        <a href="" class="a__order_details"
-                          ><img
-                            class="title_order_img"
-                            src="../../../../../../../../web/html_workspace/mypage/img/pocket_number01.png"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div>
-                        <a href="" class="a__order_details"
-                          ><span class="title_order_content"
-                            >업사이클링 가방</span
-                          ></a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="title_order_number">
-                    <span class="title_order_content">0000001</span>
-                  </div>
-                  <div class="title_payment_amount">
-                    <span class="title_order_content">10,000<p>원</p></span>
-                  </div>
-                  <div class="title_order_state">
-                    <span class="title_order_content">진행상태</span>
-                  </div>
-                </div>
-              </li>
-              
-              <!-- 주문 내역 -->
-              <li>
-                <div class="order__inquiry_list_title">
-                  <div class="title_date">
-                    <span class="title_order_content">2024.00.00</span>
-                  </div>
-                  <div class="title_order_details">
-                    <div class="order_details">
-                      <div>
-                        <!-- 주문조회 내역 이미지 -->
-                        <a href="" class="a__order_details"
-                          ><img
-                            class="title_order_img"
-                            src="../../../../../../../../web/html_workspace/mypage/img/pocket_number01.png"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div>
-                        <a href="" class="a__order_details"
-                          ><span class="title_order_content"
-                            >업사이클링 가방</span
-                          ></a
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="title_order_number">
-                    <span class="title_order_content">0000001</span>
-                  </div>
-                  <div class="title_payment_amount">
-                    <span class="title_order_content">10,000<p>원</p></span>
-                  </div>
-                  <div class="title_order_state">
-                    <span class="title_order_content">진행상태</span>
-                  </div>
-                </div>
-              </li>
+
             </ul>
           </section>
 
@@ -320,7 +165,6 @@
                   <input
                           type="text"
                           class="member_id"
-                          placeholder="tlsehddjr1231"
                           disabled
                   />
                   <input
@@ -331,11 +175,13 @@
                   />
                   <input
                           type="text"
+                          id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
                           type="text"
+                          id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
@@ -349,7 +195,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-email"/>
                 </div>
 
                 <div class="input_box">
@@ -359,7 +205,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-name"/>
                 </div>
 
                 <div class="input_box">
@@ -369,7 +215,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-phone"/>
                 </div>
 
                 <div class="input_box">
@@ -379,8 +225,8 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
-                  <input type="text" class="member_input_01" />
+                  <input type="text" class="member_input" id="member-address"/>
+                  <input type="text" class="member_input_01" id="member-address-detail"/>
                 </div>
 
                 <div class="input_box">
@@ -391,9 +237,9 @@
                     </div>
                   </div>
                   <div>
-                    <select name="yy" id="year"></select>
-                    <select name="mm" id="month"></select>
-                    <select name="dd" id="day"></select>
+                    <select name="yy" id="year" ></select>
+                    <select name="mm" id="month" ></select>
+                    <select name="dd" id="day" ></select>
                   </div>
                 </div>
 

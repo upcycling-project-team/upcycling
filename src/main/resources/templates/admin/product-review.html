@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/register.css}">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
+	<script th:src="@{/js/admin/side-bar.js}" defer></script>
+    <script th:src="@{/js/admin/register.js}" defer></script>
+	<title>AdminSite</title>
+</head>
+<body id="header">
+
+<!-- SIDEBAR -->
+<section id="sidebar" th:replace="~{/admin/sidebar :: sidebar}"></section>
+<!-- SIDEBAR -->
+
+	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu toggle-sidebar' ></i>
+			<form action="#">
+				<div class="form-group">
+					<input type="text" placeholder="검색어 입력...">
+					<i class='bx bx-search icon' ></i>
+				</div>
+			</form>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-bell icon' ></i>
+				<span class="badge">5</span>
+			</a>
+			<a href="#" class="nav-link">
+				<i class='bx bxs-message-square-dots icon' ></i>
+				<span class="badge">8</span>
+			</a>
+			<span class="divider"></span>
+			<div class="profile">
+				
+					<li class="logout"><a th:href="@{/admin/logout}">로그아웃</a></li>
+				<!-- </ul> -->
+			</div>
+		</nav>
+		<!-- NAVBAR -->
+
+        <div class="review">
+            <div style="padding:20px;"> </div>
+
+            <h1>리뷰 관리 페이지</h1>
+
+         <table id="reviewTable">
+             <thead>
+             <tr>
+                <th>ID</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>평점</th>
+                <th>관리</th>
+             </tr>
+             </thead>
+             <tbody>
+            <!-- 여기에 리뷰 정보가 동적으로 추가될 것입니다. -->
+             </tbody>
+         </table>
+        </div>
+		<!--paging-->
+		<div class="blank">
+			<h1 class="blank-margin"></h1>
+		</div>
+
+		<div class="button-list">
+			<section class="buttons">
+				<button>&lt</button>
+				<button>1</button>
+				<button>2</button>
+				<button>3</button>
+				<button>4</button>
+				<button>5</button>
+				<button>&gt</button>
+			</section>
+		</div>
+
+		<!-- MAIN -->
+	</section>
+	<!-- NAVBAR -->
+
+</body>
+</html>

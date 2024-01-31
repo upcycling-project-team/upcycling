@@ -1,9 +1,12 @@
 package com.example.upcycling.controller;
 
+import com.example.upcycling.domain.dto.UserDto;
 import com.example.upcycling.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -22,13 +25,44 @@ public class UserController {
         return "user/clause";
     }
 
+
+    /* 회원가입 */
     @GetMapping("/membership")
     public String membership(){
         return "user/membership";
     }
+
+    /* 회원가입 */
+    @PostMapping("/membership")
+    public String membership(UserDto userDto){
+        System.out.println("userDto = " + userDto);
+      userService.register(userDto);
+         return "user/login";
+    }
+
+
 
     @GetMapping("/about")
     public String about(){
         return "user/about";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

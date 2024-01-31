@@ -19,19 +19,17 @@
           <section class="mypage__menu_box">
             <ul class="menu__list">
               <li class="menu__li">
-                <a href="" class="menu__a">주문 조회</a>
+                <a  class="menu__a" th:href="@{/mypage/orderinquiry(userNumber=${user.userNumber})}">주문 조회</a>
               </li>
               <li class="menu__li">
-                <a href="" class="menu__a">교환/반품</a>
+                <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
               </li>
-              <li class="menu__li"><a href="" class="menu__a">적립금</a></li>
-              <li class="menu__li"><a href="" class="menu__a">1:1문의</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney}">적립금</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/inquiry}">1:1문의</a></li>
               <li class="menu__li">
                 <button class="btn_open_modal">회원수정</button>
               </li>
-              <li class="menu__li">
-                <button class="btn_open_elimination">회원탈퇴</button>
-              </li>
+              <li class="menu__li"><button class="btn_open_elimination">회원탈퇴</button></li>
             </ul>
           </section>
           <!-- 마이페이지 메뉴리스트 -->
@@ -50,11 +48,7 @@
 
                 <!-- 회원이름 및 누적 금액 -->
                 <div class="member__name_money_box">
-                  <div class="member__information_name">
-                    신동억 님 안녕하세요
-                  </div>
-                  <div class="member__information_accumulated_amount">
-                    누적 구매금액 : 0 원
+                  <div class="member__information_name" th:text="${user.userName} + ' 님 안녕하세요'">
                   </div>
                 </div>
                 <!-- 회원이름 및 누적 금액 -->
@@ -65,7 +59,7 @@
                     <a href="" class="saved__a">적립금</a>
                   </div>
                   <div class="saved__money_amount">
-                    <a href="" class="saved_money_amount_a">5,000</a>
+                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}"></a>
                   </div>
                 </div>
                 <!-- 적립금표시 박스 -->
@@ -160,26 +154,27 @@
                 <!-- 비밀번호 -->
                 <div class="input_box">
                   <input
-                    type="text"
-                    class="member_id"
-                    placeholder="tlsehddjr1231"
-                    disabled
+                          type="text"
+                          class="member_id"
+                          disabled
                   />
                   <input
-                    type="text"
-                    class="member_input_01"
-                    placeholder="•••••••"
-                    disabled
+                          type="text"
+                          class="member_input_01"
+                          placeholder="•••••••"
+                          disabled
                   />
                   <input
-                    type="text"
-                    class="member_input_01"
-                    placeholder="비밀번호 변경 하는 경우입력하세요"
+                          type="text"
+                          id="member-pw"
+                          class="member_input_01"
+                          placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
-                    type="text"
-                    class="member_input_01"
-                    placeholder="비밀번호 확인"
+                          type="text"
+                          id="member-pw-check"
+                          class="member_input_01"
+                          placeholder="비밀번호 확인"
                   />
                 </div>
 
@@ -191,7 +186,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-email"/>
                 </div>
 
                 <div class="input_box">
@@ -201,7 +196,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-name"/>
                 </div>
 
                 <div class="input_box">
@@ -211,7 +206,7 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
+                  <input type="text" class="member_input" id="member-phone"/>
                 </div>
 
                 <div class="input_box">
@@ -221,8 +216,8 @@
                       <img th:src="@{/images/mypage/point.png}" class="point_point" alt="" />
                     </div>
                   </div>
-                  <input type="text" class="member_input" />
-                  <input type="text" class="member_input_01" />
+                  <input type="text" class="member_input" id="member-address"/>
+                  <input type="text" class="member_input_01" id="member-address-detail"/>
                 </div>
 
                 <div class="input_box">
@@ -233,9 +228,9 @@
                     </div>
                   </div>
                   <div>
-                    <select name="yy" id="year"></select>
-                    <select name="mm" id="month"></select>
-                    <select name="dd" id="day"></select>
+                    <select name="yy" id="year" ></select>
+                    <select name="mm" id="month" ></select>
+                    <select name="dd" id="day" ></select>
                   </div>
                 </div>
 

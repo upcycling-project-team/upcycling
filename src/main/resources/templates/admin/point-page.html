@@ -12,44 +12,10 @@
 	<title>AdminSite</title>
 </head>
 <body id="header">
-	
-	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="#" class="brand">
-            <div>&ensp;</div>
-            <i class='bx bx-home-smile'></i>
-            <div>&ensp;</div>            
-            upcycling #</a>
-		<ul class="side-menu">
-			<!--<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> 대시보드</a></li> -->
-			<li class="divider" data-text="상품">Main</li> 
-			<li> 
-				<a href="#"><i class='bx bxs-inbox icon' ></i> 상품 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><a href="#">상품 등록</a></li>
-					<li><a href="#">배송비</a></li>
-					<li><a href="#">리뷰</a></li>
-					<!-- <li><a href="#">Button</a></li> -->
-				</ul>
-			</li>
-			<li class="divider" data-text="회원">Main</li>
-			<li>
-				<a href="#"><i class='bx bxs-inbox icon' ></i> 회원 관리 <i class='bx bx-chevron-right icon-right' ></i></a>
-				<ul class="side-dropdown">
-					<li><a href="#">회원 정보</a></li>
-					<li><a href="#">주문</a></li>
-					<li><a href="#">배송</a></li>
-					<!-- <li><a href="#">Breadcrumbs</a></li> -->
-					<!-- <li><a href="#">Button</a></li> -->
-				</ul>
-			</li>
-            <li class="divider" data-text="혜택">Main</li>
-			<li><a href="#"><i class='bx bxs-chart icon' ></i> 포인트</a></li>
-		
-		</ul>
-	
-	</section>
-	<!-- SIDEBAR -->
+
+<!-- SIDEBAR -->
+<section id="sidebar" th:replace="~{/admin/sidebar :: sidebar}"></section>
+<!-- SIDEBAR -->
 
 	<!-- NAVBAR -->
 	<section id="content">
@@ -72,7 +38,7 @@
 			</a>
 			<span class="divider"></span>
 			<div class="profile">
-					<li class="logout"><a href="#">로그아웃</a></li>
+					<li class="logout"><a th:href="@{/admin/logout}">로그아웃</a></li>
 				<!-- </ul> -->
 			</div>
 		</nav>
@@ -87,6 +53,24 @@
           
             <script src="script.js"></script>
           </body>
+
+		<!--paging-->
+		<div class="blank">
+			<h1 class="blank-margin"></h1>
+		</div>
+
+		<div class="button-list">
+			<section class="buttons">
+				<button>&lt</button>
+				<button>1</button>
+				<button>2</button>
+				<button>3</button>
+				<button>4</button>
+				<button>5</button>
+				<button>&gt</button>
+			</section>
+		</div>
+
 	</section>
 	<!-- NAVBAR -->
 

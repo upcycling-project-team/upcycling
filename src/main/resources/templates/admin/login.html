@@ -6,8 +6,13 @@
     <title>login page</title>
     <link rel="stylesheet" th:href="@{/css/admin/font.css}">
     <link rel="stylesheet" th:href="@{/css/admin/admin.css}">
+
+    <link rel="stylesheet" th:href="@{/css/admin/error-modal.css}">
+    <script defer src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script defer th:src="@{/js/fragments/error-modal.js}"></script>
 </head>
 <body class="bg-gradient-primary">
+    <div th:replace="~{/fragments/error-modal :: errorBox(${errorMessage})}"></div>
     <div class="container">
 
         <!-- Outer Row -->
@@ -25,15 +30,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">로그인</h1>
                                     </div>
-                                    <form class="user">
+                                    <form th:action="@{/admin/login}" class="user" method="post">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+
+                                            <input type="text" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="이메일주소 입력..">
+                                                placeholder="아이디 입력" name="administratorId">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="비밀번호">
+                                                id="exampleInputPassword" placeholder="비밀번호" name="administratorPassword">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -42,19 +48,20 @@
                                                     </label>
                                             </div>
                                         </div>
-                                        <a href="dash-board.html" class="btn btn-primary btn-user btn-block">
-                                            로그인(버튼)
-                                        </a>
-                                        <hr>
+                                       <!-- <a href="dash-board.html" class="btn btn-primary btn-user btn-block">
+                                            로그인
+                                        </a>-->
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">로그인</button>
+                                        <!--<hr>-->
                                        
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
+                                  <!--  <hr>-->
+                                   <!-- <div class="text-center">
                                         <a class="small" href="forgot-password.html">비밀번호 찾기</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="join.html">계정 생성</a>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
