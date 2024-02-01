@@ -139,32 +139,62 @@
 .review__menu > ul > li {
     align-items: center;
 
+
+}
+/*.review__img-box{*/
+/*    width: 228.4px;*/
+/*    height: 230px;*/
+/*    cursor: pointer;*/
+/*    background-image: url("static");*/
+/*}*/
+
+.review__img-box{
+    position: relative;
+    width: 230px;
+    height: 230px;
 }
 
 .review__img-box > img {
-    width: 228.4px;
-    height: 230px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
 
-.review__img-box > img:hover{
-    color: aliceblue;
+.review__hover-box{
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
+
+.review__img-box:hover > .review__hover-box{
+    display: flex;
+}
+
+/*.review__img-box > img:hover{*/
+/*    background-color: #3b4859;*/
+/*}*/
 
 .review__item{
     display: flex;
     flex-wrap: wrap;
 }
 
-.review__item > article > section:hover > img{
-    color: aliceblue;
-}
+/*.review__item > article > section:hover > img{*/
+/*    display: block;*/
+/*   background-color: #3b4859;*/
+/*}*/
 
 .review__box >li> article > section {
-    padding: 15px 15px;
+    margin: 15px 15px;
 
 }
-
 .review__number-bar{
     /* background-color: blue; */
     width: 1270px;

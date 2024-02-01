@@ -7,9 +7,11 @@
   <link rel="stylesheet" th:href="@{/css/main/font.css}" />
   <link rel="stylesheet" th:href="@{/css/main/default.css}" />
   <link rel="stylesheet" th:href="@{/css/main/main.css}" />
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
 </head>
 <body>
-<header></header>
+<header th:replace="~{/fragments/header :: header}"></header>
 <section class="banner">
   <div class="banner__template">
     <div class="banner__arrow-l">&lt</div>
@@ -97,62 +99,96 @@
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+
+                  <p>안녕!!!!!!!</p>
+
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
 
             <article>
               <section class="review__img-box">
                 <img th:src="@{/images/main/hodu.jpg}" alt="">
+                <div class="review__hover-box">
+                  <p>안녕!!!!!!!</p>
+                </div>
               </section>
             </article>
+
+
             <!-- /리뷰 이미지 반복 요소 -->
           </li>
         </ul>
@@ -254,6 +290,6 @@
     </div>
   </section>
 </main>
-<footer></footer>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

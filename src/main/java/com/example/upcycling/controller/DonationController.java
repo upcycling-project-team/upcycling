@@ -33,11 +33,15 @@ public class DonationController {
                                  String idAgree, String keyringAgree,
                                  HttpSession session){
         System.out.println("materials = " + materials + ", idAgree = " + idAgree + ", keyringAgree = " + keyringAgree);
-//        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 1L;
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 1L;
         onlineDonationService.register(materials, idAgree, keyringAgree, userNumber);
 
 
-        return "donation/donation-online";
+        return "donation/donation-thanks";
+    }
+    @GetMapping("/donation-thanks")
+    public String donationThanks(){
+        return "main/main";
     }
 }

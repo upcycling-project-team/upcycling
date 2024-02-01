@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/css/donation/donation-thanks.css}">
+  <link rel="stylesheet" th:href="@{/css/donation/default.css}">
+  <link rel="stylesheet" th:href="@{/css/donation/font.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
+</head>
+<body>
+<header th:replace="~{/fragments/header :: header}"></header>
+<section class="thanks">
+  <div class="thanks__box">
+    <ul class="thanks__ul">
+                <span>
+                   THANK YOU!
+                </span>
+      <li>
+        기부하신 모든 물품은 업사이클링샵의 제품을 제작하는데 사용됩니다. <br>
+        다시한번 환경보호에 관심을 가지고 동참해 주심에 감사드립니다.
+      </li>
+    </ul>
+  </div>
+  <section class="thanks__home">
+    <div class="thanks__home-box">
+      <div class="thanks__home-button">
+        <a th:href="@{/main/main}">
+          <div>홈으로 돌아가기</div>
+        </a>
+      </div>
+    </div>
+  </section>
+</section>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
+</body>
+</html>
