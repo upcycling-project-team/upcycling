@@ -54,16 +54,31 @@
 		<thead>
 		<tr>
 			<th>주문 번호</th>
-			<th>회원 ID</th>
-			<th>상품</th>
+			<th>회원 번호</th>
+			<th>상품 번호</th>
 			<th>수량</th>
 			<th>금액</th>
 			<th>주문 일시</th>
-        	<th>배송 상태</th>
+        	<th>배송 주소</th>
+        	<th>배송 상세주소</th>
+        	<th>관리</th>
       	</tr>
     	</thead>
     	<tbody>
-      <!-- 여기에 주문 정보가 동적으로 추가될 것입니다. -->
+      <!-- 주문 정보 동적으로 추가 -->
+		<tr th:each="order : ${userOrder}">
+			<td th:text="${order.orderNumber}"></td>
+			<td th:text="${order.userNumber}"></td>
+			<td th:text="${order.productNumber}"></td>
+			<td th:text="${order.orderProductCnt}"></td>
+			<td th:text="${order.orderTotal}"></td>
+			<td th:text="${order.orderDate}"></td>
+			<td th:text="${order.orderAddr}"></td>
+			<td th:text="${order.orderAddrDetail}"></td>
+			<td>
+				<button onclick=""> 삭제 </button>
+			</td>
+		</tr>
     	</tbody>
 	  </table>
 	</div>
@@ -74,13 +89,14 @@
 
 		<div class="button-list">
 			<section class="buttons">
-				<button>&lt</button>
-				<button>1</button>
-				<button>2</button>
-				<button>3</button>
-				<button>4</button>
-				<button>5</button>
-				<button>&gt</button>
+				<a th:href="@{/admin/user-order(page=${pageUserOrder.startPage-1})}" class="buttons__arrow" th:if="${pageUserOrder.prev}">&lt</a>
+
+
+				<a th:href="@{/admin/user-order(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageUserOrder.startPage, pageUserOrder.endPage)}"
+				   th:text="${i}"></a>
+
+				<a th:href="@{/admin/user-order(page=${pageUserOrder.endPage+1})}" class="buttons__arrow" th:if="${pageUserOrder.next}">&gt</a>
+
 			</section>
 		</div>
 		<!-- MAIN -->

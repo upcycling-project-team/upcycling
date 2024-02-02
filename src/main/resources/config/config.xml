@@ -14,6 +14,7 @@
         <typeAlias type="com.example.upcycling.domain.vo.Criteria" alias="criteria"/>
 
 
+        <typeAlias type="com.example.upcycling.domain.vo.UserOrderVo" alias="userOrderVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryVo" alias="mypageInquiryVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.UserModifyVo" alias="userModifyVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.MypageInquiryDetailsVo" alias="mypageInquiryDetailsVo"></typeAlias>

@@ -1,0 +1,95 @@
+
+.user-detail {
+  /*width: 1140px;*/
+
+}
+
+.order_data {
+  padding-bottom: 10px;
+  border-bottom: 5px solid #64c8c8;
+  font-size: 25px;
+  margin-bottom: 0px;
+  font-weight: 700;
+  font-family: "GmarketSansMedium";
+}
+
+.input__box {
+  display: flex;
+  border-bottom: 2px solid #d4d4d4;
+  height: 70px;
+  margin-top: 10px;
+}
+
+.input_box_list_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  border-right: 2px solid #d4d4d4;
+}
+.input_box_list_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 50px;
+}
+.input_title {
+  width: 600px;
+  height: 40px;
+  padding-left: 5px;
+  margin-left: 30px;
+
+}
+
+.input_content_box {
+  display: flex;
+
+  /*border-bottom: 2px solid #d4d4d4;*/
+  border-bottom: 5px solid #64c8c8;
+}
+.input_content_box_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30%;
+}
+.input_content_box_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 900px;
+  height: 250px;
+
+  border-left: 2px solid #d4d4d4;
+
+
+}
+.input_content {
+  width: 600px;
+  height: 200px;
+  padding-left: 5px;
+  margin-left: 30px;
+  resize: none;
+}
+/*버튼*/
+.faq_register_btn {
+  display: flex;
+  /*padding-top: 10px;*/
+  /*height: 30px;*/
+  flex-direction: row-reverse;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #64c8c8;
+  /*color: #040404;*/
+}
+/*.buttons__number{*/
+/*  border: 1px solid var(--blue);*/
+/*}*/
+
+/*.buttons__number:hover{*/
+/*  background-color: var(--blue);*/
+/*  color: white;*/
+/*}*/

@@ -94,10 +94,11 @@ body{
 }
 
 .col-lg-6 d-none d-lg-block bg-login-image{
+    /*width: 20%;*/
+    /*height: 30%;*/
     background-size: cover;
     background-position: center;
 }
-
 
 
 .bg-password-image{
@@ -112,11 +113,10 @@ body{
 .bg-login-image{
     background-image: url("/images/admin/recycle-555645_1920.jpg");
     background-position: center;
-    background-size: cover;
+    background-size: 100%;
     display: block!important;
-    padding: 20px;
-    margin: 10px;
-    
+    /*padding: 50px;*/
+    margin: 30px;
 }
 
 
@@ -127,7 +127,7 @@ div{
 }
 
 .col-lg-6{
-    flex: 0 0 50%;
+    flex: 0 0 70%;
     max-width: 50%;
     position: relative;
     width: 100%;

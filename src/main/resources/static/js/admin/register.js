@@ -28,14 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // // 초기 회원 정보 표시
     // renderMembers();
 
-  //상품 정보 삭제 정보
-  window.deleteProductInfo = function(id) {
-    const index = productInfo.findIndex(product => product.id === id);
-    if (index !== -1) {
-      productInfo.splice(index, 1);
-      renderProductInfo(); // 테이블 업데이트
-    }
-  };
+  // //상품 정보 삭제 정보
+  // window.deleteProductInfo = function(id) {
+  //   const index = productInfo.findIndex(product => product.id === id);
+  //   if (index !== -1) {
+  //     productInfo.splice(index, 1);
+  //     renderProductInfo(); // 테이블 업데이트
+  //   }
+  // };
 });
 
 
@@ -134,15 +134,46 @@ document.addEventListener("DOMContentLoaded", function() {
     //
 
     // 초기 리뷰 정보 표시
-    renderReviewData();
+    // renderReviewData();
   
     // 리뷰 삭제 함수
-    window.deleteReview = function(id) {
-      const index = reviewData.findIndex(review => review.id === id);
-      if (index !== -1) {
-        reviewData.splice(index, 1);
-        renderReviewData(); // 테이블 업데이트
-      }
-    };
+    // window.deleteReview = function(id) {
+    //   const index = reviewData.findIndex(review => review.id === id);
+    //   if (index !== -1) {
+    //     reviewData.splice(index, 1);
+    //     renderReviewData(); // 테이블 업데이트
+    //   }
+    // };
   });
-  
+
+
+
+{ //상품 삭제 처리
+  let $deleteBtns = document.querySelectorAll('.delete-btn');
+
+  $deleteBtns.forEach($deleteBtn => {
+    $deleteBtn.addEventListener('click', function () {
+      let productNumber = this.dataset.num;
+      console.log(productNumber)
+
+      fetch(`/products/${productNumber}`, {
+        method : 'delete'
+      }).then(() => {
+        let url = window.location.href;
+        window.location.href = url;
+      });
+
+    });
+  })
+
+}
+
+
+
+
+
+
+
+
+
+
