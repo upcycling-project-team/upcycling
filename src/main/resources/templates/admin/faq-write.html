@@ -6,6 +6,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" th:href="@{/css/admin/dash-board.css}">
     <link rel="stylesheet" th:href="@{/css/admin/register.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/faq-write.css}">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
 	<script th:src="@{/js/admin/side-bar.js}" defer></script>
     <script th:src="@{/js/admin/register.js}" defer></script>
@@ -48,21 +49,21 @@
             <div class="user-detail">
 				<div style="padding:10px;"> </div>
                 <div>
-                    <h1>회원 정보 관리</h1>
+                    <h1 class="order_data">FAQ 작성</h1>
                 </div>
-                <table id="memberTable">
-                    <thead>
-                      <tr>
-                        <th>회원 번호</th>
-                        <th>아이디</th>
-                        <th>이름</th>
-                        <th>이메일</th>
-                        <th>생일</th>
-                        <th>휴대폰 번호</th>
-                        <th>관리</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+<!--                <table id="memberTable">-->
+<!--                    <thead>-->
+<!--                      <tr>-->
+<!--                        <th>회원 번호</th>-->
+<!--                        <th>아이디</th>-->
+<!--                        <th>이름</th>-->
+<!--                        <th>이메일</th>-->
+<!--                        <th>생일</th>-->
+<!--                        <th>휴대폰 번호</th>-->
+<!--                        <th>관리</th>-->
+<!--                      </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
 <!--                      &lt;!&ndash; 회원 정보가 동적 추가. &ndash;&gt;-->
 <!--					<tr th:each="userInfo : ${userInfo}">-->
 <!--						<td th:text="${userInfo.userNumber}"></td>-->
@@ -75,10 +76,44 @@
 <!--							<button onclick="">삭제</button>-->
 <!--						</td>-->
 <!--					</tr>-->
-                    </tbody>
-                  </table>
-            </div>
-		<!--paging-->
+<!--                  </table>-->
+<!--				</tbody>-->
+				<form th:action="@{/admin/faq-write}" method="post" enctype="multipart/form-data">
+					<div>
+						<div class="input__box">
+							<div class="input_box_list_title">
+								<div>제목</div>
+							</div>
+							<div class="input_box_list_content">
+								<input name="faqQuestion"
+										placeholder="제목을 입력하세요"
+										class="input_title"
+										type="text"
+								/>
+							</div>
+						</div>
+						<div class="input_content_box">
+							<div class="input_content_box_title">
+								<div>내용</div>
+							</div>
+							<div class="input_content_box_content">
+                    <textarea
+							name="faqAnswer"
+							id=""
+							cols="30"
+							rows="10"
+							placeholder="내용을 입력하세요"
+							class="input_content"
+					></textarea>
+							</div>
+						</div>
+
+						<div class="faq_register_btn">
+							<button class="btn">등록</button>
+						</div>
+					</div>
+				</form>
+				<!--paging-->
 		<div class="blank">
 			<h1 class="blank-margin"></h1>
 		</div>

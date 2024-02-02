@@ -111,6 +111,70 @@
                                        ON O.ORDER_NUMBER = P.ORDER_NUMBER)
     </select>
 
+<!--faq 정보 조회-->
+    <select id="selectFaqInfo" parameterType="criteria" resultType="faqDto">
+        SELECT RNUM, FAQ_NUMBER, FAQ_QUESTION, FAQ_ANSWER
+        FROM(SELECT ROWNUM RNUM, FAQ_NUMBER, FAQ_QUESTION, FAQ_ANSWER
+        FROM(SELECT FAQ_NUMBER, FAQ_QUESTION, FAQ_ANSWER
+        FROM TBL_FAQ
+        ORDER BY FAQ_NUMBER)
+        <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount})
+            ]]>
+        WHERE RNUM > (#{page} - 1) * #{amount}
+    </select>
+
+    <!--faq-info.html 페이징 처리-->
+    <select id="selectFaqTotal" resultType="_int">
+        SELECT COUNT(FAQ_NUMBER)
+        FROM TBL_FAQ
+    </select>
+
+<!--    faq-write 입력-->
+<insert id="insertFaq" parameterType="faqDto">
+<selectKey keyProperty="faqNumber" resultType="long" order="BEFORE">
+    SELECT SEQ_FAQ.nextval FROM DUAL
+</selectKey>
+    INSERT INTO TBL_FAQ(FAQ_NUMBER, FAQ_QUESTION, FAQ_ANSWER, ADMINISTRATOR_NUMBER)
+    VALUES (#{faqNumber},#{faqQuestion},#{faqAnswer}, #{administratorNumber})
+</insert>
+
+
+
+
+    <!--point 페이지 정보 조회-->
+    <select id="selectPointInfo" parameterType="criteria" resultType="userDto">
+        SELECT RNUM, USER_NUMBER, USER_NAME, USER_POINT
+        FROM(SELECT ROWNUM RNUM, USER_NUMBER, USER_NAME, USER_POINT
+        FROM(SELECT USER_NUMBER,USER_NAME, USER_POINT
+        FROM TBL_USER
+        ORDER BY USER_NUMBER)
+        <![CDATA[
+        WHERE ROWNUM <= #{page} * #{amount})
+        ]]>
+        WHERE RNUM > (#{page} -1) * #{amount}
+    </select>
+
+<!--   point-info.html 페이징 처리-->
+    <select id="selectPointTotal" resultType="_int">
+        SELECT COUNT(USER_NUMBER)
+        FROM TBL_USER
+    </select>
+
+    <!--삭제-->
+<!--상품 정보 삭제-->
+    <delete id="deleteProductInfo" parameterType="long">
+        DELETE FROM TBL_PRODUCT
+        WHERE PRODUCT_NUMBER = #{productNumber}
+    </delete>
+
+    <!--상품 리뷰 삭제-->
+    <delete id="deleteProductReview" parameterType="long">
+        DELETE FROM TBL_SHOP_REVIEW
+        WHERE REVIEW_NUMBER = {reviewNumber}
+    </delete>
+
+
 
 
 </mapper>

@@ -60,18 +60,15 @@
                       </tr>
                     </thead>
                     <tbody>
-<!--                      &lt;!&ndash; 회원 정보가 동적 추가. &ndash;&gt;-->
-<!--					<tr th:each="userInfo : ${userInfo}">-->
-<!--						<td th:text="${userInfo.userNumber}"></td>-->
-<!--						<td th:text="${userInfo.userId}"></td>-->
-<!--						<td th:text="${userInfo.userName}"></td>-->
-<!--						<td th:text="${userInfo.userEmail}"></td>-->
-<!--						<td th:text="${userInfo.userBirth}"></td>-->
-<!--						<td th:text="${userInfo.userPhoneNumber}"></td>-->
-<!--						<td>-->
-<!--							<button onclick="">삭제</button>-->
-<!--						</td>-->
-<!--					</tr>-->
+                      <!-- 회원 정보가 동적 추가. -->
+					<tr th:each="faqInfo : ${faqInfo}">
+						<td th:text="${faqInfo.faqNumber}"></td>
+						<td th:text="${faqInfo.faqQuestion}"></td>
+						<td th:text="${faqInfo.faqAnswer}"></td>
+						<td>
+							<button onclick="">삭제</button>
+						</td>
+					</tr>
                     </tbody>
                   </table>
             </div>
@@ -81,16 +78,16 @@
 		</div>
 
 		<div class="button-list">
-<!--		<section class="buttons">-->
-<!--			<a th:href="@{/admin/user-info(page=${pageUserInfo.startPage-1})}" class="buttons__arrow" th:if="${pageUserInfo.prev}">&lt</a>-->
+		<section class="buttons">
+			<a th:href="@{/admin/faq-info(page=${pageFaqInfo.startPage-1})}" class="buttons__arrow" th:if="${pageFaqInfo.prev}">&lt</a>
 
 
-<!--			<a th:href="@{/admin/user-info(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageUserInfo.startPage, pageUserInfo.endPage)}"-->
-<!--			   th:text="${i}"></a>-->
+			<a th:href="@{/admin/faq-info(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(pageFaqInfo.startPage, pageFaqInfo.endPage)}"
+			   th:text="${i}"></a>
 
-<!--			<a th:href="@{/admin/user-info(page=${pageUserInfo.endPage+1})}" class="buttons__arrow" th:if="${pageUserInfo.next}">&gt</a>-->
+			<a th:href="@{/admin/faq-info(page=${pageFaqInfo.endPage+1})}" class="buttons__arrow" th:if="${pageFaqInfo.next}">&gt</a>
 
-<!--		</section>-->
+		</section>
 
 		</div>
 		<!-- MAIN -->

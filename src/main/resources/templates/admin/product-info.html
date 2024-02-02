@@ -70,7 +70,7 @@
                 <td th:text="${info.productPrice}"></td>
                 <td th:text="${info.productPrice - info.productPrice * info.productSale/100}"></td>
                 <td>
-                    <button onclick="deleteProductInfo()">삭제</button>
+                    <button type="button" class="delete-btn" th:data-num="${info.productNumber}">삭제</button>
                 </td>
             </tr>
             </tbody>

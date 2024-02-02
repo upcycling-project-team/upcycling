@@ -1,9 +1,6 @@
 package com.example.upcycling.mapper;
 
-import com.example.upcycling.domain.dto.AdministratorDto;
-import com.example.upcycling.domain.dto.ProductDto;
-import com.example.upcycling.domain.dto.ShopReviewDto;
-import com.example.upcycling.domain.dto.UserDto;
+import com.example.upcycling.domain.dto.*;
 import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.UserOrderVo;
 import org.apache.ibatis.annotations.Mapper;
@@ -38,8 +35,27 @@ public interface AdministratorMapper {
     List<UserOrderVo> selectUserOrder(Criteria criteria);
 //  회원 주문 정보 카운트
     int selectUserOrderTotal();
+//    --------------------------
+//    faq 정보 조회
+    List<FaqDto> selectFaqInfo(Criteria criteria);
+//    faq 정보 카운트 조회
+    int selectFaqTotal();
+//    faq 삽입
+    void insertFaq(FaqDto faqDto);
 
 
+//-------------------------
+//    point 정보 조회
+    List<UserDto> selectPointInfo(Criteria criteria);
+//     point 정보 카운트
+    int selectPointTotal();
+
+//    -----------------------------------------------
+//    삭제
+//    product-info 삭제
+    void deleteProductInfo(Long productNumber);
+
+    void deleteProductReview(Long reviewNumber);
 
 
 

@@ -1,15 +1,13 @@
 package com.example.upcycling.service;
 
-import com.example.upcycling.domain.dto.AdministratorDto;
-import com.example.upcycling.domain.dto.ProductDto;
-import com.example.upcycling.domain.dto.ShopReviewDto;
-import com.example.upcycling.domain.dto.UserDto;
+import com.example.upcycling.domain.dto.*;
 import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.UserOrderVo;
 import com.example.upcycling.mapper.AdministratorMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -44,16 +42,60 @@ public class AdministratorService {
         return administratorMapper.selectReviewTotal();
     }
 //    ------------------------------
-//  회원 정보 조회
+
+    //  회원 정보 조회
     public List<UserDto> findUserInfo(Criteria criteria){
         return administratorMapper.selectUserInfo(criteria);
     }
 //  회원 정보 카운트 조회
     public int findUserTotal(){return administratorMapper.selectUserTotal();}
 //   ----------------------------
-// 회원 주문 조회
+
+    // 회원 주문 조회
     public List<UserOrderVo> findUserOrder(Criteria criteria){return administratorMapper.selectUserOrder(criteria);}
 //  회원 주문 정보 카운트 조회
     public int findUserOrderTotal(){return administratorMapper.selectUserOrderTotal();}
+//--------------------
+
+    //    faq 정보 조회
+    public List<FaqDto> findFaqInfo(Criteria criteria){return  administratorMapper.selectFaqInfo(criteria);}
+//     faq 정보 카운트 조회
+    public int findFaqTotal(){return administratorMapper.selectFaqTotal();}
+
+//    faq 삽입
+    public void registerFaq(FaqDto faqDto){
+        administratorMapper.insertFaq(faqDto);
+    }
+//    ------------------------
+
+    //    point 정보 조회
+    public List<UserDto> findPointInfo(Criteria criteria){return  administratorMapper.selectPointInfo(criteria);}
+//    point 정보 카운트 조회
+    public int findPointTotal(){return administratorMapper.selectPointTotal();}
+
+//        삭제
+//        product-info
+
+    public void removeProductInfo(Long productNumber){
+        administratorMapper.deleteProductInfo(productNumber);
+    }
+//    product-review
+    public void removeProductReview(Long reviewNumber){
+        administratorMapper.deleteProductReview(reviewNumber);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -1,9 +1,6 @@
 package com.example.upcycling.controller;
 
-import com.example.upcycling.domain.dto.AdministratorDto;
-import com.example.upcycling.domain.dto.ProductDto;
-import com.example.upcycling.domain.dto.ShopReviewDto;
-import com.example.upcycling.domain.dto.UserDto;
+import com.example.upcycling.domain.dto.*;
 import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.PageVo;
 import com.example.upcycling.domain.vo.UserOrderVo;
@@ -15,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -92,6 +90,16 @@ public class AdministratorController {
         return "admin/product-info";
     }
 
+//    상품정보 삭제
+    @GetMapping("/remove")
+    public RedirectView productInfoRemove(Long productNumber){
+        administratorService.removeProductInfo(productNumber);
+
+        return new RedirectView("/admin/product-info");
+    }
+
+
+
 //    @GetMapping("/product-delivery-fee")
 //    public String productDeliveryFee(HttpSession session){
 //        Long adminNumber = (Long)session.getAttribute("adminNumber");
@@ -165,8 +173,6 @@ public class AdministratorController {
 
         model.addAttribute("pageUserOrder",pageVo);
 
-
-
         return "admin/user-order";
     }
 
@@ -183,15 +189,23 @@ public class AdministratorController {
 //        return "admin/user-delivery";
 //    }
 
-    /*FAQ 관리*/
+    /*FAQ 조회 관리*/
     @GetMapping("/faq-info")
-    public String faqInfo(HttpSession session){
+    public String faqInfo(HttpSession session,Criteria criteria,Model model){
 //     접근제한
         Long adminNumber = (Long)session.getAttribute("adminNumber");
 
         if(adminNumber == null){
             return "admin/login";
         }
+//  faq 정보 조회
+        List<FaqDto> faqInfo = administratorService.findFaqInfo(criteria);
+        model.addAttribute("faqInfo",faqInfo);
+//        faq 정보 카운트 조회
+        int faqTotal = administratorService.findFaqTotal();
+        PageVo pageVo = new PageVo(faqTotal,criteria);
+
+        model.addAttribute("pageFaqInfo",pageVo);
 
         return "admin/faq-info";
     }
@@ -205,24 +219,40 @@ public class AdministratorController {
         if(adminNumber == null){
             return "admin/login";
         }
-
         return "admin/faq-write";
+    }
+
+
+    @PostMapping("/faq-write")
+    public RedirectView faqWrite(FaqDto faqDto, HttpSession session){
+        Long adminNumber = (Long)session.getAttribute("adminNumber");
+        faqDto.setAdministratorNumber(adminNumber);
+
+//        System.out.println("adminNumber = " + adminNumber);
+
+        administratorService.registerFaq(faqDto);
+
+        return new RedirectView("/admin/faq-info");
     }
 
 
     /*포인트*/
     @GetMapping("point-page")
-    public String pointPage(HttpSession session){
+    public String pointPage(HttpSession session, Criteria criteria, Model model) {
         //        접근 제한
-        Long adminNumber = (Long)session.getAttribute("adminNumber");
+        Long adminNumber = (Long) session.getAttribute("adminNumber");
 
-        if(adminNumber == null){
+        if (adminNumber == null) {
             return "admin/login";
         }
-
+        //        point 정보 조회
+        List<UserDto> pointInfo = administratorService.findPointInfo(criteria);
+        model.addAttribute("pointInfo",pointInfo);
+//      point 페이징
+        int pointTotal = administratorService.findPointTotal();
+        PageVo pageVo = new PageVo(pointTotal,criteria);
+        model.addAttribute("pagePointInfo",pageVo);
 
         return "admin/point-page";
     }
-
-
 }
