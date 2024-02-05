@@ -24,7 +24,7 @@ a {
 }
 .about-top h1 {
   position: absolute;
-  left: 42%;
+  left: 46%;
   top: 0;
   font-family: "GmarketSansMedium";
   font-size: 4em;
@@ -34,8 +34,8 @@ a {
 
 .about-top div {
   position: absolute;
-  width: 50%;
-  left: 0;
+  width: 57%;
+  left: 28%;
   top: 53%;
   font-family: "GmarketSansMedium";
   font-size: 1.1em;
@@ -48,6 +48,7 @@ a {
   height: 500px;
   position: relative;
   background : bisque url("/images/user/aboutimg7.jpg") no-repeat fixed;
+  background-size: cover;
 }
 
 .about-middle h2 {
@@ -74,7 +75,7 @@ a {
  
 
 .about-center {
-  height: 600px;
+ /* height: 600px;*/
   background-color: #96dcdc;
   display: flex;
 }

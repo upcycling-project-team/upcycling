@@ -1,169 +1,178 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" th:href="@{/css/user/membership.css}" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link
+          href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
+          rel="stylesheet"
+  />
+  <link rel="stylesheet" th:href="@{/css/user/membership.css}" />
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
+</head>
 
-  <body>
-    <header></header>
+<body>
+<header th:replace="~{/fragments/header :: header}"></header>
 
-    <main>
-      <div class="membership-box">
-        <div class="membership-box1">
-          <form method="post" th:action="@{/user/membership}" id="userJoinForm" enctype="multipart/form-data">
-            <div class="fileimg1">
-              <div class="fileimage">
-                <img th:src="@{/images/user/login.png}" />
-              </div>
-              <div>
-                <input
-                  type="file"
-                  name="userProFile"
-                  id="userProFile"
-                  accept="image/*"
-                />
+<main>
+  <div class="membership-box">
+    <div class="membership-box1">
+      <form method="post" th:action="@{/user/membership}" id="userJoinForm" enctype="multipart/form-data">
+        <div class="fileimg1">
+          <div class="fileimage">
+            <img th:src="@{/images/user/login.png}" class="userprofilefile"/>
+          </div>
+          <div>
+            <input
+                    type="file"
+                    name="userProFile"
+                    id="userProFile"
+                    accept="image/*"
+            />
 
-                <label for="userProFile"
-                  ><i class="fa fa-camera" aria-hidden="true"></i
-                ></label>
-              </div>
-            </div>
-
-            <div class="line">
-              업사이클링을 활용한 다양한 상품으로 새로운 가치를 실현하세요:&#41;
-            </div>
-
-            <div class="membership-grup">
-              <div>
-                <input
-                  title="아이디"
-                  type="text"
-                  id="userId"
-                  name="userId"
-                  placeholder="아이디"
-                />
-              </div>
-              <div>
-                <input
-                  title="비밀번호"
-                  type="password"
-                  id="userPassword"
-                  name="userPassword"
-                  placeholder="비밀번호"
-                  autocomplete="off"
-                />
-              </div>
-              <div>
-                <input
-                  title="비밀번호 확인"
-                  type="password"
-                  id="userRePassword"
-                  name="userRePassword"
-                  placeholder="비밀번호 확인"
-                  autocomplete="off"
-                />
-              </div>
-            </div>
-
-            <div class="membership-grup">
-              <div class="membership-grup__title">
-                이메일 <i class="fa fa-circle fa-2xs" aria-hidden="true"></i>
-              </div>
-              <div>
-                <input
-                  title="이메일"
-                  type="text"
-                  id="userEmail"
-                  name="userEmail"
-                  placeholder="이메일"
-                />
-              </div>
-            </div>
-
-            <div class="membership-grup">
-              <div class="membership-grup__title">
-                이름 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
-              </div>
-              <div>
-                <input
-                  title="이름"
-                  type="text"
-                  id="userName"
-                  name="userName"
-                  placeholder="이름을(를) 입력하세요"
-                />
-              </div>
-            </div>
-
-            <div class="membership-grup">
-              <div class="membership-grup__title">
-                연락처 <i class="fa fa-bell fa-2xs" aria-hidden="true"> &nbsp;&nbsp; 숫자만 입력해주세요. </i>
-              </div>
-              <div>
-                <input
-                  title="이름"
-                  type="text"
-                  id="userPhoneNumber"
-                  name="userPhoneNumber"
-                  placeholder="연락처"
-                />
-              </div>
-            </div>
-
-            <div class="membership-grup">
-              <div class="membership-grup__title">
-                주소 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
-              </div>
-              <div>
-                <input
-                  title="이름"
-                  type="text"
-                  id="userAddress"
-                  name="userAddress"
-                  placeholder="주소"
-                />
-              </div>
-              <div>
-                <input
-                  title="이름"
-                  type="text"
-                  id="userBetterAddress"
-                  name="userAddressDetail"
-                  placeholder="상세주소"
-                />
-              </div>
-            </div>
-
-            <div class="membership-grup1">
-              <div class="membership-grup__title1">
-                생년월일 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
-              </div>
-
-              <div class="membership-grup__select">
-                <select name="userBirthYear" id="userBirthYear"></select>
-                <select name="userBirthMonth" id="userBirthMonth"></select>
-                <select name="userBirthDay" id="userBirthDay"></select>
-              </div>
-            </div>
-
-            <div class="membership-button">
-              <button type="button" id="userLoginBtn">가입하기</button>
-            </div>
-          </form>
+            <label for="userProFile"
+            ><i class="fa fa-camera" aria-hidden="true"></i
+            ></label>
+          </div>
         </div>
-      </div>
-    </main>
 
-    <footer></footer>
+        <div class="line">
+          업사이클링을 활용한 다양한 상품으로 새로운 가치를 실현하세요:&#41;
+        </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script th:src="@{/js/user/login.js}"></script>
-  </body>
+        <div class="membership-grup">
+
+
+          <div>
+            <input
+                    title="아이디"
+                    type="text"
+                    id="userId"
+                    name="userId"
+                    placeholder="아이디"
+                    oninput="checkUserId()"
+            />
+          </div>
+          <div class="gruppw" id="userGrupId">  </div>
+
+          <div>
+            <input
+                    title="비밀번호"
+                    type="password"
+                    id="userPassword"
+                    name="userPassword"
+                    placeholder="비밀번호"
+                    autocomplete="off"
+            />
+          </div>
+          <div>
+            <input
+                    title="비밀번호 확인"
+                    type="password"
+                    id="userRePassword1"
+                    name="userRePassword1"
+                    placeholder="비밀번호 확인"
+                    autocomplete="off"
+            />
+          </div>
+          <div class="gruppw" id="userGrupPw"> 비밀번호가 일치합니다. </div>
+          <div class="gruppw" id="userGrupPw1"> 비밀번호가 일치하지 않습니다.</div>
+        </div>
+
+        <div class="membership-grup">
+          <div class="membership-grup__title">
+            이메일 <i class="fa fa-circle fa-2xs" aria-hidden="true"></i>
+          </div>
+          <div>
+            <input
+                    title="이메일"
+                    type="text"
+                    id="userEmail"
+                    name="userEmail"
+                    placeholder="이메일"
+            />
+          </div>
+        </div>
+
+        <div class="membership-grup">
+          <div class="membership-grup__title">
+            이름 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+          </div>
+          <div>
+            <input
+                    title="이름"
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    placeholder="이름을(를) 입력하세요"
+            />
+          </div>
+        </div>
+
+        <div class="membership-grup">
+          <div class="membership-grup__title">
+            연락처 <i class="fa fa-bell fa-2xs" aria-hidden="true"> &nbsp;&nbsp; 숫자만 입력해주세요. </i>
+          </div>
+          <div>
+            <input
+                    title="이름"
+                    type="text"
+                    id="userPhoneNumber"
+                    name="userPhoneNumber"
+                    placeholder="연락처"
+            />
+          </div>
+        </div>
+
+        <div class="membership-grup">
+          <div class="membership-grup__title">
+            주소 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+          </div>
+          <div>
+            <input
+                    title="이름"
+                    type="text"
+                    id="userAddress"
+                    name="userAddress"
+                    placeholder="주소"
+            />
+          </div>
+          <div>
+            <input
+                    title="이름"
+                    type="text"
+                    id="userBetterAddress"
+                    name="userAddressDetail"
+                    placeholder="상세주소"
+            />
+          </div>
+        </div>
+
+        <div class="membership-grup1">
+          <div class="membership-grup__title1">
+            생년월일 <i class="fa fa-bell fa-2xs" aria-hidden="true"></i>
+          </div>
+
+          <div class="membership-grup__select">
+            <select name="userBirthYear" id="userBirthYear"></select>
+            <select name="userBirthMonth" id="userBirthMonth"></select>
+            <select name="userBirthDay" id="userBirthDay"></select>
+          </div>
+        </div>
+
+        <div class="membership-button">
+          <button type="button" id="userLoginBtn">가입하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script th:src="@{/js/user/login.js}"></script>
+</body>
 </html>

@@ -65,12 +65,12 @@ class UserServiceTest {
 
 
     @Test
-     void findUserNumber() {
+    void findUserNumber() {
 
         doReturn(Optional.empty()).when(userMapper).selectUserNumber(any());
         assertThatThrownBy(() -> userService.findUserNumber(userDto))
                 .hasMessageContaining("정보 없음");
-   }
+    }
 
 
 

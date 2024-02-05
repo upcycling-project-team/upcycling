@@ -34,6 +34,9 @@ class UserMapperTest {
         userDto.setUserPhoneNumber("0102861277");
         userDto.setUserAddress("은평구");
         userDto.setUserAddressDetail("3동");
+        userDto.setUserProfileName("test");
+        userDto.setUserProfileUuid("testUUID");
+        userDto.setUserProfileUploadPath("2004/01/06");
         userMapper.insert(userDto);
 
         System.out.println("userDto = " + userDto);

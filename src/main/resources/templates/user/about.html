@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/user/about.css}" />
+      <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+      <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   </head>
 
   <body>
-    <header> </header>
-
+  <header th:replace="~{/fragments/header :: header}"></header>
     <main>
 <div class="about-top">
 <h1>ABOUT</h1>
@@ -62,7 +63,7 @@
 
     </main>
 
-    <footer></footer>
+  <footer th:replace="~{/fragments/footer :: footer}"></footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script th:src="@{/js/user/login.js}"></script>
