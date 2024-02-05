@@ -18,4 +18,7 @@ public interface UserMapper {
     // 로그인 조회
      Optional<Long> selectUserNumber(UserDto userDto);
 
+    // 아이디 조회
+    Optional<String> selectUserFindId(@Param("userId") String userId);
+
 }
