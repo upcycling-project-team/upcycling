@@ -6,10 +6,10 @@
         <selectKey keyProperty="userNumber" resultType="long" order="BEFORE">
             SELECT SEQ_USER.nextval FROM DUAL
         </selectKey>
-     INSERT INTO TBL_USER (USER_NUMBER,  USER_PASSWORD, USER_NAME, USER_EMAIL, USER_BIRTH,
-    USER_PHONE_NUMBER, USER_ID, USER_ADDRESS, USER_ADDRESSDETAIL)
+        INSERT INTO TBL_USER (USER_NUMBER,  USER_PASSWORD, USER_NAME, USER_EMAIL, USER_BIRTH,
+        USER_PHONE_NUMBER, USER_ID, USER_ADDRESS, USER_ADDRESSDETAIL, USER_PROFILE_NAME, USER_PROFILE_UPLOAD_PATH, USER_PROFILE_UUID)
         VALUES (#{userNumber}, #{userPassword}, #{userName}, #{userEmail}, #{userBirthYear} || '.' || #{userBirthMonth} || '.'|| #{userBirthDay},#{userPhoneNumber},
-            #{userId}, #{userAddress}, #{userAddressDetail})
+        #{userId}, #{userAddress}, #{userAddressDetail}, #{userProfileName}, #{userProfileUploadPath}, #{userProfileUuid} )
     </insert>
 
 
@@ -18,5 +18,10 @@
         WHERE USER_ID = #{userId} AND USER_PASSWORD = #{userPassword}
     </select>
 
+
+    <select id="selectUserFindId" parameterType="string" resultType="String">
+        SELECT USER_ID FROM TBL_USER
+        WHERE USER_ID = #{userId}
+    </select>
 
 </mapper>

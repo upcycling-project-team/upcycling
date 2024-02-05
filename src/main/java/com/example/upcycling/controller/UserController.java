@@ -9,7 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,12 +30,17 @@ public class UserController {
 
     /* 회원가입 */
     @PostMapping("/membership")
-    public RedirectView membership(UserDto userDto) {
-
-        System.out.println("userDto = " + userDto);
-        userService.register(userDto);
+    public RedirectView membership(UserDto userDto, @RequestParam("userProFile")
+            MultipartFile files) {
+        /*   System.out.println("userDto = " + userDto);*/
+        try {
+            userService.registerFile2(userDto, files);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return new RedirectView("/user/login");
     }
+
 
 
     /* 로그인 */
@@ -55,7 +64,7 @@ public class UserController {
         }
 
         session.setAttribute("userNumber", userNumber);
-        return new RedirectView("/user/login");
+        return new RedirectView("/");
     }
 
 
@@ -72,22 +81,5 @@ public class UserController {
         return "user/about";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
