@@ -7,9 +7,11 @@
     <link rel="stylesheet" th:href="@{/css/donation/donation-online.css}">
     <link rel="stylesheet" th:href="@{/css/donation/default.css}">
     <link rel="stylesheet" th:href="@{/css/donation/font.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
 </head>
 <body>
-<header></header>
+<header th:replace="~{/fragments/header :: header}"></header>
 <div class="">
     <div class="donation__on-all">
         <form th:action="@{/donation/donation-online}" method="post">
@@ -121,7 +123,7 @@
             <section class="donation__submit">
                 <div class="donation__submit-button-box">
                     <div class="donation__submit-button">
-                        <button class="donation__go-button" type="submit">
+                        <button class="donation__go-button" type="submit" th:href="@{/donation/donation-thanks}">
                             기부하기
                         </button>
                     </div>
@@ -131,6 +133,6 @@
         </form>
     </div>
 </div>
-<footer></footer>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>
