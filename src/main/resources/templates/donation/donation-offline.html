@@ -9,6 +9,7 @@
   <link rel="stylesheet" th:href="@{/css/donation/font.css}">
   <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
   <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
+
 </head>
 <body>
 <header th:replace="~{/fragments/header :: header}"></header>
@@ -89,7 +90,7 @@
 
   </div>
 </div>
-<form th:action="@{/donation/donation-online}">
+<form th:action="@{/donation/online}">
   <div class="donation__online-button-box">
     <div class="donation__online-button">
       <button class="donation__online-go-button" type="submit">
