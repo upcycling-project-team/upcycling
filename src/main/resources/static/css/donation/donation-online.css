@@ -133,7 +133,7 @@
 
 .id__agree-choice{
     /* background-color: burlywood; */
-    width: 1200px;
+    /*width: 1200px;*/
     height: 30px;
     margin: 0 auto;
     position: absolute;
@@ -208,7 +208,7 @@
 
 .keyring-agree-box > ul {
     /* background-color: blue; */
-    width: 1200px;
+    /*width: 1200px;*/
     height: 200px;
     margin-left: 30px;
     border-radius: 7px;
@@ -222,7 +222,7 @@
 
 .keyring__agree-choice{
     /* background-color: burlywood; */
-    width: 1200px;
+    /*width: 1200px;*/
     height: 30px;
     margin: 0 auto;
     position: absolute;
