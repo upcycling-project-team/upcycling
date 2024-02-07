@@ -7,12 +7,14 @@
     <link rel="stylesheet" th:href="@{/css/donation/donation-online.css}">
     <link rel="stylesheet" th:href="@{/css/donation/default.css}">
     <link rel="stylesheet" th:href="@{/css/donation/font.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}" />
 </head>
 <body>
-<header></header>
+<header th:replace="~{/fragments/header :: header}"></header>
 <div class="">
     <div class="donation__on-all">
-        <form th:action="@{/donation/donation-online}" method="post">
+        <form th:action="@{/donation/online}" method="post">
             <!-- 소재선택 -->
             <section class="donation__choice-box">
                 <div class="donation__choice-title">
@@ -131,6 +133,6 @@
         </form>
     </div>
 </div>
-<footer></footer>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

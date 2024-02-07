@@ -7,9 +7,11 @@
   <link rel="stylesheet" th:href="@{/css/main/font.css}" />
   <link rel="stylesheet" th:href="@{/css/main/default.css}" />
   <link rel="stylesheet" th:href="@{/css/main/main.css}" />
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}" />
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}" />
 </head>
 <body>
-<header></header>
+<header th:replace="~{/fragments/header :: header}"></header>
 <section class="banner">
   <div class="banner__template">
     <div class="banner__arrow-l">&lt</div>
@@ -254,6 +256,6 @@
     </div>
   </section>
 </main>
-<footer></footer>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

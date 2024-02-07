@@ -17,18 +17,18 @@ import java.util.List;
 public class DonationController {
     private final OnlineDonationService onlineDonationService;
 
-    @GetMapping("/donation-online")
+    @GetMapping("/online")
     public String donationOnline(){
         return "donation/donation-online";
     }
 
-    @GetMapping("/donation-offline")
+    @GetMapping("/offline")
     public String donationOffline(){
         return "donation/donation-offline";
     }
 
 
-    @PostMapping("/donation-online")
+    @PostMapping("/online")
     public String donationOnline(@RequestParam("material") List<String> materials,
                                  String idAgree, String keyringAgree,
                                  HttpSession session){

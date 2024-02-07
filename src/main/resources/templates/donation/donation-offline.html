@@ -7,8 +7,11 @@
   <link rel="stylesheet" th:href="@{/css/donation/donation-offline.css}">
   <link rel="stylesheet" th:href="@{/css/donation/default.css}">
   <link rel="stylesheet" th:href="@{/css/donation/font.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}" />
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}" />
 </head>
 <body>
+<header th:replace="~{/fragments/header :: header}"></header>
 <div class="donation__all-of">
   <div class="donation__explanation-1">
     <div class="donation__explanation-2">
@@ -86,7 +89,7 @@
 
   </div>
 </div>
-<form th:action="@{/donation/donation-online}">
+<form th:action="@{/donation/online}">
   <div class="donation__online-button-box">
     <div class="donation__online-button">
       <button class="donation__online-go-button" type="submit">
@@ -95,5 +98,6 @@
     </div>
   </div>
 </form>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

@@ -17,7 +17,8 @@ ul, li{
 }
 
 .donation__all-of{
-    width: 1519.200px;
+    width: 1520px;
+    margin: 0 auto;
 }
 
 .donation__explanation-1{
@@ -178,19 +179,15 @@ ul, li{
 
 .donation__online-button-box{
     /* background-color: lightblue; */
-    width: 1519.200px;
     height: 200px;
     position: relative;
     cursor: pointer;
 }
 
 .donation__online-button{
-    /* background-color: darkgreen; */
     width:200px;
     height: 50px;
-    position: absolute;
-    left: 43%;
-
+    margin: 0 auto;
 }
 
 .donation__online-button > button{
@@ -198,12 +195,8 @@ ul, li{
 }
 
 .donation__online-go-button{
-    position: absolute;
     width:200px;
     height: 50px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
