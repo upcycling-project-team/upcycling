@@ -22,8 +22,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("/mypage")
 public class MypageController {
-    @Autowired
-    MypageService mypageService;
+
+    private final MypageService mypageService;
 
     @GetMapping("/exchange")
     public String exchange(HttpSession session, Model model){
@@ -38,14 +38,23 @@ public class MypageController {
     }
 
     @GetMapping("/exchangedetails")
-    public String exchangedetails(){
+    public String exchangedetails(HttpSession session, Model model){
+
+        //Long userNumber = (Long) session.getAttribute("userNumber");
+        Long userNumber = 24L;
+
+        UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
+
+        model.addAttribute("user", userDto);
         return "mypage/exchangedetails";
     }
 
     @GetMapping("/inquiry")
     public String inquiry(HttpSession session, Model model){
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 339L;
+
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
+
 
         List<SavedMoneyDto> listSavedMoney = mypageService.findListSavedMoney(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
@@ -58,8 +67,10 @@ public class MypageController {
 
     @GetMapping("/savedmoney")
     public String savedmoney(HttpSession session, Model model){
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 339L;
+
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
+
 
         List<SavedMoneyDto> listSavedMoney = mypageService.findListSavedMoney(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
@@ -72,8 +83,10 @@ public class MypageController {
 //
     @GetMapping("/writinginquiries")
     public String writinginquiries(HttpSession session, Model model){
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 339L;
+
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
+
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
@@ -85,8 +98,10 @@ public class MypageController {
 //    주문내역 리스트
     @GetMapping("/orderinquiry")
     public String orderinquiry(HttpSession session, Model model){
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 339L;
+
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
+
 
         List<MypageInquiryVo> orderinquiryList = mypageService.findOrderinquiry(userNumber);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
@@ -101,8 +116,10 @@ public class MypageController {
 //    주문 상세내역
     @GetMapping("/orderdetails")
     public String orderdetails(HttpSession session, Model model, Long orderNumber){
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 339L;
+
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
+
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
         MypageInquiryDetailsVo orderDetails = mypageService.findOrderDetails(orderNumber);
@@ -116,8 +133,10 @@ public class MypageController {
     // 회원탈퇴
     @GetMapping("/users/delete")
     public  RedirectView getUserDelete(HttpSession session){
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-            mypageService.removeUser(339L);
+
+        Long userNumber = (Long) session.getAttribute("userNumber");
+            mypageService.removeUser(userNumber);
+
             return new RedirectView("/user/login");
     }
 

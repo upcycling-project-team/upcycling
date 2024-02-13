@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/css/shop-payment/shop_payment.css}"/>
+  <link rel="stylesheet" th:href="@{/css/shop-payment/default.css}"/>
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
+</head>
+<body>
+<header th:replace="~{/fragments/header :: header}"></header>
+
+<article class="main__wrap-main">
+  <div class="shop__payment-box">
+    <!-- 결제페이지 -->
+    <form action="" method="post">
+      <input type="hidden" name="productNumber" id="productNumber" th:value="${payment.productNumber}" >
+      <h1 class="title__payment-text">결제하기</h1>
+      <div class="shop__payment-content-box">
+        <div class="info__box">
+          <!-- 주문 상품 정보 -->
+          <section class="content__box-oreder-product-info">
+            <h4 class="title__h">주문 상품 정보</h4>
+            <div class="product-info-box">
+              <section class="product-info-section">
+                <!-- 상품이미지 데이터 -->
+                <div class="product-img-box">
+                  <a href="" class="product-img_a"
+                  ><img
+                          th:src="${'/upload/' + payment.productImgUploadPath + '/' + payment.productImgUuid + '_' + payment.productImgName}"
+                          class="product-img"
+                          alt=""
+                  /></a>
+                </div>
+                <div class="product-info">
+                  <a href="">
+                    <ul class="product-info_ul">
+                      <li class="product_li" id="productName" th:text="${payment.productName}"></li>
+                      <li class="product_li" >수량 : 1개</li>
+                      <li class="product_li" id="productPrice" th:text="${payment.productPrice}">가격 : 10000원</li>
+                    </ul>
+                  </a>
+                </div>
+              </section>
+              <p class="text__p">배송비 무료!!!</p>
+            </div>
+          </section>
+
+          <!-- 주문자 정보 -->
+          <section class="content__box-member-info">
+            <h4 class="title__h">주문자 정보</h4>
+            <div class="member-info-box">
+              <ul class="member-info_ul">
+                <li class="member-li" id="userName" th:text="${user.userName}"></li>
+                <li class="member-li_02" th:text="${user.userPhoneNumber}"></li>
+                <li class="member-li_02" id="userEmail" th:text="${user.userEmail}"></li>
+              </ul>
+              <div class="member-info_btn_box">
+                <button class="member-info_btn" type="button">수정</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 배송 정보 -->
+          <section class="content__box-shipping-info">
+            <h4 class="title__h">배송 정보</h4>
+            <form action="">
+              <div class="shipping-info-member-info">
+                <input
+                      type="text"
+                      placeholder="수령인"
+                      class="shipping-info-input"
+                      name="orderName"
+                      id="orderName"
+                />
+                <input
+                      type="text"
+                      placeholder="연락처"
+                      class="shipping-info-input"
+                      name="orderTel"
+                      id="orderTel"
+                />
+              </div>
+
+              <div class="shipping-info-member-info">
+                <input
+                        type="text"
+                        class="shipping-zipcode-input"
+                        placeholder="우편번호"
+                        id="orderZipcode"
+                        name="orderZipcode"
+                />
+                <input
+                        type="button"
+                        onclick="sample6_execDaumPostcode()"
+                        value="우편번호 찾기"
+                        class="shipping-zipcode-btn"
+
+                /><br />
+              </div>
+              <div class="shipping-address-box">
+                <input
+                        type="text"
+                        class="shipping-address-input"
+                        placeholder="주소"
+                        id="orderAddr"
+                        name="orderAddr"
+                />
+                <input
+                        type="text"
+                        class="shipping-address-input"
+                        placeholder="상세주소"
+                        id="orderAddrDetail"
+                        name="orderAddrDetail"
+                />
+              </div>
+              <div class="shipping-address-memo-box">
+                <p class="shipping-address-memo_p">배송 메모</p>
+                <form action="fr">
+                  <select
+
+                          onchange="selectBox(this.value)"
+                          class="shipping-address-memo-select"
+                  >
+                    <option value="베송메모를 선택해주세요.">
+                      베송메모를 선택해주세요
+                    </option>
+                    <option value="배송 전에 미리 연락 바랍니다.">
+                      배송 전에 미리 연락 바랍니다.
+                    </option>
+                    <option value="부재시 경비실에 맡겨주세요.">
+                      부재시 경비실에 맡겨주세요
+                    </option>
+                    <option value="부재시 전화나 문자를 남겨주세요.">
+                      부재시 전화나 문자를 남겨주세요
+                    </option>
+                    <option class="dd" value="직접입력">직접입력</option>
+                  </select>
+                  <input
+                          id="orderReq"
+                          type="text"
+                          class="shipping-address-memo-input"
+                          placeholder="직접입력"
+                          name="orderReq"
+                  />
+                </form>
+              </div>
+            </form>
+          </section>
+
+          <!-- 적립금 -->
+          <section class="content__box-saved-money">
+            <form action="" class="saved-money-form">
+              <h4 class="title__h">적립금</h4>
+              <p class="saved-money_p">적립금</p>
+              <div class="saved-money-box">
+                <input
+                        type="text"
+                        placeholder="0"
+                        class="saved-money-input"
+                />
+                <button class="saved-money_btn">전액사용</button>
+                <div class="saved-money_c">
+                <strong class="saved-money-reserve_p"
+                >보유 적립금 :</strong>
+                <P class="saved-money_p_01" th:text="${user.userPoint}"></P>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div class="payment__section-box">
+          <!-- 주문 요약 -->
+          <section class="content__box-order-summary">
+            <h4 class="title__h">주문 요약</h4>
+            <div class="order-summary-box">
+              <p class="order-summary-text_p">상품가격 :</p>
+              <p class="order-summary-amount_p" th:text="${payment.productPrice} + '원'"></p>
+            </div>
+            <div class="order-summary-box">
+              <p class="order-summary-text_p">배송비 :</p>
+              <p class="order-summary-amount_p">무료!!</p>
+            </div>
+            <div class="order-summary-box">
+              <p class="order-summary-text_p">적립금 사용 :</p>
+              <p class="order-summary-amount_p">0원</p>
+            </div>
+            <hr class="hr_hr" />
+            <div class="order-summary-box">
+              <p class="order-summary-text_p_02">총 금액 :</p>
+              <p id="orderTotal"  class="order-summary-amount_p_02" th:text="${payment.productPrice} + '원'"></p>
+              <input type="hidden" name="orderTotal" th:value="${payment.productPrice}" >
+            </div>
+          </section>
+          <div class="order-summary-box_01">
+            <p class="order-summary-text_p_03">적립금 적립예정 :</p>
+            <p class="order-summary-amount_p_03">원</p>
+          </div>
+
+          <!-- 결제 수단 -->
+          <section class="content__box-payment-method">
+            <h4 class="title__h">결제 수단</h4>
+            <div class="payment-method_checkbox">
+              <input
+                      type="radio"
+                      class="payment-method_radio_01"
+                      id="orderCard"
+                      name="orderCard"
+                      value="카드"
+              />
+              <label for="orderCard">신용카드</label>
+              <input
+                      type="radio"
+                      class="payment-method_radio_02"
+                      id="orderCard"
+                      name="orderCard"
+              />
+              <label for="orderCard" >실시간 계좌이체</label>
+            </div>
+          </section>
+
+          <!-- 전체 동의 -->
+          <section class="content__box-full-consent">
+            <h4 class="title__h">전체 동의</h4>
+            <input type="checkbox" class="payment-method_check_03" />
+            구매조건 확인 및 결제진행에 동의
+          </section>
+          <button type="button" class="payment__btn">결제하기</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</article>
+
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script th:src="@{/js/shop-payment/shop_payment.js}"></script>
+</body>
+</html>

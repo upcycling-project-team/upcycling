@@ -33,7 +33,7 @@ public class CommunityController {
         CommunityVo communityDetail = communityService.findDetail(communityNumber);
 
 //        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 8L;
+        Long userNumber = 24L;
         String userId = communityService.findId(userNumber);
 
         model.addAttribute("userId",userId);
@@ -51,7 +51,7 @@ public class CommunityController {
     @PostMapping("/write")
     public RedirectView writer(CommunityDto communityDto, HttpSession session) {
 //        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 8L;
+        Long userNumber = 24L;
 
         communityDto.setUserNumber(userNumber);
         communityService.communityWrite(communityDto);

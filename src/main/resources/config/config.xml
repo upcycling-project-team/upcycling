@@ -8,8 +8,12 @@
 
         <typeAlias type="com.example.upcycling.domain.dto.ProductDto" alias="productDto"/>
         <typeAlias type="com.example.upcycling.domain.dto.ShopReviewDto" alias="shopReviewDto"/>
+        <typeAlias type="com.example.upcycling.domain.dto.ShopPaymentDto" alias="shopPaymentDto"></typeAlias>
 
         <typeAlias type="com.example.upcycling.domain.dto.AdministratorDto" alias="administratorDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.OrderDto" alias="orderDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.ClothesMaterialDto" alias="clothesMaterialDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.OrderProductDto" alias="orderProductDto"></typeAlias>
 
         <typeAlias type="com.example.upcycling.domain.vo.Criteria" alias="criteria"/>
 

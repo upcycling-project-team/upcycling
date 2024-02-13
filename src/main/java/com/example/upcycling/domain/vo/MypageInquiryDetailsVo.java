@@ -9,8 +9,11 @@ public class MypageInquiryDetailsVo {
     private String orderDate;
     private String orderStatus;
     private String orderReq;
+    private String orderName;
     private Long orderProductPrice;
     private String orderTel;
+    private String orderAddr;
+    private String orderAddrDetail;
     private Long productNumber;
     private String productName;
     private Long productImgNumber;
@@ -24,4 +27,6 @@ public class MypageInquiryDetailsVo {
     private String userPhoneNumber;
     private String userAddress;
     private String userAddressDetail;
+
+
 }
