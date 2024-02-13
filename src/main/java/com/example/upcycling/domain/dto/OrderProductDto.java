@@ -4,10 +4,9 @@ import lombok.Data;
 
 @Data
 public class OrderProductDto {
-    private Long orderDetailNumber;
-    private Long productNumber;
+    private Long orderProductNumber;
+    private Integer orderProductPrice;
+    private Integer orderProductCnt;
     private Long orderNumber;
-    private Long administratorNumber;
-    private Long orderDetailPrice;
-    private Long orderDetailCnt;
+    private Long productNumber;
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.upcycling.mapper.ShopPaymentMapper">
+<!--    주문상품 정보 조회-->
+    <select id="selectOrderProduct" parameterType="long" resultType="shopPaymentDto">
+        SELECT P.PRODUCT_NUMBER, P.PRODUCT_PRICE, P.PRODUCT_NAME,
+               I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID
+        FROM TBL_PRODUCT P LEFT JOIN (
+            SELECT PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, PRODUCT_NUMBER, RK
+            FROM (
+                     SELECT PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, PRODUCT_NUMBER,
+                            RANK() over (PARTITION BY PRODUCT_NUMBER ORDER BY PRODUCT_IMG_NUMBER) RK
+                     FROM TBL_PRODUCT_IMG
+                 )
+            WHERE RK=1
+        ) I
+                                     ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+        WHERE P.PRODUCT_NUMBER = #{productNumber}
+    </select>
+<!--    주문자 정보 조회-->
+    <select id="selectUser" resultType="userDto" parameterType="long" >
+        SELECT USER_NUMBER, USER_NAME, USER_PHONE_NUMBER, USER_EMAIL, USER_POINT
+        FROM TBL_USER
+        WHERE USER_NUMBER = #{userNumber}
+    </select>
+
+<!--    옷감 단건 조회-->
+    <select id="selectCmn" parameterType="long" resultType="clothesMaterialDto">
+        SELECT CLOTHES_MATERIAL_NUMBER, CLOTHES_MATERIAL_NAME
+        FROM TBL_CLOTHES_MATERIAL
+        WHERE CLOTHES_MATERIAL_NUMBER = #{clothesMaterialNumber}
+    </select>
+
+<!--    주문 정보입력-->
+    <insert id="insertOrder">
+        <selectKey keyProperty="orderNumber" resultType="long" order="BEFORE">
+            SELECT SEQ_ORDER.nextval FROM DUAL
+        </selectKey>
+        insert into TBL_ORDER (ORDER_NUMBER, ORDER_TOTAL, ORDER_DATE, ORDER_CARD, ORDER_STATUS, ORDER_NAME,
+                               ORDER_ZIPCODE, ORDER_ADDR, ORDER_ADDR_DETAIL, ORDER_TEL, ORDER_REQ, USER_NUMBER)
+        values (#{orderNumber}, #{orderTotal}, SYSDATE,
+                #{orderCard}, '주문완료', #{orderName}, #{orderZipcode}, #{orderAddr}, #{orderAddrDetail},
+                #{orderTel}, #{orderReq}, #{userNumber})
+    </insert>
+
+<!--    오더프로턱트 INSERT-->
+    <insert id="insertOrderP" parameterType="orderProductDto">
+        insert into TBL_ORDER_PRODUCT (ORDER_PRODUCT_NUMBER, ORDER_PRODUCT_PRICE, ORDER_PRODUCT_CNT, PRODUCT_NUMBER,
+                                       ORDER_NUMBER)
+        values (SEQ_ORDER_PRODUCT.nextval, #{orderProductPrice}, #{orderProductCnt}, #{productNumber}, #{orderNumber})
+    </insert>
+
+
+</mapper>

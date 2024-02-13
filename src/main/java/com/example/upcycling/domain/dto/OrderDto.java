@@ -8,7 +8,7 @@ import java.util.Date;
 public class OrderDto {
     private Long orderNumber;
     private Long userNumber;
-    private Long clothesNumber;
+    private Long clothesMaterialNumber;
     private Long keyringNumber;
     private Integer orderTotal;
     private String orderDate;

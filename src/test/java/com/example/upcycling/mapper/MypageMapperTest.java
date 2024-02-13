@@ -59,7 +59,7 @@ class MypageMapperTest {
 
     @Test
     void selectOrderDetails (){
-        mypageMapper.selectOrderDetails(1L);
+        mypageMapper.selectOrderDetails(27L);
         System.out.println("mypageMapper = " + mypageMapper);
 
     }
