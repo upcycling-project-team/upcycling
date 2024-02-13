@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.ShopReviewMapper">
+    <select id="selectReviewList" resultType="mainReviewVo">
+        SELECT REVIEW_NUMBER, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_RATE, REVIEW_SYSDATE,
+        REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID
+        FROM (
+            SELECT ROWNUM RNUM, REVIEW_NUMBER, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_RATE, REVIEW_SYSDATE,
+            REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID
+            FROM (
+                SELECT R.REVIEW_NUMBER, R.REVIEW_TITLE, R.REVIEW_CONTENT, R.REVIEW_RATE, R.REVIEW_SYSDATE,
+                RI.REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID
+                FROM TBL_SHOP_REVIEW R LEFT JOIN TBL_REVIEW_IMG RI
+                    ON R.REVIEW_NUMBER = RI.REVIEW_NUMBER
+                ORDER BY R.REVIEW_NUMBER DESC
+            )
+            <![CDATA[
+            WHERE ROWNUM <= #{page} * #{amount}
+            ]]>
+        )
+        WHERE RNUM > (#{page} - 1) * #{amount}
+    </select>
+
+    <select id="selectReviewTotal" resultType="_int">
+        SELECT COUNT(REVIEW_NUMBER) FROM TBL_SHOP_REVIEW
+    </select>
 
 </mapper>

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.ProductMapper">
-
+    <select id="selectProductInfoImg" resultType="mainProductVo">
+        SELECT PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE, PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UUID, PRODUCT_IMG_UPLOAD_PATH
+        FROM (
+            SELECT P.PRODUCT_NUMBER, P.PRODUCT_NAME, P.PRODUCT_PRICE, P.PRODUCT_SALE,
+                PI.PRODUCT_IMG_NUMBER, PI.PRODUCT_IMG_NAME, PI.PRODUCT_IMG_UUID, PI.PRODUCT_IMG_UPLOAD_PATH
+            FROM TBL_PRODUCT P JOIN TBL_PRODUCT_IMG PI
+                ON P.PRODUCT_NUMBER = PI.PRODUCT_NUMBER
+            ORDER BY P.PRODUCT_NUMBER DESC
+        )
+        <![CDATA[
+        WHERE ROWNUM <= 3
+        ]]>
+    </select>
 </mapper>
