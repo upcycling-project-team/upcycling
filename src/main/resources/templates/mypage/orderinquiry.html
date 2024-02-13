@@ -27,9 +27,9 @@
                 <a class="menu__a" th:href="@{/mypage/orderinquiry}">주문 조회</a>
               </li>
               <li class="menu__li">
-                <a href="" class="menu__a" th:href="@{/mypage/exchange(userNumber=${user.userNumber})}">교환/반품</a>
+                <a href="" class="menu__a" th:href="@{/mypage/exchange}">교환/반품</a>
               </li>
-              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a></li>
+              <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/savedmoney}">적립금</a></li>
               <li class="menu__li"><a href="" class="menu__a" th:href="@{/mypage/inquiry}">1:1문의</a></li>
               <li class="menu__li">
                 <button class="btn_open_modal">회원수정</button>
@@ -69,10 +69,10 @@
                 <!-- 적립금표시 박스 -->
                 <div class="saved__money_box">
                   <div class="saved__money_name">
-                    <a href="" class="saved__a" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}">적립금</a>
+                    <a href="" class="saved__a" th:href="@{/mypage/savedmoney}">적립금</a>
                   </div>
                   <div class="saved__money_amount">
-                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney(userNumber=${user.userNumber})}"></a>
+                    <a href="" class="saved_money_amount_a" th:text="${user.userPoint}" th:href="@{/mypage/savedmoney}"></a>
                   </div>
                 </div>
                 <!-- 적립금표시 박스 -->
@@ -124,7 +124,7 @@
                     </div>
                   </div>
                   <div class="title_order_number">
-                    <span class="title_order_content" th:text="${mypageInquiryVo.productNumber}"></span>
+                    <span class="title_order_content" th:text="${mypageInquiryVo.orderNumber}"></span>
                   </div>
                   <div class="title_payment_amount">
                     <span class="title_order_content" th:text="${mypageInquiryVo.orderTotal} + ' 원'"><p></p></span>
