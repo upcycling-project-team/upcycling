@@ -17,7 +17,7 @@
                         <!-- tlqkf 이것도 a태그 써야되ㅔㄴ 하 -->
                         <form action="">
                             <div id="header__logo">
-                                <a href="">
+                                <a th:href="@{/}">
                                     UPCYCLING#
                                 </a>
                             </div>
@@ -31,7 +31,7 @@
                     <div class="header__header__main-menu1">
                         <ul class="header__heder__main-menu-ul">
                             <li>
-                                <a href="#">ABOUT</a>
+                                <a th:href="@{/user/about}">ABOUT</a>
                                 <ul class="header__header__sub-ul">
                                     <li><a th:href="@{/user/about}">업사이클링이란?</a></li>
 <!--                                    <li><a href="#">기대효과</a></li>-->
@@ -47,7 +47,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="../donation/donationOff.html">기부하기</a>
+                                <a th:href="@{/donation/offline}">기부하기</a>
                                 <ul class="header__header__sub-ul">
                                     <li><a th:href="@{/donation/offline}">기부하러가기</a></li>
                                     <li><a th:href="@{/donation/online}">온라인기부하기</a></li>
@@ -75,8 +75,9 @@
                 <div class="header__header__user-menu1">
                     <ul class="header__header__user-menu2">
                         <!-- 여기에 나중에 a태그 입혀서 넘어갈 수 있게 처리하기 -->
-                        <li><a href="#">마이페이지</a></li>
-                        <li><a href="#">로그인</a></li>
+                            <li th:if="${session.userNumber == null}"><a th:href="@{/user/login}">로그인</a></li>
+                            <li th:unless="${session.userNumber == null}"><a th:href="@{/mypage/orderinquiry}">마이페이지</a></li>
+                            <li th:unless="${session.userNumber == null}"><a th:href="@{/user/logout}">로그아웃</a></li>
                     </ul>
 
                 </div>

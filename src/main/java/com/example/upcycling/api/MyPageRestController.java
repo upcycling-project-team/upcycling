@@ -22,8 +22,8 @@ public class MyPageRestController {
 
     @GetMapping("/users/update-info")
     public UserDto getUserInfo(HttpSession session){
-//        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
 
         UserDto user = mypageService.findUser(userNumber);
         return user;
@@ -33,8 +33,8 @@ public class MyPageRestController {
     public void getUserInfo(HttpSession session,
                             UserModifyVo userModifyVo,
                             @RequestParam(value = "profile", required = false) MultipartFile multipartFile){
-//        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
 
         userModifyVo.setUserNumber(userNumber);
 

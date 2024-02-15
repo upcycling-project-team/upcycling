@@ -82,7 +82,7 @@
             
             <!-- 주문조회 내역 -->
             <h4 class="order__inquiry_title">주문조회 내역</h4>
-            <div class="order__breakdown" th:if="${#lists.isEmpty(inquiryList)}">주문 내역이 없습니다.</div>
+
 
             <!-- 주문내역 리스트 -->
             <ul class="order__breakdown_box">
@@ -95,6 +95,8 @@
                   <div class="title_order_state">진행상태</div>
                 </div>
               </li>
+
+              <div class="order__breakdown" th:if="${#lists.isEmpty(inquiryList)}">주문 내역이 없습니다.</div>
 
               <!-- 주문 내역 -->
               <li th:each="mypageInquiryVo : ${inquiryList}" th:if="${!#lists.isEmpty(inquiryList)}">
@@ -178,17 +180,21 @@
                           disabled
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
+                </div>
+                <div class="hide__pw">
+                  <div class="gruppw" id="userGrupPw"> 비밀번호가 일치합니다. </div>
+                  <div class="gruppw" id="userGrupPw1"> 비밀번호가 일치하지 않습니다.</div>
                 </div>
 
                 <!-- 이메일 -->

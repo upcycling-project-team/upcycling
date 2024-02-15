@@ -53,85 +53,100 @@ function sample6_execDaumPostcode() {
         },
     }).open();
 }
-{
-    let IMP = window.IMP;
-    IMP.init("imp26174562");
 
-    $('.payment__btn').on('click', function (){
-        let today = new Date();
-        let hours = today.getHours(); // 시
-        let minutes = today.getMinutes(); // 분
-        let seconds = today.getSeconds(); // 초
-        let milliseconds = today.getMilliseconds();
-        let makeMerchantUid = `${hours}${minutes}${seconds}${milliseconds}`;
+// 결제 동의 체크
+$("#sp-01").on("click", function () {
+    if (
+        $("#ck-01").is(":checked")
+    ) {
+        {
+            let IMP = window.IMP;
+            IMP.init("imp26174562");
 
-
-        let orderName = $('#orderName').val();
-        let orderTel = $('#orderTel').val();
-        let orderZipcode = $('#orderZipcode').val();
-        let orderAddr = $('#orderAddr').val();
-        let orderAddrDetail = $('#orderAddrDetail').val();
-        let orderReq = $('#orderReq').val();
-        let userName = $('#userName').text();
-        let userEmail = $('#userEmail').text();
-        let productName = $('#productName').text();
-        let productPrice = $('#productPrice').text();
-        let orderCard = $('#orderCard').val();
-        let productNumber = $('#productNumber').val();
+            $('.payment__btn').on('click', function (){
+                let today = new Date();
+                let hours = today.getHours(); // 시
+                let minutes = today.getMinutes(); // 분
+                let seconds = today.getSeconds(); // 초
+                let milliseconds = today.getMilliseconds();
+                let makeMerchantUid = `${hours}${minutes}${seconds}${milliseconds}`;
 
 
-        IMP.request_pay(
-            {
-                pg: "kcp.AO09C",
-                pay_method: "card",
-                merchant_uid: "IMP" + makeMerchantUid,
-                customer_uid: makeMerchantUid,
-                name: productName,
-                amount: productPrice,
-                buyer_email: userEmail,
-                buyer_name: userName,
-                buyer_tel: orderTel,
-                buyer_addr: `${orderAddr} ${orderAddrDetail}`,
-                buyer_postcode: orderZipcode,
-                display: {
-                    card_quota: [3], // 할부개월 3개월까지 활성화
-                },
-            },
-            function (rsp) {
-                // callback
-                if (rsp.success) {
-                    console.log(rsp);
+                let orderName = $('#orderName').val();
+                let orderTel = $('#orderTel').val();
+                let orderZipcode = $('#orderZipcode').val();
+                let orderAddr = $('#orderAddr').val();
+                let orderAddrDetail = $('#orderAddrDetail').val();
+                let orderReq = $('#orderReq').val();
+                let userName = $('#userName').text();
+                let userEmail = $('#userEmail').text();
+                let productName = $('#productName').text();
+                let productPrice = $('#productPrice').text();
+                let orderCard = $('#orderCard').val();
+                let productNumber = $('#productNumber').val();
 
-                    let data = {
-                        orderTotal : productPrice,
-                        orderCard : orderCard,
-                        orderStatus : '주문 완료',
-                        orderName : orderName,
-                        orderZipcode : orderZipcode,
-                        orderAddr : orderAddr,
-                        orderAddrDetail : orderAddrDetail,
-                        orderTel : orderTel,
-                        orderReq : orderReq,
-                    }
 
-                    $.ajax({
-                        url : `/orders/products/${productNumber}`,
-                        type : 'post',
-                        data : JSON.stringify(data),
-                        contentType : 'application/json',
-                        success : function () {
-                            location.replace('/mypage/orderinquiry')
+                IMP.request_pay(
+                    {
+                        pg: "kcp.AO09C",
+                        pay_method: "card",
+                        merchant_uid: "IMP" + makeMerchantUid,
+                        customer_uid: makeMerchantUid,
+                        name: productName,
+                        amount: productPrice,
+                        buyer_email: userEmail,
+                        buyer_name: userName,
+                        buyer_tel: orderTel,
+                        buyer_addr: `${orderAddr} ${orderAddrDetail}`,
+                        buyer_postcode: orderZipcode,
+                        display: {
+                            card_quota: [3], // 할부개월 3개월까지 활성화
                         },
-                        error : function (xhr, status, err) {
-                            console.log(err);
+                    },
+                    function (rsp) {
+                        // callback
+                        if (rsp.success) {
+                            console.log(rsp);
+
+                            let data = {
+                                orderTotal : productPrice,
+                                orderCard : orderCard,
+                                orderStatus : '주문 완료',
+                                orderName : orderName,
+                                orderZipcode : orderZipcode,
+                                orderAddr : orderAddr,
+                                orderAddrDetail : orderAddrDetail,
+                                orderTel : orderTel,
+                                orderReq : orderReq,
+                            }
+
+                            $.ajax({
+                                url : `/orders/products/${productNumber}`,
+                                type : 'post',
+                                data : JSON.stringify(data),
+                                contentType : 'application/json',
+                                success : function () {
+                                    location.replace('/mypage/orderinquiry')
+                                },
+                                error : function (xhr, status, err) {
+                                    console.log(err);
+                                }
+
+                            })
+
+                        } else {
+                            console.log(rsp);
                         }
 
-                    })
+                    }
+                );
+            });
+        }
 
-                } else {
-                    console.log(rsp);
-                }
-            }
-        );
-    });
-}
+    } else {
+        alert("약관 동의를 해주세요");
+    }
+});
+
+
+

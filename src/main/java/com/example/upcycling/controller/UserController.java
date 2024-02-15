@@ -80,6 +80,15 @@ public class UserController {
     public String about() {
         return "user/about";
     }
+
+//    로그아웃
+    @GetMapping("/logout")
+    public RedirectView logout(HttpSession session){
+//        invalidate()는 세션을 초기화시켜서 저장된 값을 모두 날린다.
+        session.invalidate();
+        return new RedirectView("/user/login");
+    }
+
 }
 
 

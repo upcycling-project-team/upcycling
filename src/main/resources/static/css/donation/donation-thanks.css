@@ -60,3 +60,9 @@
     cursor: pointer;
 
 }
+
+.thanks__home-p{
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(254 255 255);
+}

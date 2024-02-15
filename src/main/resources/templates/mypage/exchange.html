@@ -73,9 +73,6 @@
             <div class="order__details">
               <h4 class="order__data">교환/반품 내역</h4>
             </div>
-
-            <div class="main__order" th:if="${!#lists.isEmpty(exchange_box)}">교환/반품 내역이 없습니다.</div>
-
             <div class="exchange_title_box" >
               <div class="list_title__01">cs처리구분</div>
               <div class="list_title__02">주문번호</div>
@@ -84,40 +81,9 @@
               <div class="list_title__01">진행상태</div>
               <div class="list_title__01">완료일자</div>
             </div>
+            <div class="main__order" th:if="${#lists.isEmpty(exchange_box)}">교환/반품 내역이 없습니다.</div>
             <!-- 테이터 들어가는곳? -->
-            <div class="exchange_box" th:if="${#lists.isEmpty(exchange_box)}">
-              <div class="list__01">교환</div>
-              <div class="list__02">0000000000000</div>
-              <div class="list__03">교환</div>
-              <div class="list__01">2024-00-00</div>
-              <div class="list__01">교환완료</div>
-              <div class="list__01">2024-00-00</div>
-            </div>
-            <div class="exchange_box">
-              <div class="list__01">교환</div>
-              <div class="list__02">0000000000000</div>
-              <div class="list__03">교환</div>
-              <div class="list__01">2024-00-00</div>
-              <div class="list__01">교환완료</div>
-              <div class="list__01">2024-00-00</div>
-            </div>
-            <div class="exchange_box">
-              <div class="list__01">교환</div>
-              <div class="list__02">0000000000000</div>
-              <div class="list__03">교환</div>
-              <div class="list__01">2024-00-00</div>
-              <div class="list__01">교환완료</div>
-              <div class="list__01">2024-00-00</div>
-            </div>
-            <div class="exchange_box">
-              <div class="list__01">교환</div>
-              <div class="list__02">0000000000000</div>
-              <div class="list__03">교환</div>
-              <div class="list__01">2024-00-00</div>
-              <div class="list__01">교환완료</div>
-              <div class="list__01">2024-00-00</div>
-            </div>
-            <div class="exchange_box">
+            <div class="exchange_box" th:if="${!#lists.isEmpty(exchange_box)}">
               <div class="list__01">교환</div>
               <div class="list__02">0000000000000</div>
               <div class="list__03">교환</div>
@@ -167,18 +133,20 @@
                           disabled
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
                 </div>
+                <div class="gruppw" id="userGrupPw"> 비밀번호가 일치합니다. </div>
+                <div class="gruppw" id="userGrupPw1"> 비밀번호가 일치하지 않습니다.</div>
 
                 <!-- 이메일 -->
                 <div class="input_box">

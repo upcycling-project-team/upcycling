@@ -18,7 +18,7 @@ public class ShopPaymentRestController {
 
 
         System.out.println("orderDto = " + orderDto + ", productNumber = " + productNumber);
-        orderDto.setUserNumber(24L);
+        orderDto.setUserNumber(userNumber);
 
         shopPaymentService.orderProcess(orderDto, productNumber);
 
