@@ -9,6 +9,8 @@
   <link rel="stylesheet" th:href="@{/css/donation/font.css}">
   <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
   <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
+  <link rel="stylesheet" th:href="@{/css/donation/map.css}">
+
 
 </head>
 <body>
@@ -50,7 +52,7 @@
     </div>
     <div class="donation__map">
       <div class="donation__map-api-box">
-        <div class="donation__map-api">
+        <div class="donation__map-api" id="map">
           api로 지도 긁어와서 집어넣기
         </div>
       </div>
@@ -100,5 +102,8 @@
   </div>
 </form>
 <footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=db584a926471de4be2f4ddeeb9c55dc8"></script>
+<script th:src="@{/js/donation/donation.js}"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
         SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, TO_CHAR(O.ORDER_DATE, 'YYYY-MM-DD')"ORDER_DATE", O.ORDER_STATUS,
                P.PRODUCT_NUMBER, PRODUCT_NAME,
                I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID
-        FROM TBL_ORDER O LEFT JOIN TBL_ORDER_PRODUCT OP
+        FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
                                    ON O.USER_NUMBER = #{userNumber} AND O.ORDER_NUMBER = OP.ORDER_NUMBER
                          LEFT JOIN TBL_PRODUCT P
                                    ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
@@ -92,7 +92,7 @@
     <select id="selectListSavedMoney" parameterType="long" resultType="savedMoneyDto">
         SELECT U.USER_NUMBER, S.SAVED_MONEY_NUMBER, S.SAVED_MONEY_CONTENT, S.SAVED_MONEY_AMOUNT, TO_CHAR(S.SAVED_MONEY_DATE, 'YYYY-MM-DD')"SAVED_MONEY_DATE"
         FROM TBL_USER U JOIN TBL_SAVED_MONEY S
-                             ON U.USER_NUMBER = #{userNumber}
+                             ON U.USER_NUMBER = #{userNumber} AND U.USER_NUMBER = S.USER_NUMBER
     </select>
 
 <!--    회원 탈퇴-->

@@ -27,8 +27,8 @@ public class MypageController {
 
     @GetMapping("/exchange")
     public String exchange(HttpSession session, Model model){
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 339L;
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 339L;
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
@@ -40,8 +40,8 @@ public class MypageController {
     @GetMapping("/exchangedetails")
     public String exchangedetails(HttpSession session, Model model){
 
-        //Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 24L;
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber = 24L;
 
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 

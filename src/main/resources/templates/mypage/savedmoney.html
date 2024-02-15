@@ -73,16 +73,15 @@
             <div class="order__details">
               <h4 class="order__data">적립금 내역</h4>
             </div>
-
-            <div class="main__order" th:if="${!#lists.isEmpty(listSavedMoney)}">적립금 내역이 없습니다.</div>
-
             <div class="saved_title_box">
               <div class="list_title__01">날짜</div>
               <div class="list_title__01">내용</div>
               <div class="list_title__01">금액</div>
             </div>
 
-            <div class="saved_box" th:each="savedMoneyDto : ${savedMoney}" th:if="${#lists.isEmpty(listSavedMoney)}">
+            <div class="main__order" th:if="${#lists.isEmpty(savedMoney)}">적립금 내역이 없습니다.</div>
+
+            <div class="saved_box" th:each="savedMoneyDto : ${savedMoney}" th:if="${!#lists.isEmpty(savedMoney)}">
               <div class="list__01" th:text="${savedMoneyDto.savedMoneyDate}"></div>
               <div class="list__01" th:text="${savedMoneyDto.savedMoneyContent}"></div>
               <div class="list__01"><p class="p_moeny" th:text="${savedMoneyDto.savedMoneyAmount} + ' 원'"></p></div>
@@ -130,18 +129,20 @@
                           disabled
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
                 </div>
+                <div class="gruppw" id="userGrupPw"> 비밀번호가 일치합니다. </div>
+                <div class="gruppw" id="userGrupPw1"> 비밀번호가 일치하지 않습니다.</div>
 
                 <!-- 이메일 -->
                 <div class="input_box">

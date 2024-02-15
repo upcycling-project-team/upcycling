@@ -482,3 +482,7 @@
   height: 40px;
   width: 100px;
 }
+
+.hide__pw {
+  display: flex;
+}

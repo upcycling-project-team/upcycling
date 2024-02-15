@@ -80,9 +80,6 @@
             <div class="order__details">
               <h4 class="order__data">1 : 1문의내역</h4>
             </div>
-
-            <div class="main__order" th:if="${!#lists.isEmpty(inquiry_box)}">등록된문의가 없습니다.</div>
-
             <div class="inquiry_title_box">
               <div class="list_title__01">상담 구분</div>
               <div class="list_title__02">상담 제목</div>
@@ -91,7 +88,9 @@
               <div class="list_title__01">비고</div>
             </div>
 
-            <div class="inquiry_box" th:if="${#lists.isEmpty(inquiry_box)}">
+            <div class="main__order" th:if="${#lists.isEmpty(inquiry_box)}">등록된문의가 없습니다.</div>
+
+            <div class="inquiry_box" th:if="${!#lists.isEmpty(inquiry_box)}">
               <div class="list__01">기타 문의</div>
               <div class="list__02">가방불량</div>
               <div class="list__01">2024-00-00</div>
@@ -146,18 +145,20 @@
                           disabled
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw"
                           class="member_input_01"
                           placeholder="비밀번호 변경 하는 경우입력하세요"
                   />
                   <input
-                          type="text"
+                          type='password'
                           id="member-pw-check"
                           class="member_input_01"
                           placeholder="비밀번호 확인"
                   />
                 </div>
+                <div class="gruppw" id="userGrupPw"> 비밀번호가 일치합니다. </div>
+                <div class="gruppw" id="userGrupPw1"> 비밀번호가 일치하지 않습니다.</div>
 
                 <!-- 이메일 -->
                 <div class="input_box">

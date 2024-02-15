@@ -96,5 +96,29 @@ $('#file_01').on('change', function (){
 
 
 
+// 비밀번호 확인
+$(function (){
+  $("#userGrupPw").hide();
+  $("#userGrupPw1").hide();
 
+  $("#member-pw-check").keyup(function (){
+
+    let pw1 = $("#member-pw").val();
+    let pw2 = $("#member-pw-check").val();
+
+    if(pw1 != "" || pw2 != ""){
+      if(pw1 == pw2) {
+        $("#userGrupPw").show();
+        $("#userGrupPw1").hide();
+
+        $("#btn_modify").removeAttr("disabled");
+      } else {
+        $("#userGrupPw").hide();
+        $("#userGrupPw1").show();
+        $("#btn_modify").attr("disabled", "disabled");
+      }
+    }
+  });
+
+});
 
