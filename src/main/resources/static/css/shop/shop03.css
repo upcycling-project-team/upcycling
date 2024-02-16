@@ -117,6 +117,12 @@ label{
     height: 40px;
     display: flex;
     justify-content: center;
+    /*align-items: center;*/
+    flex-direction: column;
+}
+.star{
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 .foooter__button{

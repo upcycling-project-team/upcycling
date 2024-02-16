@@ -204,8 +204,8 @@ label {
   /* border: 1px solid goldenrod; */
   height: 100px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-end;
+  /*align-items: center;*/
   margin-top: 80px;
 }
 .heart_img{
@@ -247,9 +247,6 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.heart-block:hover {
-  background-color: #bcc0c6;
 }
 .heart-flex{
   display: flex;
@@ -311,7 +308,7 @@ label {
 }
 .product_review {
   /* border: 1px solid greenyellow; */
-  height: 35%;
+  height: 3700px;
 }
 .review-number-left {
   color: rgb(70, 70, 70);
@@ -329,7 +326,7 @@ label {
   margin-bottom: 10px;
 }
 .review-wrap {
-  height: 80%;
+  height: 95%;
   /* border: 1px solid green; */
 }
 .review-btn {
@@ -361,32 +358,46 @@ label {
 .full-box {
   border-bottom: 1px solid #bcc0c6;
   display: flex;
-  max-height: 170px;
+  /*max-height: 170px;*/
 }
 .full-box-left {
   /* border: 1px solid goldenrod; */
   padding-right: 50px;
   width: 70%;
+  display: flex;
 }
 .list-review-text {
   /* border: 1px solid goldenrod; */
   width: 700px;
-  max-height: 40%;
+  /*max-height: 40%;*/
   font-size: 14px;
   color: rgb(70, 70, 70);
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+.list-review-text2{
+  display: flex;
 }
 .review-img-border {
   /* border: 1px solid greenyellow; */
   margin-top: 8px;
   margin-bottom: 8px;
-  width: 700px;
-  height: 80px;
+  max-width: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  max-height: 80px;
 }
 .review-img {
   /* border: 1px solid greenyellow; */
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
+}
+.review-star{
+  max-width: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
 }
 .full-box-right {
   color: rgb(70, 70, 70);

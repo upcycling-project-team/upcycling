@@ -30,20 +30,16 @@ public class FaqService {
         return faqMapper.selectBoard(faqNumber)
                 .orElseThrow(() -> new IllegalStateException("존재하지 않는 게시물입니다."));
     }
-    //  이전 글 제목 조회
-    public FaqDto findBoardLeft(Long faqNumber){
-        return faqMapper.selectBoardLeft(faqNumber).orElse(null);
-    }
-    // 다음 글 제목 조회
-    public FaqDto findBoardRight(Long faqNumber){
-        return faqMapper.selectBoardRight(faqNumber).orElse(null);
-    }
-    // 마지막 글 faq넘버 조회
-    public FaqDto findBoardMax(Long faqNumber){
-        return faqMapper.selectBoardMax(faqNumber).orElse(null);
-    }
-    // 게시글 작성하기
-    public void register(FaqDto faqDto){
-        faqMapper.insert(faqDto);
-    }
+
+    //  이전 글, 다음 글, 넘버가 제일 높은 글 조회
+//    public FaqDto findBoardLeft(Long faqNumber){
+//        return faqMapper.selectBoardLeft(faqNumber).orElse(null);
+//    }
+//    public FaqDto findBoardRight(Long faqNumber){
+//        return faqMapper.selectBoardRight(faqNumber).orElse(null);
+//    }
+//    public FaqDto findBoardMax(Long faqNumber){
+//        return faqMapper.selectBoardMax(faqNumber).orElse(null);
+//    }
+
 }

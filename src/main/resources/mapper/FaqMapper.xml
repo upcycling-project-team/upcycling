@@ -21,27 +21,25 @@
         from TBL_FAQ
         where FAQ_NUMBER= #{faqNumber}
     </select>
-<!-- faq 이전글 조회 -->
-    <select id="selectBoardLeft" resultType="faqDto" parameterType="long">
-        select faq_question,FAQ_NUMBER
-        from TBL_FAQ
-        where FAQ_NUMBER= (#{faqNumber}-1)
-    </select>
-<!-- 다음글 조회 board3-->
-    <select id="selectBoardRight" resultType="faqDto" parameterType="long">
-        select faq_question,FAQ_NUMBER
-        from TBL_FAQ
-        where FAQ_NUMBER= (#{faqNumber}+1)
-    </select>
-<!--  마지막글 넘버 조회  -->
-    <select id="selectBoardMax" resultType="faqDto" parameterType="long">
-        SELECT faq_number
-        FROM TBL_FAQ
-        WHERE FAQ_NUMBER = (SELECT max(FAQ_NUMBER) FROM TBL_FAQ)
-    </select>
-<!-- 게시글 작성하기 -->
-    <insert id="insert" parameterType="faqDto">
-        insert into TBL_FAQ (FAQ_NUMBER,FAQ_QUESTION, FAQ_ANSWER)
-        values (SEQ_FAQ.nextval,#{faqQuestion},#{faqAnswer})
-    </insert>
+
+<!--detail페이지 이전글 다음글 조회-->
+<!--    <select id="selectBoardLeft" resultType="faqDto" parameterType="long">-->
+<!--        select faq_question,FAQ_NUMBER-->
+<!--        from TBL_FAQ-->
+<!--        where FAQ_NUMBER= (#{faqNumber}-1)-->
+<!--    </select>-->
+<!--    <select id="selectBoardRight" resultType="faqDto" parameterType="long">-->
+<!--        select faq_question,FAQ_NUMBER-->
+<!--        from TBL_FAQ-->
+<!--        where FAQ_NUMBER=(-->
+<!--            SELECT MIN(FAQ_NUMBER) AS FAQ_NUMBER-->
+<!--            FROM TBL_FAQ-->
+<!--            WHERE FAQ_NUMBER>#{faqNumber})-->
+<!--    </select>-->
+<!--    <select id="selectBoardMax" resultType="faqDto" parameterType="long">-->
+<!--        SELECT faq_number-->
+<!--        FROM TBL_FAQ-->
+<!--        WHERE FAQ_NUMBER = (SELECT max(FAQ_NUMBER) FROM TBL_FAQ)-->
+<!--    </select>-->
+
 </mapper>

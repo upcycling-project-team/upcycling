@@ -5,6 +5,9 @@
     <typeAliases>
         <typeAlias type="com.example.upcycling.domain.dto.UserDto" alias="userDto"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.dto.FaqDto" alias="faqDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.ShopCategoryDto" alias="shopCategoryDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.ShopReviewDto" alias="shopReviewDto"></typeAlias>
+        <typeAlias type="com.example.upcycling.domain.dto.ReviewImgDto" alias="reviewImgDto"></typeAlias>
 
         <typeAlias type="com.example.upcycling.domain.dto.ProductDto" alias="productDto"/>
         <typeAlias type="com.example.upcycling.domain.dto.ShopReviewDto" alias="shopReviewDto"/>
@@ -25,6 +28,9 @@
         <typeAlias type="com.example.upcycling.domain.vo.CommunityCommentVO" alias="communitCommentVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.NewsVo" alias="newsVo"></typeAlias>
         <typeAlias type="com.example.upcycling.domain.vo.LikeVo" alias="likeVo"></typeAlias>
+
+        <typeAlias type="com.example.upcycling.domain.vo.ProductVo" alias="productVo"/>
+        <typeAlias type="com.example.upcycling.domain.vo.ReviewVo" alias="reviewVo"/>
 
         <typeAlias type="com.example.upcycling.domain.dto.OnlineDonationDto" alias="onlineDonationDto"/>
 

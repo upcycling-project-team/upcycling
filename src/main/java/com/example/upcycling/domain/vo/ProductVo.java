@@ -1,9 +1,9 @@
-package com.example.upcycling.domain.dto;
+package com.example.upcycling.domain.vo;
 
 import lombok.Data;
 
 @Data
-public class ProductDto {
+public class ProductVo {
     private Long productNumber;
     private Long shopCategoryNumber;
     private Long administratorNumber;
@@ -12,8 +12,10 @@ public class ProductDto {
     private Long productPrice;
     private Long productSale;
     private String productSysdate;
-    private Long productSalePrice;
 
-    //편의를 위해 이렇게 하자고 의견이 나왔다.
-    private Long clothesMaterialNumber;
+    private Long productSalePrice;
+    private Long productImgNumber;
+    String productImgName;
+    String productImgUploadPath;
+    String productImgUuid;
 }

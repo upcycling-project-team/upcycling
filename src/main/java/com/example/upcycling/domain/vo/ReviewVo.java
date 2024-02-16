@@ -1,9 +1,10 @@
-package com.example.upcycling.domain.dto;
+package com.example.upcycling.domain.vo;
 
 import lombok.Data;
 
 @Data
-public class ShopReviewDto {
+public class ReviewVo {
+//    ReviewDto랑 ReviewImgDto를 합침
     private Long reviewNumber;
     private Long userNumber;
     private Long productNumber;
@@ -12,6 +13,10 @@ public class ShopReviewDto {
     private String reviewContent;
     private String reviewSysdate;
     private Long reviewRate;
-    //추가된 dto
     private String userId;
+
+    private Long reviewImgNumber;
+    private String reviewImgName;
+    private String reviewImgUploadPath;
+    private String reviewImgUuid;
 }
