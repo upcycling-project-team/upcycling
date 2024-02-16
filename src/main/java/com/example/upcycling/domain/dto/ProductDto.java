@@ -12,8 +12,10 @@ public class ProductDto {
     private Long productPrice;
     private Long productSale;
     private String productSysdate;
+
     private Long productSalePrice;
 
     //편의를 위해 이렇게 하자고 의견이 나왔다.
+
     private Long clothesMaterialNumber;
 }

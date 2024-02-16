@@ -18,7 +18,7 @@ class ShopReviewMapperTest {
 
     @Test
     void selectReviewList(){
-        List<ShopReviewDto> selectReviewList = shopReviewMapper.selectReviewList(2L, new Criteria());
+        List<ShopReviewDto> selectReviewList = shopReviewMapper.selectReviewList2(2L, new Criteria());
         System.out.println("selectReviewList = " + selectReviewList);
     }
     

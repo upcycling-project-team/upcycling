@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
@@ -49,21 +50,43 @@ public class UserController {
         return "user/login";
     }
 
+//    /* 로그인 */
+//    @PostMapping("/login")
+//    public RedirectView login(UserDto userDto, HttpSession session) {
+//
+//        Long userNumber = null;
+//        try {
+//            userNumber = userService.findUserNumber(userDto);
+//        } catch (IllegalStateException e) {
+//            e.printStackTrace();
+//            return new RedirectView("/user/login") ;
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//
+//        session.setAttribute("userNumber", userNumber);
+//        return new RedirectView("/");
+//    }
+
     /* 로그인 */
     @PostMapping("/login")
-    public RedirectView login(UserDto userDto, HttpSession session) {
+    public RedirectView login(UserDto userDto, HttpSession session, Model model, RedirectAttributes attributes) {
 
         Long userNumber = null;
         try {
             userNumber = userService.findUserNumber(userDto);
         } catch (IllegalStateException e) {
-            e.printStackTrace();
-            return new RedirectView("/user/login") ;
+//            e.printStackTrace();
+            attributes.addFlashAttribute("errorMessage" , "로그인 정보를 확인하세요");
+//            model.addAttribute("errorMessage" , "로그인 정보를 확인하세요");
+            return new RedirectView("/user/login");
+//            return new RedirectView("/user/login") ;
         } catch (Exception e){
             e.printStackTrace();
         }
 
         session.setAttribute("userNumber", userNumber);
+//        return new RedirectView("/");
         return new RedirectView("/");
     }
 
