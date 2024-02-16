@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,11 @@
     <link rel="stylesheet" th:href="@{/css/common/default.css}"/>
     <link rel="stylesheet" th:href="@{/css/common/font.css}"/>
     <link rel="stylesheet" th:href="@{/css/community/detail.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
 </head>
 <body>
+<header th:replace="~{/fragments/header :: header}"></header>
 <div class="content-wrap">
     <section class="news">
         <div class="news__title">COMMUNITY</div>
@@ -20,11 +23,12 @@
         <div class="admin__img__text">
             이 글이 마음에 드신다면 하트를 눌러주세요
         </div>
-            <button class="admin__img__likeButton">
-            <img th:src="@{/images/news/binHeart.png}" alt="" class="admin__img__like">
+        <button class="admin__img__likeButton" th:data-num="${communityVo.communityNumber}">
+            <img th:if="${communityVo.likeCnt==0}" th:src="@{/images/news/binHeart.png}" alt="" class="admin__img__like">
+            <img th:if="${communityVo.likeCnt==1}" th:src="@{/images/news/fullHeart.png}" alt="" class="admin__img__like">
         </button>
     </div>
-        <div class="header-box">
+    <div class="header-box">
         <div th:text="${communityVo.communityTitle}" class="header-line">버려지는 음식이 없는 세상을 꿈꾸다,업싸이클링샵</div>
         <div class="header-line__box">
             <div class="header-line__icon">
@@ -39,9 +43,9 @@
     </div>
     <div class="foooter">
         <div class="foooter__user">
-            <div  class="foooter__content">
-                    <section class="foooter__user">
-                    <div class="foooter__name" th:text="${userId}">
+            <div class="foooter__content">
+                <section class="foooter__user">
+                    <div class="foooter__name">
                         댓글
                     </div>
                     <div class="foooter__inf">
@@ -54,6 +58,23 @@
             </div>
         </div>
     </div>
+    <section class="reply-list">
+        <li class="reply-list__reply">
+                <div class="reply-list__img">
+                    <img th:src="@{/images/news/userIcon.png}" class="reply-list__icon" alt="">
+                </div>
+                <div class="reply-list_box">
+                    <div class="reply-list__writer">작성자</div>
+                     <div class="reply-list__content">내용</div>
+                </div>
+        </li>
+    </section>
+
 </div>
+<input type="hidden" id="communityNumber" th:value="${communityVo.communityNumber}">
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script th:src="@{/js/community/like.js}"></script>
+<script th:src="@{/js/community/detail.js}"></script>
 </html>

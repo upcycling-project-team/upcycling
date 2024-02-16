@@ -2,6 +2,7 @@ package com.example.upcycling.mapper;
 
 import com.example.upcycling.domain.dto.CommunityDto;
 import com.example.upcycling.domain.vo.CommunityVo;
+import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.LikeVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,11 @@ class CommunityMapperTest {
 
 
 
-    @Test
-    void selectList() {
-        List<CommunityVo> communityList = communityMapper.selectList();
-        System.out.println("communityList = " + communityList);
-    }
+//    @Test
+//    void selectList() {
+//        List<CommunityVo> communityList = communityMapper.selectList();
+//        System.out.println("communityList = " + communityList);
+//    }
     @Test
     void selectDetail(){
         CommunityVo communityDetail = communityMapper.selectDetail(7L);
