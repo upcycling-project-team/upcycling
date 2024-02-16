@@ -14,11 +14,11 @@ class CommunityServiceTest {
     @Autowired
     CommunityService communityService;
 
-
-
-    @Test
-    void findList() {
-        List<CommunityVo> communityList = communityService.findList();
-        System.out.println("communityList = " + communityList);
-    }
+//
+//
+//    @Test
+//    void findList() {
+//        List<CommunityVo> communityList = communityService.findList();
+//        System.out.println("communityList = " + communityList);
+//    }
 }

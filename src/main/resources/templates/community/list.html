@@ -1,161 +1,144 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
-    <link rel="stylesheet" th:href="@{/css/common/font.css}" />
-    <link rel="stylesheet" th:href="@{/css/common/default.css}" />
-    <link rel="stylesheet" th:href="@{/css/community/list.css}" />
-  </head>
-  <body>
-    <header></header>
-    <main>
-      <div class="content-wrap">
+    <link rel="stylesheet" th:href="@{/css/common/font.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common/default.css}"/>
+    <link rel="stylesheet" th:href="@{/css/community/list.css}"/>
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
+</head>
+<body>
+<header th:replace="~{/fragments/header :: header}"></header>
+<main>
+    <div class="content-wrap">
         <section class="slide">
-          <div class="slide__arrow-l">
-            <img th:src="@{/images/community/arrow-l.png}" alt="" />
-          </div>
-          <div class="slide__arrow-r">
-            <img th:src="@{/images/community/arrow-r.png}" alt="" />
-          </div>
-          <div class="slide__video-box">
-            <div class="slide__moving-box">
-              <article>
-                <iframe
-                  width="600"
-                  height="420"
-                  src="https://www.youtube.com/embed/7kIXYSd0aJU"
-                  frameborder="0"
-                  allowfullscreen
-                ></iframe>
-              </article>
-
-              <article>
-                <iframe
-                  width="600"
-                  height="420"
-                  src="https://www.youtube.com/embed/HjbAsfBEqD4"
-                  frameborder="0"
-                  allowfullscreen
-                ></iframe>
-              </article>
-
-              <article>
-                <iframe
-                  width="600"
-                  height="420"
-                  src="https://www.youtube.com/embed/7kIXYSd0aJU"
-                  frameborder="0"
-                  allowfullscreen
-                ></iframe>
-              </article>
-
-              <article>
-                <iframe
-                  width="600"
-                  height="420"
-                  src="https://www.youtube.com/embed/HjbAsfBEqD4"
-                  frameborder="0"
-                  allowfullscreen
-                ></iframe>
-              </article>
+            <div class="slide__arrow-l">
+                <img th:src="@{/images/community/arrow-l.png}" alt=""/>
             </div>
-          </div>
+            <div class="slide__arrow-r">
+                <img th:src="@{/images/community/arrow-r.png}" alt=""/>
+            </div>
+            <div class="slide__video-box">
+                <div class="slide__moving-box">
+                    <article>
+                        <iframe
+                                width="600"
+                                height="420"
+                                src="https://www.youtube.com/embed/7kIXYSd0aJU"
+                                frameborder="0"
+                                allowfullscreen
+                        ></iframe>
+                    </article>
+
+                    <article>
+                        <iframe
+                                width="600"
+                                height="420"
+                                src="https://www.youtube.com/embed/HjbAsfBEqD4"
+                                frameborder="0"
+                                allowfullscreen
+                        ></iframe>
+                    </article>
+
+                    <article>
+                        <iframe
+                                width="600"
+                                height="420"
+                                src="https://www.youtube.com/embed/7kIXYSd0aJU"
+                                frameborder="0"
+                                allowfullscreen
+                        ></iframe>
+                    </article>
+
+                    <article>
+                        <iframe
+                                width="600"
+                                height="420"
+                                src="https://www.youtube.com/embed/HjbAsfBEqD4"
+                                frameborder="0"
+                                allowfullscreen
+                        ></iframe>
+                    </article>
+                </div>
+            </div>
         </section>
 
         <section class="list">
-          <div class="list__table-box">
-            <table class="list__table">
-              <colgroup>
-                <col width="5%" />
-                <col width="" />
-                <col width="10%" />
-                <col width="15%" />
-                <col width="5%" />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>제목</th>
-                  <th>작성자</th>
-                  <th>작성일</th>
-                  <th>조회</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- 반복요소 -->
-                <tr th:each="communityVo : ${communityList}">
+            <div class="list__table-box">
+                <table class="list__table">
+                    <colgroup>
+                        <col width="5%"/>
+                        <col width=""/>
+                        <col width="10%"/>
+                        <col width="15%"/>
+                        <col width="5%"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- 반복요소 -->
+                    <tr th:each="communityVo : ${communityList}">
 
-                    <td th:text="${communityVo.communityNumber}"></td>
-                    <td>
-                      <a th:href="@{/community/detail(communityNumber=${communityVo.communityNumber})}" th:text="${communityVo.communityTitle}"></a>
-                    </td>
-                    <td th:text="${communityVo.userId}"></td>
-                    <td th:text="${communityVo.communitySysdate}"></td>
-                    <td th:text="${communityVo.communityViewCount}"></td>
+                        <td th:text="${communityVo.communityNumber}"></td>
+                        <td>
+                            <a th:href="@{/community/detail(communityNumber=${communityVo.communityNumber})}"
+                               th:text="${communityVo.communityTitle}"></a>
+                        </td>
+                        <td th:text="${communityVo.userId}"></td>
+                        <td th:text="${communityVo.communitySysdate}"></td>
+                        <td th:text="${communityVo.communityViewCount}"></td>
 
-                </tr>
-                <!-- /반복요소 -->
+                    </tr>
+                    <!-- /반복요소 -->
 
-              </tbody>
-            </table>
-          </div>
+                    </tbody>
+                </table>
+            </div>
         </section>
         <section class="page">
-          <div class="page__button-box">
-            <div class="page__button">
-              <a href="#">&lt</a>
-            </div>
-            <div class="page__button">
-              <a href="#" class="active">1</a>
-            </div>
-            <div class="page__button">
-              <a href="#">2</a>
-            </div>
-            <div class="page__button">
-              <a href="#">3</a>
-            </div>
-            <div class="page__button">
-              <a href="#">4</a>
-        </div>
-            <div class="page__button">
-              <a href="#">5</a>
-            </div>
-            <div class="page__button">
-              <a href="#">6</a>
-            </div>
-            <div class="page__button">
-              <a href="#">7</a>
-            </div>
-            <div class="page__button">
-              <a href="#">8</a>
-            </div>
-            <div class="page__button">
-              <a href="#">9</a>
-            </div>
-            <div class="page__button">
-              <a href="#">10</a>
-            </div>
-            <div class="page__button">
-              <a href="#">&gt</a>
-            </div>
-          </div>
-        </section>
-        <section class="write-btn">
-          <div class="write-btn__button">
-            <a th:href="@{/community/write}">글쓰기</a>
-          </div>
-        </section>
-      </div>
-    </main>
-    <footer></footer>
+            <div class="page__button-box">
+                <div class="page__button">
+                    <!--   왼쪽 화살표     -->
+                    <a th:href="@{/community/list(page=${pageInfo.startPage-1})}">&lt</a>
+                </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
-    <script th:src="@{/js/community/list.js}"></script>
-  </body>
+                <!--반복 문 -->
+                <div class="page__button">
+                    <a href="#" th:class="${pageInfo.criteria.page == i ? 'active' : ''}" th:text="${i}" th:href="@{/community/list(page=${i})}"
+                       th:each=" i : ${#numbers.sequence(pageInfo.startPage, pageInfo.endPage)}">1</a>
+                </div>
+                <!--    오른쪽 화살표      -->
+                <div class="page__button">
+                    <a href="#" th:href="@{/community/list(page=${pageInfo.endPage+1})}" th:if="${pageInfo.next}">&gt</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="write-btn">
+            <div class="write-btn__button">
+                <a th:href="@{/community/write}">글쓰기</a>
+            </div>
+        </section>
+    </div>
+</main>
+<footer></footer>
+
+<!--    <script-->
+<!--      src="https://code.jquery.com/jquery-3.7.1.js"-->
+<!--      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="-->
+<!--      crossorigin="anonymous"-->
+<!--    ></script>-->
+<script th:src="@{/js/community/list.js}"></script>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
+</body>
 </html>

@@ -11,4 +11,12 @@ public class CommunityVo {
    private Long userNumber;
    private String communitySysdate;
    private Long communityViewCount;
+   private int likeCnt;
+
+
+
+
+
+
 }
+

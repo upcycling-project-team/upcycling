@@ -39,7 +39,11 @@
 
         <typeAlias type="com.example.upcycling.domain.dto.OnlineDonationDto" alias="onlineDonationDto"/>
 
+
         <typeAlias type="com.example.upcycling.domain.vo.MainProductVo" alias="mainProductVo"/>
         <typeAlias type="com.example.upcycling.domain.vo.MainReviewVo" alias="mainReviewVo"/>
+
+        <typeAlias type="com.example.upcycling.domain.vo.CommunityReplyVo" alias="communityReplyVo"></typeAlias>
+
     </typeAliases>
 </configuration>

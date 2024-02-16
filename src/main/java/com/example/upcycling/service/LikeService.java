@@ -13,19 +13,32 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class LikeService {
     private final LikeMapper likeMapper;
-    //좋아요 누르기 insert
-    public void insertLike(LikeVo likeVo){
-        likeMapper.insertLike(likeVo);
+
+    public int processLike(LikeVo likeVo){
+        int count = likeMapper.selectLike(likeVo.getUserNumber(), likeVo.getCommunityNumber());
+
+        if(count == 0){
+            likeMapper.insertLike(likeVo);
+            return 1;
+        }else{
+            likeMapper.deleteLike(likeVo.getUserNumber(), likeVo.getCommunityNumber());
+            return 0;
+        }
     }
 
-    //좋아요 취소 delete
-    public void deleteLike(Long userNumber, Long communityNumber) {
-        likeMapper.deleteLike(userNumber,communityNumber);
-    }
-
-    //좋아요 카운트 select
-    public int selectLike(Long userNumber, Long communityNumber) {
-        int likeCount = likeMapper.selectLike(userNumber, communityNumber);
-        return likeCount;
-    }
+//    //좋아요 누르기 insert
+//    public void insertLike(LikeVo likeVo){
+//        likeMapper.insertLike(likeVo);
+//    }
+//
+//    //좋아요 취소 delete
+//    public void deleteLike(Long userNumber, Long communityNumber) {
+//        likeMapper.deleteLike(userNumber,communityNumber);
+//    }
+//
+//    //좋아요 카운트 select
+//    public int selectLike(Long userNumber, Long communityNumber) {
+//        int likeCount = likeMapper.selectLike(userNumber, communityNumber);
+//        return likeCount;
+//    }
 }

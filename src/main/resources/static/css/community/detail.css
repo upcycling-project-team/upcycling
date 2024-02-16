@@ -9,7 +9,7 @@
     color: var(--main-color);
     border-bottom: 2px black;
     border-spacing: 0;
-    font-weight: 700px;
+    font-weight: 700;
 }
 .grid{
     height: 40px;
@@ -133,4 +133,33 @@ button:hover {
 }
 .admin__img__text{
     font-size: 21px;
+}
+.reply-list{
+    width: 1300px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    border-top: solid 3px var(--main-color);
+}
+.reply-list__reply{
+    width: 1300px;
+    display: flex;
+    margin-top: 25px;
+   
+
+}
+
+.reply-list__writer,
+.reply-list__content{
+    margin-top: 5px;
+}
+.reply-list__icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+}
+.reply-list__img{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-right: 12px;
 }
