@@ -10,6 +10,7 @@
 </head>
 <body>
 <main>
+  <form th:action="@{/shop/write}" method="post" enctype="multipart/form-data">
   <div class="content-wrap">
     <section class="title" >
       <div class="title__main">
@@ -19,49 +20,50 @@
         </div>
         <div class="title-box">
           <div class="title__title">
-            구매평
+            제목
           </div>
         </div>
-<!--        <div>-->
-<!--          <input type="text" class="title__input"  placeholder="글의 제목을 입력하세요">-->
-<!--        </div>-->
+        <div>
+          <input type="text" name="reviewTitle" class="title__input"  placeholder="구매평의 제목을 입력하세요">
+        </div>
       </div>
     </section>
     <div class="text-box">
       <div class="attachment">
         <div class="attachment__box">
           <section class="attachment__button">
-            <form action="" class="attachment__button-box">
-              <label for="attachment-file">첨부파일</label>
-              <input type="file" name="" id="attachment-file">
-            </form>
+            <label for="attachment-file">첨부파일</label>
+            <input type="file" name="reviewFile" id="attachment-file">
           </section>
         </div>
       </div>
       <div class="textarea">
         <div class="textarea__box">
-          <textarea placeholder="글의 내용을 입력하세요" class="textarea__text"></textarea>
+          <textarea name="reviewContent" placeholder="구매평의 내용을 입력하세요" class="textarea__text"></textarea>
         </div>
       </div>
     </div>
     <div class="foooter">
-      <form action="" class="foooter__button">
-        <div class="foooter__box">
-          <div class="foooter__ok">
-            <button>작성완료</button>
-          </div>
+      <div class="star">별점
+        5 <input type="radio" id="star_A" name="reviewRate" value="5" checked>
+        4 <input type="radio" id="star_B" name="reviewRate" value="4">
+        3 <input type="radio" id="star_C" name="reviewRate" value="3">
+        2 <input type="radio" id="star_D" name="reviewRate" value="2">
+        1 <input type="radio" id="star_E" name="reviewRate" value="1">
+      </div>
+      <br>
+      <div class="foooter__box">
+        <div class="hidden-box">
+          <input type="hidden" name="productNumber" th:value="${product}">
+          <input type="hidden" name="userNumber" th:value="${userNumber}">
         </div>
-        <div class="foooter__box2">
-          <div class="foooter__save">
-            <button>저장</button>
-          </div>
-          <div class="foooter__fix">
-            <button>수정</button>
-          </div>
+        <div class="foooter__ok">
+          <button>작성완료</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
+  </form>
 </main>
 </body>
 </html>

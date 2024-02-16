@@ -14,13 +14,9 @@ public interface FaqMapper {
 
     Optional<FaqDto> selectBoard(Long faqNumber);
 
-    Optional<FaqDto> selectBoardLeft(Long faqNumber);
-
-    Optional<FaqDto> selectBoardRight(Long faqNumber);
-
-    Optional<FaqDto> selectBoardMax(Long faqNumber);
-
-    void insert(FaqDto faqDto);
+//    Optional<FaqDto> selectBoardLeft(Long faqNumber);
+//    Optional<FaqDto> selectBoardRight(Long faqNumber);
+//    Optional<FaqDto> selectBoardMax(Long faqNumber);
 
 }
 

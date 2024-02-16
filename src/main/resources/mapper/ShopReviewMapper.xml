@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.ShopReviewMapper">
+
     <select id="selectReviewList" resultType="mainReviewVo">
         SELECT REVIEW_NUMBER, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_RATE, REVIEW_SYSDATE,
         REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID
@@ -23,6 +24,68 @@
 
     <select id="selectReviewTotal" resultType="_int">
         SELECT COUNT(REVIEW_NUMBER) FROM TBL_SHOP_REVIEW
+    </select>
+
+<!--    내가한거-->
+    <!-- 리뷰리스트 조회-->
+    <select id="selectReviewList2" resultType="reviewVo">
+        SELECT REVIEW_NUMBER, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_SYSDATE, REVIEW_RATE, USER_NUMBER, PRODUCT_NUMBER,
+        USER_ID,
+        REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID
+        FROM (
+            SELECT ROWNUM RNUM, REVIEW_NUMBER, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_SYSDATE, REVIEW_RATE,
+            USER_NUMBER,
+            PRODUCT_NUMBER, USER_ID, REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID
+            FROM (
+                select R.REVIEW_NUMBER, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_SYSDATE, REVIEW_RATE, R.USER_NUMBER, PRODUCT_NUMBER,
+                U.USER_ID,
+                I.REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID
+                from TBL_SHOP_REVIEW R left join TBL_USER U
+                on R.USER_NUMBER = U.USER_NUMBER
+                left join TBL_REVIEW_IMG I on R.REVIEW_NUMBER = I.REVIEW_NUMBER
+                where PRODUCT_NUMBER=#{productNumber}
+            )
+            <![CDATA[
+            WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+            ]]>
+        )
+        WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+    </select>
+
+    <select id="selectTotal" parameterType="long" resultType="_int">
+        select COUNT(REVIEW_NUMBER)
+        from TBL_SHOP_REVIEW
+        where PRODUCT_NUMBER=#{productNumber}
+    </select>
+
+
+    <!-- 별점 평균을 조회하기-->
+    <select id="selectStarAvg" parameterType="long" resultType="double">
+        select NVL(round(avg(REVIEW_RATE),1), 0) as starAvg
+        from TBL_SHOP_REVIEW
+        where PRODUCT_NUMBER=#{productNumber}
+    </select>
+    <!--  프로덕트넘버를 조회  -->
+    <select id="selectProductNumber" parameterType="long" resultType="long">
+        select PRODUCT_NUMBER
+        from TBL_PRODUCT
+        where PRODUCT_NUMBER=#{productNumber}
+    </select>
+    <!--  구매평을 작성하기  -->
+    <insert id="insert" parameterType="shopReviewDto">
+        <selectKey resultType="long" order="BEFORE" keyProperty="reviewNumber">
+            SELECT SEQ_SHOP_REVIEW.nextval FROM DUAL
+        </selectKey>
+        insert into TBL_SHOP_REVIEW (REVIEW_NUMBER, REVIEW_TITLE, REVIEW_CONTENT, REVIEW_SYSDATE, REVIEW_RATE,
+                    USER_NUMBER,PRODUCT_NUMBER)
+        values (#{reviewNumber},#{reviewTitle},#{reviewContent},sysdate,#{reviewRate},#{userNumber},#{productNumber})
+    </insert>
+    <!--  구매한 사람인지 확인하는 용도  -->
+    <select id="selectCount" parameterType="long" resultType="long">
+        SELECT COUNT(O.ORDER_NUMBER) AS COUNT
+        FROM TBL_ORDER O LEFT JOIN TBL_ORDER_PRODUCT OP
+                                   ON O.ORDER_NUMBER = OP.ORDER_NUMBER
+        WHERE USER_NUMBER = #{userNumber} AND PRODUCT_NUMBER = #{productNumber}
     </select>
 
 </mapper>

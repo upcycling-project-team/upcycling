@@ -6,5 +6,7 @@ import lombok.Data;
 public class ReviewImgDto {
     private Long reviewImgNumber;
     private Long reviewNumber;
-    private String reviewImg;
+    private String reviewImgName;
+    private String reviewImgUploadPath;
+    private String reviewImgUuid;
 }

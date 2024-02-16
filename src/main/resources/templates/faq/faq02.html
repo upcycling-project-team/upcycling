@@ -46,7 +46,7 @@
         <div class="faq_list">
           <ul>
             <li th:each="title : ${titleList}">
-              <a href="">
+              <a th:href="@{/faq/detail(faqNumber=${title.faqNumber})}">
                 <span class="type">
                   <span class="question">Q</span>
                 </span>
