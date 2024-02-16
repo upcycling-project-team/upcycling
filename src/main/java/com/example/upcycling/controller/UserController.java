@@ -49,22 +49,43 @@ public class UserController {
         return "user/login";
     }
 
+//    /* 로그인 */
+//    @PostMapping("/login")
+//    public RedirectView login(UserDto userDto, HttpSession session) {
+//
+//        Long userNumber = null;
+//        try {
+//            userNumber = userService.findUserNumber(userDto);
+//        } catch (IllegalStateException e) {
+//            e.printStackTrace();
+//            return new RedirectView("/user/login") ;
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//
+//        session.setAttribute("userNumber", userNumber);
+//        return new RedirectView("/");
+//    }
+
     /* 로그인 */
     @PostMapping("/login")
-    public RedirectView login(UserDto userDto, HttpSession session) {
+    public String login(UserDto userDto, HttpSession session, Model model) {
 
         Long userNumber = null;
         try {
             userNumber = userService.findUserNumber(userDto);
         } catch (IllegalStateException e) {
-            e.printStackTrace();
-            return new RedirectView("/user/login") ;
+//            e.printStackTrace();
+            model.addAttribute("errorMessage" , "로그인 정보를 확인하세요");
+            return "user/login";
+//            return new RedirectView("/user/login") ;
         } catch (Exception e){
             e.printStackTrace();
         }
 
         session.setAttribute("userNumber", userNumber);
-        return new RedirectView("/");
+//        return new RedirectView("/");
+        return "/";
     }
 
 

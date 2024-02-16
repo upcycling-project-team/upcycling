@@ -32,10 +32,16 @@ public class UserService {
 
 
     //   로그인 시 회원 번호 조회
-    public Long findUserNumber(UserDto userDto) {
-        return userMapper.selectUserNumber(userDto)
-                .orElseThrow(() -> new IllegalStateException("일치하는 회원 정보 없음"));
+//    public Long findUserNumber(UserDto userDto) {
+//        return userMapper.selectUserNumber(userDto)
+//                .orElseThrow(() -> new IllegalStateException("일치하는 회원 정보 없음"));
+//
+//    }
 
+    public Long findUserNumber(UserDto userDto) {
+        Long userNumber = userMapper.selectUserNumber(userDto)
+                .orElseThrow(() -> new IllegalStateException("일치하는 회원 정보 없음"));
+        return userNumber;
     }
 
     // 아이디 중복 조회

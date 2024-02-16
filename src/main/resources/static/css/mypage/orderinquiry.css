@@ -483,6 +483,17 @@
   width: 100px;
 }
 
-.hide__pw {
+#userGrupPw {
+  color: #bdbdbd;
+
+}
+
+#userGrupPw1 {
+  color: red;
+}
+
+.hide__pw{
+  font-size: 14px;
+  width: 340px;
   display: flex;
 }

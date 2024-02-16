@@ -12,4 +12,5 @@ public class ProductDto {
     private Long productPrice;
     private Long productSale;
     private String productSysdate;
+    private Long clothesMaterialNumber;
 }
