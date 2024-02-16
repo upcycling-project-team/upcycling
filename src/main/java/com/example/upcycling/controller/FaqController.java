@@ -46,32 +46,17 @@ public class FaqController {
     public String faq03(Long faqNumber, Model model)
     {
         FaqDto board = faqService.findBoard(faqNumber);
-        FaqDto board2 = faqService.findBoardLeft(faqNumber);
-        FaqDto board3 = faqService.findBoardRight(faqNumber);
-        FaqDto board4 = faqService.findBoardMax(faqNumber);
+//        FaqDto board2 = faqService.findBoardLeft(faqNumber);
+//        FaqDto board3 = faqService.findBoardRight(faqNumber);
+//        FaqDto board4 = faqService.findBoardMax(faqNumber);
         model.addAttribute("board", board);
-        model.addAttribute("board2",board2);
-        model.addAttribute("board3",board3);
-        model.addAttribute("board4",board4);
+//        model.addAttribute("board2",board2);
+//        model.addAttribute("board3",board3);
+//        model.addAttribute("board4",board4);
         return "faq/faq03";
     }
 
-    @GetMapping("/write")
-    public String faq04(HttpSession session){
-        Long administratorNumber = (Long) session.getAttribute("administratorNumber");
 
-//        if (administratorNumber == null){
-//            return "admin/login";
-//        }
-
-        return "faq/faq04";
-    }
-
-    @PostMapping("/write")
-    public RedirectView faq04(FaqDto faqDto){
-        faqService.register(faqDto);
-        return new RedirectView("/faq/main");
-    }
 }
 
 

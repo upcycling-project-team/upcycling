@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/faq/faq01.css}" />
+<!--    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">-->
+<!--    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">-->
   </head>
   <body>
-    <div class="header">
-      <header></header>
-    </div>
+<!--  <header th:replace="~{/fragments/header :: header}"></header>-->
 <!-- FAQ메인 페이지 -->
     <div class="body">
       <div class="border">
@@ -42,20 +42,12 @@
         </div>
         <!-- 여백을 위한 빈공간 -->
         <div class="blank"></div>
-        <!--    관리자한테만 보여줄 작성하기 버튼    -->
-        <div>
-          <a th:href="@{/faq/write}">
-            <div class="faq_list_footer">
-              <span class="faq_list_footer_text">작성하기</span>
-            </div>
-          </a>
-        </div>
         </form>
       </div>
     </div>
 
     <div class="footer">
-      <footer></footer>
+<!--      <footer th:replace="~{/fragments/footer :: footer}"></footer>-->
     </div>
   </body>
 </html>

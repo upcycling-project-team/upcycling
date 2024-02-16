@@ -32,24 +32,16 @@ class FaqMapperTest {
         System.out.println("faqBoard = " + faqBoard);
     }
     
-    @Test
-    void selectBoardLeft(){
-        Optional<FaqDto> faqBoardLeft = faqMapper.selectBoardLeft(1L);
-        System.out.println("faqBoardLeft = " + faqBoardLeft);
-    }
+//    @Test
+//    void selectBoardLeft(){
+//        Optional<FaqDto> faqBoardLeft = faqMapper.selectBoardLeft(1L);
+//        System.out.println("faqBoardLeft = " + faqBoardLeft);
+//    }
+//
+//    @Test
+//    void selectBoardMax(){
+//        Optional<FaqDto> faqBoardMax = faqMapper.selectBoardMax(1L);
+//        System.out.println("faqBoardMax = " + faqBoardMax);
+//    }
 
-    @Test
-    void selectBoardMax(){
-        Optional<FaqDto> faqBoardMax = faqMapper.selectBoardMax(1L);
-        System.out.println("faqBoardMax = " + faqBoardMax);
-    }
-
-    @Test
-    void insert(){
-        FaqDto faqDto = new FaqDto();
-        faqDto.setFaqQuestion("질문제목");
-        faqDto.setFaqAnswer("질문제목에 대한 답변입니다.");
-        faqDto.setAdministratorNumber(1L);
-        faqMapper.insert(faqDto);
-    }
 }

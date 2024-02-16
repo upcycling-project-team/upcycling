@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.upcycling.mapper.ShopReviewImgMapper">
+    <insert id="insert" parameterType="reviewImgDto">
+        <selectKey resultType="long" order="BEFORE" keyProperty="reviewImgNumber">
+            SELECT SEQ_REVIEW_IMG.nextval FROM DUAL
+        </selectKey>
+        insert into TBL_REVIEW_IMG (REVIEW_IMG_NUMBER, REVIEW_IMG_NAME, REVIEW_IMG_UPLOAD_PATH, REVIEW_IMG_UUID, REVIEW_NUMBER)
+        values (#{reviewImgNumber},#{reviewImgName},#{reviewImgUploadPath},#{reviewImgUuid},#{reviewNumber})
+    </insert>
+
+</mapper>

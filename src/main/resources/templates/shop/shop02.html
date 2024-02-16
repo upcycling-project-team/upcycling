@@ -18,52 +18,52 @@
                 <a href="">Home</a><span style="color: #e5e7eb">&gt</span>
               </li>
               <li>
-                <a href="">상품</a><span style="color: #e5e7eb">&gt</span>
+                <a th:href="@{/shop/main}">상품</a>
+                <span style="color: #e5e7eb">&gt</span>
               </li>
               <li>
-                <a href="">가방</a><span style="color: #e5e7eb">&gt</span>
+                <a href="">가방</a><span style="color: #e5e7eb"></span>
               </li>
-              <li><a href="">에코백</a><span></span></li>
             </ul>
           </div>
           <div class="content">
             <div class="content_left">
               <div class="product-img-wrap">
-                <img
+                <img th:if="${product.productImgNumber == null}"
                   th:src="@{/images/shop/no-image.png}"
                   class="product-img"
+                />
+                <img th:unless="${product.productImgNumber == null}"
+                     th:src="${'/upload/' + product.productImgUploadPath + '/' + product.productImgUuid + '_' + product.productImgName}"
+                     class="product-img"
                 />
               </div>
             </div>
             <div class="content_right">
               <div class="title-and-price">
                 <div class="product-name">
-                  <span
+                  <span th:text="${product.productName}"
                     style="
                       color: rgb(70, 70, 70);
                       font-weight: bold;
                       font-size: 26px;
                     "
                   >
-                    리하베스트 그레놀라 오리지널 벌크[2kg]
                   </span>
                 </div>
-                <div class="product-price">
-                  <span style="color: rgb(70, 70, 70); font-size: 20px">
-                    2,4000 </span
-                  >원
+                <div class="product-price" th:if="${product.productSalePrice != null}">
+                  <span th:text="${product.productPrice}" style="text-decoration:line-through; color: #757575; font-size: 15px"></span><br>
+                  <span th:text="${product.productSale}" style="font-size: 20px; color: red"></span>%
+                  <span id="productPrice" th:text="${product.productSalePrice}" style="font-size: 20px; color: rgb(70,70,70)"></span>원
+                </div>
+                <div class="product-price" th:unless="${product.productSalePrice != null}">
+                  <span id="productPrice" th:text="${product.productPrice}" style= "font-size: 20px;"></span>원
                 </div>
               </div>
               <!-- 제품설명 -->
               <div class="product-text-wrap">
                 <div class="product-text">
-                  <p>
-                    귀리와 통밀 등 건강한 재료들을 엄선하여 만든 수제 그래놀라.
-                  </p>
-                  <p>
-                    바삭한 식감과 #고단백고식이섬유 의 풍부한 영양성분으로
-                    아침식사 대용이나 간식으로 좋습니다.
-                  </p>
+                  <p th:text="${product.productContent}"></p>
                 </div>
               </div>
               <!-- 구매해택,배송방법,배송비용 -->
@@ -89,7 +89,7 @@
                     <span class="detail-text01">배송비용</span>
                   </div>
                   <div class="detail-text02-wrap">
-                    <span class="detail-text02">3,500</span>원
+                    <span class="detail-text02">무료</span>
                   </div>
                 </div>
               </div>
@@ -103,9 +103,10 @@
                       <input
                         type="radio"
                         id="quality-a"
-                        name="quality-type"
-                        value="A"
+                        name="clothesMaterialNumber"
+                        th:value="${clothesDenim.clothesMaterialNumber}"
                         class="radio1"
+                        checked
                       />
                     </label>
                     <label for="quality-b" class="quality-box">
@@ -113,8 +114,8 @@
                       <input
                         type="radio"
                         id="quality-b"
-                        name="quality-type"
-                        value="B"
+                        name="clothesMaterialNumber"
+                        th:value="${clothesLeather.clothesMaterialNumber}"
                         class="radio1"
                       />
                     </label>
@@ -123,8 +124,8 @@
                       <input
                         type="radio"
                         id="quality-c"
-                        name="quality-type"
-                        value="C"
+                        name="clothesMaterialNumber"
+                        th:value="${clothesCotton.clothesMaterialNumber}"
                         class="radio1"
                       />
                     </label>
@@ -140,22 +141,28 @@
                   <div class="order_bottom">
                     <div class="option-btn-wrap">
                       <div class="option-btn">
-                        <input
-                          type="text"
-                          class="option_amount"
-                          name="option_amount"
-                          value=""
-                          placeholder="수량 입력(개)"
-                        />
+                        <input type='button'
+                               onclick='count("plus")'
+                               value='+'/>
+                        <input type='button'
+                               onclick='count("minus")'
+                               value='-'/>
                       </div>
-                      <div class="option-price-text"><span>2,4000</span>원</div>
                     </div>
                   </div>
                 </div>
                 <div class="total-price-border">
                   <p>
-                    <span class="total-amount">총 상품금액(1개)</span>
-                    <span class="total_price">24,000원</span>
+                    <span class="total-amount">총 상품금액(
+                      <span id="result">1</span>개)</span>
+                    <span class="total_price" th:if="${product.productSalePrice != null}">
+                      <span id="total-price" th:text="${product.productSalePrice}"></span>
+                      원
+                    </span>
+                    <span class="total_price" th:unless="${product.productSalePrice != null}">
+                      <span id="total-price" th:text="${product.productPrice}"></span>
+                      원
+                    </span>
                   </p>
                 </div>
                 <!-- /수량 -->
@@ -175,24 +182,14 @@
                 <!-- /키링 -->
               </div>
               <!-- /구매 양식 -->
-              <!-- 구매하기, 공유하기, 좋아요 -->
               <div class="three-block">
+                <input type="hidden" name="productNumber" th:value="${product.productNumber}">
                 <div class="buy-block">
                   <button class="buy-button">구매하기</button>
                 </div>
-                <div class="heart-block">
-                  <a href="">
-                    <div class="heart-flex">
-                    <img th:src="@{/images/shop/heart.png}" class="heart_img" alt="">
-                    <span class="heart-number">3</span>
-                    </div>
-                  </a>
-                </div>
               </div>
-              <!-- /구매하기, 공유하기, 좋아요 -->
             </div>
           </div>
-          <!-- 상세정보와 구매평 -->
           <div class="large-box">
             <div id="prod_kategorie_target"></div>
             <div class="kategorie">
@@ -202,7 +199,7 @@
                 >
               </div>
               <div class="kategorie_review">
-                <a href="#review_kategorie_target"
+                <a th:href="@{/shop/review(productNumber=${product.productNumber})}"
                   ><span class="type1">구매평</span></a
                 >
               </div>
@@ -214,65 +211,6 @@
                 class="product_info_img"
               />
             </div>
-            <!-- 구매평 -->
-            <div id="review_kategorie_target"></div>
-            <div class="product_review">
-              <div class="review-number-left">
-                구매평<span class="review-number">(5)</span>
-              </div>
-              <div class="review-number-under">
-                상품을 구매하신 분들이 작성한 리뷰입니다.
-              </div>
-              <div class="review-wrap">
-                <a href="#none" role="button" class="review-btn-a">
-                  <div class="review-btn">구매평 작성</div>
-                </a>
-                <div class="small-blank"></div>
-                <!-- 리뷰 리스트 -->
-                <ul class="review-list-wrap">
-                  <li class="list-review">
-                    <div class="full-box">
-                      <div class="full-box-left">
-                        <div class="list-review-text">
-                          <span class="review-text"
-                            >맛은 다른 제품과 다르네요 나쁘지 않은듯</span
-                          >
-                        </div>
-                        <div class="review-img-border">
-                          <img
-                           th:src="@{/images/shop/no-image.png}"
-                            class="review-img"
-                          />
-                        </div>
-                      </div>
-                      <div class="full-box-right">
-                        <div>veri****</div>
-                        <div>2023-12-02 17:48</div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- 페이징 처리 -->
-              <div class="page-container">
-                <ul class="page-box">
-                  <a class="page-a">
-                    <li class="page-num prev">&lt</li>
-                  </a>
-
-                  <a class="page-a">
-                    <li class="page-num">1</li>
-                  </a>
-
-                  <a class="page-a">
-                    <li class="page-num next">&gt</li>
-                  </a>
-                </ul>
-              </div>
-              <!-- /페이징 처리 -->
-            </div>
-          </div>
-          <!-- /상세정보와 구매평 -->
         </div>
       </form>
     </div>

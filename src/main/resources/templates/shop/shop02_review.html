@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/shop/shop02.css}" />
+  </head>
+  <body>
+    <div class="body">
+            <div class="product_review">
+              <div class="review-number-left">
+                구매평
+                <img th:src="@{/images/shop/star_img.png}" class="heart_img" alt="">
+                <span class="review-number" th:text="${star}"></span><span class="review-number">점</span>
+              </div>
+              <div class="review-number-under">
+                상품을 구매하신 분들이 작성한 리뷰입니다.
+              </div>
+              <div class="review-wrap">
+                <a th:href="@{/shop/write(productNumber=${product})}" role="button" class="review-btn-a">
+                  <div class="review-btn">구매평 작성</div>
+                </a>
+                <div class="small-blank"></div>
+                <!-- 리뷰 리스트 -->
+                <ul class="review-list-wrap">
+                  <li class="list-review" th:each="review : ${reviewList}">
+                    <div class="full-box">
+                      <div class="full-box-left">
+                        <div class="review-img-border">
+                          <img th:if="${review.reviewImgNumber == null}"
+                                  th:src="@{/images/shop/no-image.png}" class="review-img"/>
+                          <img th:unless="${review.reviewImgNumber == null}"
+                                  th:src="${'/upload/' + review.reviewImgUploadPath + '/' + review.reviewImgUuid + '_' + review.reviewImgName}" class="review-img"/>
+                        </div>
+                        <div class="list-review-text">
+                          <div class="list-review-text2">
+                            <img th:src="@{/images/shop/star_img.png}" class="review-star"/>
+                            <span th:text="${review.reviewRate}"></span>
+                          </div>
+                          <span class="review-text" th:text="${review.reviewTitle}">제목</span>
+                          <span class="review-text" th:text="${review.reviewContent}">맛은 다른 제품과 다르네요 나쁘지 않은듯</span>
+                        </div>
+                      </div>
+                      <div class="full-box-right">
+                        <div th:text="${review.userId}">veri****</div>
+                        <div th:text="${review.reviewSysdate}">2023-12-02 17:48</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- 페이징 처리 -->
+              <div class="page-container">
+                <ul class="page-box">
+                  <a class="page-a" th:if="${pageVo.prev}" th:href="@{/shop/review(productNumber=${product},page=${pageVo.startPage - 1})}">
+                    <li class="page-num prev">&lt</li>
+                  </a>
+
+                  <a class="page-a" th:each="i : ${#numbers.sequence(pageVo.startPage, pageVo.endPage)}"
+                     th:href="@{/shop/review(productNumber=${product},page=${i})}">
+                    <li class="page-num" th:text="${i}"></li>
+                  </a>
+
+                  <a class="page-a" th:if="${pageVo.next}" th:href="@{/shop/review(productNumber=${product},page=${pageVo.endPage + 1})}">
+                    <li class="page-num next">&gt</li>
+                  </a>
+                </ul>
+              </div>
+              <!-- /페이징 처리 -->
+            </div>
+    </div>
+  </body>
+</html>

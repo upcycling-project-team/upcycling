@@ -14,4 +14,84 @@
         WHERE ROWNUM <= 3
         ]]>
     </select>
+<!--    내가한거-->
+    <select id="selectAll" resultType="productVo">
+        select PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+        PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
+        round(PRODUCT_PRICE*((100-PRODUCT_SALE)/100)) as productSalePrice,
+        PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+        from(
+            select ROWNUM RNUM,PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+            PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
+            PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+            from(
+                SELECT P.PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+                PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
+                I.PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+                FROM TBL_PRODUCT P LEFT JOIN TBL_PRODUCT_IMG I
+                ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+                )
+        <![CDATA[
+        WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+        ]]>
+        )
+        WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+    </select>
+
+    <select id="selectTotal" resultType="_int">
+        select COUNT(PRODUCT_NUMBER)
+        from TBL_PRODUCT
+    </select>
+<!--    넘버에 맞는 값만 조회하기-->
+    <select id="selectAll2" parameterType="long" resultType="productVo">
+        SELECT P.PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+               PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
+               round(PRODUCT_PRICE*((100-PRODUCT_SALE)/100)) as productSalePrice,
+               I.PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+        FROM TBL_PRODUCT P LEFT JOIN TBL_PRODUCT_IMG I
+                                     ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+        where p.PRODUCT_NUMBER =#{productNumber}
+    </select>
+
+<!--  옷감 종류를 조회하기  -->
+    <select id="selectClothes" resultType="productDto">
+        select CLOTHES_MATERIAL_NUMBER
+        from TBL_CLOTHES_MATERIAL
+        where CLOTHES_MATERIAL_NAME='Denim'
+    </select>
+    <select id="selectClothes2" resultType="productDto">
+        select CLOTHES_MATERIAL_NUMBER
+        from TBL_CLOTHES_MATERIAL
+        where CLOTHES_MATERIAL_NAME='Leather'
+    </select>
+    <select id="selectClothes3" resultType="productDto">
+        select CLOTHES_MATERIAL_NUMBER
+        from TBL_CLOTHES_MATERIAL
+        where CLOTHES_MATERIAL_NAME='Cotton'
+    </select>
+
+<!--    상품 카테고리별로 다르게 조회하기-->
+    <select id="selectBag" parameterType="long" resultType="productVo">
+        select  PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+                PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
+                round(PRODUCT_PRICE*((100-PRODUCT_SALE)/100)) as productSalePrice,
+                PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+        from(
+                select  ROWNUM RNUM,PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+                        PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
+                        PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+                from   (
+                        SELECT  P.PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+                                PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
+                                I.PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+                        FROM TBL_PRODUCT P LEFT JOIN TBL_PRODUCT_IMG I
+                        ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+                        where SHOP_CATEGORY_NUMBER=#{shopCategoryNumber}
+                        )
+                <![CDATA[
+                where ROWNUM <= 12
+                ]]>
+            )
+        where RNUM > (#{criteria.page} - 1) * #{criteria.amount}
+    </select>
 </mapper>

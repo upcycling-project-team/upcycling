@@ -138,6 +138,10 @@ a:hover { /*마우스를 올려놓을 때*/
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.product01_pay_detail_if{
+  text-decoration:line-through;
+  color : #757575;
+}
 /* 페이징 */
 .page-a {
   text-decoration: none;
