@@ -2,6 +2,7 @@ package com.example.upcycling.service;
 
 import com.example.upcycling.domain.dto.CommunityDto;
 import com.example.upcycling.domain.vo.CommunityVo;
+import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.mapper.CommunityMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,12 @@ import java.util.Optional;
 public class CommunityService {
     private final CommunityMapper communityMapper;
 
-    public List<CommunityVo> findList(){
-        return communityMapper.selectList();
+    public List<CommunityVo> findList(Criteria criteria){
+        return communityMapper.selectList(criteria);
+    }
+
+    public int findTotal(){
+        return communityMapper.listTotal();
     }
 
     public CommunityVo findDetail(Long communityNumber){

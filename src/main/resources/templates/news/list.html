@@ -8,8 +8,10 @@
 <link rel="stylesheet" th:href="@{/css/common/font.css}"/>
 <link rel="stylesheet" th:href="@{/css/common/default.css}"/>
 <link rel="stylesheet" th:href="@{/css/news/list.css}"/>
+<link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+<link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
 <body>
-<header></header>
+<header th:replace="~{/fragments/header :: header}"></header>
 <main>
   <div class="content-wrap">
     <!-- 헤더라인 -->
@@ -45,11 +47,7 @@
             <div th:text="${newsVo.administratorId}">관리자</div>
             <div th:text="${newsVo.newsSysdate}">0000/00/00</div>
           </div>
-          <div>
-            <button class="admin__img__likeButton">
-              <img th:src="@{/images/news/binHeart.png}" alt="" class="admin__img__like">
-            </button>
-          </div>
+
         </section>
       </a>
     </section>
@@ -66,5 +64,6 @@
     </div>
   </div>
 </main>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

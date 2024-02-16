@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.upcycling.mapper.ReplyMapper">
-
+    <select id="selectReply" resultType="communityReplyVo" parameterType="long">
+        SELECT U.USER_NUMBER,U.USER_ID,
+               CR.USER_NUMBER,CR.COMMUNITY_NUMBER,
+               CR.COMMUNITY_REPLY_NUMBER,CR.COMMUNITY_REPLY_CONTENT
+        FROM TBL_USER U JOIN TBL_COMMUNITY_REPLY CR ON U.USER_NUMBER = CR.USER_NUMBER
+        WHERE COMMUNITY_NUMBER = #{communityNumber}
+    </select>
+    <insert id="insertReply" parameterType="communityReplyVo">
+        INSERT INTO TBL_COMMUNITY_REPLY(COMMUNITY_REPLY_NUMBER, COMMUNITY_REPLY_CONTENT,USER_NUMBER, COMMUNITY_NUMBER)
+        VALUES(SEQ_COMMUNITY_REPLY.nextval,#{communityReplyContent},#{userNumber},#{communityNumber})
+    </insert>
 </mapper>

@@ -2,9 +2,9 @@ package com.example.upcycling.controller;
 
 import com.example.upcycling.domain.dto.CommunityDto;
 import com.example.upcycling.domain.dto.UserDto;
-import com.example.upcycling.domain.vo.CommunityCommentVO;
-import com.example.upcycling.domain.vo.CommunityVo;
+import com.example.upcycling.domain.vo.*;
 import com.example.upcycling.service.CommunityService;
+import com.example.upcycling.service.ReplyService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,25 +19,35 @@ import java.util.List;
 @RequestMapping("/community")
 public class CommunityController {
     private final CommunityService communityService;
+    private final ReplyService replyService;
 
     @GetMapping("/list")
-    public String community(Model model) {
-        List<CommunityVo> communityList = communityService.findList();
+    public String community(Model model, Criteria criteria) {
+        List<CommunityVo> communityList = communityService.findList(criteria);
         model.addAttribute("communityList", communityList);
+
+        int total = communityService.findTotal();
+
+        PageVo pageVo = new PageVo(total, criteria);
+        model.addAttribute("pageInfo",pageVo);
 
         return "community/list";
     }
+
+
 
     @GetMapping("/detail")
     public String detail(Model model, Long communityNumber, HttpSession session) {
         CommunityVo communityDetail = communityService.findDetail(communityNumber);
 
 //        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 8L;
+        Long userNumber = 26L;
         String userId = communityService.findId(userNumber);
 
         model.addAttribute("userId",userId);
         model.addAttribute("communityVo", communityDetail);
+
+
 
         return "community/detail";
     }
@@ -51,16 +61,12 @@ public class CommunityController {
     @PostMapping("/write")
     public RedirectView writer(CommunityDto communityDto, HttpSession session) {
 //        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber = 8L;
+        Long userNumber = 26L;
 
         communityDto.setUserNumber(userNumber);
         communityService.communityWrite(communityDto);
         return new RedirectView("/community/list");
     }
 
-//    @GetMapping("/comment")
-//    public @ResponseBody List<CommunityVo> comment(@ModelAttribute CommunityVo communityVo){
-//        System.out.println("communityVo = " + communityVo);
-//        return null;
-//    }
+
 }
