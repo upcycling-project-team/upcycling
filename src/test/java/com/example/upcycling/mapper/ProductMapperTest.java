@@ -1,6 +1,7 @@
 package com.example.upcycling.mapper;
 
 import com.example.upcycling.domain.dto.ProductDto;
+import com.example.upcycling.domain.vo.MainProductVo;
 import com.example.upcycling.domain.vo.ProductVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +20,10 @@ class ProductMapperTest {
 //        List<ProductVo> selectAll = productMapper.selectAll();
 //        System.out.println("selectAll = " + selectAll);
 //    }
+    @Test
+    void sel(){
+        List<MainProductVo> mainProductVos = productMapper.selectProductInfoImg();
+        System.out.println("mainProductVos = " + mainProductVos);
+
+    }
 }

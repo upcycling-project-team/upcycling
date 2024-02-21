@@ -33,6 +33,7 @@ ul {
   /* border: 1px solid blue; */
   width: 1000px;
   height: 800px;
+  margin-top: 40px;
 }
 /* 위에는 전체적인 틀, 아래는 내부*/
 .search {

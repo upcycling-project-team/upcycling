@@ -26,4 +26,5 @@ class ShopReviewServiceTest {
         Long count = shopReviewService.findCount(22L,4L);
         System.out.println("count = " + count);
     }
+
 }
