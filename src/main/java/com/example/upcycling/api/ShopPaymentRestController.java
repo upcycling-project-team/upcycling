@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.*;
 public class ShopPaymentRestController {
     private final ShopPaymentService shopPaymentService;
 
-    @PostMapping("/orders/products/{productNumber}")
+    @PostMapping("/orders/products/{productNumber},{clothesMaterialNumber}")
     public void orderRegister(@RequestBody OrderDto orderDto,
                               @PathVariable("productNumber") Long productNumber,
+                              @PathVariable("clothesMaterialNumber") Long clothesMaterialNumber,
                               @SessionAttribute(value = "userNumber", required = false) Long userNumber){
 
 
-        System.out.println("orderDto = " + orderDto + ", productNumber = " + productNumber);
+        System.out.println("orderDto = " + orderDto + ", productNumber = " + productNumber + ", clothesMaterialNumber =");
         orderDto.setUserNumber(userNumber);
 
-        shopPaymentService.orderProcess(orderDto, productNumber);
+        shopPaymentService.orderProcess(orderDto, productNumber, clothesMaterialNumber);
 
 
     }

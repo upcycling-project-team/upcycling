@@ -84,6 +84,8 @@ $("#sp-01").on("click", function () {
                 let productPrice = $('#productPrice').text();
                 let orderCard = $('#orderCard').val();
                 let productNumber = $('#productNumber').val();
+                //추가
+                let clothesMaterialNumber = $('#clothesMaterialNumber').val();
 
 
                 IMP.request_pay(
@@ -121,7 +123,7 @@ $("#sp-01").on("click", function () {
                             }
 
                             $.ajax({
-                                url : `/orders/products/${productNumber}`,
+                                url : `/orders/products/${productNumber},${clothesMaterialNumber}`,
                                 type : 'post',
                                 data : JSON.stringify(data),
                                 contentType : 'application/json',

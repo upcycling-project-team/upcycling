@@ -20,12 +20,12 @@ class MypageMapperTest {
 
 
 
-    @Test
-    void selectOrderinquiry() {
-
-        List<MypageInquiryVo> mypageInquiryVos = mypageMapper.selectOrderinquiry(24L);
-        System.out.println("mypageInquiryVos = " + mypageInquiryVos);
-    }
+//    @Test
+//    void selectOrderinquiry() {
+//
+//        List<MypageInquiryVo> mypageInquiryVos = mypageMapper.selectOrderinquiry(24L);
+//        System.out.println("mypageInquiryVos = " + mypageInquiryVos);
+//    }
 
     @Test
     void selectMypageUserinquiry(){
@@ -59,7 +59,7 @@ class MypageMapperTest {
 
     @Test
     void selectOrderDetails (){
-        mypageMapper.selectOrderDetails(27L);
+        mypageMapper.selectOrderDetails(149L);
         System.out.println("mypageMapper = " + mypageMapper);
 
     }

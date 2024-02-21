@@ -3,26 +3,42 @@
 <mapper namespace="com.example.upcycling.mapper.MypageMapper">
 
 <!--    주문리스트 조회-->
-    <select id="selectOrderinquiry" parameterType="long" resultType="mypageInquiryVo">
-        SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, TO_CHAR(O.ORDER_DATE, 'YYYY-MM-DD')"ORDER_DATE", O.ORDER_STATUS,
-               P.PRODUCT_NUMBER, PRODUCT_NAME,
-               I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID
-        FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
-                                   ON O.USER_NUMBER = #{userNumber} AND O.ORDER_NUMBER = OP.ORDER_NUMBER
-                         LEFT JOIN TBL_PRODUCT P
-                                   ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
-                         LEFT JOIN (
-            SELECT PRODUCT_NUMBER, PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, RK
-            FROM
-                (SELECT  I.PRODUCT_NUMBER, I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID,
-                         RANK() over (PARTITION BY I.PRODUCT_NUMBER ORDER BY I.PRODUCT_IMG_NUMBER) RK
-                 FROM TBL_PRODUCT_IMG I)
-            WHERE RK=1
-        ) I
-            ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
-        ORDER BY ORDER_NUMBER  DESC
+    <select id="selectOrderinquiry" resultType="mypageInquiryVo">
+        SELECT ORDER_NUMBER, ORDER_TOTAL, ORDER_DATE, ORDER_STATUS, PRODUCT_NUMBER, PRODUCT_NAME,
+               PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+        FROM (
+                 SELECT ROWNUM AS RNUM, ORDER_NUMBER, ORDER_TOTAL, ORDER_DATE, ORDER_STATUS, PRODUCT_NUMBER,
+                        PRODUCT_NAME, PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
+                 FROM (
+                          SELECT O.ORDER_NUMBER, O.ORDER_TOTAL, TO_CHAR(O.ORDER_DATE, 'YYYY-MM-DD')"ORDER_DATE", O.ORDER_STATUS,
+                                 P.PRODUCT_NUMBER, PRODUCT_NAME,
+                                 I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID
+                          FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
+                                                ON O.USER_NUMBER = #{userNumber} AND O.ORDER_NUMBER = OP.ORDER_NUMBER
+                                           LEFT JOIN TBL_PRODUCT P
+                                                     ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
+                                           LEFT JOIN (
+                              SELECT PRODUCT_NUMBER, PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID, RK
+                              FROM
+                                  (SELECT  I.PRODUCT_NUMBER, I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID,
+                                           RANK() over (PARTITION BY I.PRODUCT_NUMBER ORDER BY I.PRODUCT_IMG_NUMBER) RK
+                                   FROM TBL_PRODUCT_IMG I)
+                              WHERE RK=1
+                          ) I
+                                                     ON P.PRODUCT_NUMBER = I.PRODUCT_NUMBER
+                          ORDER BY ORDER_NUMBER  DESC
+                          <![CDATA[
+                      ) WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+             ]]>
+     )WHERE RNUM > (#{criteria.page} - 1) * #{criteria.amount}
     </select>
 
+    <!--   오더인쿼리 페이징 처리-->
+    <select id="selectTotal" resultType="_int">
+        SELECT COUNT(ORDER_NUMBER)
+        FROM TBL_ORDER
+        WHERE USER_NUMBER = #{userNumber}
+    </select>
 
     <select id="selectMypageUserinquiry" resultType="userDto" parameterType="long">
         SELECT  USER_NUMBER, USER_NAME, USER_POINT, USER_PROFILE_NAME, USER_PROFILE_UPLOAD_PATH, USER_PROFILE_UUID
@@ -67,9 +83,12 @@
                I.PRODUCT_IMG_NUMBER, I.PRODUCT_IMG_NAME, I.PRODUCT_IMG_UPLOAD_PATH, I.PRODUCT_IMG_UUID,
                S.SHOP_CATEGORY_NUMBER, S.SHOP_CATEGORY_NAME,
                U.USER_NUMBER, U.USER_EMAIL, U.USER_PHONE_NUMBER, U.USER_ADDRESS,
-               OP.ORDER_PRODUCT_PRICE
+               OP.ORDER_PRODUCT_PRICE,
+               C.CLOTHES_MATERIAL_NUMBER, C.CLOTHES_MATERIAL_NAME
         FROM TBL_ORDER O JOIN TBL_ORDER_PRODUCT OP
                               ON O.ORDER_NUMBER = #{orderNumber}  AND O.ORDER_NUMBER = OP.ORDER_NUMBER
+                         JOIN TBL_CLOTHES_MATERIAL C
+                              ON C.CLOTHES_MATERIAL_NUMBER = OP.CLOTHES_MATERIAL_NUMBER
                          JOIN TBL_PRODUCT P
                               ON OP.PRODUCT_NUMBER = P.PRODUCT_NUMBER
                          LEFT JOIN (

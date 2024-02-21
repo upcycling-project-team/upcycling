@@ -34,7 +34,7 @@ public class ShopPaymentService {
     }
 
     // 주문
-    public void orderProcess(OrderDto orderDto, Long productNumber){
+    public void orderProcess(OrderDto orderDto, Long productNumber, Long clothesMaterialNumber){
         shopPaymentMapper.insertOrder(orderDto);
 
         Long orderNumber = orderDto.getOrderNumber();
@@ -45,6 +45,7 @@ public class ShopPaymentService {
         orderProductDto.setOrderProductCnt(1);
         orderProductDto.setOrderProductPrice(orderTotalPrice);
         orderProductDto.setProductNumber(productNumber);
+        orderProductDto.setClothesMaterialNumber(clothesMaterialNumber);
 
         shopPaymentMapper.insertOrderP(orderProductDto);
     }

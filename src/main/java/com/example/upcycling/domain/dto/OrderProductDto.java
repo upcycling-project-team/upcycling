@@ -9,4 +9,7 @@ public class OrderProductDto {
     private Integer orderProductCnt;
     private Long orderNumber;
     private Long productNumber;
+
+//    추가
+    private Long clothesMaterialNumber;
 }
