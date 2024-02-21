@@ -2,8 +2,10 @@ package com.example.upcycling.controller;
 
 import com.example.upcycling.domain.dto.SavedMoneyDto;
 import com.example.upcycling.domain.dto.UserDto;
+import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.MypageInquiryDetailsVo;
 import com.example.upcycling.domain.vo.MypageInquiryVo;
+import com.example.upcycling.domain.vo.PageVo;
 import com.example.upcycling.service.MypageService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -97,18 +99,24 @@ public class MypageController {
 
 //    주문내역 리스트
     @GetMapping("/orderinquiry")
-    public String orderinquiry(HttpSession session, Model model){
+    public String orderinquiry(HttpSession session, Model model, Criteria criteria){
 
         Long userNumber = (Long) session.getAttribute("userNumber");
 //        Long userNumber = 24L;
 
 
-        List<MypageInquiryVo> orderinquiryList = mypageService.findOrderinquiry(userNumber);
+        List<MypageInquiryVo> orderinquiryList = mypageService.findOrderinquiry(userNumber, criteria);
         UserDto userDto = mypageService.findMypageUserinquiry(userNumber);
 
 
         model.addAttribute("inquiryList", orderinquiryList);
         model.addAttribute("user", userDto);
+
+        //  상품 리뷰 리스트 5개씩 노출
+        int Total = mypageService.findTotal(userNumber);
+        PageVo pageVo = new PageVo(Total, criteria);
+
+        model.addAttribute("List",pageVo);
 
         return "mypage/orderinquiry";
     }

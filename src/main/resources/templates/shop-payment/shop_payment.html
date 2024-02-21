@@ -17,6 +17,8 @@
     <!-- 결제페이지 -->
     <form action="" method="post">
       <input type="hidden" name="productNumber" id="productNumber" th:value="${payment.productNumber}" >
+      <input type="hidden" name="clothesMaterialNumber" id="clothesMaterialNumber" th:value="${Cmn.clothesMaterialNumber}" >
+<!--      <input type="hidden" name="clothesMaterialNnam" id="clothesMaterialNnam" th:value="${Cmn.clothesMaterialNnam}" >-->
       <h1 class="title__payment-text">결제하기</h1>
       <div class="shop__payment-content-box">
         <div class="info__box">
@@ -40,6 +42,7 @@
                       <li class="product_li" id="productName" th:text="${payment.productName}"></li>
                       <li class="product_li" >수량 : 1개</li>
                       <li class="product_li" id="productPrice" th:text="${payment.productPrice}">가격 : 10000원</li>
+                      <li class="product_li" th:text="${Cmn.clothesMaterialName}"></li>
                     </ul>
                   </a>
                 </div>

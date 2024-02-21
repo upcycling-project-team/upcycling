@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
@@ -21,9 +22,8 @@ class ProductMapperTest {
 //        System.out.println("selectAll = " + selectAll);
 //    }
     @Test
-    void sel(){
+    void ses(){
         List<MainProductVo> mainProductVos = productMapper.selectProductInfoImg();
         System.out.println("mainProductVos = " + mainProductVos);
-
     }
 }
