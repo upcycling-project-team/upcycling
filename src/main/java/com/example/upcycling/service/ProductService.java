@@ -1,6 +1,7 @@
 package com.example.upcycling.service;
 
 
+import com.example.upcycling.domain.dto.ShopCategoryDto;
 import com.example.upcycling.domain.vo.MainProductVo;
 
 import com.example.upcycling.domain.dto.ProductDto;
@@ -17,12 +18,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductMapper productMapper;
-
-
     public List<MainProductVo> findProductInfoImg(){
         return productMapper.selectProductInfoImg();
     }
-//    내가한거
+
+    //    LeeKiYong
     public List<ProductVo> findAll(Criteria criteria){
         List<ProductVo> productList = productMapper.selectAll(criteria);
         return productList;
@@ -46,5 +46,15 @@ public class ProductService {
     public ProductDto findClothes3(){
         return productMapper.selectClothes3().orElse(null);
     }
+
+    public List<ProductVo> findCategoryList(Long shopCategoryNumber, Criteria criteria){
+        List<ProductVo> productList2 = productMapper.selectCategoryList(shopCategoryNumber,criteria);
+        return productList2;
+    }
+
+    public ProductVo findCategoryBag(){return productMapper.selectCategoryBag().orElse(null);}
+    public ProductVo findCategoryWallet(){return productMapper.selectCategoryWallet().orElse(null);}
+    public ProductVo findCategoryBook(){return productMapper.selectCategoryBook().orElse(null);}
+    public ProductVo findCategoryWineCover(){return productMapper.selectCategoryWineCover().orElse(null);}
 
 }

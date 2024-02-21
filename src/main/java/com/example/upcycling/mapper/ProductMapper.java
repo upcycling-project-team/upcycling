@@ -1,6 +1,7 @@
 package com.example.upcycling.mapper;
 
 
+import com.example.upcycling.domain.dto.ShopCategoryDto;
 import com.example.upcycling.domain.vo.MainProductVo;
 
 
@@ -22,7 +23,7 @@ public interface ProductMapper {
 
     public List<MainProductVo> selectProductInfoImg();
 
-//    내가한것
+    //    LeeKiYong
     List<ProductVo> selectAll(@Param("criteria") Criteria criteria);
 
     int selectTotal();
@@ -32,5 +33,12 @@ public interface ProductMapper {
     Optional<ProductDto> selectClothes();
     Optional<ProductDto> selectClothes2();
     Optional<ProductDto> selectClothes3();
+
+    List<ProductVo> selectCategoryList(Long shopCategoryNumber,@Param("criteria") Criteria criteria);
+
+    Optional<ProductVo> selectCategoryBag();
+    Optional<ProductVo> selectCategoryWallet();
+    Optional<ProductVo> selectCategoryBook();
+    Optional<ProductVo> selectCategoryWineCover();
 
 }

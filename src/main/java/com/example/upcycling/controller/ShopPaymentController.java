@@ -22,7 +22,7 @@ public class ShopPaymentController {
     @GetMapping("/shop_payment")
     public String shopPayment(HttpSession session, Model model, Long productNumber){
         Long userNumber = (Long) session.getAttribute("userNumber");
-//      Long userNumber = 24L;
+//      Long userNumber = 22L;
 //      Long ProductNumber = 1L;
 
 
