@@ -49,24 +49,7 @@ public class UserController {
     public String login() {
         return "user/login";
     }
-
-//    /* 로그인 */
-//    @PostMapping("/login")
-//    public RedirectView login(UserDto userDto, HttpSession session) {
-//
-//        Long userNumber = null;
-//        try {
-//            userNumber = userService.findUserNumber(userDto);
-//        } catch (IllegalStateException e) {
-//            e.printStackTrace();
-//            return new RedirectView("/user/login") ;
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//        session.setAttribute("userNumber", userNumber);
-//        return new RedirectView("/");
-//    }
+    
 
     /* 로그인 */
     @PostMapping("/login")
