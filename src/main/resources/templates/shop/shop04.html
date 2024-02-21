@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/shop/shop04.css}" />
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
 </head>
 <body>
-    상품을 구매하신 후에 구매평을 작성해주세요.
-    <br>
-    <a th:href="@{/shop/main}">상품페이지로 이동하기</a>
+<header th:replace="~{/fragments/header :: header}"></header>
+    <div class="text-box"><span>상품을 구매하신 후에 구매평을 작성해주세요.</span></div>
+    <div class="a-box-border">
+        <div class="a-box">
+            <a th:href="@{/shop/main}">상품페이지로 이동하기</a>
+        </div>
+    </div>
+    <footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

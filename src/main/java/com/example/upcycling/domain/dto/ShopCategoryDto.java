@@ -5,8 +5,10 @@ import lombok.Data;
 @Data
 public class ShopCategoryDto {
     private Long shopCategoryNumber;
-    private String shopBag;
-    private String shopWallet;
-    private String shopBook;
-    private String shopWineCover;
+    private String shopCategoryName;
+
+//    private String shopBag;
+//    private String shopWallet;
+//    private String shopBook;
+//    private String shopWineCover;
 }

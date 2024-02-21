@@ -18,4 +18,6 @@ public class ProductVo {
     String productImgName;
     String productImgUploadPath;
     String productImgUuid;
+
+    private String shopCategoryName;
 }

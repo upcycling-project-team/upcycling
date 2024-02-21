@@ -44,7 +44,7 @@
     </select>
 <!--    넘버에 맞는 값만 조회하기-->
     <select id="selectAll2" parameterType="long" resultType="productVo">
-        SELECT P.PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
+        SELECT P.PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,PRODUCT_CONTENT,
                PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
                round(PRODUCT_PRICE*((100-PRODUCT_SALE)/100)) as productSalePrice,
                I.PRODUCT_IMG_NUMBER, PRODUCT_IMG_NAME, PRODUCT_IMG_UPLOAD_PATH, PRODUCT_IMG_UUID
@@ -71,7 +71,7 @@
     </select>
 
 <!--    상품 카테고리별로 다르게 조회하기-->
-    <select id="selectBag" parameterType="long" resultType="productVo">
+    <select id="selectCategoryList" resultType="productVo">
         select  PRODUCT_NUMBER, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_SALE,
                 PRODUCT_SYSDATE, SHOP_CATEGORY_NUMBER, ADMINISTRATOR_NUMBER,
                 round(PRODUCT_PRICE*((100-PRODUCT_SALE)/100)) as productSalePrice,
@@ -94,4 +94,27 @@
             )
         where RNUM > (#{criteria.page} - 1) * #{criteria.amount}
     </select>
+
+<!--    종류별로 카테고리넘버와 이름을 조회하기-->
+    <select id="selectCategoryBag" resultType="productVo">
+        select SHOP_CATEGORY_NUMBER,SHOP_CATEGORY_NAME
+        from TBL_SHOP_CATEGORY
+        where SHOP_CATEGORY_NAME='가방'
+    </select>
+    <select id="selectCategoryWallet" resultType="productVo">
+        select SHOP_CATEGORY_NUMBER,SHOP_CATEGORY_NAME
+        from TBL_SHOP_CATEGORY
+        where SHOP_CATEGORY_NAME='지갑'
+    </select>
+    <select id="selectCategoryBook" resultType="productVo">
+        select SHOP_CATEGORY_NUMBER,SHOP_CATEGORY_NAME
+        from TBL_SHOP_CATEGORY
+        where SHOP_CATEGORY_NAME='북'
+    </select>
+    <select id="selectCategoryWineCover" resultType="productVo">
+        select SHOP_CATEGORY_NUMBER,SHOP_CATEGORY_NAME
+        from TBL_SHOP_CATEGORY
+        where SHOP_CATEGORY_NAME='와인커버'
+    </select>
+
 </mapper>
