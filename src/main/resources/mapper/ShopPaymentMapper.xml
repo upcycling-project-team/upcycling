@@ -46,8 +46,8 @@
 <!--    오더프로턱트 INSERT-->
     <insert id="insertOrderP" parameterType="orderProductDto">
         insert into TBL_ORDER_PRODUCT (ORDER_PRODUCT_NUMBER, ORDER_PRODUCT_PRICE, ORDER_PRODUCT_CNT, PRODUCT_NUMBER,
-                                       ORDER_NUMBER)
-        values (SEQ_ORDER_PRODUCT.nextval, #{orderProductPrice}, #{orderProductCnt}, #{productNumber}, #{orderNumber})
+                                       ORDER_NUMBER,CLOTHES_MATERIAL_NUMBER)
+        values (SEQ_ORDER_PRODUCT.nextval, #{orderProductPrice}, #{orderProductCnt}, #{productNumber}, #{orderNumber},#{clothesMaterialNumber})
     </insert>
 
 

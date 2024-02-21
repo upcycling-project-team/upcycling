@@ -2,12 +2,14 @@ package com.example.upcycling.service;
 
 import com.example.upcycling.domain.dto.SavedMoneyDto;
 import com.example.upcycling.domain.dto.UserDto;
+import com.example.upcycling.domain.vo.Criteria;
 import com.example.upcycling.domain.vo.MypageInquiryDetailsVo;
 import com.example.upcycling.domain.vo.MypageInquiryVo;
 import com.example.upcycling.domain.vo.UserModifyVo;
 import com.example.upcycling.mapper.MypageMapper;
 import com.example.upcycling.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -33,8 +35,13 @@ public class MypageService {
 
 
     //    주문상품 조회
-    public List<MypageInquiryVo> findOrderinquiry(Long userNumber){
-        return mypageMapper.selectOrderinquiry(userNumber);
+    public List<MypageInquiryVo> findOrderinquiry(Long userNumber, Criteria criteria){
+
+        List<MypageInquiryVo> selectOrderinquiry1 = mypageMapper.selectOrderinquiry(userNumber, criteria);
+        return selectOrderinquiry1;
+    }
+    public int findTotal(Long userNumber){
+        return mypageMapper.selectTotal(userNumber);
     }
 
     //    회원 이름, 포인트 조회
@@ -120,4 +127,5 @@ public class MypageService {
 
         return uploadPath;
     }
+
 }

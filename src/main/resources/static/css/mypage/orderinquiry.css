@@ -497,3 +497,16 @@
   width: 340px;
   display: flex;
 }
+
+
+.buttons{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.buttons_01 > a{
+  color: #040404;
+  font-size: 20px;
+  margin: 10px;
+}
+
