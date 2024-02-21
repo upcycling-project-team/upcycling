@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/faq/faq03.css}" />
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   </head>
   <body>
-    <div><header></header></div>
+  <header th:replace="~{/fragments/header :: header}"></header>
     <!-- faq 답변페이지 -->
     <div class="body">
       <div class="border">
@@ -57,6 +59,6 @@
         </div>
       </div>
     </div>
-    <div><footer></footer></div>
+  <footer th:replace="~{/fragments/footer :: footer}"></footer>
   </body>
 </html>

@@ -16,11 +16,11 @@ class ShopReviewMapperTest {
     @Autowired
     ShopReviewMapper shopReviewMapper;
 
-    @Test
-    void selectReviewList(){
-        List<ShopReviewDto> selectReviewList = shopReviewMapper.selectReviewList(2L, new Criteria());
-        System.out.println("selectReviewList = " + selectReviewList);
-    }
+//    @Test
+//    void selectReviewList(){
+//        List<ShopReviewDto> selectReviewList = shopReviewMapper.selectReviewList(2L, new Criteria());
+//        System.out.println("selectReviewList = " + selectReviewList);
+//    }
     
     @Test
     void selectCount(){

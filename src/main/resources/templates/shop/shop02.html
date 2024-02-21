@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/shop/shop02.css}" />
-
+    <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   </head>
   <body>
+  <header th:replace="~{/fragments/header :: header}"></header>
+  <div>
     <div class="body">
-      <form action="" method="get">
+      <form th:action="@{/shop-payment/shop_payment}" method="get">
         <div class="body_body">
           <div class="blank"></div>
           <div class="shop_sub_depth">
             <ul class="sub_depth">
               <li>
-                <a href="">Home</a><span style="color: #e5e7eb">&gt</span>
+                <a th:href="@{/}">Home</a><span style="color: #e5e7eb">&gt</span>
               </li>
               <li>
                 <a th:href="@{/shop/main}">상품</a>
                 <span style="color: #e5e7eb">&gt</span>
               </li>
               <li>
-                <a href="">가방</a><span style="color: #e5e7eb"></span>
+                <span style="color: #e5e7eb">상세정보</span>
               </li>
             </ul>
           </div>
@@ -62,9 +65,9 @@
               </div>
               <!-- 제품설명 -->
               <div class="product-text-wrap">
-                <div class="product-text">
-                  <p th:text="${product.productContent}"></p>
-                </div>
+<!--                <div class="product-text">-->
+<!--                  <p th:text="${product.productContent}"></p>-->
+<!--                </div>-->
               </div>
               <!-- 구매해택,배송방법,배송비용 -->
               <div class="product-detail-wrap">
@@ -206,15 +209,18 @@
             </div>
             <!-- 상세정보 -->
             <div class="product_info">
-              <img
-                th:src="@{/images/shop/no-image.png}"
-                class="product_info_img"
-              />
+              <span th:text="${product.productContent}"></span>
+<!--              <img-->
+<!--                th:src="@{/images/shop/no-image.png}"-->
+<!--                class="product_info_img"-->
+<!--              />-->
             </div>
         </div>
       </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script th:src="@{/js/shop/shop02.js}" defer></script>
+  </div>
+  <footer th:replace="~{/fragments/footer :: footer}"></footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script th:src="@{/js/shop/shop02.js}" defer></script>
   </body>
 </html>

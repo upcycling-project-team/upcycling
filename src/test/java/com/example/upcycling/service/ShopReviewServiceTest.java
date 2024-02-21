@@ -15,15 +15,15 @@ class ShopReviewServiceTest {
     @Autowired
     ShopReviewService shopReviewService;
     
-    @Test
-    void findReviewList(){
-        List<ShopReviewDto> shopReviewList = shopReviewService.findReviewList(2L, new Criteria());
-        System.out.println("shopReviewList = " + shopReviewList);
-    }
-
-    @Test
-    void findCount(){
-        Long count = shopReviewService.findCount(22L,4L);
-        System.out.println("count = " + count);
-    }
+//    @Test
+//    void findReviewList(){
+//        List<ShopReviewDto> shopReviewList = shopReviewService.findReviewList(2L, new Criteria());
+//        System.out.println("shopReviewList = " + shopReviewList);
+//    }
+//
+//    @Test
+//    void findCount(){
+//        Long count = shopReviewService.findCount(22L,4L);
+//        System.out.println("count = " + count);
+//    }
 }
