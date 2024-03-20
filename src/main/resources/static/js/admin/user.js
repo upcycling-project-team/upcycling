@@ -81,4 +81,45 @@ document.addEventListener("DOMContentLoaded", function() {
   //     }
   //   };
 });
-  
+
+//  회원 정보 삭제
+{
+  let $deleteBtnUser = document.querySelectorAll(`.delete-btn-userInfo`);
+
+  $deleteBtnUser.forEach($deleteBtnUser => {
+    $deleteBtnUser.addEventListener('click',function (){
+      let userNumber = this.dataset.num;
+      console.log(userNumber)
+
+      fetch(`/userInfo/${userNumber}`,{
+          method : 'delete'
+      }).then(() => {
+        let url3 = window.location.href;
+        window.location.href = url3;
+      });
+    });
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

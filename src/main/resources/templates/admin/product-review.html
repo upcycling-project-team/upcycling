@@ -67,7 +67,7 @@
 				 <td th:text="${review.userNumber}"></td>
 				 <td th:text="${review.reviewContent}"></td>
 				<td>
-					<button onclick="deleteReview()">삭제</button>
+					<button type="button" class="delete-btn-review" th:data-num="${review.reviewNumber}">삭제</button>
 				</td>
 			 </tr>
              </tbody>

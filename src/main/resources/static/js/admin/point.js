@@ -38,24 +38,37 @@ document.addEventListener("DOMContentLoaded", function() {
     userData.forEach(createTable);
   
     // 포인트 증가 함수
-    window.increasePoints = function(userId) {
-      const user = userData.find(u => u.id === userId);
-      if (user) {
-        user.points += 10; // 증가할 포인트 값 (원하는 값으로 변경 가능)
-        updatePointsDisplay(userId);
-      }
-    };
+    // window.increasePoints = function(userId) {
+    //   const user = userData.find(u => u.id === userId);
+    //   if (user) {
+    //     user.points += 10; // 증가할 포인트 값 (원하는 값으로 변경 가능)
+    //     updatePointsDisplay(userId);
+    //   }
+    // };
+
+    //포인트 5씩 증가
+    var count = 0;
+    function increase(){
+        count = count + 5;
+        document.querySelector("#countBtn").innerText=count;
+    }
+
+    var count = 0;
+    function decrease(){
+        count = count - 5;
+        document.querySelector("#countBtns").innerText=count;
+    }
   
     // 포인트 감소 함수
-    window.decreasePoints = function(userId) {
-      const user = userData.find(u => u.id === userId);
-      if (user && user.points >= 10) {
-        user.points -= 10; // 감소할 포인트 값 (원하는 값으로 변경 가능)
-        updatePointsDisplay(userId);
-      } else {
-        alert("포인트는 0 미만이 될 수 없습니다.");
-      }
-    };
+    // window.decreasePoints = function(userId) {
+    //   const user = userData.find(u => u.id === userId);
+    //   if (user && user.points >= 10) {
+    //     user.points -= 10; // 감소할 포인트 값 (원하는 값으로 변경 가능)
+    //     updatePointsDisplay(userId);
+    //   } else {
+    //     alert("포인트는 0 미만이 될 수 없습니다.");
+    //   }
+    // };
   
     // 포인트 표시 업데이트 함수
     function updatePointsDisplay(userId) {

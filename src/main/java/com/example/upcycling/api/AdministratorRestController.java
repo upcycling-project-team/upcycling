@@ -19,12 +19,21 @@ public class AdministratorRestController {
         System.out.println("@@@@@@@@@실행!!!!");
     }
 
-    @PatchMapping("/users/{userNumber}/points")
-    public void modifyPoint(@PathVariable("userNumber") Long userNumber){
-        System.out.println("userNumber = " + userNumber);
+//    @PatchMapping("/users/{userNumber}/points")
+//    public void modifyPoint(@PathVariable("userNumber") Long userNumber){
+//        System.out.println("userNumber = " + userNumber);
+//
+//    }
 
+    @DeleteMapping("/productReviews/{reviewNumber}")
+    public void deleteProductReview(@PathVariable("reviewNumber")Long reviewNumber){
+        administratorService.removeProductReview(reviewNumber);
     }
 
-//    @DeleteMapping("/")
+    @DeleteMapping("/userInfo/{userNumber}")
+    public void deleteUserInfo(@PathVariable("userNumber")Long userNumber){
+        administratorService.removeUserInfo(userNumber);
+    }
+
 
 }

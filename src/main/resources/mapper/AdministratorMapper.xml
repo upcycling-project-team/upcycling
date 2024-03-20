@@ -171,9 +171,14 @@
     <!--상품 리뷰 삭제-->
     <delete id="deleteProductReview" parameterType="long">
         DELETE FROM TBL_SHOP_REVIEW
-        WHERE REVIEW_NUMBER = {reviewNumber}
+        WHERE REVIEW_NUMBER = #{reviewNumber}
     </delete>
 
+    <!--회원 정보 삭제  -->
+     <delete id="deleteUserInfo" parameterType="long">
+         DELETE FROM TBL_USER
+        WHERE USER_NUMBER = #{userNumber}
+     </delete>
 
 
 
