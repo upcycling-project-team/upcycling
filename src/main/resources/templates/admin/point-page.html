@@ -66,8 +66,8 @@
 					<td th:text="${pointInfo.userNumber}"></td>
 					<td th:text="${pointInfo.userName}"></td>
 					<td th:text="${pointInfo.userPoint}"><span class="points"></span></td>
-					<td><button onclick="">증가</button></td>
-					<td><button onclick="">감소</button></td>
+					<td><button onclick="increase()" id="countBtn">증가</button></td>
+					<td><button onclick="decrease()" id="countBtns">감소</button></td>
 <!--					<td><button onclick="decreasePoints(${user.id})">감소</button></td>-->
 				</tr>
 				</tbody>

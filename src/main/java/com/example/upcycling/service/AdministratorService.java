@@ -73,17 +73,19 @@ public class AdministratorService {
 //    point 정보 카운트 조회
     public int findPointTotal(){return administratorMapper.selectPointTotal();}
 
-//        삭제
+//     -------삭제
 //        product-info
-
     public void removeProductInfo(Long productNumber){
         administratorMapper.deleteProductInfo(productNumber);
     }
-//    product-review
+
+    //    product-review
     public void removeProductReview(Long reviewNumber){
         administratorMapper.deleteProductReview(reviewNumber);
     }
 
+//    user-info
+    public void removeUserInfo(Long userNumber){administratorMapper.deleteUserInfo(userNumber);}
 
 
 
