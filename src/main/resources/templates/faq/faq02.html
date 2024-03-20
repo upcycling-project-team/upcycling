@@ -46,9 +46,9 @@
         </div>
         <!-- 결과에 대한 리스트 -->
         <div class="faq_list">
-          <ul>
-            <li th:each="title : ${titleList}">
-              <a th:href="@{/faq/detail(faqNumber=${title.faqNumber})}">
+          <ul class="title__ui">
+            <li class="title__li" th:each="title : ${titleList}">
+              <a class="aa_" th:href="@{/faq/detail(faqNumber=${title.faqNumber})}">
                 <span class="type">
                   <span class="question">Q</span>
                 </span>
@@ -60,7 +60,7 @@
         <!-- 여백을 위한 빈칸 -->
         <div class="blank"></div> 
         <!-- 목록으로 -->
-          <a th:href="@{/faq/main}" class="faq_list_footer_text">
+          <a class="aa_" th:href="@{/faq/main}" class="faq_list_footer_text">
             <div class="faq_list_footer">
               <span class="faq_list_footer_text">목록으로</span>
             </div>
