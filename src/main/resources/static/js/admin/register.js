@@ -149,6 +149,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 { //상품 삭제 처리
+  let $deleteBtn = document.querySelectorAll('.delete-btn-review');
+
+  $deleteBtn.forEach($deleteBtn => {
+    $deleteBtn.addEventListener('click', function () {
+      let reviewNumber = this.dataset.num;
+      console.log(reviewNumber)
+
+      fetch(`/productReviews/${reviewNumber}`, {
+        method : 'delete'
+      }).then(() => {
+        let url2 = window.location.href;
+        window.location.href = url2;
+      });
+
+    });
+  })
+
+}
+
+{ //상품 삭제 처리
   let $deleteBtns = document.querySelectorAll('.delete-btn');
 
   $deleteBtns.forEach($deleteBtn => {

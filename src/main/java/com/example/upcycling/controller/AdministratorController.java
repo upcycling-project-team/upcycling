@@ -90,13 +90,13 @@ public class AdministratorController {
         return "admin/product-info";
     }
 
-//    상품정보 삭제
-    @GetMapping("/remove")
-    public RedirectView productInfoRemove(Long productNumber){
-        administratorService.removeProductInfo(productNumber);
-
-        return new RedirectView("/admin/product-info");
-    }
+////    상품정보 삭제
+//    @GetMapping("/remove")
+//    public RedirectView productInfoRemove(Long productNumber){
+//        administratorService.removeProductInfo(productNumber);
+//
+//        return new RedirectView("/admin/product-info");
+//    }
 
 
 
@@ -131,6 +131,15 @@ public class AdministratorController {
 
         return "admin/product-review";
     }
+
+
+//    //  상품리뷰 삭제
+//    @GetMapping("/remove-review")
+//    public RedirectView removeProductReview(Long reviewNumber){
+//        administratorService.removeProductReview(reviewNumber);
+//
+//        return new RedirectView("/admin/product-review");
+//    }
 
     /*회원*/
     @GetMapping("/user-info")
