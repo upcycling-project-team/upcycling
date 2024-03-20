@@ -17,7 +17,7 @@ class ShopReviewServiceTest {
     
     @Test
     void findReviewList(){
-        List<ShopReviewDto> shopReviewList = shopReviewService.findReviewList(2L, new Criteria());
+        List<ShopReviewDto> shopReviewList = shopReviewService.findReviewList2(2L, new Criteria());
         System.out.println("shopReviewList = " + shopReviewList);
     }
 
@@ -26,4 +26,5 @@ class ShopReviewServiceTest {
         Long count = shopReviewService.findCount(22L,4L);
         System.out.println("count = " + count);
     }
+
 }

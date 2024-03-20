@@ -6,9 +6,12 @@
   <link rel="stylesheet" th:href="@{/css/shop/shop03.css}" />
   <link rel="stylesheet" th:href="@{/css/common/default.css}" />
   <link rel="stylesheet" th:href="@{/css/common/font.css}" />
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   <title>Document</title>
 </head>
 <body>
+<header th:replace="~{/fragments/header :: header}"></header>
 <main>
   <form th:action="@{/shop/write}" method="post" enctype="multipart/form-data">
   <div class="content-wrap">
@@ -65,5 +68,6 @@
   </div>
   </form>
 </main>
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

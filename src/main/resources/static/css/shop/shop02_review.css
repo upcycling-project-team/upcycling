@@ -1,12 +1,12 @@
 .body {
   /* border: 1px solid red; */
-  height: 1600px;
+  height: 1000px;
   display: flex;
   justify-content: center;
 }
 .body_body {
   /* border: 1px solid blue; */
-  height: 1600px;
+  height: 3800px;
   width: 1300px;
 }
 .blank {
@@ -66,6 +66,9 @@ a:hover {
   /* border: 1px solid greenyellow; */
   width: 600px;
   height: 100%;
+}
+.product_review{
+  margin-top: 44px;
 }
 .product-img {
   width: 100%;
@@ -269,7 +272,7 @@ label {
 }
 .large-box {
   /* border: 1px solid goldenrod; */
-  height: 600px;
+  height: 70%;
   padding-top: 35px;
 }
 .kategorie {
@@ -300,7 +303,7 @@ label {
 }
 .product_info {
   /* border: 1px solid goldenrod; */
-  height: 600px;
+  height: 60%;
 }
 .product_info_img {
   width: 100%;
@@ -308,7 +311,7 @@ label {
 }
 .product_review {
   /* border: 1px solid greenyellow; */
-  height: 3700px;
+  height: 800px;
 }
 .review-number-left {
   color: rgb(70, 70, 70);

@@ -54,9 +54,10 @@ public interface AdministratorMapper {
 //    삭제
 //    product-info 삭제
     void deleteProductInfo(Long productNumber);
-
+//      product-review 삭제
     void deleteProductReview(Long reviewNumber);
-
+//      user-info 삭제
+    void deleteUserInfo(Long userNumber);
 
 
 

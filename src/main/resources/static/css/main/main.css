@@ -3,20 +3,25 @@
 .banner__item {
     width: 1884px;
     height: 815px;
+    /*width: 1884px;*/
+    /*height: 500px;*/
 }
 
 .banner01 {
-    background-image: url(https://cdn.imweb.me/thumbnail/20230714/d2245fe8eef9e.jpg);
+    /*background-image: url(https://cdn.imweb.me/thumbnail/20230714/d2245fe8eef9e.jpg);*/
+    background-image: url(/images/main/banner01.png);
     background-repeat: no-repeat;
+
+
 }
 
 .banner02 {
-    background-image: url(https://cdn.imweb.me/thumbnail/20230711/924388d934955.jpg);
+    background-image: url(/images/main/banner02.png);
     background-repeat: no-repeat;
 }
 
 .banner03 {
-    background-image: url(https://cdn.imweb.me/thumbnail/20230704/85d3991b01750.png);
+    background-image: url(/images/main/banner03.png);
     background-repeat: no-repeat;
 }
 

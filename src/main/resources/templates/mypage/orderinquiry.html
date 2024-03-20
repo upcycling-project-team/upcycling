@@ -136,9 +136,18 @@
                   </div>
                 </div>
               </li>
-
-
             </ul>
+            <div class="buttons">
+              <div class="buttons_01">
+                <a th:href="@{/mypage/orderinquiry(page=${List.startPage-1})}" class="buttons__arrow" th:if="${List.prev}">&lt</a>
+
+
+                <a th:href="@{/mypage/orderinquiry(page=${i})}" class="buttons__number" th:each="i : ${#numbers.sequence(List.startPage, List.endPage)}"
+                 th:text="${i}"></a>
+
+                <a th:href="@{/mypage/orderinquiry(page=${List.endPage+1})}" class="buttons__arrow" th:if="${List.next}">&gt</a>
+              </div>
+            </div>
           </section>
 
         <!-- 회원 수정 모달창=================================================================== -->

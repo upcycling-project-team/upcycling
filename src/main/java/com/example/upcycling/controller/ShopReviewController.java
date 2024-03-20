@@ -50,8 +50,8 @@ public class ShopReviewController {
     public String shop03(Long productNumber,HttpSession session,Model model)
     {
 //        로그인한 회원만 구매평을 작성할 수 있다.
-//        Long userNumber = (Long) session.getAttribute("userNumber");
-        Long userNumber =22L;
+        Long userNumber = (Long) session.getAttribute("userNumber");
+//        Long userNumber =22L;
         if (userNumber == null) {
             return "user/login";
         }

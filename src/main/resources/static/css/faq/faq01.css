@@ -6,33 +6,34 @@
   justify-content: center;
 }
 /* a태그 밑줄 없애기 */
-a {
+.aa_ {
   text-decoration-line: none;
 }
-a:link { /*링크 방문 전*/
+.aa_:link { /*링크 방문 전*/
   color: rgb(70, 70, 70);
 }
 
-a:visited { /*링크를 방문한 이후*/
+.aa_:visited { /*링크를 방문한 이후*/
   color: rgb(70, 70, 70);
 }
 
-a:hover { /*마우스를 올려놓을 때*/
+.aa_:hover { /*마우스를 올려놓을 때*/
   color: rgb(70, 70, 70);
 }
 
-a:active { /*클릭하는 순간*/
+.aa_:active { /*클릭하는 순간*/
   color: rgb(70, 70, 70);
 }
 /* 동그라미 없애기(들여쓰기는 적용) */
-ul {
+.title__ui {
   list-style: none;
   /* padding-left: 0px; */
 }
-.border {
+.border_bo {
   /* border: 1px solid blue; */
   width: 1000px;
   height: 800px;
+  margin-top: 40px;
 }
 /* 위에는 전체적인 틀, 아래는 내부*/
 .search {
@@ -63,7 +64,7 @@ ul {
 .top_question{
   color: rgb(70, 70, 70);
 }
-li{
+.title__li{
   /* border: 1px solid blueviolet; */
   height: 48px;
   width: 950px;
@@ -71,7 +72,7 @@ li{
   align-items: flex-end;
   border-radius: 4px;
 }
-li:hover{
+.title__li:hover{
   background-color: #dbdee3;
 }
 .faq_list_footer{

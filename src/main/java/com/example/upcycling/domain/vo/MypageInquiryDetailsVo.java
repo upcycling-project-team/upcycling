@@ -29,4 +29,7 @@ public class MypageInquiryDetailsVo {
     private String userAddressDetail;
 
 
+//    추가
+    private Long clothesMaterialNumber;
+    private String clothesMaterialName;
 }

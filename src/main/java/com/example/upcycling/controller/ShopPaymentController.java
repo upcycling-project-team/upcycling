@@ -20,18 +20,20 @@ public class ShopPaymentController {
     private final ShopPaymentService shopPaymentService;
 
     @GetMapping("/shop_payment")
-    public String shopPayment(HttpSession session, Model model, Long productNumber){
+    public String shopPayment(HttpSession session, Model model, Long productNumber, Long clothesMaterialNumber){
         Long userNumber = (Long) session.getAttribute("userNumber");
-//      Long userNumber = 24L;
+//      Long userNumber = 22L;
 //      Long ProductNumber = 1L;
 
 
         ShopPaymentDto shopPaymentDto = shopPaymentService.findOrderProduct(productNumber);
         UserDto user = shopPaymentService.findUser(userNumber);
+        ClothesMaterialDto Cmn = shopPaymentService.findCmn(clothesMaterialNumber);
 
 
         model.addAttribute("payment", shopPaymentDto);
         model.addAttribute("user", user);
+        model.addAttribute("Cmn", Cmn);
 
 
 

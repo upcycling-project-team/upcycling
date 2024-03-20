@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" th:href="@{/css/shop/shop01.css}" />
+  <link rel="stylesheet" th:href="@{/css/fragments/header.css}">
+  <link rel="stylesheet" th:href="@{/css/fragments/footer.css}">
   <script th:src="@{/js/shop/shop01}" defer></script>
 </head>
 <body>
-  <div class="header"><header></header></div>
+<header th:replace="~{/fragments/header :: header}"></header>
 
   <div class="body">
     <div class="body_body">
@@ -34,11 +36,11 @@
       <div class="col_table_border">
         <div class="col_table">
           <ul class="col_table_ul">
-            <li class="col_table_li"><a href=""><span style="color: rgb(100, 200, 200);">전체</span></a></li>
-            <li class="col_table_li"><a href=""><span>가방</span></a></li>
-            <li class="col_table_li"><a href=""><span>지갑</span></a></li>
-            <li class="col_table_li"><a href=""><span>북</span></a></li>
-            <li class="col_table_li"><a href=""><span>와인커버</span></a></li>
+            <li class="col_table_li"><a th:href="@{/shop/main}"><span>전체</span></a></li>
+            <li class="col_table_li"><a th:href="@{/shop/bag(shopCategoryNumber=${categoryBag.shopCategoryNumber})}"><span>가방</span></a></li>
+            <li class="col_table_li"><a th:href="@{/shop/wallet(shopCategoryNumber=${categoryWallet.shopCategoryNumber})}"><span>지갑</span></a></li>
+            <li class="col_table_li"><a th:href="@{/shop/book(shopCategoryNumber=${categoryBook.shopCategoryNumber})}"><span>북</span></a></li>
+            <li class="col_table_li"><a href=""><span style="color: rgb(100, 200, 200);">와인커버</span></a></li>
           </ul>
         </div>
       </div>
@@ -47,63 +49,63 @@
       <!-- 상품전체테두리 -->
       <div class="product_border">
         <div class="board">
-        <!-- 샘플테두리 -->
-          <div class="product01">
+          <!-- 샘플테두리 -->
+          <div class="product01" th:each="product : ${productList}">
             <div class="product01_wrap">
-              <a th:href="@{/shop/detail}">
-                <img th:src="@{/images/shop/no-image.png}"
-                class="product01_img">
+              <a th:href="@{/shop/detail(productNumber=${product.productNumber},shopCategoryNumber=${product.shopCategoryNumber})}">
+                <img th:if="${product.productImgNumber == null}"
+                     th:src="@{/images/shop/no-image.png}" class="product01_img">
+                <img th:unless="${product.productImgNumber == null}"
+                     th:src="${'/upload/' + product.productImgUploadPath + '/' + product.productImgUuid + '_' + product.productImgName}" class="product01_img">
               </a>
             </div>
-          <div class="product01_pay_border">
+            <div class="product01_pay_border">
               <div class="product01_pay">
-               <p class="shop-brand" style="margin-bottom: 6px; opacity : 0.7; color: #013d0a; font-size: 12.8px; line-height : 1;">UPCYCLING:SHOP</p>
-               <h3><a th:href="@{/shop/detail}">제품명</a></h3>
-               <p class="product01_pay_detail">5,500원</p>
-                <img src="https://cdn.imweb.me/upload/S202201061adbb451f78fd/da8192641df5f.png" class="best" style="width: 32px;" alt="best item badge">
-                <div class="img_heart">
-                  <span class="heart-number_wrap">
-                    <img th:src="@{/images/shop/heart.png}" class="heart_img" alt="">
-                    <span class="heart_number">0</span>
+                <p class="shop-brand" style="margin-bottom: 6px; opacity : 0.7; color: #013d0a; font-size: 12.8px; line-height : 1;">UPCYCLING:SHOP</p>
+                <h3 th:text="${product.productName}"><a th:href="@{/shop/detail}">제품명</a></h3>
+                <p class="product01_pay_detail">
+                  <span class="product01_pay_detail_if" th:if = "${product.productSale != null}">
+                    <span th:text="${product.productPrice}"></span>원
                   </span>
+                  <span th:unless="${product.productSale != null}">
+                    <span th:text="${product.productPrice}"></span>원
+                  </span>
+                </p>
+                <p class="product01_pay_detail" th:if = "${product.productSale != null}">
+                  <span th:text="${product.productSale}"></span>%
+                  <span th:text="${product.productSalePrice}"></span>원
+                </p>
+                <div>
+                  <img th:if = "${product.productSale != null}" src="https://cdn.imweb.me/upload/S202201061adbb451f78fd/ad218a5bd9765.png" class="sale" style="width: 33px;" alt="sale item badge">
                 </div>
               </div>
             </div>
           </div>
           <!-- /샘플테두리 -->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
-<!--          <div class="product01"></div>-->
         </div>
-      </div> <!-- /상품전체테두리 -->
-<!-- 페이징 처리 -->
-<div class="page-container">
-  <ul class="page-box">
-    <a class="page-a">
-      <li class="page-num prev">&lt</li>
-    </a>
+      </div>
+      <!-- /상품전체테두리 -->
+      <!-- 페이징 처리 -->
+      <div class="page-container">
+        <ul class="page-box">
+          <a class="page-a" th:if="${pageVo.prev}" th:href="@{/shop/winecover(shopCategoryNumber=${categoryWineCover.shopCategoryNumber},page=${pageVo.startPage - 1})}">
+            <li class="page-num prev">&lt</li>
+          </a>
 
-    <a class="page-a">
-      <li class="page-num">1</li>
-    </a>
+          <a class="page-a" th:each="i : ${#numbers.sequence(pageVo.startPage, pageVo.endPage)}"
+             th:href="@{/shop/winecover(shopCategoryNumber=${categoryWineCover.shopCategoryNumber},page=${i})}">
+            <li class="page-num" th:text="${i}"></li>
+          </a>
 
-    <a class="page-a">
-      <li class="page-num next">&gt</li>
-    </a>
-  </ul>
-</div>
-<!-- /페이징 처리 -->
+          <a class="page-a" th:if="${pageVo.next}" th:href="@{/shop/winecover(shopCategoryNumber=${categoryWineCover.shopCategoryNumber},page=${pageVo.endPage + 1})}">
+            <li class="page-num next">&gt</li>
+          </a>
+        </ul>
+      </div>
+      <!-- /페이징 처리 -->
     </div>
   </div>
-  
-  <div class="footer"><footer></footer></div>
+
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
 </body>
 </html>

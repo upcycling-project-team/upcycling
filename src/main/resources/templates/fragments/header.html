@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="header__upcycling__header" th:fragment="header">
-    <header>
+<!--    <header>-->
         <div class="header__header__entire">
             <div class="header__header__logo-box1">
                 <div class="header__header__logo-box2">
@@ -38,7 +38,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">SHOP</a>
+                                <a th:href="@{/shop/main}">SHOP</a>
                                 <ul class="header__header__sub-ul">
                                     <li><a href="#">가방</a></li>
                                     <li><a href="#">지갑</a></li>
@@ -54,16 +54,16 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">FAQ</a>
+                                <a th:href="@{/faq/main}">FAQ</a>
                                 <ul class="header__header__sub-ul">
                                     <li><a href="#">자주묻는질문</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">NEWS</a>
+                                <a th:href="@{/news/list}">NEWS</a>
                                 <ul class="header__header__sub-ul">
-                                    <li><a href="#">소통게시판</a></li>
-                                    <li><a href="#">활동&기부소식</a></li>
+                                    <li><a th:href="@{/community/list}">소통게시판</a></li>
+                                    <li><a th:href="@{/news/list}">활동&기부소식</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -79,12 +79,10 @@
                             <li th:unless="${session.userNumber == null}"><a th:href="@{/mypage/orderinquiry}">마이페이지</a></li>
                             <li th:unless="${session.userNumber == null}"><a th:href="@{/user/logout}">로그아웃</a></li>
                     </ul>
-
                 </div>
             </div>
         </div>
-    </header>
-
+<!--    </header>-->
 </div>
 </body>
 </html>
