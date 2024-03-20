@@ -8,10 +8,7 @@ import com.example.upcycling.service.ReplyService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.AttributedString;
 import java.util.List;
@@ -27,6 +24,14 @@ public class ReplyRestController {
         List<CommunityReplyVo> replyList = replyService.findList(communityNumber);
 
         return replyList;
+    }
+    @PostMapping("/insertReply")
+    public void insertReply(@RequestBody CommunityReplyVo communityReplyVo)
+//                            @SessionAttribute("userNumber")Long userNumber
+        {
+            Long userNumber = 26L;
+    communityReplyVo.setUserNumber(userNumber);
+    replyService.insertReply(communityReplyVo);
     }
 
 //    @DeleteMapping("/likes")

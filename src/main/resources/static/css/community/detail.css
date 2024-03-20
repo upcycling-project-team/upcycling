@@ -85,10 +85,9 @@ hr{
 .foooter__button > button{
     height: 80px;
     width: 80px;
-    border-radius: 30%;
-    border: 3px solid var(--main-color);
     background-color: white;
     cursor: pointer;
+    border: none;
 }
 .foooter__inf{
     height: 100px;
