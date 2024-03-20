@@ -2,7 +2,6 @@ package com.example.upcycling.mapper;
 
 import com.example.upcycling.domain.vo.CommunityReplyVo;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

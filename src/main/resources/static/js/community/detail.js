@@ -1,12 +1,19 @@
+import * as reply from './community/reply.js';
 let communityNumber = $('#communityNumber').val();
+// let next = true;
 
 getList();
+{   // 리플 처리
+    let communityNumber = $('.community-number').val();
+    let page = 1;
+
+    getList(communityNumber, page, displayReplies);
 
 function getList() {
     $.ajax({
         url: '/replies',
         type: 'get',
-        data: {communityNumber: communityNumber},
+        data: {communityNumber : communityNumber},
         success: function (list) {
             console.log(list)
             displayReplies(list)
@@ -32,4 +39,27 @@ function displayReplies(list){
         `;
     });
     $('.reply-list').html(html);
-}
+}};
+// // 댓글 작성
+// $('.btn-reply').on('click', function () {
+//
+//     console.log('123')
+//     let content = $('#reply-content').val();
+//
+//     if(!content){
+//         alert("내용을 입력해야 작성이되는거란다.")
+//         return;
+//     }
+//
+//     let replyObj = {
+//         replyContent : content,
+//         communityNumber : communityNumber
+//     };
+//
+//     reply.register(replyObj, () => {
+//         page = 1;
+//         next = true;
+//         getList(communityNumber, page, displayReplies);
+//         $('#reply-content').val('');
+//     });
+// })};

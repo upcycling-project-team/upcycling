@@ -41,31 +41,33 @@
     <div class="content">
         <div th:text="${communityVo.communityContent}"></div>
     </div>
+
     <div class="foooter">
         <div class="foooter__user">
             <div class="foooter__content">
                 <section class="foooter__user">
-                    <div class="foooter__name">
+                    <div  class="foooter__name">
                         댓글
                     </div>
                     <div class="foooter__inf">
-                        <textarea class="foooter__text" placeholder="작성할 댓글을 적어주세요"></textarea>
+                        <textarea  id="reply-content" name="replyContent" class="foooter__text" placeholder="작성할 댓글을 적어주세요"></textarea>
                     </div>
-                    <form action="" class="foooter__button">
-                        <button>작 성</button>
+                    <form action="" id="btn-reply" class="foooter__button">
+                        <button type="button">작 성</button>
                     </form>
                 </section>
             </div>
         </div>
     </div>
+
     <section class="reply-list">
         <li class="reply-list__reply">
                 <div class="reply-list__img">
                     <img th:src="@{/images/news/userIcon.png}" class="reply-list__icon" alt="">
                 </div>
                 <div class="reply-list_box">
-                    <div class="reply-list__writer">작성자</div>
-                     <div class="reply-list__content">내용</div>
+                    <div  class="reply-list__writer">작성자</div>
+                     <div  class="reply-list__content">내용</div>
                 </div>
         </li>
     </section>

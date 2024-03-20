@@ -15,4 +15,7 @@ public class ReplyService {
     public List<CommunityReplyVo> findList(Long communityNumber){
         return replyMapper.selectReply(communityNumber);
     }
+    public void insertReply(CommunityReplyVo communityReplyVo){
+        replyMapper.insertReply(communityReplyVo);
+    }
 }
